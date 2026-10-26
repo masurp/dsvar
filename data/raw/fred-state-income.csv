@@ -1,0 +1,2143 @@
+"state","abbr","year","median_income_nominal","median_income_real"
+"Alabama","AL",1984,17310,47810
+"Alabama","AL",1985,18330,48970
+"Alabama","AL",1986,19130,50280
+"Alabama","AL",1987,19730,50160
+"Alabama","AL",1988,19950,48900
+"Alabama","AL",1989,21280,49980
+"Alabama","AL",1990,23360,52300
+"Alabama","AL",1991,24350,52610
+"Alabama","AL",1992,25810,54390
+"Alabama","AL",1993,25080,51580
+"Alabama","AL",1994,27200,54730
+"Alabama","AL",1995,25990,51100
+"Alabama","AL",1996,30300,58040
+"Alabama","AL",1997,31940,59890
+"Alabama","AL",1998,36270,67090
+"Alabama","AL",1999,36250,65700
+"Alabama","AL",2000,35420,62060
+"Alabama","AL",2001,35160,60240
+"Alabama","AL",2002,37600,63630
+"Alabama","AL",2003,37260,61760
+"Alabama","AL",2004,36630,59240
+"Alabama","AL",2005,37150,58390
+"Alabama","AL",2006,37950,57970
+"Alabama","AL",2007,42210,62860
+"Alabama","AL",2008,44480,63890
+"Alabama","AL",2009,39980,57660
+"Alabama","AL",2010,40930,58240
+"Alabama","AL",2011,42590,58770
+"Alabama","AL",2012,43460,58840
+"Alabama","AL",2013,47320,63290
+"Alabama","AL",2014,42280,55760
+"Alabama","AL",2015,44510,58740
+"Alabama","AL",2016,47220,61770
+"Alabama","AL",2017,50870,65390
+"Alabama","AL",2018,49940,62930
+"Alabama","AL",2019,56200,69790
+"Alabama","AL",2020,54690,67210
+"Alabama","AL",2021,56930,66970
+"Alabama","AL",2022,59910,65440
+"Alabama","AL",2023,60660,63760
+"Alabama","AL",2024,64840,66440
+"Alabama","AL",2025,68410,68410
+"Alaska","AK",1984,32360,89370
+"Alaska","AK",1985,34780,92910
+"Alaska","AK",1986,31360,82400
+"Alaska","AK",1987,33230,84480
+"Alaska","AK",1988,33100,81150
+"Alaska","AK",1989,36010,84550
+"Alaska","AK",1990,39300,88000
+"Alaska","AK",1991,40610,87760
+"Alaska","AK",1992,41800,88090
+"Alaska","AK",1993,42930,88280
+"Alaska","AK",1994,45370,91300
+"Alaska","AK",1995,47950,94270
+"Alaska","AK",1996,52780,101100
+"Alaska","AK",1997,47990,90000
+"Alaska","AK",1998,50690,93770
+"Alaska","AK",1999,51400,93150
+"Alaska","AK",2000,52850,92590
+"Alaska","AK",2001,57360,98280
+"Alaska","AK",2002,52770,89310
+"Alaska","AK",2003,51840,85930
+"Alaska","AK",2004,55060,89050
+"Alaska","AK",2005,55890,87840
+"Alaska","AK",2006,56420,86170
+"Alaska","AK",2007,62990,93810
+"Alaska","AK",2008,63990,91920
+"Alaska","AK",2009,61600,88850
+"Alaska","AK",2010,57850,82300
+"Alaska","AK",2011,57430,79250
+"Alaska","AK",2012,63650,86170
+"Alaska","AK",2013,72470,96940
+"Alaska","AK",2014,67630,89190
+"Alaska","AK",2015,75110,99130
+"Alaska","AK",2016,75720,99060
+"Alaska","AK",2017,77990,100300
+"Alaska","AK",2018,68730,86620
+"Alaska","AK",2019,78390,97350
+"Alaska","AK",2020,74750,91860
+"Alaska","AK",2021,81130,95450
+"Alaska","AK",2022,89740,98030
+"Alaska","AK",2023,98190,103200
+"Alaska","AK",2024,89800,92020
+"Alaska","AK",2025,102500,102500
+"Arizona","AZ",1984,21430,59180
+"Arizona","AZ",1985,23880,63780
+"Arizona","AZ",1986,25500,67010
+"Arizona","AZ",1987,26750,67990
+"Arizona","AZ",1988,26440,64800
+"Arizona","AZ",1989,28550,67050
+"Arizona","AZ",1990,29220,65440
+"Arizona","AZ",1991,30740,66420
+"Arizona","AZ",1992,29360,61870
+"Arizona","AZ",1993,30510,62740
+"Arizona","AZ",1994,31290,62970
+"Arizona","AZ",1995,30860,60670
+"Arizona","AZ",1996,31640,60600
+"Arizona","AZ",1997,32740,61390
+"Arizona","AZ",1998,37090,68610
+"Arizona","AZ",1999,37000,67050
+"Arizona","AZ",2000,39780,69700
+"Arizona","AZ",2001,42700,73170
+"Arizona","AZ",2002,39730,67240
+"Arizona","AZ",2003,41170,68240
+"Arizona","AZ",2004,43850,70910
+"Arizona","AZ",2005,45250,71110
+"Arizona","AZ",2006,46660,71260
+"Arizona","AZ",2007,47220,70310
+"Arizona","AZ",2008,46910,67390
+"Arizona","AZ",2009,45740,65970
+"Arizona","AZ",2010,46900,66720
+"Arizona","AZ",2011,48620,67090
+"Arizona","AZ",2012,47040,63690
+"Arizona","AZ",2013,52610,70370
+"Arizona","AZ",2014,49250,64960
+"Arizona","AZ",2015,52250,68960
+"Arizona","AZ",2016,57100,74700
+"Arizona","AZ",2017,59700,76750
+"Arizona","AZ",2018,62280,78490
+"Arizona","AZ",2019,70670,87770
+"Arizona","AZ",2020,67090,82450
+"Arizona","AZ",2021,70820,83320
+"Arizona","AZ",2022,73450,80230
+"Arizona","AZ",2023,82660,86890
+"Arizona","AZ",2024,84350,86430
+"Arizona","AZ",2025,86570,86570
+"Arkansas","AR",1984,15670,43290
+"Arkansas","AR",1985,17450,46610
+"Arkansas","AR",1986,18730,49220
+"Arkansas","AR",1987,18830,47860
+"Arkansas","AR",1988,20170,49450
+"Arkansas","AR",1989,21430,50330
+"Arkansas","AR",1990,22790,51030
+"Arkansas","AR",1991,23440,50640
+"Arkansas","AR",1992,23880,50330
+"Arkansas","AR",1993,23040,47380
+"Arkansas","AR",1994,25570,51450
+"Arkansas","AR",1995,25810,50750
+"Arkansas","AR",1996,27120,51950
+"Arkansas","AR",1997,26160,49060
+"Arkansas","AR",1998,27670,51180
+"Arkansas","AR",1999,29680,53790
+"Arkansas","AR",2000,29700,52030
+"Arkansas","AR",2001,33340,57120
+"Arkansas","AR",2002,32390,54810
+"Arkansas","AR",2003,32000,53050
+"Arkansas","AR",2004,34980,56580
+"Arkansas","AR",2005,36660,57610
+"Arkansas","AR",2006,37060,56600
+"Arkansas","AR",2007,40800,60750
+"Arkansas","AR",2008,39590,56870
+"Arkansas","AR",2009,36540,52700
+"Arkansas","AR",2010,38590,54900
+"Arkansas","AR",2011,41300,56990
+"Arkansas","AR",2012,39020,52820
+"Arkansas","AR",2013,39380,52670
+"Arkansas","AR",2014,44920,59240
+"Arkansas","AR",2015,42800,56480
+"Arkansas","AR",2016,45910,60060
+"Arkansas","AR",2017,49750,63960
+"Arkansas","AR",2018,49780,62740
+"Arkansas","AR",2019,54540,67730
+"Arkansas","AR",2020,50780,62410
+"Arkansas","AR",2021,50780,59740
+"Arkansas","AR",2022,53980,58960
+"Arkansas","AR",2023,63250,66480
+"Arkansas","AR",2024,64540,66130
+"Arkansas","AR",2025,68060,68060
+"California","CA",1984,25290,69840
+"California","CA",1985,26980,72070
+"California","CA",1986,29010,76240
+"California","CA",1987,30150,76630
+"California","CA",1988,30290,74240
+"California","CA",1989,33010,77510
+"California","CA",1990,33290,74550
+"California","CA",1991,33660,72740
+"California","CA",1992,34900,73550
+"California","CA",1993,34070,70070
+"California","CA",1994,35330,71100
+"California","CA",1995,37010,72760
+"California","CA",1996,38810,74340
+"California","CA",1997,39690,74430
+"California","CA",1998,40930,75720
+"California","CA",1999,43630,79070
+"California","CA",2000,46820,82020
+"California","CA",2001,47260,80980
+"California","CA",2002,47440,80270
+"California","CA",2003,49300,81720
+"California","CA",2004,49220,79600
+"California","CA",2005,51760,81340
+"California","CA",2006,55320,84490
+"California","CA",2007,55730,83000
+"California","CA",2008,57010,81900
+"California","CA",2009,56130,80960
+"California","CA",2010,54280,77230
+"California","CA",2011,53370,73640
+"California","CA",2012,57020,77190
+"California","CA",2013,60790,81320
+"California","CA",2014,60490,79770
+"California","CA",2015,63640,83990
+"California","CA",2016,66640,87170
+"California","CA",2017,70040,90040
+"California","CA",2018,70490,88830
+"California","CA",2019,78100,96990
+"California","CA",2020,77650,95440
+"California","CA",2021,81580,95970
+"California","CA",2022,85300,93170
+"California","CA",2023,89870,94470
+"California","CA",2024,100700,103200
+"California","CA",2025,100800,100800
+"Colorado","CO",1984,25800,71260
+"Colorado","CO",1985,28180,75280
+"Colorado","CO",1986,27190,71460
+"Colorado","CO",1987,26480,67300
+"Colorado","CO",1988,26210,64260
+"Colorado","CO",1989,26810,62950
+"Colorado","CO",1990,30730,68820
+"Colorado","CO",1991,31500,68060
+"Colorado","CO",1992,32480,68450
+"Colorado","CO",1993,34490,70920
+"Colorado","CO",1994,37830,76130
+"Colorado","CO",1995,40710,80020
+"Colorado","CO",1996,40950,78430
+"Colorado","CO",1997,43230,81070
+"Colorado","CO",1998,46600,86200
+"Colorado","CO",1999,48180,87310
+"Colorado","CO",2000,48240,84510
+"Colorado","CO",2001,49400,84630
+"Colorado","CO",2002,48290,81720
+"Colorado","CO",2003,49940,82790
+"Colorado","CO",2004,50890,82290
+"Colorado","CO",2005,50450,79290
+"Colorado","CO",2006,55700,85070
+"Colorado","CO",2007,61140,91050
+"Colorado","CO",2008,60940,87540
+"Colorado","CO",2009,55930,80670
+"Colorado","CO",2010,60230,85700
+"Colorado","CO",2011,58630,80900
+"Colorado","CO",2012,57260,77510
+"Colorado","CO",2013,67910,90840
+"Colorado","CO",2014,60940,80370
+"Colorado","CO",2015,66600,87890
+"Colorado","CO",2016,70570,92310
+"Colorado","CO",2017,74980,96400
+"Colorado","CO",2018,73030,92040
+"Colorado","CO",2019,72500,90030
+"Colorado","CO",2020,83780,103000
+"Colorado","CO",2021,84950,99940
+"Colorado","CO",2022,89930,98240
+"Colorado","CO",2023,96640,101600
+"Colorado","CO",2024,105500,108100
+"Colorado","CO",2025,102500,102500
+"Connecticut","CT",1984,29950,82720
+"Connecticut","CT",1985,31090,83050
+"Connecticut","CT",1986,32720,85990
+"Connecticut","CT",1987,32860,83530
+"Connecticut","CT",1988,36210,88770
+"Connecticut","CT",1989,42320,99380
+"Connecticut","CT",1990,38870,87040
+"Connecticut","CT",1991,42150,91090
+"Connecticut","CT",1992,40840,86060
+"Connecticut","CT",1993,39520,81260
+"Connecticut","CT",1994,41100,82700
+"Connecticut","CT",1995,40240,79110
+"Connecticut","CT",1996,42120,80670
+"Connecticut","CT",1997,43990,82480
+"Connecticut","CT",1998,46510,86030
+"Connecticut","CT",1999,50590,91690
+"Connecticut","CT",2000,50170,87900
+"Connecticut","CT",2001,53350,91400
+"Connecticut","CT",2002,53390,90340
+"Connecticut","CT",2003,54970,91120
+"Connecticut","CT",2004,55100,89110
+"Connecticut","CT",2005,56840,89330
+"Connecticut","CT",2006,62400,95310
+"Connecticut","CT",2007,64140,95520
+"Connecticut","CT",2008,64680,92920
+"Connecticut","CT",2009,64850,93530
+"Connecticut","CT",2010,66000,93900
+"Connecticut","CT",2011,65420,90270
+"Connecticut","CT",2012,64250,86980
+"Connecticut","CT",2013,69290,92680
+"Connecticut","CT",2014,70160,92530
+"Connecticut","CT",2015,72890,96200
+"Connecticut","CT",2016,75920,99320
+"Connecticut","CT",2017,74300,95530
+"Connecticut","CT",2018,72810,91760
+"Connecticut","CT",2019,87290,108400
+"Connecticut","CT",2020,79430,97620
+"Connecticut","CT",2021,80960,95240
+"Connecticut","CT",2022,90730,99100
+"Connecticut","CT",2023,92240,96960
+"Connecticut","CT",2024,97790,100200
+"Connecticut","CT",2025,101400,101400
+"Delaware","DE",1984,25820,71310
+"Delaware","DE",1985,22980,61380
+"Delaware","DE",1986,25630,67340
+"Delaware","DE",1987,29240,74340
+"Delaware","DE",1988,30510,74780
+"Delaware","DE",1989,32070,75300
+"Delaware","DE",1990,30800,68980
+"Delaware","DE",1991,32590,70410
+"Delaware","DE",1992,35680,75180
+"Delaware","DE",1993,36060,74160
+"Delaware","DE",1994,35870,72190
+"Delaware","DE",1995,34930,68660
+"Delaware","DE",1996,39310,75290
+"Delaware","DE",1997,43030,80690
+"Delaware","DE",1998,41460,76690
+"Delaware","DE",1999,46630,84510
+"Delaware","DE",2000,50370,88240
+"Delaware","DE",2001,49600,84980
+"Delaware","DE",2002,49650,84020
+"Delaware","DE",2003,49020,81260
+"Delaware","DE",2004,48050,77700
+"Delaware","DE",2005,51240,80530
+"Delaware","DE",2006,52440,80090
+"Delaware","DE",2007,54590,81290
+"Delaware","DE",2008,50700,72830
+"Delaware","DE",2009,52110,75160
+"Delaware","DE",2010,55210,78560
+"Delaware","DE",2011,54660,75430
+"Delaware","DE",2012,48970,66300
+"Delaware","DE",2013,54090,72350
+"Delaware","DE",2014,57520,75860
+"Delaware","DE",2015,57760,76230
+"Delaware","DE",2016,58050,75940
+"Delaware","DE",2017,64960,83510
+"Delaware","DE",2018,65010,81930
+"Delaware","DE",2019,74190,92140
+"Delaware","DE",2020,70020,86060
+"Delaware","DE",2021,68690,80810
+"Delaware","DE",2022,80750,88210
+"Delaware","DE",2023,86340,90760
+"Delaware","DE",2024,85580,87690
+"Delaware","DE",2025,99800,99800
+"District of Columbia","DC",1984,20410,56370
+"District of Columbia","DC",1985,21080,56300
+"District of Columbia","DC",1986,24320,63920
+"District of Columbia","DC",1987,27460,69790
+"District of Columbia","DC",1988,26740,65550
+"District of Columbia","DC",1989,26750,62820
+"District of Columbia","DC",1990,27390,61340
+"District of Columbia","DC",1991,29890,64580
+"District of Columbia","DC",1992,30250,63740
+"District of Columbia","DC",1993,27300,56150
+"District of Columbia","DC",1994,30120,60610
+"District of Columbia","DC",1995,30750,60450
+"District of Columbia","DC",1996,31970,61230
+"District of Columbia","DC",1997,31860,59740
+"District of Columbia","DC",1998,33430,61850
+"District of Columbia","DC",1999,38670,70080
+"District of Columbia","DC",2000,41220,72220
+"District of Columbia","DC",2001,41170,70540
+"District of Columbia","DC",2002,39070,66120
+"District of Columbia","DC",2003,45040,74670
+"District of Columbia","DC",2004,43450,70270
+"District of Columbia","DC",2005,44990,70710
+"District of Columbia","DC",2006,48480,74040
+"District of Columbia","DC",2007,50780,75620
+"District of Columbia","DC",2008,55590,79850
+"District of Columbia","DC",2009,53140,76640
+"District of Columbia","DC",2010,56930,81000
+"District of Columbia","DC",2011,55250,76240
+"District of Columbia","DC",2012,65250,88330
+"District of Columbia","DC",2013,60060,80330
+"District of Columbia","DC",2014,68280,90050
+"District of Columbia","DC",2015,70070,92480
+"District of Columbia","DC",2016,70980,92860
+"District of Columbia","DC",2017,81280,104500
+"District of Columbia","DC",2018,85750,108100
+"District of Columbia","DC",2019,93110,115600
+"District of Columbia","DC",2020,88220,108400
+"District of Columbia","DC",2021,90640,106600
+"District of Columbia","DC",2022,101700,111000
+"District of Columbia","DC",2023,111000,116700
+"District of Columbia","DC",2024,104100,106600
+"District of Columbia","DC",2025,107600,107600
+"Florida","FL",1984,19790,54650
+"Florida","FL",1985,21340,57010
+"Florida","FL",1986,22850,60050
+"Florida","FL",1987,24490,62250
+"Florida","FL",1988,25410,62280
+"Florida","FL",1989,26090,61250
+"Florida","FL",1990,26690,59760
+"Florida","FL",1991,27250,58890
+"Florida","FL",1992,27350,57630
+"Florida","FL",1993,28550,58710
+"Florida","FL",1994,29290,58950
+"Florida","FL",1995,29750,58480
+"Florida","FL",1996,30640,58690
+"Florida","FL",1997,32460,60860
+"Florida","FL",1998,34910,64580
+"Florida","FL",1999,35830,64940
+"Florida","FL",2000,38860,68070
+"Florida","FL",2001,36420,62400
+"Florida","FL",2002,38020,64350
+"Florida","FL",2003,38970,64600
+"Florida","FL",2004,40540,65550
+"Florida","FL",2005,42990,67570
+"Florida","FL",2006,45680,69760
+"Florida","FL",2007,45790,68190
+"Florida","FL",2008,44860,64440
+"Florida","FL",2009,45630,65810
+"Florida","FL",2010,44070,62700
+"Florida","FL",2011,45110,62240
+"Florida","FL",2012,46070,62370
+"Florida","FL",2013,48530,64920
+"Florida","FL",2014,46140,60850
+"Florida","FL",2015,48830,64440
+"Florida","FL",2016,51180,66950
+"Florida","FL",2017,53090,68250
+"Florida","FL",2018,54640,68860
+"Florida","FL",2019,58370,72480
+"Florida","FL",2020,57760,70990
+"Florida","FL",2021,59730,70270
+"Florida","FL",2022,65370,71400
+"Florida","FL",2023,72200,75900
+"Florida","FL",2024,75260,77110
+"Florida","FL",2025,77920,77920
+"Georgia","GA",1984,19980,55200
+"Georgia","GA",1985,21050,56230
+"Georgia","GA",1986,24370,64040
+"Georgia","GA",1987,26710,67910
+"Georgia","GA",1988,26570,65120
+"Georgia","GA",1989,27540,64670
+"Georgia","GA",1990,27560,61720
+"Georgia","GA",1991,27210,58800
+"Georgia","GA",1992,28800,60680
+"Georgia","GA",1993,31660,65110
+"Georgia","GA",1994,31470,63320
+"Georgia","GA",1995,34100,67040
+"Georgia","GA",1996,32500,62240
+"Georgia","GA",1997,36660,68750
+"Georgia","GA",1998,38670,71530
+"Georgia","GA",1999,39430,71450
+"Georgia","GA",2000,41900,73410
+"Georgia","GA",2001,42580,72950
+"Georgia","GA",2002,42940,72660
+"Georgia","GA",2003,42440,70350
+"Georgia","GA",2004,40980,66280
+"Georgia","GA",2005,45930,72180
+"Georgia","GA",2006,49340,75370
+"Georgia","GA",2007,48640,72430
+"Georgia","GA",2008,46230,66400
+"Georgia","GA",2009,43340,62510
+"Georgia","GA",2010,44120,62770
+"Georgia","GA",2011,45970,63440
+"Georgia","GA",2012,48120,65150
+"Georgia","GA",2013,46990,62860
+"Georgia","GA",2014,49560,65350
+"Georgia","GA",2015,50770,67000
+"Georgia","GA",2016,53530,70020
+"Georgia","GA",2017,57990,74550
+"Georgia","GA",2018,55820,70350
+"Georgia","GA",2019,56630,70320
+"Georgia","GA",2020,59270,72840
+"Georgia","GA",2021,61500,72350
+"Georgia","GA",2022,67730,73980
+"Georgia","GA",2023,72420,76120
+"Georgia","GA",2024,81180,83180
+"Georgia","GA",2025,82100,82100
+"Hawaii","HI",1984,28880,79760
+"Hawaii","HI",1985,28960,77360
+"Hawaii","HI",1986,29000,76220
+"Hawaii","HI",1987,35020,89020
+"Hawaii","HI",1988,33020,80950
+"Hawaii","HI",1989,35040,82270
+"Hawaii","HI",1990,38920,87160
+"Hawaii","HI",1991,37250,80480
+"Hawaii","HI",1992,42110,88750
+"Hawaii","HI",1993,42660,87730
+"Hawaii","HI",1994,42260,85030
+"Hawaii","HI",1995,42850,84240
+"Hawaii","HI",1996,41770,80010
+"Hawaii","HI",1997,40930,76760
+"Hawaii","HI",1998,40830,75530
+"Hawaii","HI",1999,44500,80660
+"Hawaii","HI",2000,51550,90310
+"Hawaii","HI",2001,47440,81280
+"Hawaii","HI",2002,47300,80050
+"Hawaii","HI",2003,51830,85930
+"Hawaii","HI",2004,56240,90950
+"Hawaii","HI",2005,59590,93650
+"Hawaii","HI",2006,60470,92360
+"Hawaii","HI",2007,64020,95340
+"Hawaii","HI",2008,61520,88370
+"Hawaii","HI",2009,55650,80260
+"Hawaii","HI",2010,59540,84710
+"Hawaii","HI",2011,59050,81480
+"Hawaii","HI",2012,56260,76170
+"Hawaii","HI",2013,64240,85920
+"Hawaii","HI",2014,71220,93930
+"Hawaii","HI",2015,64510,85150
+"Hawaii","HI",2016,72130,94360
+"Hawaii","HI",2017,73600,94620
+"Hawaii","HI",2018,80110,101000
+"Hawaii","HI",2019,88010,109300
+"Hawaii","HI",2020,80830,99340
+"Hawaii","HI",2021,82200,96700
+"Hawaii","HI",2022,91010,99410
+"Hawaii","HI",2023,97360,102300
+"Hawaii","HI",2024,98300,100700
+"Hawaii","HI",2025,105100,105100
+"Idaho","ID",1984,21090,58260
+"Idaho","ID",1985,20760,55460
+"Idaho","ID",1986,20750,54530
+"Idaho","ID",1987,20760,52760
+"Idaho","ID",1988,23450,57480
+"Idaho","ID",1989,24650,57890
+"Idaho","ID",1990,25310,56670
+"Idaho","ID",1991,26120,56430
+"Idaho","ID",1992,27700,58380
+"Idaho","ID",1993,31010,63770
+"Idaho","ID",1994,31540,63460
+"Idaho","ID",1995,32680,64240
+"Idaho","ID",1996,34710,66480
+"Idaho","ID",1997,33400,62640
+"Idaho","ID",1998,36680,67850
+"Idaho","ID",1999,35800,64880
+"Idaho","ID",2000,37610,65890
+"Idaho","ID",2001,38240,65520
+"Idaho","ID",2002,37720,63820
+"Idaho","ID",2003,42370,70240
+"Idaho","ID",2004,44360,71740
+"Idaho","ID",2005,44180,69430
+"Idaho","ID",2006,46210,70580
+"Idaho","ID",2007,49180,73240
+"Idaho","ID",2008,47420,68120
+"Idaho","ID",2009,46780,67470
+"Idaho","ID",2010,47050,66940
+"Idaho","ID",2011,47460,65490
+"Idaho","ID",2012,47920,64880
+"Idaho","ID",2013,48470,64830
+"Idaho","ID",2014,53440,70480
+"Idaho","ID",2015,51620,68130
+"Idaho","ID",2016,56560,74000
+"Idaho","ID",2017,59500,76490
+"Idaho","ID",2018,58730,74010
+"Idaho","ID",2019,65990,81950
+"Idaho","ID",2020,66730,82010
+"Idaho","ID",2021,76920,90490
+"Idaho","ID",2022,72580,79270
+"Idaho","ID",2023,73910,77690
+"Idaho","ID",2024,81250,83250
+"Idaho","ID",2025,87840,87840
+"Illinois","IL",1984,23750,65600
+"Illinois","IL",1985,24870,66430
+"Illinois","IL",1986,26510,69670
+"Illinois","IL",1987,27080,68850
+"Illinois","IL",1988,29520,72370
+"Illinois","IL",1989,31300,73500
+"Illinois","IL",1990,32540,72870
+"Illinois","IL",1991,31880,68900
+"Illinois","IL",1992,31550,66490
+"Illinois","IL",1993,32860,67570
+"Illinois","IL",1994,35080,70600
+"Illinois","IL",1995,38070,74840
+"Illinois","IL",1996,39550,75760
+"Illinois","IL",1997,41280,77410
+"Illinois","IL",1998,43180,79870
+"Illinois","IL",1999,46330,83970
+"Illinois","IL",2000,46060,80700
+"Illinois","IL",2001,46170,79110
+"Illinois","IL",2002,42710,72280
+"Illinois","IL",2003,45150,74850
+"Illinois","IL",2004,46080,74520
+"Illinois","IL",2005,48400,76070
+"Illinois","IL",2006,48670,74340
+"Illinois","IL",2007,52510,78190
+"Illinois","IL",2008,53250,76500
+"Illinois","IL",2009,52870,76250
+"Illinois","IL",2010,50730,72170
+"Illinois","IL",2011,50640,69880
+"Illinois","IL",2012,51740,70040
+"Illinois","IL",2013,53940,72140
+"Illinois","IL",2014,54920,72420
+"Illinois","IL",2015,60410,79730
+"Illinois","IL",2016,61390,80310
+"Illinois","IL",2017,65970,84810
+"Illinois","IL",2018,70150,88400
+"Illinois","IL",2019,74400,92390
+"Illinois","IL",2020,74330,91360
+"Illinois","IL",2021,79250,93240
+"Illinois","IL",2022,78020,85220
+"Illinois","IL",2023,87820,92310
+"Illinois","IL",2024,83090,85140
+"Illinois","IL",2025,93270,93270
+"Indiana","IN",1984,22770,62890
+"Indiana","IN",1985,22680,60570
+"Indiana","IN",1986,22730,59730
+"Indiana","IN",1987,22520,57240
+"Indiana","IN",1988,26290,64450
+"Indiana","IN",1989,25900,60810
+"Indiana","IN",1990,26930,60300
+"Indiana","IN",1991,27090,58530
+"Indiana","IN",1992,28530,60120
+"Indiana","IN",1993,29480,60610
+"Indiana","IN",1994,27860,56060
+"Indiana","IN",1995,33390,65630
+"Indiana","IN",1996,35150,67320
+"Indiana","IN",1997,38890,72920
+"Indiana","IN",1998,39730,73500
+"Indiana","IN",1999,40840,74010
+"Indiana","IN",2000,40870,71590
+"Indiana","IN",2001,40380,69180
+"Indiana","IN",2002,41050,69460
+"Indiana","IN",2003,42430,70330
+"Indiana","IN",2004,42330,68450
+"Indiana","IN",2005,42440,66700
+"Indiana","IN",2006,45410,69350
+"Indiana","IN",2007,47450,70670
+"Indiana","IN",2008,46520,66830
+"Indiana","IN",2009,44310,63900
+"Indiana","IN",2010,46140,65650
+"Indiana","IN",2011,44450,61330
+"Indiana","IN",2012,46160,62490
+"Indiana","IN",2013,49460,66150
+"Indiana","IN",2014,48060,63380
+"Indiana","IN",2015,51980,68610
+"Indiana","IN",2016,56090,73380
+"Indiana","IN",2017,58770,75550
+"Indiana","IN",2018,59890,75480
+"Indiana","IN",2019,66690,82820
+"Indiana","IN",2020,66810,82110
+"Indiana","IN",2021,70190,82570
+"Indiana","IN",2022,70030,76490
+"Indiana","IN",2023,76910,80850
+"Indiana","IN",2024,76220,78100
+"Indiana","IN",2025,76180,76180
+"Iowa","IA",1984,19860,54860
+"Iowa","IA",1985,20930,55900
+"Iowa","IA",1986,22460,59020
+"Iowa","IA",1987,22190,56410
+"Iowa","IA",1988,24310,59580
+"Iowa","IA",1989,26270,61680
+"Iowa","IA",1990,27290,61110
+"Iowa","IA",1991,28550,61700
+"Iowa","IA",1992,28740,60570
+"Iowa","IA",1993,28660,58940
+"Iowa","IA",1994,33080,66570
+"Iowa","IA",1995,35520,69830
+"Iowa","IA",1996,33210,63610
+"Iowa","IA",1997,33780,63350
+"Iowa","IA",1998,37020,68480
+"Iowa","IA",1999,41100,74480
+"Iowa","IA",2000,40990,71810
+"Iowa","IA",2001,40980,70210
+"Iowa","IA",2002,41050,69460
+"Iowa","IA",2003,41380,68600
+"Iowa","IA",2004,43390,70170
+"Iowa","IA",2005,46500,73080
+"Iowa","IA",2006,48130,73510
+"Iowa","IA",2007,48910,72830
+"Iowa","IA",2008,50140,72030
+"Iowa","IA",2009,50720,73150
+"Iowa","IA",2010,49020,69740
+"Iowa","IA",2011,50220,69300
+"Iowa","IA",2012,53440,72350
+"Iowa","IA",2013,60160,80460
+"Iowa","IA",2014,57810,76240
+"Iowa","IA",2015,60860,80320
+"Iowa","IA",2016,59090,77310
+"Iowa","IA",2017,63470,81590
+"Iowa","IA",2018,68720,86600
+"Iowa","IA",2019,66050,82030
+"Iowa","IA",2020,68820,84580
+"Iowa","IA",2021,72430,85210
+"Iowa","IA",2022,76320,83360
+"Iowa","IA",2023,80860,85000
+"Iowa","IA",2024,84370,86450
+"Iowa","IA",2025,81890,81890
+"Kansas","KS",1984,24630,68020
+"Kansas","KS",1985,22790,60870
+"Kansas","KS",1986,23930,62880
+"Kansas","KS",1987,25580,65030
+"Kansas","KS",1988,25570,62670
+"Kansas","KS",1989,26860,63080
+"Kansas","KS",1990,29920,66990
+"Kansas","KS",1991,29300,63300
+"Kansas","KS",1992,30350,63950
+"Kansas","KS",1993,29770,61220
+"Kansas","KS",1994,28320,56990
+"Kansas","KS",1995,30340,59650
+"Kansas","KS",1996,32590,62410
+"Kansas","KS",1997,36470,68390
+"Kansas","KS",1998,36710,67910
+"Kansas","KS",1999,37350,67690
+"Kansas","KS",2000,41060,71930
+"Kansas","KS",2001,41420,70960
+"Kansas","KS",2002,42620,72120
+"Kansas","KS",2003,44230,73320
+"Kansas","KS",2004,41070,66410
+"Kansas","KS",2005,42030,66050
+"Kansas","KS",2006,45550,69570
+"Kansas","KS",2007,48500,72220
+"Kansas","KS",2008,47880,68780
+"Kansas","KS",2009,44720,64490
+"Kansas","KS",2010,46050,65520
+"Kansas","KS",2011,46150,63680
+"Kansas","KS",2012,50000,67690
+"Kansas","KS",2013,47820,63960
+"Kansas","KS",2014,53440,70480
+"Kansas","KS",2015,54870,72410
+"Kansas","KS",2016,56810,74320
+"Kansas","KS",2017,56900,73150
+"Kansas","KS",2018,63940,80580
+"Kansas","KS",2019,73150,90840
+"Kansas","KS",2020,73080,89820
+"Kansas","KS",2021,75980,89380
+"Kansas","KS",2022,73040,79780
+"Kansas","KS",2023,84830,89180
+"Kansas","KS",2024,86450,88580
+"Kansas","KS",2025,85540,85540
+"Kentucky","KY",1984,17680,48830
+"Kentucky","KY",1985,17360,46370
+"Kentucky","KY",1986,19870,52230
+"Kentucky","KY",1987,20670,52550
+"Kentucky","KY",1988,19910,48800
+"Kentucky","KY",1989,23280,54670
+"Kentucky","KY",1990,24780,55490
+"Kentucky","KY",1991,23760,51350
+"Kentucky","KY",1992,23490,49490
+"Kentucky","KY",1993,24380,50130
+"Kentucky","KY",1994,26600,53520
+"Kentucky","KY",1995,29810,58600
+"Kentucky","KY",1996,32410,62080
+"Kentucky","KY",1997,33450,62730
+"Kentucky","KY",1998,36250,67060
+"Kentucky","KY",1999,33740,61150
+"Kentucky","KY",2000,36270,63530
+"Kentucky","KY",2001,38440,65860
+"Kentucky","KY",2002,36760,62210
+"Kentucky","KY",2003,36940,61230
+"Kentucky","KY",2004,35610,57590
+"Kentucky","KY",2005,36700,57680
+"Kentucky","KY",2006,39490,60310
+"Kentucky","KY",2007,39450,58750
+"Kentucky","KY",2008,41150,59110
+"Kentucky","KY",2009,42660,61530
+"Kentucky","KY",2010,41100,58480
+"Kentucky","KY",2011,39860,55000
+"Kentucky","KY",2012,41090,55620
+"Kentucky","KY",2013,44880,60030
+"Kentucky","KY",2014,42790,56430
+"Kentucky","KY",2015,42390,55940
+"Kentucky","KY",2016,45370,59350
+"Kentucky","KY",2017,49670,63860
+"Kentucky","KY",2018,54560,68750
+"Kentucky","KY",2019,55660,69120
+"Kentucky","KY",2020,56760,69750
+"Kentucky","KY",2021,55630,65440
+"Kentucky","KY",2022,55870,61030
+"Kentucky","KY",2023,61980,65150
+"Kentucky","KY",2024,64380,65970
+"Kentucky","KY",2025,73750,73750
+"Louisiana","LA",1984,18950,52340
+"Louisiana","LA",1985,21180,56570
+"Louisiana","LA",1986,20890,54900
+"Louisiana","LA",1987,21350,54270
+"Louisiana","LA",1988,20500,50240
+"Louisiana","LA",1989,22860,53680
+"Louisiana","LA",1990,22410,50170
+"Louisiana","LA",1991,25300,54670
+"Louisiana","LA",1992,25440,53610
+"Louisiana","LA",1993,26310,54110
+"Louisiana","LA",1994,25680,51670
+"Louisiana","LA",1995,27950,54940
+"Louisiana","LA",1996,30260,57960
+"Louisiana","LA",1997,33260,62370
+"Louisiana","LA",1998,31740,58710
+"Louisiana","LA",1999,32650,59180
+"Louisiana","LA",2000,30720,53820
+"Louisiana","LA",2001,33320,57090
+"Louisiana","LA",2002,34010,57550
+"Louisiana","LA",2003,33510,55540
+"Louisiana","LA",2004,36430,58910
+"Louisiana","LA",2005,37240,58520
+"Louisiana","LA",2006,36490,55730
+"Louisiana","LA",2007,41310,61520
+"Louisiana","LA",2008,39560,56830
+"Louisiana","LA",2009,45430,65530
+"Louisiana","LA",2010,39300,55910
+"Louisiana","LA",2011,40660,56100
+"Louisiana","LA",2012,39090,52910
+"Louisiana","LA",2013,46430,62100
+"Louisiana","LA",2014,42410,55930
+"Louisiana","LA",2015,45920,60610
+"Louisiana","LA",2016,42200,55200
+"Louisiana","LA",2017,43570,56010
+"Louisiana","LA",2018,49970,62980
+"Louisiana","LA",2019,51710,64210
+"Louisiana","LA",2020,51190,62910
+"Louisiana","LA",2021,57210,67300
+"Louisiana","LA",2022,58320,63710
+"Louisiana","LA",2023,57650,60600
+"Louisiana","LA",2024,60320,61800
+"Louisiana","LA",2025,60670,60670
+"Maine","ME",1984,20650,57030
+"Maine","ME",1985,20520,54810
+"Maine","ME",1986,23420,61560
+"Maine","ME",1987,23600,59990
+"Maine","ME",1988,26400,64720
+"Maine","ME",1989,28220,66270
+"Maine","ME",1990,27460,61500
+"Maine","ME",1991,27870,60220
+"Maine","ME",1992,29620,62410
+"Maine","ME",1993,27440,56420
+"Maine","ME",1994,30320,61010
+"Maine","ME",1995,33860,66560
+"Maine","ME",1996,34700,66450
+"Maine","ME",1997,32770,61450
+"Maine","ME",1998,35640,65930
+"Maine","ME",1999,38860,70430
+"Maine","ME",2000,37270,65290
+"Maine","ME",2001,36610,62730
+"Maine","ME",2002,36850,62360
+"Maine","ME",2003,37110,61520
+"Maine","ME",2004,41330,66840
+"Maine","ME",2005,43920,69030
+"Maine","ME",2006,45640,69710
+"Maine","ME",2007,47890,71320
+"Maine","ME",2008,47230,67840
+"Maine","ME",2009,47500,68510
+"Maine","ME",2010,47930,68190
+"Maine","ME",2011,49690,68570
+"Maine","ME",2012,49160,66550
+"Maine","ME",2013,54960,73510
+"Maine","ME",2014,51710,68200
+"Maine","ME",2015,50760,66990
+"Maine","ME",2016,50860,66530
+"Maine","ME",2017,53320,68540
+"Maine","ME",2018,58660,73930
+"Maine","ME",2019,66550,82640
+"Maine","ME",2020,63690,78280
+"Maine","ME",2021,71140,83690
+"Maine","ME",2022,75160,82100
+"Maine","ME",2023,75740,79620
+"Maine","ME",2024,90440,92670
+"Maine","ME",2025,95150,95150
+"Maryland","MD",1984,29710,82050
+"Maryland","MD",1985,30140,80500
+"Maryland","MD",1986,30600,80430
+"Maryland","MD",1987,34970,88890
+"Maryland","MD",1988,36550,89600
+"Maryland","MD",1989,36020,84570
+"Maryland","MD",1990,38860,87010
+"Maryland","MD",1991,36950,79850
+"Maryland","MD",1992,37200,78400
+"Maryland","MD",1993,39940,82130
+"Maryland","MD",1994,39200,78880
+"Maryland","MD",1995,41040,80680
+"Maryland","MD",1996,43990,84260
+"Maryland","MD",1997,46690,87540
+"Maryland","MD",1998,50020,92520
+"Maryland","MD",1999,52210,94610
+"Maryland","MD",2000,54540,95540
+"Maryland","MD",2001,53530,91710
+"Maryland","MD",2002,56410,95450
+"Maryland","MD",2003,52310,86720
+"Maryland","MD",2004,57100,92350
+"Maryland","MD",2005,60510,95110
+"Maryland","MD",2006,63670,97240
+"Maryland","MD",2007,65630,97730
+"Maryland","MD",2008,63710,91520
+"Maryland","MD",2009,64190,92570
+"Maryland","MD",2010,64200,91340
+"Maryland","MD",2011,68880,95040
+"Maryland","MD",2012,71840,97250
+"Maryland","MD",2013,69350,92760
+"Maryland","MD",2014,76170,100400
+"Maryland","MD",2015,73590,97130
+"Maryland","MD",2016,73760,96490
+"Maryland","MD",2017,82090,105500
+"Maryland","MD",2018,86220,108700
+"Maryland","MD",2019,95570,118700
+"Maryland","MD",2020,94790,116500
+"Maryland","MD",2021,97330,114500
+"Maryland","MD",2022,108200,118200
+"Maryland","MD",2023,102000,107200
+"Maryland","MD",2024,109300,112000
+"Maryland","MD",2025,116300,116300
+"Massachusetts","MA",1984,26960,74460
+"Massachusetts","MA",1985,28210,75350
+"Massachusetts","MA",1986,30340,79730
+"Massachusetts","MA",1987,32240,81960
+"Massachusetts","MA",1988,33210,81420
+"Massachusetts","MA",1989,36090,84740
+"Massachusetts","MA",1990,36250,81170
+"Massachusetts","MA",1991,35710,77170
+"Massachusetts","MA",1992,36360,76620
+"Massachusetts","MA",1993,37060,76220
+"Massachusetts","MA",1994,40500,81500
+"Massachusetts","MA",1995,38570,75830
+"Massachusetts","MA",1996,39490,75640
+"Massachusetts","MA",1997,42020,78800
+"Massachusetts","MA",1998,42350,78330
+"Massachusetts","MA",1999,44010,79750
+"Massachusetts","MA",2000,46750,81910
+"Massachusetts","MA",2001,52250,89530
+"Massachusetts","MA",2002,49860,84370
+"Massachusetts","MA",2003,50960,84470
+"Massachusetts","MA",2004,52020,84120
+"Massachusetts","MA",2005,56020,88040
+"Massachusetts","MA",2006,55330,84510
+"Massachusetts","MA",2007,58460,87060
+"Massachusetts","MA",2008,60320,86650
+"Massachusetts","MA",2009,59370,85630
+"Massachusetts","MA",2010,60930,86700
+"Massachusetts","MA",2011,63310,87370
+"Massachusetts","MA",2012,63660,86180
+"Massachusetts","MA",2013,62530,83640
+"Massachusetts","MA",2014,63150,83280
+"Massachusetts","MA",2015,67860,89560
+"Massachusetts","MA",2016,72270,94540
+"Massachusetts","MA",2017,76240,98020
+"Massachusetts","MA",2018,86350,108800
+"Massachusetts","MA",2019,87710,108900
+"Massachusetts","MA",2020,87810,107900
+"Massachusetts","MA",2021,86570,101800
+"Massachusetts","MA",2022,93550,102200
+"Massachusetts","MA",2023,106500,111900
+"Massachusetts","MA",2024,112300,115000
+"Massachusetts","MA",2025,118500,118500
+"Michigan","MI",1984,22970,63430
+"Michigan","MI",1985,24240,64750
+"Michigan","MI",1986,26610,69920
+"Michigan","MI",1987,27700,70420
+"Michigan","MI",1988,29470,72240
+"Michigan","MI",1989,30780,72270
+"Michigan","MI",1990,29940,67040
+"Michigan","MI",1991,32120,69400
+"Michigan","MI",1992,32270,68000
+"Michigan","MI",1993,32660,67170
+"Michigan","MI",1994,35280,71010
+"Michigan","MI",1995,36430,71610
+"Michigan","MI",1996,39230,75130
+"Michigan","MI",1997,38740,72650
+"Michigan","MI",1998,41820,77360
+"Michigan","MI",1999,46090,83530
+"Michigan","MI",2000,45510,79740
+"Michigan","MI",2001,45050,77180
+"Michigan","MI",2002,42720,72280
+"Michigan","MI",2003,45020,74630
+"Michigan","MI",2004,42260,68340
+"Michigan","MI",2005,45930,72190
+"Michigan","MI",2006,48650,74300
+"Michigan","MI",2007,49370,73520
+"Michigan","MI",2008,49790,71520
+"Michigan","MI",2009,45990,66340
+"Michigan","MI",2010,46280,65840
+"Michigan","MI",2011,48880,67450
+"Michigan","MI",2012,50020,67710
+"Michigan","MI",2013,56570,75660
+"Michigan","MI",2014,52010,68590
+"Michigan","MI",2015,54200,71540
+"Michigan","MI",2016,57090,74690
+"Michigan","MI",2017,56410,72510
+"Michigan","MI",2018,60450,76180
+"Michigan","MI",2019,64120,79630
+"Michigan","MI",2020,64390,79140
+"Michigan","MI",2021,64490,75870
+"Michigan","MI",2022,68990,75360
+"Michigan","MI",2023,76960,80890
+"Michigan","MI",2024,78860,80810
+"Michigan","MI",2025,76800,76800
+"Minnesota","MN",1984,24440,67490
+"Minnesota","MN",1985,23860,63720
+"Minnesota","MN",1986,26440,69490
+"Minnesota","MN",1987,28080,71380
+"Minnesota","MN",1988,29090,71300
+"Minnesota","MN",1989,30190,70880
+"Minnesota","MN",1990,31470,70460
+"Minnesota","MN",1991,29480,63700
+"Minnesota","MN",1992,30980,65290
+"Minnesota","MN",1993,33680,69260
+"Minnesota","MN",1994,33640,67700
+"Minnesota","MN",1995,37930,74570
+"Minnesota","MN",1996,40990,78510
+"Minnesota","MN",1997,42560,79810
+"Minnesota","MN",1998,47930,88660
+"Minnesota","MN",1999,47040,85250
+"Minnesota","MN",2000,54250,95050
+"Minnesota","MN",2001,52680,90260
+"Minnesota","MN",2002,54620,92430
+"Minnesota","MN",2003,52820,87560
+"Minnesota","MN",2004,56100,90730
+"Minnesota","MN",2005,54220,85210
+"Minnesota","MN",2006,56210,85850
+"Minnesota","MN",2007,58060,86460
+"Minnesota","MN",2008,54930,78900
+"Minnesota","MN",2009,56090,80900
+"Minnesota","MN",2010,52320,74440
+"Minnesota","MN",2011,57820,79790
+"Minnesota","MN",2012,61800,83660
+"Minnesota","MN",2013,64320,86040
+"Minnesota","MN",2014,67240,88680
+"Minnesota","MN",2015,68730,90710
+"Minnesota","MN",2016,70220,91860
+"Minnesota","MN",2017,69980,89960
+"Minnesota","MN",2018,71820,90510
+"Minnesota","MN",2019,81430,101100
+"Minnesota","MN",2020,78750,96790
+"Minnesota","MN",2021,80440,94630
+"Minnesota","MN",2022,90390,98730
+"Minnesota","MN",2023,90340,94960
+"Minnesota","MN",2024,91890,94160
+"Minnesota","MN",2025,95160,95160
+"Mississippi","MS",1984,15430,42620
+"Mississippi","MS",1985,16410,43840
+"Mississippi","MS",1986,16510,43400
+"Mississippi","MS",1987,18510,47060
+"Mississippi","MS",1988,18170,44530
+"Mississippi","MS",1989,19920,46770
+"Mississippi","MS",1990,20180,45190
+"Mississippi","MS",1991,19480,42080
+"Mississippi","MS",1992,20570,43350
+"Mississippi","MS",1993,22190,45630
+"Mississippi","MS",1994,25400,51110
+"Mississippi","MS",1995,26540,52170
+"Mississippi","MS",1996,26680,51100
+"Mississippi","MS",1997,28500,53440
+"Mississippi","MS",1998,29120,53870
+"Mississippi","MS",1999,32480,58860
+"Mississippi","MS",2000,34300,60090
+"Mississippi","MS",2001,30160,51680
+"Mississippi","MS",2002,30880,52260
+"Mississippi","MS",2003,32730,54250
+"Mississippi","MS",2004,34760,56210
+"Mississippi","MS",2005,32880,51670
+"Mississippi","MS",2006,34730,53050
+"Mississippi","MS",2007,37280,55510
+"Mississippi","MS",2008,36450,52350
+"Mississippi","MS",2009,35080,50590
+"Mississippi","MS",2010,38160,54290
+"Mississippi","MS",2011,41090,56700
+"Mississippi","MS",2012,36640,49600
+"Mississippi","MS",2013,32340,43250
+"Mississippi","MS",2014,35520,46850
+"Mississippi","MS",2015,40040,52840
+"Mississippi","MS",2016,41100,53770
+"Mississippi","MS",2017,43280,55640
+"Mississippi","MS",2018,42780,53910
+"Mississippi","MS",2019,44790,55620
+"Mississippi","MS",2020,45130,55470
+"Mississippi","MS",2021,46640,54870
+"Mississippi","MS",2022,48610,53100
+"Mississippi","MS",2023,55060,57880
+"Mississippi","MS",2024,55620,56990
+"Mississippi","MS",2025,57840,57840
+"Missouri","MO",1984,20780,57380
+"Missouri","MO",1985,21940,58600
+"Missouri","MO",1986,21930,57620
+"Missouri","MO",1987,23720,60300
+"Missouri","MO",1988,23440,57470
+"Missouri","MO",1989,26500,62220
+"Missouri","MO",1990,27330,61210
+"Missouri","MO",1991,27930,60340
+"Missouri","MO",1992,27360,57660
+"Missouri","MO",1993,28680,58980
+"Missouri","MO",1994,30190,60750
+"Missouri","MO",1995,34830,68460
+"Missouri","MO",1996,34270,65630
+"Missouri","MO",1997,36550,68540
+"Missouri","MO",1998,40200,74370
+"Missouri","MO",1999,41380,75000
+"Missouri","MO",2000,45100,79010
+"Missouri","MO",2001,41340,70830
+"Missouri","MO",2002,42780,72390
+"Missouri","MO",2003,43760,72540
+"Missouri","MO",2004,42140,68140
+"Missouri","MO",2005,42990,67560
+"Missouri","MO",2006,44580,68090
+"Missouri","MO",2007,46010,68510
+"Missouri","MO",2008,46040,66130
+"Missouri","MO",2009,48770,70340
+"Missouri","MO",2010,45820,65190
+"Missouri","MO",2011,45770,63160
+"Missouri","MO",2012,49760,67370
+"Missouri","MO",2013,46300,61930
+"Missouri","MO",2014,56630,74680
+"Missouri","MO",2015,59200,78130
+"Missouri","MO",2016,55020,71970
+"Missouri","MO",2017,56530,72680
+"Missouri","MO",2018,61730,77790
+"Missouri","MO",2019,60600,75250
+"Missouri","MO",2020,62180,76420
+"Missouri","MO",2021,63590,74810
+"Missouri","MO",2022,71520,78120
+"Missouri","MO",2023,78290,82290
+"Missouri","MO",2024,77560,79470
+"Missouri","MO",2025,84700,84700
+"Montana","MT",1984,19540,53960
+"Montana","MT",1985,20240,54050
+"Montana","MT",1986,20330,53420
+"Montana","MT",1987,20470,52040
+"Montana","MT",1988,22230,54490
+"Montana","MT",1989,23690,55630
+"Montana","MT",1990,23380,52340
+"Montana","MT",1991,24830,53650
+"Montana","MT",1992,26530,55900
+"Montana","MT",1993,26470,54430
+"Montana","MT",1994,27630,55600
+"Montana","MT",1995,27760,54570
+"Montana","MT",1996,28680,54940
+"Montana","MT",1997,29210,54780
+"Montana","MT",1998,31580,58410
+"Montana","MT",1999,31040,56250
+"Montana","MT",2000,32780,57420
+"Montana","MT",2001,32130,55040
+"Montana","MT",2002,34840,58950
+"Montana","MT",2003,34110,56540
+"Montana","MT",2004,33960,54910
+"Montana","MT",2005,37310,58640
+"Montana","MT",2006,41110,62780
+"Montana","MT",2007,43660,65010
+"Montana","MT",2008,42900,61630
+"Montana","MT",2009,40440,58320
+"Montana","MT",2010,41280,58730
+"Montana","MT",2011,40280,55580
+"Montana","MT",2012,45090,61040
+"Montana","MT",2013,43200,57780
+"Montana","MT",2014,51100,67390
+"Montana","MT",2015,51400,67830
+"Montana","MT",2016,57080,74670
+"Montana","MT",2017,57410,73800
+"Montana","MT",2018,57680,72690
+"Montana","MT",2019,60190,74750
+"Montana","MT",2020,56740,69740
+"Montana","MT",2021,65000,76470
+"Montana","MT",2022,72970,79710
+"Montana","MT",2023,79220,83270
+"Montana","MT",2024,81610,83620
+"Montana","MT",2025,86770,86770
+"Nebraska","NE",1984,21400,59100
+"Nebraska","NE",1985,21800,58230
+"Nebraska","NE",1986,21770,57220
+"Nebraska","NE",1987,23270,59150
+"Nebraska","NE",1988,25160,61670
+"Nebraska","NE",1989,26320,61800
+"Nebraska","NE",1990,27480,61540
+"Nebraska","NE",1991,29550,63850
+"Nebraska","NE",1992,30050,63320
+"Nebraska","NE",1993,31010,63760
+"Nebraska","NE",1994,31790,63980
+"Nebraska","NE",1995,32930,64740
+"Nebraska","NE",1996,34010,65150
+"Nebraska","NE",1997,34690,65050
+"Nebraska","NE",1998,36410,67360
+"Nebraska","NE",1999,38630,70000
+"Nebraska","NE",2000,41750,73140
+"Nebraska","NE",2001,43610,74720
+"Nebraska","NE",2002,42800,72420
+"Nebraska","NE",2003,43970,72900
+"Nebraska","NE",2004,43790,70810
+"Nebraska","NE",2005,47920,75320
+"Nebraska","NE",2006,48150,73530
+"Nebraska","NE",2007,49170,73230
+"Nebraska","NE",2008,50730,72870
+"Nebraska","NE",2009,49600,71530
+"Nebraska","NE",2010,52500,74700
+"Nebraska","NE",2011,55620,76750
+"Nebraska","NE",2012,52200,70660
+"Nebraska","NE",2013,57620,77080
+"Nebraska","NE",2014,56870,75000
+"Nebraska","NE",2015,60470,79810
+"Nebraska","NE",2016,59370,77670
+"Nebraska","NE",2017,59580,76600
+"Nebraska","NE",2018,67580,85160
+"Nebraska","NE",2019,73070,90740
+"Nebraska","NE",2020,72250,88790
+"Nebraska","NE",2021,78110,91890
+"Nebraska","NE",2022,78360,85600
+"Nebraska","NE",2023,89190,93750
+"Nebraska","NE",2024,85760,87870
+"Nebraska","NE",2025,100600,100600
+"Nevada","NV",1984,25780,71190
+"Nevada","NV",1985,23270,62170
+"Nevada","NV",1986,26220,68900
+"Nevada","NV",1987,26880,68320
+"Nevada","NV",1988,27980,68590
+"Nevada","NV",1989,29340,68900
+"Nevada","NV",1990,32020,71710
+"Nevada","NV",1991,32940,71170
+"Nevada","NV",1992,31910,67240
+"Nevada","NV",1993,35810,73650
+"Nevada","NV",1994,35870,72190
+"Nevada","NV",1995,36080,70940
+"Nevada","NV",1996,38540,73820
+"Nevada","NV",1997,38850,72860
+"Nevada","NV",1998,39760,73540
+"Nevada","NV",1999,41460,75140
+"Nevada","NV",2000,45760,80170
+"Nevada","NV",2001,45400,77790
+"Nevada","NV",2002,44960,76080
+"Nevada","NV",2003,45180,74900
+"Nevada","NV",2004,47200,76340
+"Nevada","NV",2005,48210,75770
+"Nevada","NV",2006,52280,79850
+"Nevada","NV",2007,54060,80500
+"Nevada","NV",2008,54740,78640
+"Nevada","NV",2009,51430,74180
+"Nevada","NV",2010,51200,72850
+"Nevada","NV",2011,47040,64920
+"Nevada","NV",2012,47330,64080
+"Nevada","NV",2013,51850,69350
+"Nevada","NV",2014,49880,65780
+"Nevada","NV",2015,52010,68640
+"Nevada","NV",2016,55430,72510
+"Nevada","NV",2017,58040,74620
+"Nevada","NV",2018,61860,77960
+"Nevada","NV",2019,70910,88050
+"Nevada","NV",2020,61160,75170
+"Nevada","NV",2021,64340,75690
+"Nevada","NV",2022,72330,79000
+"Nevada","NV",2023,81310,85470
+"Nevada","NV",2024,80020,81990
+"Nevada","NV",2025,88880,88880
+"New Hampshire","NH",1984,25910,71570
+"New Hampshire","NH",1985,26400,70530
+"New Hampshire","NH",1986,30550,80280
+"New Hampshire","NH",1987,32340,82200
+"New Hampshire","NH",1988,34630,84880
+"New Hampshire","NH",1989,37530,88130
+"New Hampshire","NH",1990,40810,91380
+"New Hampshire","NH",1991,36030,77860
+"New Hampshire","NH",1992,39440,83100
+"New Hampshire","NH",1993,37960,78070
+"New Hampshire","NH",1994,35250,70930
+"New Hampshire","NH",1995,39170,77010
+"New Hampshire","NH",1996,39410,75480
+"New Hampshire","NH",1997,41000,76880
+"New Hampshire","NH",1998,44960,83170
+"New Hampshire","NH",1999,46060,83470
+"New Hampshire","NH",2000,50930,89220
+"New Hampshire","NH",2001,51330,87950
+"New Hampshire","NH",2002,55320,93620
+"New Hampshire","NH",2003,55570,92110
+"New Hampshire","NH",2004,56820,91880
+"New Hampshire","NH",2005,56980,89560
+"New Hampshire","NH",2006,61970,94650
+"New Hampshire","NH",2007,67580,100600
+"New Hampshire","NH",2008,66180,95060
+"New Hampshire","NH",2009,64130,92500
+"New Hampshire","NH",2010,66630,94800
+"New Hampshire","NH",2011,65880,90910
+"New Hampshire","NH",2012,67820,91810
+"New Hampshire","NH",2013,69100,92430
+"New Hampshire","NH",2014,73400,96800
+"New Hampshire","NH",2015,75680,99880
+"New Hampshire","NH",2016,76260,99760
+"New Hampshire","NH",2017,75630,97230
+"New Hampshire","NH",2018,81350,102500
+"New Hampshire","NH",2019,86900,107900
+"New Hampshire","NH",2020,88890,109300
+"New Hampshire","NH",2021,88840,104500
+"New Hampshire","NH",2022,84970,92820
+"New Hampshire","NH",2023,98780,103800
+"New Hampshire","NH",2024,110500,113300
+"New Hampshire","NH",2025,112100,112100
+"New Jersey","NJ",1984,27780,76720
+"New Jersey","NJ",1985,30980,82750
+"New Jersey","NJ",1986,31720,83350
+"New Jersey","NJ",1987,34240,87040
+"New Jersey","NJ",1988,36290,88950
+"New Jersey","NJ",1989,39120,91860
+"New Jersey","NJ",1990,38730,86740
+"New Jersey","NJ",1991,40050,86540
+"New Jersey","NJ",1992,39000,82190
+"New Jersey","NJ",1993,40500,83280
+"New Jersey","NJ",1994,42280,85080
+"New Jersey","NJ",1995,43920,86350
+"New Jersey","NJ",1996,47470,90920
+"New Jersey","NJ",1997,48020,90050
+"New Jersey","NJ",1998,49830,92170
+"New Jersey","NJ",1999,49730,90140
+"New Jersey","NJ",2000,50410,88310
+"New Jersey","NJ",2001,51770,88700
+"New Jersey","NJ",2002,54570,92340
+"New Jersey","NJ",2003,56050,92910
+"New Jersey","NJ",2004,55280,89390
+"New Jersey","NJ",2005,63370,99590
+"New Jersey","NJ",2006,68060,103900
+"New Jersey","NJ",2007,60510,90110
+"New Jersey","NJ",2008,65310,93810
+"New Jersey","NJ",2009,64780,93430
+"New Jersey","NJ",2010,62970,89590
+"New Jersey","NJ",2011,62340,86020
+"New Jersey","NJ",2012,66690,90290
+"New Jersey","NJ",2013,63750,85280
+"New Jersey","NJ",2014,65240,86040
+"New Jersey","NJ",2015,68360,90220
+"New Jersey","NJ",2016,68470,89570
+"New Jersey","NJ",2017,71240,91590
+"New Jersey","NJ",2018,74180,93480
+"New Jersey","NJ",2019,87730,108900
+"New Jersey","NJ",2020,85550,105100
+"New Jersey","NJ",2021,88560,104200
+"New Jersey","NJ",2022,92340,100900
+"New Jersey","NJ",2023,91590,96270
+"New Jersey","NJ",2024,103600,106200
+"New Jersey","NJ",2025,111400,111400
+"New Mexico","NM",1984,20630,56980
+"New Mexico","NM",1985,20420,54550
+"New Mexico","NM",1986,19850,52150
+"New Mexico","NM",1987,20760,52770
+"New Mexico","NM",1988,19300,47300
+"New Mexico","NM",1989,22600,53070
+"New Mexico","NM",1990,25040,56070
+"New Mexico","NM",1991,26540,57350
+"New Mexico","NM",1992,25860,54500
+"New Mexico","NM",1993,26760,55020
+"New Mexico","NM",1994,26910,54140
+"New Mexico","NM",1995,25990,51100
+"New Mexico","NM",1996,25090,48050
+"New Mexico","NM",1997,30090,56420
+"New Mexico","NM",1998,31540,58350
+"New Mexico","NM",1999,32570,59040
+"New Mexico","NM",2000,35090,61480
+"New Mexico","NM",2001,33120,56750
+"New Mexico","NM",2002,35460,60000
+"New Mexico","NM",2003,35110,58190
+"New Mexico","NM",2004,39560,63980
+"New Mexico","NM",2005,38950,61210
+"New Mexico","NM",2006,40030,61140
+"New Mexico","NM",2007,44360,66050
+"New Mexico","NM",2008,42100,60480
+"New Mexico","NM",2009,43540,62800
+"New Mexico","NM",2010,45130,64220
+"New Mexico","NM",2011,41980,57930
+"New Mexico","NM",2012,43420,58790
+"New Mexico","NM",2013,40170,53730
+"New Mexico","NM",2014,46690,61570
+"New Mexico","NM",2015,45120,59550
+"New Mexico","NM",2016,48450,63380
+"New Mexico","NM",2017,45600,58630
+"New Mexico","NM",2018,48280,60850
+"New Mexico","NM",2019,53110,65960
+"New Mexico","NM",2020,50910,62560
+"New Mexico","NM",2021,53460,62900
+"New Mexico","NM",2022,56420,61630
+"New Mexico","NM",2023,60980,64100
+"New Mexico","NM",2024,62660,64200
+"New Mexico","NM",2025,67620,67620
+"New York","NY",1984,22030,60840
+"New York","NY",1985,23640,63140
+"New York","NY",1986,25030,65760
+"New York","NY",1987,26380,67070
+"New York","NY",1988,28920,70880
+"New York","NY",1989,31500,73960
+"New York","NY",1990,31590,70740
+"New York","NY",1991,31790,68700
+"New York","NY",1992,31050,65430
+"New York","NY",1993,31700,65180
+"New York","NY",1994,31900,64190
+"New York","NY",1995,33030,64930
+"New York","NY",1996,35410,67820
+"New York","NY",1997,35800,67130
+"New York","NY",1998,37390,69180
+"New York","NY",1999,39990,72470
+"New York","NY",2000,40740,71380
+"New York","NY",2001,42110,72160
+"New York","NY",2002,41970,71020
+"New York","NY",2003,42790,70930
+"New York","NY",2004,44650,72210
+"New York","NY",2005,47180,74150
+"New York","NY",2006,48220,73650
+"New York","NY",2007,48940,72890
+"New York","NY",2008,50460,72490
+"New York","NY",2009,50220,72430
+"New York","NY",2010,49780,70830
+"New York","NY",2011,50640,69870
+"New York","NY",2012,47680,64550
+"New York","NY",2013,49970,66830
+"New York","NY",2014,54310,71630
+"New York","NY",2015,58010,76550
+"New York","NY",2016,61440,80370
+"New York","NY",2017,61540,79120
+"New York","NY",2018,67270,84780
+"New York","NY",2019,71850,89230
+"New York","NY",2020,68660,84380
+"New York","NY",2021,72920,85780
+"New York","NY",2022,75910,82910
+"New York","NY",2023,81600,85780
+"New York","NY",2024,86480,88610
+"New York","NY",2025,86900,86900
+"North Carolina","NC",1984,20570,56810
+"North Carolina","NC",1985,21450,57300
+"North Carolina","NC",1986,21860,57450
+"North Carolina","NC",1987,22760,57860
+"North Carolina","NC",1988,24420,59850
+"North Carolina","NC",1989,26410,62010
+"North Carolina","NC",1990,26330,58960
+"North Carolina","NC",1991,26850,58020
+"North Carolina","NC",1992,27770,58520
+"North Carolina","NC",1993,28820,59270
+"North Carolina","NC",1994,30110,60600
+"North Carolina","NC",1995,31980,62870
+"North Carolina","NC",1996,35600,68190
+"North Carolina","NC",1997,35840,67200
+"North Carolina","NC",1998,35840,66300
+"North Carolina","NC",1999,37250,67520
+"North Carolina","NC",2000,38320,67130
+"North Carolina","NC",2001,38160,65380
+"North Carolina","NC",2002,36520,61790
+"North Carolina","NC",2003,37280,61800
+"North Carolina","NC",2004,40240,65070
+"North Carolina","NC",2005,42060,66100
+"North Carolina","NC",2006,39800,60780
+"North Carolina","NC",2007,43510,64800
+"North Carolina","NC",2008,42930,61670
+"North Carolina","NC",2009,41910,60440
+"North Carolina","NC",2010,43830,62360
+"North Carolina","NC",2011,45210,62380
+"North Carolina","NC",2012,41550,56250
+"North Carolina","NC",2013,46340,61980
+"North Carolina","NC",2014,46780,61700
+"North Carolina","NC",2015,50800,67040
+"North Carolina","NC",2016,53760,70330
+"North Carolina","NC",2017,49550,63700
+"North Carolina","NC",2018,53370,67260
+"North Carolina","NC",2019,61160,75950
+"North Carolina","NC",2020,60430,74270
+"North Carolina","NC",2021,62890,73990
+"North Carolina","NC",2022,65070,71080
+"North Carolina","NC",2023,68610,72120
+"North Carolina","NC",2024,66850,68490
+"North Carolina","NC",2025,80250,80250
+"North Dakota","ND",1984,20770,57370
+"North Dakota","ND",1985,21210,56640
+"North Dakota","ND",1986,21510,56520
+"North Dakota","ND",1987,22580,57390
+"North Dakota","ND",1988,24090,59060
+"North Dakota","ND",1989,25230,59240
+"North Dakota","ND",1990,25260,56570
+"North Dakota","ND",1991,25890,55950
+"North Dakota","ND",1992,26960,56810
+"North Dakota","ND",1993,28120,57820
+"North Dakota","ND",1994,28280,56910
+"North Dakota","ND",1995,29090,57190
+"North Dakota","ND",1996,31470,60280
+"North Dakota","ND",1997,31660,59370
+"North Dakota","ND",1998,30300,56060
+"North Dakota","ND",1999,32660,59200
+"North Dakota","ND",2000,36000,63060
+"North Dakota","ND",2001,35790,61330
+"North Dakota","ND",2002,36200,61260
+"North Dakota","ND",2003,40410,66990
+"North Dakota","ND",2004,39220,63430
+"North Dakota","ND",2005,42190,66310
+"North Dakota","ND",2006,41050,62690
+"North Dakota","ND",2007,47210,70300
+"North Dakota","ND",2008,49630,71290
+"North Dakota","ND",2009,50080,72220
+"North Dakota","ND",2010,51010,72570
+"North Dakota","ND",2011,56360,77770
+"North Dakota","ND",2012,55770,75500
+"North Dakota","ND",2013,59150,79120
+"North Dakota","ND",2014,60730,80090
+"North Dakota","ND",2015,57420,75780
+"North Dakota","ND",2016,60180,78730
+"North Dakota","ND",2017,60170,77350
+"North Dakota","ND",2018,66510,83810
+"North Dakota","ND",2019,70030,86970
+"North Dakota","ND",2020,64120,78800
+"North Dakota","ND",2021,68880,81040
+"North Dakota","ND",2022,78720,85980
+"North Dakota","ND",2023,76960,80900
+"North Dakota","ND",2024,86840,88980
+"North Dakota","ND",2025,85060,85060
+"Ohio","OH",1984,23120,63870
+"Ohio","OH",1985,25170,67240
+"Ohio","OH",1986,25120,66000
+"Ohio","OH",1987,25770,65510
+"Ohio","OH",1988,27740,68000
+"Ohio","OH",1989,29020,68150
+"Ohio","OH",1990,30010,67210
+"Ohio","OH",1991,29790,64370
+"Ohio","OH",1992,31400,66180
+"Ohio","OH",1993,31290,64330
+"Ohio","OH",1994,31860,64100
+"Ohio","OH",1995,34940,68690
+"Ohio","OH",1996,34070,65260
+"Ohio","OH",1997,36130,67760
+"Ohio","OH",1998,38930,72010
+"Ohio","OH",1999,39490,71570
+"Ohio","OH",2000,42960,75270
+"Ohio","OH",2001,41790,71590
+"Ohio","OH",2002,42680,72230
+"Ohio","OH",2003,43520,72140
+"Ohio","OH",2004,43060,69630
+"Ohio","OH",2005,44200,69470
+"Ohio","OH",2006,45900,70110
+"Ohio","OH",2007,49100,73120
+"Ohio","OH",2008,46930,67420
+"Ohio","OH",2009,45880,66170
+"Ohio","OH",2010,45890,65290
+"Ohio","OH",2011,44650,61610
+"Ohio","OH",2012,44380,60070
+"Ohio","OH",2013,50750,67880
+"Ohio","OH",2014,49640,65470
+"Ohio","OH",2015,53300,70350
+"Ohio","OH",2016,53990,70620
+"Ohio","OH",2017,60690,78020
+"Ohio","OH",2018,61630,77670
+"Ohio","OH",2019,64660,80300
+"Ohio","OH",2020,60380,74210
+"Ohio","OH",2021,62690,73750
+"Ohio","OH",2022,67520,73750
+"Ohio","OH",2023,73770,77540
+"Ohio","OH",2024,79260,81210
+"Ohio","OH",2025,85150,85150
+"Oklahoma","OK",1984,21150,58410
+"Oklahoma","OK",1985,21210,56640
+"Oklahoma","OK",1986,20950,55050
+"Oklahoma","OK",1987,21690,55140
+"Oklahoma","OK",1988,23670,58010
+"Oklahoma","OK",1989,23670,55580
+"Oklahoma","OK",1990,24380,54600
+"Oklahoma","OK",1991,25460,55020
+"Oklahoma","OK",1992,25280,53280
+"Oklahoma","OK",1993,26260,54000
+"Oklahoma","OK",1994,26990,54320
+"Oklahoma","OK",1995,26310,51720
+"Oklahoma","OK",1996,27440,52550
+"Oklahoma","OK",1997,31350,58790
+"Oklahoma","OK",1998,33730,62390
+"Oklahoma","OK",1999,32680,59230
+"Oklahoma","OK",2000,32430,56820
+"Oklahoma","OK",2001,35610,61010
+"Oklahoma","OK",2002,36460,61700
+"Oklahoma","OK",2003,35900,59510
+"Oklahoma","OK",2004,39610,64060
+"Oklahoma","OK",2005,37650,59170
+"Oklahoma","OK",2006,38840,59320
+"Oklahoma","OK",2007,43220,64360
+"Oklahoma","OK",2008,46110,66240
+"Oklahoma","OK",2009,45880,66170
+"Oklahoma","OK",2010,43100,61330
+"Oklahoma","OK",2011,48460,66860
+"Oklahoma","OK",2012,48410,65530
+"Oklahoma","OK",2013,46160,61750
+"Oklahoma","OK",2014,47200,62250
+"Oklahoma","OK",2015,47080,62130
+"Oklahoma","OK",2016,50940,66640
+"Oklahoma","OK",2017,51880,66700
+"Oklahoma","OK",2018,54430,68600
+"Oklahoma","OK",2019,59400,73760
+"Oklahoma","OK",2020,52470,64490
+"Oklahoma","OK",2021,60100,70700
+"Oklahoma","OK",2022,63440,69300
+"Oklahoma","OK",2023,67330,70770
+"Oklahoma","OK",2024,64870,66470
+"Oklahoma","OK",2025,75390,75390
+"Oregon","OR",1984,21400,59100
+"Oregon","OR",1985,21890,58480
+"Oregon","OR",1986,24770,65100
+"Oregon","OR",1987,25040,63650
+"Oregon","OR",1988,27750,68020
+"Oregon","OR",1989,28530,66990
+"Oregon","OR",1990,29280,65570
+"Oregon","OR",1991,30190,65240
+"Oregon","OR",1992,31930,67280
+"Oregon","OR",1993,33140,68140
+"Oregon","OR",1994,31460,63300
+"Oregon","OR",1995,36370,71510
+"Oregon","OR",1996,35490,67980
+"Oregon","OR",1997,37250,69840
+"Oregon","OR",1998,39070,72270
+"Oregon","OR",1999,40620,73620
+"Oregon","OR",2000,42500,74460
+"Oregon","OR",2001,41270,70710
+"Oregon","OR",2002,41800,70740
+"Oregon","OR",2003,41640,69020
+"Oregon","OR",2004,40990,66300
+"Oregon","OR",2005,44160,69400
+"Oregon","OR",2006,47090,71920
+"Oregon","OR",2007,50240,74810
+"Oregon","OR",2008,51730,74310
+"Oregon","OR",2009,49100,70810
+"Oregon","OR",2010,50600,72000
+"Oregon","OR",2011,51530,71100
+"Oregon","OR",2012,51780,70090
+"Oregon","OR",2013,49000,65540
+"Oregon","OR",2014,58880,77650
+"Oregon","OR",2015,60830,80290
+"Oregon","OR",2016,59140,77360
+"Oregon","OR",2017,62500,80350
+"Oregon","OR",2018,69170,87160
+"Oregon","OR",2019,74410,92410
+"Oregon","OR",2020,76850,94460
+"Oregon","OR",2021,81850,96300
+"Oregon","OR",2022,86780,94790
+"Oregon","OR",2023,88740,93280
+"Oregon","OR",2024,89510,91720
+"Oregon","OR",2025,92740,92740
+"Pennsylvania","PA",1984,20350,56200
+"Pennsylvania","PA",1985,22880,61110
+"Pennsylvania","PA",1986,23810,62560
+"Pennsylvania","PA",1987,25420,64630
+"Pennsylvania","PA",1988,26740,65550
+"Pennsylvania","PA",1989,28690,67370
+"Pennsylvania","PA",1990,29010,64950
+"Pennsylvania","PA",1991,30370,65620
+"Pennsylvania","PA",1992,29880,62970
+"Pennsylvania","PA",1993,31000,63740
+"Pennsylvania","PA",1994,32070,64530
+"Pennsylvania","PA",1995,34520,67870
+"Pennsylvania","PA",1996,34900,66840
+"Pennsylvania","PA",1997,37520,70350
+"Pennsylvania","PA",1998,39020,72170
+"Pennsylvania","PA",1999,37760,68430
+"Pennsylvania","PA",2000,42180,73890
+"Pennsylvania","PA",2001,43500,74530
+"Pennsylvania","PA",2002,42500,71920
+"Pennsylvania","PA",2003,42930,71170
+"Pennsylvania","PA",2004,44110,71330
+"Pennsylvania","PA",2005,46300,72770
+"Pennsylvania","PA",2006,48480,74040
+"Pennsylvania","PA",2007,48440,72130
+"Pennsylvania","PA",2008,51400,73840
+"Pennsylvania","PA",2009,48170,69480
+"Pennsylvania","PA",2010,48310,68740
+"Pennsylvania","PA",2011,49910,68870
+"Pennsylvania","PA",2012,51900,70270
+"Pennsylvania","PA",2013,55160,73780
+"Pennsylvania","PA",2014,55170,72760
+"Pennsylvania","PA",2015,60390,79700
+"Pennsylvania","PA",2016,60980,79770
+"Pennsylvania","PA",2017,61290,78790
+"Pennsylvania","PA",2018,64520,81310
+"Pennsylvania","PA",2019,70580,87650
+"Pennsylvania","PA",2020,70790,87000
+"Pennsylvania","PA",2021,72630,85440
+"Pennsylvania","PA",2022,72210,78870
+"Pennsylvania","PA",2023,79820,83900
+"Pennsylvania","PA",2024,79640,81600
+"Pennsylvania","PA",2025,85880,85880
+"Rhode Island","RI",1984,21610,59690
+"Rhode Island","RI",1985,24630,65780
+"Rhode Island","RI",1986,26540,69750
+"Rhode Island","RI",1987,28290,71920
+"Rhode Island","RI",1988,29840,73150
+"Rhode Island","RI",1989,30120,70740
+"Rhode Island","RI",1990,31970,71590
+"Rhode Island","RI",1991,30840,66630
+"Rhode Island","RI",1992,30430,64130
+"Rhode Island","RI",1993,33510,68910
+"Rhode Island","RI",1994,31930,64250
+"Rhode Island","RI",1995,35360,69510
+"Rhode Island","RI",1996,36990,70840
+"Rhode Island","RI",1997,34800,65250
+"Rhode Island","RI",1998,40690,75260
+"Rhode Island","RI",1999,42720,77420
+"Rhode Island","RI",2000,42200,73930
+"Rhode Island","RI",2001,45720,78340
+"Rhode Island","RI",2002,42420,71780
+"Rhode Island","RI",2003,44710,74120
+"Rhode Island","RI",2004,47940,77520
+"Rhode Island","RI",2005,49480,77770
+"Rhode Island","RI",2006,53740,82070
+"Rhode Island","RI",2007,54210,80730
+"Rhode Island","RI",2008,53240,76480
+"Rhode Island","RI",2009,51630,74470
+"Rhode Island","RI",2010,51620,73450
+"Rhode Island","RI",2011,49030,67660
+"Rhode Island","RI",2012,56070,75900
+"Rhode Island","RI",2013,56320,75340
+"Rhode Island","RI",2014,58630,77330
+"Rhode Island","RI",2015,55700,73510
+"Rhode Island","RI",2016,61530,80490
+"Rhode Island","RI",2017,65400,84080
+"Rhode Island","RI",2018,62270,78470
+"Rhode Island","RI",2019,70150,87120
+"Rhode Island","RI",2020,80170,98540
+"Rhode Island","RI",2021,74980,88210
+"Rhode Island","RI",2022,80650,88100
+"Rhode Island","RI",2023,81860,86050
+"Rhode Island","RI",2024,91360,93610
+"Rhode Island","RI",2025,96880,96880
+"South Carolina","SC",1984,20310,56090
+"South Carolina","SC",1985,20040,53520
+"South Carolina","SC",1986,21970,57730
+"South Carolina","SC",1987,25050,63670
+"South Carolina","SC",1988,25530,62590
+"South Carolina","SC",1989,23800,55880
+"South Carolina","SC",1990,28740,64350
+"South Carolina","SC",1991,27460,59340
+"South Carolina","SC",1992,27580,58120
+"South Carolina","SC",1993,26050,53580
+"South Carolina","SC",1994,29850,60060
+"South Carolina","SC",1995,29070,57150
+"South Carolina","SC",1996,34670,66390
+"South Carolina","SC",1997,34260,64250
+"South Carolina","SC",1998,33270,61540
+"South Carolina","SC",1999,36460,66080
+"South Carolina","SC",2000,37570,65820
+"South Carolina","SC",2001,37740,64650
+"South Carolina","SC",2002,37810,63990
+"South Carolina","SC",2003,38480,63790
+"South Carolina","SC",2004,38690,62570
+"South Carolina","SC",2005,40230,63230
+"South Carolina","SC",2006,39620,60510
+"South Carolina","SC",2007,44210,65840
+"South Carolina","SC",2008,42160,60560
+"South Carolina","SC",2009,41100,59280
+"South Carolina","SC",2010,41700,59330
+"South Carolina","SC",2011,40080,55310
+"South Carolina","SC",2012,44400,60110
+"South Carolina","SC",2013,43560,58270
+"South Carolina","SC",2014,44930,59250
+"South Carolina","SC",2015,46360,61190
+"South Carolina","SC",2016,54340,71080
+"South Carolina","SC",2017,54540,70110
+"South Carolina","SC",2018,57440,72390
+"South Carolina","SC",2019,62030,77030
+"South Carolina","SC",2020,60340,74160
+"South Carolina","SC",2021,62540,73580
+"South Carolina","SC",2022,61770,67470
+"South Carolina","SC",2023,69100,72640
+"South Carolina","SC",2024,76050,77920
+"South Carolina","SC",2025,82320,82320
+"South Dakota","SD",1984,19410,53610
+"South Dakota","SD",1985,18140,48460
+"South Dakota","SD",1986,19900,52290
+"South Dakota","SD",1987,21150,53770
+"South Dakota","SD",1988,22290,54650
+"South Dakota","SD",1989,24110,56610
+"South Dakota","SD",1990,24570,55020
+"South Dakota","SD",1991,24640,53240
+"South Dakota","SD",1992,26260,55340
+"South Dakota","SD",1993,27740,57040
+"South Dakota","SD",1994,29730,59830
+"South Dakota","SD",1995,29580,58150
+"South Dakota","SD",1996,29530,56550
+"South Dakota","SD",1997,29690,55680
+"South Dakota","SD",1998,32790,60650
+"South Dakota","SD",1999,35830,64930
+"South Dakota","SD",2000,36480,63900
+"South Dakota","SD",2001,39670,67970
+"South Dakota","SD",2002,37870,64090
+"South Dakota","SD",2003,39520,65520
+"South Dakota","SD",2004,41110,66480
+"South Dakota","SD",2005,43150,67820
+"South Dakota","SD",2006,45430,69380
+"South Dakota","SD",2007,46420,69120
+"South Dakota","SD",2008,51600,74120
+"South Dakota","SD",2009,45830,66090
+"South Dakota","SD",2010,45350,64530
+"South Dakota","SD",2011,47220,65160
+"South Dakota","SD",2012,49420,66900
+"South Dakota","SD",2013,53410,71440
+"South Dakota","SD",2014,53050,69970
+"South Dakota","SD",2015,55070,72670
+"South Dakota","SD",2016,57450,75160
+"South Dakota","SD",2017,56910,73170
+"South Dakota","SD",2018,59460,74940
+"South Dakota","SD",2019,64260,79790
+"South Dakota","SD",2020,70190,86260
+"South Dakota","SD",2021,73890,86930
+"South Dakota","SD",2022,67180,73380
+"South Dakota","SD",2023,81740,85930
+"South Dakota","SD",2024,78870,80820
+"South Dakota","SD",2025,82460,82460
+"Tennessee","TN",1984,16780,46350
+"Tennessee","TN",1985,17780,47490
+"Tennessee","TN",1986,18260,47980
+"Tennessee","TN",1987,21180,53840
+"Tennessee","TN",1988,20860,51120
+"Tennessee","TN",1989,22610,53100
+"Tennessee","TN",1990,22590,50590
+"Tennessee","TN",1991,24450,52840
+"Tennessee","TN",1992,24320,51250
+"Tennessee","TN",1993,25100,51620
+"Tennessee","TN",1994,28640,57630
+"Tennessee","TN",1995,29020,57040
+"Tennessee","TN",1996,30790,58970
+"Tennessee","TN",1997,30640,57450
+"Tennessee","TN",1998,34090,63060
+"Tennessee","TN",1999,36520,66190
+"Tennessee","TN",2000,34100,59730
+"Tennessee","TN",2001,35780,61310
+"Tennessee","TN",2002,37030,62660
+"Tennessee","TN",2003,37520,62200
+"Tennessee","TN",2004,38070,61570
+"Tennessee","TN",2005,39410,61930
+"Tennessee","TN",2006,40690,62150
+"Tennessee","TN",2007,41200,61350
+"Tennessee","TN",2008,39700,57030
+"Tennessee","TN",2009,40520,58440
+"Tennessee","TN",2010,38590,54910
+"Tennessee","TN",2011,42280,58340
+"Tennessee","TN",2012,43000,58210
+"Tennessee","TN",2013,43360,58000
+"Tennessee","TN",2014,43720,57650
+"Tennessee","TN",2015,47330,62470
+"Tennessee","TN",2016,51340,67170
+"Tennessee","TN",2017,55310,71100
+"Tennessee","TN",2018,56060,70650
+"Tennessee","TN",2019,56630,70320
+"Tennessee","TN",2020,54970,67570
+"Tennessee","TN",2021,62170,73130
+"Tennessee","TN",2022,65380,71420
+"Tennessee","TN",2023,72700,76420
+"Tennessee","TN",2024,75460,77320
+"Tennessee","TN",2025,75250,75250
+"Texas","TX",1984,23020,63590
+"Texas","TX",1985,23740,63420
+"Texas","TX",1986,24160,63500
+"Texas","TX",1987,24720,62840
+"Texas","TX",1988,24960,61190
+"Texas","TX",1989,25890,60790
+"Texas","TX",1990,28230,63210
+"Texas","TX",1991,27730,59930
+"Texas","TX",1992,27950,58910
+"Texas","TX",1993,28730,59070
+"Texas","TX",1994,30760,61890
+"Texas","TX",1995,32040,62990
+"Texas","TX",1996,33070,63340
+"Texas","TX",1997,35080,65770
+"Texas","TX",1998,35780,66190
+"Texas","TX",1999,38690,70120
+"Texas","TX",2000,38610,67640
+"Texas","TX",2001,40860,70010
+"Texas","TX",2002,40150,67940
+"Texas","TX",2003,39270,65100
+"Texas","TX",2004,41400,66950
+"Texas","TX",2005,41420,65100
+"Texas","TX",2006,43310,66140
+"Texas","TX",2007,46050,68580
+"Texas","TX",2008,46490,66780
+"Texas","TX",2009,47480,68470
+"Texas","TX",2010,47270,67250
+"Texas","TX",2011,49050,67680
+"Texas","TX",2012,51930,70300
+"Texas","TX",2013,51410,68760
+"Texas","TX",2014,53880,71050
+"Texas","TX",2015,56470,74530
+"Texas","TX",2016,58150,76070
+"Texas","TX",2017,60090,77250
+"Texas","TX",2018,59790,75340
+"Texas","TX",2019,67440,83750
+"Texas","TX",2020,68400,84070
+"Texas","TX",2021,67400,79300
+"Texas","TX",2022,74640,81520
+"Texas","TX",2023,79060,83110
+"Texas","TX",2024,81280,83290
+"Texas","TX",2025,85060,85060
+"Utah","UT",1984,23060,63680
+"Utah","UT",1985,25240,67410
+"Utah","UT",1986,26280,69060
+"Utah","UT",1987,26530,67440
+"Utah","UT",1988,26310,64500
+"Utah","UT",1989,30720,72130
+"Utah","UT",1990,30140,67500
+"Utah","UT",1991,28020,60540
+"Utah","UT",1992,34250,72180
+"Utah","UT",1993,35790,73590
+"Utah","UT",1994,35720,71870
+"Utah","UT",1995,36480,71720
+"Utah","UT",1996,37040,70940
+"Utah","UT",1997,42780,80210
+"Utah","UT",1998,44300,81950
+"Utah","UT",1999,46050,83460
+"Utah","UT",2000,47550,83310
+"Utah","UT",2001,47340,81110
+"Utah","UT",2002,47860,80990
+"Utah","UT",2003,49280,81680
+"Utah","UT",2004,50870,82270
+"Utah","UT",2005,54810,86150
+"Utah","UT",2006,54630,83440
+"Utah","UT",2007,53530,79710
+"Utah","UT",2008,62540,89830
+"Utah","UT",2009,58490,84360
+"Utah","UT",2010,56700,80670
+"Utah","UT",2011,55490,76580
+"Utah","UT",2012,58340,78980
+"Utah","UT",2013,61050,81650
+"Utah","UT",2014,63380,83590
+"Utah","UT",2015,66260,87450
+"Utah","UT",2016,67480,88280
+"Utah","UT",2017,69790,89720
+"Utah","UT",2018,77070,97120
+"Utah","UT",2019,84520,105000
+"Utah","UT",2020,83990,103200
+"Utah","UT",2021,87650,103100
+"Utah","UT",2022,95800,104600
+"Utah","UT",2023,101200,106400
+"Utah","UT",2024,103400,105900
+"Utah","UT",2025,102900,102900
+"Vermont","VT",1984,22580,62360
+"Vermont","VT",1985,26000,69450
+"Vermont","VT",1986,24600,64640
+"Vermont","VT",1987,25420,64600
+"Vermont","VT",1988,28990,71060
+"Vermont","VT",1989,31300,73490
+"Vermont","VT",1990,31100,69640
+"Vermont","VT",1991,29160,63000
+"Vermont","VT",1992,32760,69020
+"Vermont","VT",1993,31070,63880
+"Vermont","VT",1994,35800,72050
+"Vermont","VT",1995,33820,66490
+"Vermont","VT",1996,32360,61980
+"Vermont","VT",1997,35050,65730
+"Vermont","VT",1998,39370,72830
+"Vermont","VT",1999,41580,75370
+"Vermont","VT",2000,39590,69370
+"Vermont","VT",2001,40790,69890
+"Vermont","VT",2002,43000,72760
+"Vermont","VT",2003,43260,71710
+"Vermont","VT",2004,47330,76540
+"Vermont","VT",2005,50700,79690
+"Vermont","VT",2006,51980,79390
+"Vermont","VT",2007,47390,70570
+"Vermont","VT",2008,50710,72840
+"Vermont","VT",2009,52320,75460
+"Vermont","VT",2010,55930,79570
+"Vermont","VT",2011,51860,71570
+"Vermont","VT",2012,55580,75250
+"Vermont","VT",2013,65510,87630
+"Vermont","VT",2014,60710,80060
+"Vermont","VT",2015,59490,78520
+"Vermont","VT",2016,60840,79590
+"Vermont","VT",2017,63680,81870
+"Vermont","VT",2018,70070,88300
+"Vermont","VT",2019,74310,92270
+"Vermont","VT",2020,67260,82660
+"Vermont","VT",2021,76080,89500
+"Vermont","VT",2022,72190,78850
+"Vermont","VT",2023,85190,89550
+"Vermont","VT",2024,84480,86560
+"Vermont","VT",2025,95290,95290
+"Virginia","VA",1984,26530,73260
+"Virginia","VA",1985,28430,75940
+"Virginia","VA",1986,29720,78090
+"Virginia","VA",1987,30000,76250
+"Virginia","VA",1988,32650,80030
+"Virginia","VA",1989,34120,80120
+"Virginia","VA",1990,35070,78540
+"Virginia","VA",1991,36140,78090
+"Virginia","VA",1992,38200,80500
+"Virginia","VA",1993,36430,74920
+"Virginia","VA",1994,37650,75760
+"Virginia","VA",1995,36220,71210
+"Virginia","VA",1996,39210,75100
+"Virginia","VA",1997,42960,80550
+"Virginia","VA",1998,43350,80200
+"Virginia","VA",1999,45690,82810
+"Virginia","VA",2000,47160,82630
+"Virginia","VA",2001,50240,86080
+"Virginia","VA",2002,49630,83990
+"Virginia","VA",2003,54780,90810
+"Virginia","VA",2004,51140,82700
+"Virginia","VA",2005,51910,81590
+"Virginia","VA",2006,57120,87240
+"Virginia","VA",2007,59160,88100
+"Virginia","VA",2008,61990,89040
+"Virginia","VA",2009,60500,87260
+"Virginia","VA",2010,60370,85890
+"Virginia","VA",2011,62620,86410
+"Virginia","VA",2012,64630,87500
+"Virginia","VA",2013,65910,88160
+"Virginia","VA",2014,66160,87250
+"Virginia","VA",2015,61490,81150
+"Virginia","VA",2016,66450,86930
+"Virginia","VA",2017,70810,91040
+"Virginia","VA",2018,77150,97230
+"Virginia","VA",2019,81310,101000
+"Virginia","VA",2020,82210,101000
+"Virginia","VA",2021,80270,94430
+"Virginia","VA",2022,85170,93030
+"Virginia","VA",2023,96490,101400
+"Virginia","VA",2024,97530,99930
+"Virginia","VA",2025,1e+05,1e+05
+"Washington","WA",1984,25020,69100
+"Washington","WA",1985,24000,64110
+"Washington","WA",1986,26880,70640
+"Washington","WA",1987,27320,69440
+"Washington","WA",1988,32330,79240
+"Washington","WA",1989,31960,75050
+"Washington","WA",1990,32110,71910
+"Washington","WA",1991,33970,73400
+"Washington","WA",1992,33900,71440
+"Washington","WA",1993,35660,73320
+"Washington","WA",1994,33530,67480
+"Washington","WA",1995,35570,69920
+"Washington","WA",1996,36680,70250
+"Washington","WA",1997,44560,83560
+"Washington","WA",1998,47420,87720
+"Washington","WA",1999,45470,82410
+"Washington","WA",2000,42530,74500
+"Washington","WA",2001,42490,72800
+"Washington","WA",2002,45180,76460
+"Washington","WA",2003,47510,78750
+"Washington","WA",2004,49920,80730
+"Washington","WA",2005,50650,79600
+"Washington","WA",2006,54720,83580
+"Washington","WA",2007,58080,86490
+"Washington","WA",2008,56630,81350
+"Washington","WA",2009,60390,87100
+"Washington","WA",2010,56160,79910
+"Washington","WA",2011,56850,78450
+"Washington","WA",2012,62190,84190
+"Washington","WA",2013,63920,85500
+"Washington","WA",2014,59070,77900
+"Washington","WA",2015,67240,88750
+"Washington","WA",2016,70310,91980
+"Washington","WA",2017,71540,91970
+"Washington","WA",2018,79730,100500
+"Washington","WA",2019,82450,102400
+"Washington","WA",2020,81360,99990
+"Washington","WA",2021,87650,103100
+"Washington","WA",2022,89430,97680
+"Washington","WA",2023,93440,98220
+"Washington","WA",2024,95980,98340
+"Washington","WA",2025,112600,112600
+"West Virginia","WV",1984,16840,46520
+"West Virginia","WV",1985,15980,42690
+"West Virginia","WV",1986,16460,43270
+"West Virginia","WV",1987,17210,43740
+"West Virginia","WV",1988,19350,47440
+"West Virginia","WV",1989,21680,50900
+"West Virginia","WV",1990,22140,49570
+"West Virginia","WV",1991,23150,50020
+"West Virginia","WV",1992,20270,42720
+"West Virginia","WV",1993,22420,46110
+"West Virginia","WV",1994,23560,47420
+"West Virginia","WV",1995,24880,48910
+"West Virginia","WV",1996,25250,48360
+"West Virginia","WV",1997,27490,51540
+"West Virginia","WV",1998,26700,49400
+"West Virginia","WV",1999,29300,53100
+"West Virginia","WV",2000,29410,51530
+"West Virginia","WV",2001,29670,50840
+"West Virginia","WV",2002,29360,49680
+"West Virginia","WV",2003,32760,54310
+"West Virginia","WV",2004,33370,53970
+"West Virginia","WV",2005,36450,57280
+"West Virginia","WV",2006,38420,58680
+"West Virginia","WV",2007,42090,62680
+"West Virginia","WV",2008,37990,54580
+"West Virginia","WV",2009,40490,58400
+"West Virginia","WV",2010,42780,60860
+"West Virginia","WV",2011,41820,57710
+"West Virginia","WV",2012,43550,58960
+"West Virginia","WV",2013,43070,57610
+"West Virginia","WV",2014,39550,52160
+"West Virginia","WV",2015,42820,56520
+"West Virginia","WV",2016,44350,58020
+"West Virginia","WV",2017,46960,60370
+"West Virginia","WV",2018,50570,63730
+"West Virginia","WV",2019,53710,66690
+"West Virginia","WV",2020,51970,63870
+"West Virginia","WV",2021,46840,55100
+"West Virginia","WV",2022,52460,57300
+"West Virginia","WV",2023,60410,63500
+"West Virginia","WV",2024,62800,64350
+"West Virginia","WV",2025,61770,61770
+"Wisconsin","WI",1984,20740,57290
+"Wisconsin","WI",1985,23250,62090
+"Wisconsin","WI",1986,26430,69460
+"Wisconsin","WI",1987,26370,67030
+"Wisconsin","WI",1988,29580,72500
+"Wisconsin","WI",1989,29120,68390
+"Wisconsin","WI",1990,30710,68770
+"Wisconsin","WI",1991,31130,67270
+"Wisconsin","WI",1992,33310,70190
+"Wisconsin","WI",1993,31770,65320
+"Wisconsin","WI",1994,35390,71210
+"Wisconsin","WI",1995,40960,80510
+"Wisconsin","WI",1996,40000,76610
+"Wisconsin","WI",1997,39600,74250
+"Wisconsin","WI",1998,41330,76450
+"Wisconsin","WI",1999,45670,82770
+"Wisconsin","WI",2000,45090,78990
+"Wisconsin","WI",2001,45350,77690
+"Wisconsin","WI",2002,45900,77680
+"Wisconsin","WI",2003,46270,76700
+"Wisconsin","WI",2004,45730,73960
+"Wisconsin","WI",2005,44650,70180
+"Wisconsin","WI",2006,51690,78950
+"Wisconsin","WI",2007,51280,76360
+"Wisconsin","WI",2008,51200,73550
+"Wisconsin","WI",2009,51240,73900
+"Wisconsin","WI",2010,50350,71640
+"Wisconsin","WI",2011,52060,71840
+"Wisconsin","WI",2012,53080,71860
+"Wisconsin","WI",2013,51730,69190
+"Wisconsin","WI",2014,58080,76600
+"Wisconsin","WI",2015,55430,73150
+"Wisconsin","WI",2016,59820,78250
+"Wisconsin","WI",2017,63480,81610
+"Wisconsin","WI",2018,62630,78930
+"Wisconsin","WI",2019,67350,83640
+"Wisconsin","WI",2020,67410,82840
+"Wisconsin","WI",2021,69940,82280
+"Wisconsin","WI",2022,73330,80100
+"Wisconsin","WI",2023,79690,83770
+"Wisconsin","WI",2024,82140,84160
+"Wisconsin","WI",2025,88020,88020
+"Wyoming","WY",1984,23820,65780
+"Wyoming","WY",1985,22080,58980
+"Wyoming","WY",1986,23560,61910
+"Wyoming","WY",1987,27590,70130
+"Wyoming","WY",1988,26420,64760
+"Wyoming","WY",1989,29520,69320
+"Wyoming","WY",1990,29460,65970
+"Wyoming","WY",1991,29050,62770
+"Wyoming","WY",1992,30210,63660
+"Wyoming","WY",1993,29440,60540
+"Wyoming","WY",1994,33140,66690
+"Wyoming","WY",1995,31530,61980
+"Wyoming","WY",1996,30950,59290
+"Wyoming","WY",1997,33420,62670
+"Wyoming","WY",1998,35250,65210
+"Wyoming","WY",1999,37250,67510
+"Wyoming","WY",2000,39630,69430
+"Wyoming","WY",2001,39720,68050
+"Wyoming","WY",2002,39760,67290
+"Wyoming","WY",2003,42560,70540
+"Wyoming","WY",2004,45400,73420
+"Wyoming","WY",2005,44720,70280
+"Wyoming","WY",2006,47040,71850
+"Wyoming","WY",2007,48740,72590
+"Wyoming","WY",2008,53340,76620
+"Wyoming","WY",2009,52470,75680
+"Wyoming","WY",2010,52200,74270
+"Wyoming","WY",2011,54510,75220
+"Wyoming","WY",2012,57510,77860
+"Wyoming","WY",2013,67440,90210
+"Wyoming","WY",2014,55690,73450
+"Wyoming","WY",2015,60930,80410
+"Wyoming","WY",2016,57830,75650
+"Wyoming","WY",2017,59540,76540
+"Wyoming","WY",2018,62540,78810
+"Wyoming","WY",2019,65130,80890
+"Wyoming","WY",2020,65450,80440
+"Wyoming","WY",2021,71050,83590
+"Wyoming","WY",2022,73090,79840
+"Wyoming","WY",2023,77200,81160
+"Wyoming","WY",2024,78340,80270
+"Wyoming","WY",2025,81030,81030

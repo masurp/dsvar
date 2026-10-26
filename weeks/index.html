@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Schedule – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../weeks/index.html" aria-current="page"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>2026</p>
+</div>
+<section id="course-overview" class="level1">
+<h1>Course overview</h1>
+<div class="dsvar-lede">
+<p>Every week includes a lecture on Tuesday, a work group on Thursday, and, from week 2, one portfolio entry a week. You can find all materials, information about every session and all deadlines on this page.</p>
+</div>
+</section>
+</div>
+<div class="dsvar-slots"><div class="dsvar-slot"><div class="dsvar-slot__k">Lectures</div><div class="dsvar-slot__v">Tuesday · 15:30 to 17:15 · NU-3A57</div></div><div class="dsvar-slot"><div class="dsvar-slot__k">Work groups</div><div class="dsvar-slot__v">Thursday · 13:30 to 15:15 · HG-06A32</div></div></div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>OVERVIEW: WHAT THE CHART IS ASKED TO DO</p>
+</div>
+<div class="dsvar-moves"><a class="dsvar-move" href="week-01.html" style="--dsvar-accent:var(--dsvar-era-1)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-1-light.svg" alt="Annual flow of the Nile at Aswan, 1871 to 1970, with two fits drawn over the identical points: a dashed straight line sloping gently down across the whole century, and two flat solid levels that step sharply down at 1899. n = 100 years. Source: datasets::Nile (Cobb, 1978)." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-1-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">The argument in the graph</span><span class="dsvar-move__meta">WEEK 1 · the thesis</span></a><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-1)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-2-light.svg" alt="Horizontal bar chart of the seven wettest US cities by average annual precipitation, sorted longest bar first, baseline at zero. n = 7 of 70 cities. Source: datasets::precip." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-2-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">Comparison &amp; ranking</span><span class="dsvar-move__meta">WEEK 2 · categorical × continuous · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-2)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-3-light.svg" alt="Density curve of Old Faithful eruption durations, clearly two humped, with a dashed line marking the mean falling in the empty gap between the two peaks. n = 272 eruptions. Source: datasets::faithful." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-3-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">Distribution &amp; uncertainty</span><span class="dsvar-move__meta">WEEK 3 · one continuous · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-3)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-4-light.svg" alt="Scatterplot of engine displacement against highway fuel economy, semi transparent because the points overlap heavily. n = 234 cars. Source: ggplot2::mpg." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-4-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">Relationships &amp; structure</span><span class="dsvar-move__meta">WEEK 4 · two continuous · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-4)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-5-light.svg" alt="Line chart of New Haven mean annual temperature, 1912 to 1971, with a rising fitted trend. n = 60 years. Source: datasets::nhtemp (Vaux &amp; Brinker, 1972)." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-5-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">Change over time</span><span class="dsvar-move__meta">WEEK 5 · continuous × time · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-4)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-6-light.svg" alt="Choropleth of the 48 contiguous US states shaded by murder arrests per 100,000 residents in 1973, darkest across the South. A rate, not a count, so a large state is not dark merely for being large. n = 48 states. Source: datasets::USArrests (McNeil, 1977)." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-6-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">Structure in space and text</span><span class="dsvar-move__meta">WEEK 6 · space, graph, text · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-5)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-7-light.svg" alt="Dumbbell chart of 1973 Berkeley graduate admission rates in six departments, one row per department, a grey dot for men and a green dot for women joined by a line. The title states the claim: women ahead in 4 of 6 departments. Only the top row is labelled, men and women, and the two rows where men are ahead are faded. n = 4,526 applicants. Source: datasets::UCBAdmissions (Bickel, Hammel and O’Connell, 1975)." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-7-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">The whole story</span><span class="dsvar-move__meta">WEEK 7 · your data · opens later</span></span><span class="dsvar-move dsvar-move--later" style="--dsvar-accent:var(--dsvar-era-5)"><span class="dsvar-glyph"><img class="dsvar-glyph__light" src="../assets/glyphs/move-8-light.svg" alt="Small multiples: four panels of growth curves, one per diet, each panel showing the weight of every chick over its first 21 days on a shared axis, so the panels can be compared at a glance. n = 50 chicks, 578 weighings. Source: datasets::ChickWeight (Crowder &amp; Hand, 1990)." loading="lazy"><img class="dsvar-glyph__dark" src="../assets/glyphs/move-8-dark.svg" alt="" aria-hidden="true" loading="lazy"></span><span class="dsvar-move__name">The take-home</span><span class="dsvar-move__meta">WEEK 8 · no sessions · opens later</span></span></div>
+<div class="dsvar-caption">
+<p>What the chart is asked to do is what each week’s lecture and work group is about, and the order follows the data: one categorical against one continuous, then one continuous, then two, then time. The grammar of graphics, tidy data and iterative refinement are taught throughout. By the way, each thumbnail you see here is a real ggplot figure and can be recreated.</p>
+</div>
+</div>
+<section class="dsvar-phase" style="--dsvar-accent:var(--dsvar-green)"><header class="dsvar-phase__head"><div class="dsvar-phase__top"><div class="dsvar-phase__label">Part I · Claims and comparisons</div><div class="dsvar-phase__span">Weeks 1 and 2</div></div><p class="dsvar-phase__note">The first two weeks introduce the idea that a chart makes a claim about data, and then apply it to the simplest case: one categorical variable compared on one continuous variable. Week 1 uses a global temperature record, because the same dataset supports several defensible claims. Week 2 moves to a cross section of countries, compared in bar and dot charts.</p></header><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-1)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">01</div><div class="dsvar-wk__main"><a class="dsvar-wk__title" href="week-01.html">The argument in the graph<span class="dsvar-wk__go">→</span></a><p class="dsvar-wk__lede">Twelve estimates of one distance from 1644, and one added line that turns “they disagree” into “they are all wrong”. If one line can do that, a chart is a claim and not a picture of the data.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">27 to 29 October</div><div class="dsvar-wk__period">the thesis</div><div class="dsvar-ministeps"><span class="dsvar-ministep">01 Question</span><span class="dsvar-ministep">02 Claim</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture and a work group</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">The argument in the graph</div><div class="dsvar-sess__note">The grammar of graphics as a way of describing what a chart does, rather than as syntax, and perception research as the reason some design principles are empirical findings rather than matters of taste. Also introduces the vocabulary for critiquing charts that we use throughout the course, and the rule that every chart states its uncertainty.</div></div><div class="dsvar-sess__when">Tuesday · 27 October · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">First steps in R, and the grammar in ggplot</div><div class="dsvar-sess__note">Installing and checking R, RStudio, the tidyverse and Quarto. The basics of R: objects, vectors, functions, missing values and packages. Reading a file, looking at it, and changing it with filter, mutate and select. Then the grammar of graphics in ggplot: one chart built slot by slot, from data and mapping to theme. Nothing is handed in this week.</div></div><div class="dsvar-sess__when">Thursday · 29 October · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div></div></details></article><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-1)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">02</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">Comparison &amp; ranking</span><p class="dsvar-wk__lede">“Compared to what?” is the fundamental question, and alphabetical ordering is a decision to hide the finding. The simplest chart there is, and the one most often drawn badly.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">3 to 5 November</div><div class="dsvar-wk__period">categorical × continuous</div><div class="dsvar-ministeps"><span class="dsvar-ministep">02 Claim</span><span class="dsvar-ministep">04 Encoding</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group and a portfolio entry</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Comparison &amp; ranking</div><div class="dsvar-sess__note">Every comparison answers ‘compared to what?’, and four settings give the answer. Bars encode length and need a zero; points encode position and do not. Ordering categories as an editorial decision. The comparison set, chosen before the result, and the denominator: prices, people or the weights of an index. Cases: Du Bois’s 1900 illiteracy chart, the PISA league table and Mayr’s first radar chart.</div></div><div class="dsvar-sess__when">Tuesday · 3 November · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Factors, bars and reordering</div><div class="dsvar-sess__note">What a categorical variable is, and why a text column is plotted in alphabetical order by default. Setting the order with factor, fct_infreq and fct_reorder. geom_col compared with geom_point, and a first theme() call that removes gridlines the chart does not need.</div></div><div class="dsvar-sess__when">Thursday · 5 November · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 1 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">The first honest/dishonest pair</div><div class="dsvar-sess__note">A ranking that reports its finding and one, from the same data, that hides it: by the zero, the order or the comparison set. Plus one sentence naming the setting that did the work.</div></div><div class="dsvar-sess__when">due Sunday · 8 November</div></div></div></details></article></section><section class="dsvar-phase" style="--dsvar-accent:var(--dsvar-era-2)"><header class="dsvar-phase__head"><div class="dsvar-phase__top"><div class="dsvar-phase__label">Part II · Continuous variables</div><div class="dsvar-phase__span">Weeks 3 and 4</div></div><p class="dsvar-phase__note">Weeks 3 and 4 move from one continuous variable to two, and the work groups stay with one dataset, Gapminder, for both. Week 3 covers how a single variable is distributed and how the uncertainty of a summary is shown. Week 4 covers how two variables relate. The order follows from the content: a fitted line in week 4 comes with an interval, and week 3 introduces how to read one.</p></header><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-2)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">03</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">Distribution &amp; uncertainty</span><p class="dsvar-wk__lede">The mean hides the distribution, and an error bar means four different things to four different readers. Uncertainty is a design problem, not a statistical afterthought.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">10 to 12 November</div><div class="dsvar-wk__period">one continuous</div><div class="dsvar-ministeps"><span class="dsvar-ministep">03 Evidence</span><span class="dsvar-ministep">04 Encoding</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group and a portfolio entry</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Distribution &amp; uncertainty</div><div class="dsvar-sess__note">Four settings decide how much of a distribution a reader sees: the bin, the bandwidth, the summary and the interval. Standard deviation, standard error and confidence intervals, and what each communicates; the point with its 95% interval as the standard form for any estimate. Cases: Unknown Pleasures, Many analysts, and the specification curve, which shows the range of defensible analyses rather than a single one.</div></div><div class="dsvar-sess__when">Tuesday · 10 November · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Histograms, densities and the bin</div><div class="dsvar-sess__note">One continuous variable. Binwidth as a choice rather than a default, geom_density and its bandwidth, and groups compared with boxplots, violins and ggdist, including what a boxplot’s whiskers represent. Complete labels, and the title aligned with the edge of the plot.</div></div><div class="dsvar-sess__when">Thursday · 12 November · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 2 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">A distribution that does not flatten</div></div><div class="dsvar-sess__when">due Sunday · 15 November</div></div></div></details></article><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-3)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">04</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">Relationships &amp; structure</span><p class="dsvar-wk__lede">A trend line is a claim. Before trusting the shape of a scatter, work out what is missing from it.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">17 to 19 November</div><div class="dsvar-wk__period">two continuous</div><div class="dsvar-ministeps"><span class="dsvar-ministep">03 Evidence</span><span class="dsvar-ministep">04 Encoding</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group and a portfolio entry</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Relationships &amp; structure</div><div class="dsvar-sess__note">Four settings decide what a scatterplot shows: overlap, the fit, the scale and conditioning. A model with several predictors drawn as a coefficient plot, and an effect that depends on a third variable drawn as a line of coefficients. Selection effects, recognised in a chart, with the star catalogue behind the Hertzsprung–Russell diagram.</div></div><div class="dsvar-sess__when">Tuesday · 17 November · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Rosling’s chart, built</div><div class="dsvar-sess__note">Two continuous variables, using last week’s dataset. Transparency and jitter, geom_hex for overplotting, geom_smooth and the assumptions behind it, a log scale for income, facet_wrap by continent, and ggrepel for labelling a few cases. Where scale functions end and theme() begins.</div></div><div class="dsvar-sess__when">Thursday · 19 November · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 3 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">A relationship, and what would break it</div></div><div class="dsvar-sess__when">due Sunday · 22 November</div></div></div></details></article></section><section class="dsvar-phase" style="--dsvar-accent:var(--dsvar-era-4)"><header class="dsvar-phase__head"><div class="dsvar-phase__top"><div class="dsvar-phase__label">Part III · Time, space and text</div><div class="dsvar-phase__span">Weeks 5 and 6</div></div><p class="dsvar-phase__note">Weeks 5 and 6 turn to variable types that require their own tools. Time comes first, in week 5, with four weeks of R behind it; the work group returns to the Dutch station records from week 1. Week 6 treats maps, networks and text as extensions of the relationships covered in week 4 rather than as three separate topics.</p></header><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-4)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">05</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">Change over time</span><p class="dsvar-wk__lede">Trend or noise, and who decides. Smoothing, baselines and window length are where a time series stops being a record and starts being an argument.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">24 to 26 November</div><div class="dsvar-wk__period">continuous × time</div><div class="dsvar-ministeps"><span class="dsvar-ministep">03 Evidence</span><span class="dsvar-ministep">04 Encoding</span><span class="dsvar-ministep">05 Annotation</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group, a portfolio entry and a deadline</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Change over time</div><div class="dsvar-sess__note">Four dials set every time series: the window, the baseline, the span and the aspect ratio. Why the choice of baseline period is a substantive decision, and why ‘9 of the 10 hottest years’ is weaker evidence than it appears. Two series on one time axis, and the second y axis. Cases: an El Niño tracker, headline sentiment, and Playfair’s wheat and wages of 1821.</div></div><div class="dsvar-sess__when">Tuesday · 24 November · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--deadline"><div class="dsvar-sess__kind">Critique piece 1 of 2</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">A published chart, taken apart</div><div class="dsvar-sess__note">After Part II. A chart you found yourself, run through the four steps, on at most two pages of text. PDF on Canvas.</div></div><div class="dsvar-sess__when">due Wednesday · 25 November · 23:59</div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Dates, lines and the loess span</div><div class="dsvar-sess__note">Time as a variable type: parsing dates with lubridate and scaling them with scale_x_date. geom_line, rolling means and uncertainty bands with geom_ribbon. Varying the smoothing span to see at which point the apparent trend changes.</div></div><div class="dsvar-sess__when">Thursday · 26 November · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 4 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">One record, two readings</div><div class="dsvar-sess__note">One chart supporting ‘warming is accelerating’ and one supporting ‘warming paused’, from the same station record. Plus a short note on which dial did the work.</div></div><div class="dsvar-sess__when">due Sunday · 29 November</div></div></div></details></article><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-4)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">06</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">Structure in space and text</span><p class="dsvar-wk__lede">Maps, networks and text as applications of one move rather than three separate topics. The densest technical week of the course.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">1 to 3 December</div><div class="dsvar-wk__period">space, graph, text</div><div class="dsvar-ministeps"><span class="dsvar-ministep">04 Encoding</span><span class="dsvar-ministep">05 Annotation</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group and a portfolio entry</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Structure in space and text</div><div class="dsvar-sess__note">Four settings no map or network prints: what gets the ink, which boundaries, which classes and which layout. Why choropleth maps overstate large, sparsely populated areas, and normalisation as the remedy; the modifiable areal unit problem; why the position of nodes in a force directed layout carries no meaning. The difference between how often a word occurs and how important it is. And Snow’s cholera map, which was published after the pump handle had been removed.</div></div><div class="dsvar-sess__when">Tuesday · 1 December · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Maps, networks and a sorted bar chart</div><div class="dsvar-sess__note">Joining a country table to its map outlines on a shared code, a choropleth and its class breaks, and what the grey areas indicate. A small network, laid out more than once to show how much the impression depends on the layout. Word frequencies as a sorted bar chart, which is easier to read accurately than a word cloud.</div></div><div class="dsvar-sess__when">Thursday · 3 December · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 5 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Structure, with its choices named</div></div><div class="dsvar-sess__when">due Sunday · 6 December</div></div></div></details></article></section><section class="dsvar-phase" style="--dsvar-accent:var(--dsvar-era-5)"><header class="dsvar-phase__head"><div class="dsvar-phase__top"><div class="dsvar-phase__label">Part IV · Your own data</div><div class="dsvar-phase__span">Weeks 7 and 8</div></div><p class="dsvar-phase__note">In the last two weeks, students apply what the course has covered to a dataset of their own choosing, either one used in the course or one they bring. Week 7 covers annotation, colour and composition. Week 8 has no sessions: students write the take-home assignment on that dataset and hand it in at the end of the week.</p></header><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-5)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">07</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">The whole story</span><p class="dsvar-wk__lede">The title is where the claim belongs. Naming the variables there wastes the most read line on the chart.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">8 to 10 December</div><div class="dsvar-wk__period">all of them</div><div class="dsvar-ministeps"><span class="dsvar-ministep">02 Claim</span><span class="dsvar-ministep">05 Annotation</span></div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A lecture, a work group, a portfolio entry and a deadline</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--lecture"><div class="dsvar-sess__kind">Lecture</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">The whole story</div><div class="dsvar-sess__note">Four settings decide what a finished chart says: the title, the annotation, the colour and the order. One file with two true titles; annotation that marks where the evidence is sure; a colour scale chosen by the variable’s type, never carrying a difference alone and checked for colour vision deficiency; and narrative order: the martini glass, the drill-down and the slideshow. Cases: Nightingale’s rose, Minard’s march, two centuries of extreme poverty, and the outbreak simulation.</div></div><div class="dsvar-sess__when">Tuesday · 8 December · 15:30<span class="dsvar-sess__room">NU-3A57</span></div></div><div class="dsvar-sess dsvar-sess--deadline"><div class="dsvar-sess__kind">Critique piece 2 of 2</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">A published chart, taken apart</div><div class="dsvar-sess__note">After Part III. A different chart, the same four steps, at most two pages of text. PDF on Canvas.</div></div><div class="dsvar-sess__when">due Wednesday · 9 December · 23:59</div></div><div class="dsvar-sess dsvar-sess--lab"><div class="dsvar-sess__kind">Work group</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">Theming, annotating and exporting</div><div class="dsvar-sess__note">How theme_dsvar() is built from element_text, element_line, element_rect and element_blank, and building a theme of your own from theme_minimal. Annotation with annotate, ggrepel and gghighlight. Colour scales from viridis and colorspace, checked by simulating colour vision deficiency. Combining plots with patchwork, and exporting with ggsave so that the figure has the intended size.</div></div><div class="dsvar-sess__when">Thursday · 10 December · 13:30<span class="dsvar-sess__room">HG-06A32</span></div></div><div class="dsvar-sess dsvar-sess--portfolio"><div class="dsvar-sess__kind">Portfolio 6 of 6</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">One chart on your own dataset</div><div class="dsvar-sess__note">The last entry, on the dataset that also carries the take-home.</div></div><div class="dsvar-sess__when">due Sunday · 13 December</div></div></div></details></article><article class="dsvar-wk" style="--dsvar-accent:var(--dsvar-era-5)"><header class="dsvar-wk__head"><div class="dsvar-wk__n">08</div><div class="dsvar-wk__main"><span class="dsvar-wk__title">The take-home</span><p class="dsvar-wk__lede">No sessions this week. You write the take-home assignment on the dataset you chose in week 7, and hand it in by Sunday.</p></div><div class="dsvar-wk__aside"><div class="dsvar-wk__dates">14 to 20 December</div><div class="dsvar-wk__period">the take-home</div></div></header><details class="dsvar-wk__more"><summary class="dsvar-wk__summary"><svg class="dsvar-wk__chev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg><span>A deadline</span></summary><div class="dsvar-wk__sessions"><div class="dsvar-sess dsvar-sess--deadline"><div class="dsvar-sess__kind">Take-home assignment</div><div class="dsvar-sess__body"><div class="dsvar-sess__title">One new piece, on data of your own choosing</div><div class="dsvar-sess__note">A data story or an explanatory blog post, as a PDF, with the data, the code and the rendered output. 50% of the grade.</div></div><div class="dsvar-sess__when">due Sunday · 20 December · 23:59</div></div></div></details></article></section>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="../setup.html">Setup help</a> · <a href="../credits.html">Credits &amp; licences</a> · <a href="../privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

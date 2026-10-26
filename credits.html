@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Credits and licences – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>What is ours, what is borrowed</p>
+</div>
+<section id="credits-and-licences" class="level1">
+<h1>Credits and licences</h1>
+<div class="dsvar-lede">
+<p>This site reuses other people’s data and other people’s charts. Attribution sits beside each one where it is used, and it is collected here too, so there is a single page to check.</p>
+</div>
+</section>
+</div>
+<div style="height:2rem">
+
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THIS SITE</p>
+</div>
+<p>Course material, page design, and every chart built from the code shown on these pages: <strong>© Philipp K. Masur, Vrije Universiteit Amsterdam</strong>, released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Reuse it, change it, teach with it; say where it came from.</p>
+<p>That licence covers <strong>our</strong> work only. Third-party material keeps its own licence, listed below, and some of it is not free to reuse. That includes every data file the site serves: none of them is CC BY 4.0 because the site is, and charts drawn from the three share-alike datasets below carry their licence.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>DATA</p>
+</div>
+<p>Every dataset is committed to the repository so the site builds offline. Each is used as published except for subsetting, reshaping and renaming; where more was done, the row says so. The files marked <em>not served</em> are drawn on at render time but not offered for download.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Source</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Global temperature, 1850–2025</td>
+<td>Met Office Hadley Centre &amp; Climatic Research Unit (University of East Anglia), <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5">HadCRUT5</a>; Morice et al.&nbsp;(2021), <a href="https://doi.org/10.1029/2019JD032361">doi:10.1029/2019JD032361</a></td>
+<td><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3</a>. HadCRUT.5.0.2.0 data were obtained from http://www.metoffice.gov.uk/hadobs/hadcrut5 on 16 September 2026 and are © British Crown Copyright, Met Office 2020, provided under an Open Government License, http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/</td>
+</tr>
+<tr class="even">
+<td>Global temperature, 1880–</td>
+<td>NASA’s Goddard Institute for Space Studies, <a href="https://data.giss.nasa.gov/gistemp/">GISTEMP v4</a>; Lenssen et al.&nbsp;(2024)</td>
+<td>Public domain (US government work)</td>
+</tr>
+<tr class="odd">
+<td>Niño 3.4 sea surface temperature, weekly, 1981–</td>
+<td><a href="https://www.cpc.ncep.noaa.gov/data/indices/">NOAA Climate Prediction Center</a></td>
+<td>Public domain (US government work); reshaped here, not official NOAA output</td>
+</tr>
+<tr class="even">
+<td>Dutch station temperatures, 1901–</td>
+<td>Source: <a href="https://www.knmi.nl/nederland-nu/klimatologie/maandgegevens">Royal Netherlands Meteorological Institute (KNMI)</a></td>
+<td>Free to use with KNMI acknowledged as source; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> on the KNMI Data Platform. Converted to °C here</td>
+</tr>
+<tr class="odd">
+<td>COVID-19 deaths by country, 2020</td>
+<td>World Health Organization, via <a href="https://ourworldindata.org/coronavirus">Our World in Data</a></td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="even">
+<td>World population in extreme poverty, 1820–2015</td>
+<td>Ravallion, Bourguignon &amp; Morrisson, and World Bank — processed by <a href="https://ourworldindata.org/poverty">Our World in Data</a></td>
+<td>World Bank part <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the earlier figures are cited from Bourguignon &amp; Morrisson (2002)</td>
+</tr>
+<tr class="odd">
+<td>Global income growth by percentile, 1988–2008</td>
+<td>Digitised from Lakner &amp; Milanovic (2013), World Bank <a href="https://hdl.handle.net/10986/16935">WPS 6719</a></td>
+<td><a href="https://creativecommons.org/licenses/by/3.0/igo/">CC BY 3.0 IGO</a></td>
+</tr>
+<tr class="even">
+<td>Income, life expectancy, population</td>
+<td>Based on free material from <a href="https://www.gapminder.org">GAPMINDER.ORG</a>, CC-BY LICENSE (via Jenny Bryan’s <code>gapminder</code>, and Gapminder’s <a href="https://github.com/open-numbers/ddf--gapminder--systema_globalis">open-numbers</a> data as of October 2016)</td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="odd">
+<td>Bible cross-references</td>
+<td><a href="https://www.openbible.info/labs/cross-references/">OpenBible.info</a>, mostly from the public-domain <em>Treasury of Scripture Knowledge</em></td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="even">
+<td>Development indicators</td>
+<td>World Bank, <a href="https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators">World Development Indicators</a></td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="odd">
+<td>Florida murders by firearm, 1971–2020</td>
+<td>Florida Dept of Law Enforcement, Uniform Crime Reports</td>
+<td>Florida public record</td>
+</tr>
+<tr class="even">
+<td>Documented civilian deaths in Iraq</td>
+<td><a href="https://www.iraqbodycount.org">Iraq Body Count</a></td>
+<td>© Iraq Body Count; cited, <strong>not served</strong></td>
+</tr>
+<tr class="odd">
+<td>Star catalogue, 67,074 stars</td>
+<td><a href="https://codeberg.org/astronexus/hyg">HYG Database v4.1</a>, astronexus; subset to stars within 250 pc</td>
+<td><strong><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></strong></td>
+</tr>
+<tr class="even">
+<td>CP 1919 pulse profiles, 80 × 300</td>
+<td>Michael Zöllner’s tracing of the <em>Unknown Pleasures</em> sleeve, as data by <a href="https://gist.github.com/borgar/31c1e476b8e92a11d7e9">Borgar Þorsteinsson</a></td>
+<td><strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></strong></td>
+</tr>
+<tr class="odd">
+<td>The Datasaurus dozen</td>
+<td>Matejka &amp; Fitzmaurice (2017), Autodesk Research, via the <a href="https://cran.r-project.org/package=datasauRus"><code>datasauRus</code></a> R package</td>
+<td>MIT (<code>datasauRus</code>)</td>
+</tr>
+<tr class="even">
+<td>Nightingale, Snow, Minard digitisations</td>
+<td>Friendly, <a href="https://cran.r-project.org/package=HistData"><code>HistData</code></a>; Pearson &amp; Short; Dodson &amp; Tobler (NCGIA); Wilkinson</td>
+<td>Public domain sources; extracted from <code>HistData</code> (GPL)</td>
+</tr>
+<tr class="odd">
+<td>Playfair’s wheat and wages, 1565–1821</td>
+<td>Digitised from Playfair’s 1821 chart; <code>Wheat</code> and <code>Wheat.monarchs</code> in <a href="https://cran.r-project.org/package=HistData"><code>HistData</code></a></td>
+<td>Public domain source; extracted from <code>HistData</code> (GPL)</td>
+</tr>
+<tr class="even">
+<td>van Langren’s longitudes, 1644</td>
+<td>Friendly, Valero-Mora &amp; Ibáñez Ulargui (2010), via <code>HistData</code></td>
+<td>Public domain source; the digitisation is <a href="https://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a> at datavis.ca and GPL in <code>HistData</code></td>
+</tr>
+<tr class="odd">
+<td>News headline sentiment, 47 outlets, 2000–2019</td>
+<td><a href="https://doi.org/10.5281/zenodo.5144113">Rozado, Hughes &amp; Halberstadt (2022)</a>; per-outlet yearly means</td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="even">
+<td>PISA 2022 mathematics, 81 education systems</td>
+<td>OECD (2023), PISA 2022 Database, via the <a href="https://nces.ed.gov/surveys/pisa/pisa2022/">National Center for Education Statistics</a></td>
+<td>OECD data terms: free reuse crediting the OECD, and anyone reusing it from here must credit the OECD too. NCES pages: public domain</td>
+</tr>
+<tr class="odd">
+<td>Illiteracy, 1870–1930, by race</td>
+<td>Snyder (ed.), <em>120 Years of American Education</em>, NCES 93-442 (1993), Table 6</td>
+<td>Public domain (US government work)</td>
+</tr>
+<tr class="even">
+<td>Political blogosphere network, 2004</td>
+<td>Adamic &amp; Glance (2005), via <a href="http://www-personal.umich.edu/~mejn/netdata/">Mark Newman</a></td>
+<td>No formal licence; “free for scientific use”, posted with Adamic’s permission</td>
+</tr>
+<tr class="odd">
+<td>Reproducibility Project: Psychology</td>
+<td><a href="https://osf.io/ezcuj/">Open Science Collaboration</a></td>
+<td><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></td>
+</tr>
+<tr class="even">
+<td>Many Analysts, One Data Set</td>
+<td><a href="https://osf.io/gvm2z/">Silberzahn et al.</a></td>
+<td><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></td>
+</tr>
+<tr class="odd">
+<td>Feed experiment, studies 1 and 2</td>
+<td><a href="https://osf.io/zw6pb/">Masur &amp; Parry (2026)</a></td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <strong>not served</strong> — download from OSF</td>
+</tr>
+<tr class="even">
+<td>BCG vaccine trials, 13 studies</td>
+<td>Colditz et al.&nbsp;(1994), via the <a href="https://cran.r-project.org/package=metadat"><code>metadat</code></a> R package</td>
+<td>GPL ≥ 2</td>
+</tr>
+<tr class="odd">
+<td>Synthetic pairfam wave (media use and well-being)</td>
+<td><a href="https://github.com/ccs-amsterdam/r-course-material">CCS Amsterdam R course material</a></td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Synthetic, not survey data; <code>id</code> replaced by row number</td>
+</tr>
+<tr class="even">
+<td>2020 US presidential election by county</td>
+<td><a href="https://github.com/tonmcg/US_County_Level_Election_Results_08-24">Tony McGovern</a>, compiled from Fox News, Politico and New York Times results</td>
+<td><a href="https://opensource.org/license/mit">MIT</a>, © 2025 Tony McGovern</td>
+</tr>
+<tr class="odd">
+<td>US prices, incomes, GDP, minimum wage, Fed balance sheet</td>
+<td>BLS, Census Bureau, BEA, Dept of Labor, Federal Reserve Board, via <a href="https://fred.stlouisfed.org">FRED</a></td>
+<td>Public domain (US government works); cited “Source: agency via FRED”, as FRED asks</td>
+</tr>
+<tr class="even">
+<td>GDP per capita, eight countries</td>
+<td>World Bank WDI, via FRED</td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr class="odd">
+<td>Real residential property prices, six countries</td>
+<td>National sources, <a href="https://www.bis.org/statistics/pp.htm">BIS Residential Property Price database</a>, via FRED</td>
+<td><a href="https://data.bis.org/help/legal">BIS terms</a>: free use with the BIS cited as source</td>
+</tr>
+<tr class="even">
+<td>Democracy indices, 179 countries</td>
+<td>Coppedge et al.&nbsp;(2026), <a href="https://doi.org/10.23696/vdemds26">V-Dem Dataset v16</a>, V-Dem Institute</td>
+<td><strong><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></strong></td>
+</tr>
+<tr class="odd">
+<td>Titanic; US state and county outlines</td>
+<td><code>datasets</code>, <code>ggplot2</code> and <code>maps</code>, shipped with R</td>
+<td>Part of R</td>
+</tr>
+</tbody>
+</table>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>CONDITIONS THAT TRAVEL WITH THE DATA</p>
+</div>
+<p>Three datasets are <strong>share-alike</strong>, and the files and anything substantially derived from them keep that licence rather than this site’s: the HYG star catalogue and the V-Dem indices (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>), and the CP 1919 profiles (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, which is also <strong>non-commercial</strong>: teaching qualifies, but it is a condition rather than a blanket permission). The van Langren digitisation is non-commercial at its source too.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>REPRODUCED CHARTS</p>
+</div>
+<p>Each gallery exhibit that shows an original carries a full credit line directly under the image. Their status divides four ways:</p>
+<ul>
+<li><strong>Public domain</strong>: van Langren (1644), Playfair (1821, Charts No.&nbsp;1 and No.&nbsp;3), Minard (1869 and 1858), Nightingale (1858), Snow (1855), Mayr (1877), Sankey (1898), Du Bois and Atlanta University’s chart for the 1900 Paris Exposition (US public domain), and the National Center for Education Statistics’ PISA 2022 table (a US federal work). Credited anyway, because academic practice asks for it even where the law does not.</li>
+<li><strong>Freely licensed</strong>: Hawkins’s warming stripes, Tyler Vigen’s <em>Spurious Correlations</em> chart shown in week 2’s deck, and Rozado, Hughes &amp; Halberstadt’s headline-sentiment figure from <em>PLOS ONE</em> (all <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); Powell’s Hertzsprung–Russell diagram and Drlovedrake’s vote-scaled election cartogram (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>); the Reproducibility Project and Many Analysts figures, and Magog the Ogre’s county election map (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>); and Gapminder World 2015 (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; their licence names the wording to use, and the exhibit carries it verbatim: <em>“Based on a free chart from www.gapminder.org”</em>). Each keeps its own licence, not this site’s. Benkler, Faris &amp; Roberts’s media ecosystem map is also openly licensed but more tightly: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, which is why it appears here unmodified and with its own caption. Wolfgang Viechtbauer’s forest plot from the metafor documentation is <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, shown unmodified on this non-commercial site.</li>
+<li><strong>Copyrighted, quoted for criticism</strong>: Peter Saville’s <em>Unknown Pleasures</em> sleeve, Simon Scarr’s <em>Iraq’s bloody toll</em>, Autodesk Research’s Datasaurus figure, Chris Harrison and Christoph Römhild’s <em>Bible Cross-References</em>, and Orben &amp; Przybylski’s specification curve (<em>Nature Human Behaviour</em>, 2019; shown from the author-deposited accepted manuscript at <a href="https://ora.ox.ac.uk/objects/uuid:5d844350-a359-47d3-b10c-4bfb93ce613b">ORA</a>). Reproduced at low resolution under the Dutch citation right (<a href="https://wetten.overheid.nl/BWBR0001886/">Auteurswet art. 15a</a>), which permits quotation for criticism and review where the source is named and the extent is proportionate. Every exhibit page is a critique of the specific work it shows, which is what makes this available. <strong>These cannot be reused from here.</strong></li>
+<li><strong>Reproduced by its own author</strong>: Figure 3 of Masur &amp; Parry (2026), <em>Technology, Mind, and Behavior</em>. © American Psychological Association; shown here by one of the article’s authors under standard APA author reuse rights for teaching. <strong>Not reusable from here.</strong></li>
+</ul>
+<div class="dsvar-caption">
+<p>The full copyright position for every case, including the ones whose original is not shown and why, is in <code>gallery/ORIGINALS.md</code> in the repository.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>SOFTWARE</p>
+</div>
+<p>Built with <a href="https://quarto.org">Quarto</a> and <a href="https://www.r-project.org">R</a>. Charts use ggplot2, with ggalluvial, ggraph, tidygraph, ggrepel, patchwork, ggridges, svglite and ragg. Type is <a href="https://fonts.google.com/specimen/Space+Grotesk">Space Grotesk</a> and <a href="https://fonts.google.com/specimen/IBM+Plex+Sans">IBM Plex Sans</a>, both under the SIL Open Font License.</p>
+<p>The design system is forked from the sibling course <a href="https://github.com/masurp/cadc">CADC</a>, retuned to a green palette.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>CORRECTIONS</p>
+</div>
+<div class="dsvar-refrain">
+<p>If something here is misattributed, under-credited, or reproduced where it should not be, that is a mistake rather than a position. Say so and it will be fixed or removed. A course about honest charts should be easy to correct.</p>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="./setup.html">Setup help</a> · <a href="./credits.html">Credits &amp; licences</a> · <a href="./privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Gallery · Conditional effects – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>Gallery · Distribution &amp; uncertainty · <a href="../gallery.html">back to the gallery</a></p>
+</div>
+<section id="conditional-effects" class="level1">
+<h1>Conditional effects</h1>
+<div class="dsvar-lede">
+<p>The plot you reach for when an effect is supposed to depend on something else. It comes in two flavours (sample the moderator at three points, or draw the effect across all of it), and they lead readers to different conclusions from the same model. This one is from my own data, and the choices below are ones I actually had to make.</p>
+</div>
+</section>
+</div>
+<div style="height:2rem">
+
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE ORIGINAL</p>
+</div>
+<p><img src="img/conditional-effects-original.png" class="img-fluid" style="width:100.0%" alt="Figure 3 of Masur &amp; Parry (2026): six conditional-effect panels, moderator on the x axis, conditional effect on the y axis, with confidence ribbons and Johnson-Neyman cut points."></p>
+<div class="dsvar-attrib">
+<p><em>Figure 3</em> from Masur, P. K., &amp; Parry, D. A. (2026). When sharing becomes the norm: How disclosure prevalence and relational similarity shape social norms on social media. <em>Technology, Mind, and Behavior</em>. © American Psychological Association; reproduced here by one of its authors for teaching. Data: <a href="https://osf.io/zw6pb/">osf.io/zw6pb</a>.</p>
+</div>
+<p>Study 1 sat participants in front of a simulated social feed in which the share of personal disclosures was high or low, and afterwards asked them what they thought was normal on that platform and how likely they were to post something personal themselves. The question the figure answers is whether that chain runs differently for people who felt similar to the others in the feed.</p>
+<div class="dsvar-key">
+<div class="dsvar-key__title">
+<p>How to read it</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The x axis is the moderator</strong>: felt similarity, mean-centred, so 0 is the average participant.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The y axis is an effect, not an outcome</strong>: the slope you would get if you ran the analysis on people at that value of the moderator. That is what makes the genre hard: every point on the line is a whole regression coefficient.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The horizontal dashed line is zero</strong>, i.e.&nbsp;no effect. Where the ribbon crosses it, the effect is no longer distinguishable from nothing.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The vertical dashed line is the Johnson–Neyman point</strong>: the value of the moderator at which the interval first excludes zero. Teal to the right of it, red to the left: significant, then not.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>Panels A–C are the visual-disclosure route, D–F the written one</strong>: the effect of the feed on what people think is normal (path <em>a</em>), the effect of that perception on their own intention (path <em>b</em>), and the indirect effect, the two multiplied.</p>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE RECREATION</p>
+</div>
+<p>The top row of the original, rebuilt from the open data in ggplot. Two changes: the x axis carries the raw 1–7 similarity scale rather than the centred one, because “similarity = 0” is not a thing a reader can picture, and the significant/not split is stated in the legend rather than left to be inferred from two colours.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The indirect effect is a product of two estimated slopes, so its interval is</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># not a delta-method sum. Percentile bootstrap: resample participants, refit</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># both equations, multiply, and read the quantiles off the 1000 curves.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>boot <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  s  <span class="ot">&lt;-</span> d1[<span class="fu">sample.int</span>(<span class="fu">nrow</span>(d1), <span class="at">replace =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  fa <span class="ot">&lt;-</span> <span class="fu">lm</span>(norm <span class="sc">~</span> prev_vis <span class="sc">*</span> sim_c <span class="sc">+</span> prev_wri, <span class="at">data =</span> s)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  fb <span class="ot">&lt;-</span> <span class="fu">lm</span>(intention <span class="sc">~</span> norm <span class="sc">*</span> sim_c <span class="sc">+</span> inj <span class="sc">+</span> prev_vis <span class="sc">+</span> prev_wri, <span class="at">data =</span> s)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">coef</span>(fa)[[<span class="st">"prev_vis"</span>]] <span class="sc">+</span> <span class="fu">coef</span>(fa)[[<span class="st">"prev_vis:sim_c"</span>]] <span class="sc">*</span> w_grid) <span class="sc">*</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">coef</span>(fb)[[<span class="st">"norm"</span>]]     <span class="sc">+</span> <span class="fu">coef</span>(fb)[[<span class="st">"norm:sim_c"</span>]]     <span class="sc">*</span> w_grid)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>panels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"A · Path a: effect of the feed on what people think is normal"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"B · Path b: effect of that perception on their own intention"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C · a × b: the indirect effect of the feed on intention"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cond_effect</span>(m_a, <span class="st">"prev_vis"</span>, <span class="st">"prev_vis:sim_c"</span>, w_grid) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">panel =</span> panels[<span class="dv">1</span>]),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cond_effect</span>(m_b, <span class="st">"norm"</span>,     <span class="st">"norm:sim_c"</span>,     w_grid) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">panel =</span> panels[<span class="dv">2</span>]),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">w   =</span> w_grid,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">est =</span> (<span class="fu">coef</span>(m_a)[[<span class="st">"prev_vis"</span>]] <span class="sc">+</span> <span class="fu">coef</span>(m_a)[[<span class="st">"prev_vis:sim_c"</span>]] <span class="sc">*</span> w_grid) <span class="sc">*</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>               (<span class="fu">coef</span>(m_b)[[<span class="st">"norm"</span>]]     <span class="sc">+</span> <span class="fu">coef</span>(m_b)[[<span class="st">"norm:sim_c"</span>]]     <span class="sc">*</span> w_grid),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">lwr =</span> <span class="fu">apply</span>(boot, <span class="dv">1</span>, quantile, .<span class="dv">025</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">upr =</span> <span class="fu">apply</span>(boot, <span class="dv">1</span>, quantile, .<span class="dv">975</span>),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">panel =</span> panels[<span class="dv">3</span>])</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">panel      =</span> <span class="fu">factor</span>(panel, <span class="at">levels =</span> panels),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">similarity =</span> w <span class="sc">+</span> mean_sim,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">sig =</span> <span class="fu">if_else</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">|</span> upr <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"95% CI excludes zero"</span>, <span class="st">"95% CI includes zero"</span>))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># The Johnson-Neyman point is simply where that label changes.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>jn <span class="ot">&lt;-</span> ce <span class="sc">|&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(panel) <span class="sc">|&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sig <span class="sc">!=</span> <span class="fu">lag</span>(sig, <span class="at">default =</span> <span class="fu">first</span>(sig))) <span class="sc">|&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>pal_sig <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"95% CI excludes zero"</span> <span class="ot">=</span> dsvar_cat[<span class="dv">1</span>],</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>             <span class="st">"95% CI includes zero"</span> <span class="ot">=</span> dsvar_cat[<span class="dv">3</span>])</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ce, <span class="fu">aes</span>(similarity, est)) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> .<span class="dv">4</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>hairline) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr, <span class="at">fill =</span> sig), <span class="at">alpha =</span> .<span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour =</span> sig, <span class="at">group =</span> <span class="dv">1</span>), <span class="at">linewidth =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> jn, <span class="fu">aes</span>(<span class="at">xintercept =</span> similarity), <span class="at">linetype =</span> <span class="st">"22"</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> .<span class="dv">4</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>muted) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>panel, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="dv">34</span>)) <span class="sc">+</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal_sig, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal_sig, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Felt similarity to the people in the feed (1–7)"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Conditional effect"</span>) <span class="sc">+</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="conditional-effects_files/figure-html/jn-1.png" class="img-fluid figure-img" alt="Three conditional-effect panels. Path a falls from about 2.7 to 1.5 as similarity rises and never approaches zero. Path b rises from about 0.05 to 0.37 and crosses into significance at a similarity of about 2.8. The indirect effect rises from about 0.15 to 0.55 and crosses into significance at about 3.2." width="2400"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>n = 589 participants. Path <em>a</em> from <code>norm ~ prevalence * similarity</code>, path <em>b</em> from <code>intention ~ norm * similarity</code>, both holding the written-disclosure manipulation constant and path <em>b</em> also holding the injunctive norm constant. Ribbons are 95% intervals: delta method for <em>a</em> and <em>b</em>, 1000-sample percentile bootstrap for the product. Dashed verticals mark the Johnson–Neyman points.</p>
+</div>
+<div class="dsvar-note dsvar-note--check">
+<div class="dsvar-note__label">
+<p>CHECKED AGAINST THE PUBLISHED FIGURE</p>
+</div>
+<p>The shapes match and the moderation is the same in sign and size, but the recreation sits a little higher than the printed panels and its cut points sit further left. Published panel A runs from about 2.26 down to 1.06 across the similarity range; ours runs from 2.65 to 1.49: the same −0.2 per scale point, shifted up. Published panel B turns significant at about −1.6 centred; ours at about −2.2. The paper applies exclusions derived from participants’ browsing logs which are not in the open file, so our 589 is the larger sample. Nothing in the conclusion moves, but the Johnson–Neyman point does, by most of a scale point. The cut point is the least stable number on the whole figure, and it is the one readers quote.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE SAME MODERATION, PICK-A-POINT</p>
+</div>
+<p>The other way to draw this. Instead of the effect at every value of the moderator, choose a few values (by convention the mean and one standard deviation either side) and plot the ordinary outcome-by-condition picture once per value. It uses the same model and the same data, and estimates nothing new.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span>sd_sim, <span class="dv">0</span>, sd_sim)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"low similarity (−1 SD)"</span>, <span class="st">"average similarity"</span>, <span class="st">"high similarity (+1 SD)"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted norm perception in each feed, at each of the three chosen values.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>pap <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(<span class="at">prev_vis =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">sim_c =</span> pts) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prev_wri =</span> <span class="fu">mean</span>(d1<span class="sc">$</span>prev_wri))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>pap <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(pap, <span class="fu">as_tibble</span>(<span class="fu">predict</span>(m_a, pap, <span class="at">interval =</span> <span class="st">"confidence"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">level =</span> <span class="fu">factor</span>(lab[<span class="fu">match</span>(sim_c, pts)], <span class="at">levels =</span> lab),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">feed  =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(prev_vis <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"many personal posts"</span>, <span class="st">"few personal posts"</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">levels =</span> <span class="fu">levels</span>(d1<span class="sc">$</span>feed)))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># The slope of each of those three lines is one conditional effect.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>slopes <span class="ot">&lt;-</span> <span class="fu">cond_effect</span>(m_a, <span class="st">"prev_vis"</span>, <span class="st">"prev_vis:sim_c"</span>, pts) <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">level =</span> <span class="fu">factor</span>(lab, <span class="at">levels =</span> lab), <span class="at">similarity =</span> w <span class="sc">+</span> mean_sim)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>curve_a <span class="ot">&lt;-</span> <span class="fu">cond_effect</span>(m_a, <span class="st">"prev_vis"</span>, <span class="st">"prev_vis:sim_c"</span>, w_grid) <span class="sc">|&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">similarity =</span> w <span class="sc">+</span> mean_sim)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>pal3 <span class="ot">&lt;-</span> <span class="fu">setNames</span>(dsvar_ramp_light[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)], lab)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>p_pap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pap, <span class="fu">aes</span>(feed, fit, <span class="at">colour =</span> level, <span class="at">group =</span> level)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr), <span class="at">linewidth =</span> .<span class="dv">9</span>, <span class="at">alpha =</span> .<span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.4</span>) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal3, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pick-a-point"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The moderator sampled at three values"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Feed the participant browsed"</span>, <span class="at">y =</span> <span class="st">"Perceived norm (1–7)"</span>) <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>p_curve <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(curve_a, <span class="fu">aes</span>(similarity, est)) <span class="sc">+</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr), <span class="at">fill =</span> dsvar_cat[<span class="dv">1</span>], <span class="at">alpha =</span> .<span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> dsvar_cat[<span class="dv">1</span>], <span class="at">linewidth =</span> .<span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="at">data =</span> slopes, <span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr, <span class="at">colour =</span> level),</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                 <span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> slopes, <span class="fu">aes</span>(<span class="at">colour =</span> level), <span class="at">size =</span> <span class="fl">2.6</span>) <span class="sc">+</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal3, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"… are three points on this curve"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Panel A again, with those three values marked"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Felt similarity (1–7)"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Effect of the feed on perceived norm"</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>p_pap <span class="sc">+</span> p_curve</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="conditional-effects_files/figure-html/pick-a-point-1.png" class="img-fluid figure-img" alt="Left: three near-parallel lines rising from the few-posts to the many-posts feed, one for each of low, average and high similarity, converging slightly. Right: the continuous conditional-effect curve for path a with those three values marked on it as points with intervals." width="2200"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>Left: predicted perceived norm from <code>m_a</code>, with the written-disclosure manipulation held at its sample mean; vertical bars are 95% intervals on the prediction. Right: panel A of the recreation, with the three chosen values of the moderator marked. The three slopes on the left are the three points on the right: 2.11, 1.87 and 1.62 scale points.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHICH ONE TO DRAW</p>
+</div>
+<div class="dsvar-critique">
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>What pick-a-point gets right</p>
+</div>
+<p>Its y axis is a quantity the reader already understands, a score on the scale the study measured, so it can be checked against the data and against common sense. It shows the <em>size</em> of the thing: the feed moves perceived norms by roughly two points on a seven-point scale at every level of similarity, which is large, and the moderation shrinks it by a quarter of a point, which is not. Three near-parallel lines are an honest picture of that.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>What pick-a-point hides</p>
+</div>
+<p>The three values are a choice, and the plot does not admit it. ±1 SD is a convention, not a fact about the moderator; on a skewed or bounded moderator the “high” line can sit at a value almost nobody scored. Worse, the picture is unfalsifiable at a glance: three lines that are not quite parallel look like a moderation whether the interaction is significant or noise, which is exactly how a small wobble gets promoted into a finding.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>What the conditional-effect plot gets right</p>
+</div>
+<p>It stops choosing. The whole moderator range is on the page, the interval is drawn everywhere, and the reader can see that path <em>a</em> is comfortably non-zero across the entire scale while path <em>b</em> is not. It is also the only one of the two that makes the uncertainty in the <em>interaction</em> visible: the ribbon fans out towards the ends of the scale, where there are few participants, and that fanning is the honest reason not to extrapolate.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>What it hides: the significance-region trap</p>
+</div>
+<p>Colouring the line by whether the interval excludes zero invites the reading that the effect <em>switches on</em> at the cut point. It does not. Nothing happens at similarity 2.8; an interval that just includes zero and one that just excludes it are the same estimate with a rounding error between them. And as the check above shows, moving that cut point by most of a scale point took nothing more than a different exclusion rule. Draw the ribbon; be very careful about quoting the number where it crosses.</p>
+</div>
+<div class="dsvar-crit__step dsvar-crit__step--verdict">
+<div class="dsvar-crit__k">
+<p>The verdict</p>
+</div>
+<p>Draw both, in this order. Pick-a-point first, because it answers “how big, on what scale” and keeps the reader anchored to the measurement. The conditional-effect plot second, because it answers “does this hold everywhere” and shows the uncertainty the first one leaves out. Neither is a substitute for the other, and a paper that shows only the second (which is most of them) has told you where an effect is significant without ever telling you how large it is.</p>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHAT THE MODEL ACTUALLY SAYS</p>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(m_a, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">equation =</span> <span class="st">"Path a · norm"</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(m_b, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">equation =</span> <span class="st">"Path b · intention"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(term, <span class="st">":"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Equation =</span> equation,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">Interaction term</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_replace_all</span>(term, <span class="fu">c</span>(<span class="st">"prev_vis"</span> <span class="ot">=</span> <span class="st">"prevalence"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                                         <span class="st">"sim_c"</span>    <span class="ot">=</span> <span class="st">"similarity"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                                                         <span class="st">"norm"</span>     <span class="ot">=</span> <span class="st">"perceived norm"</span>)),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">95% CI</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"[%.2f, %.2f]"</span>, conf.low, conf.high),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">p =</span> <span class="fu">round</span>(p.value, <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Equation</th>
+<th style="text-align: left;">Interaction term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: left;">95% CI</th>
+<th style="text-align: right;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Path a · norm</td>
+<td style="text-align: left;">prevalence:similarity</td>
+<td style="text-align: right;">-0.193</td>
+<td style="text-align: left;">[-0.36, -0.02]</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Path b · intention</td>
+<td style="text-align: left;">perceived norm:similarity</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: left;">[0.01, 0.10]</td>
+<td style="text-align: right;">0.016</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Both interactions are real but small. The feed’s effect on perceived norms weakens by 0.19 scale points per point of similarity, against a main effect of 1.87, so over the whole observed range the effect shrinks from about 2.6 to 1.5, and never comes close to vanishing. That is the number the pick-a-point panel puts in front of you and the conditional-effect panel makes you infer from an axis of slopes.</p>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>THE SENTENCE TO AVOID</p>
+</div>
+<p>“The effect of the feed was significant only for participants high in similarity.” Look at panel A: it is significant <em>everywhere</em>, and it is <em>stronger</em> for participants low in similarity. The sentence is about path <em>b</em>, where the cut point lives, and even there it means “our sample was too small to resolve a small effect down at that end of the scale”, not “the effect is absent there”. A conditional-effect plot is a map of what this study could detect, not of where the effect exists.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE RULE THIS CASE EXISTS FOR</p>
+</div>
+<div class="dsvar-refrain">
+<p>A conditional-effects plot is a picture of a model, not of the world. Put the effect size on a scale the reader can hold (pick-a-point), then put the uncertainty everywhere it goes, across the whole moderator (the conditional-effect curve). Show one without the other and you have either a moderation nobody can falsify or a cut point nobody should quote.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>SOURCES</p>
+</div>
+<ul>
+<li><strong>Study and data:</strong> Masur, P. K., &amp; Parry, D. A. (2026). When sharing becomes the norm. <em>Technology, Mind, and Behavior</em>. Materials and data: <a href="https://osf.io/zw6pb/">osf.io/zw6pb</a>, CC BY 4.0; download the data there; this site does not serve its own copy. The original figure is Figure 3; this page recreates panels A–C.</li>
+<li><strong>The method:</strong> Johnson, P. O., &amp; Neyman, J. (1936). Tests of certain linear hypotheses and their application to some educational problems. <em>Statistical Research Memoirs</em>, 1, 57–93. Modern treatment: Hayes, A. F. (2022). <em>Introduction to Mediation, Moderation, and Conditional Process Analysis</em> (3rd ed.), ch.&nbsp;12.</li>
+<li><strong>On drawing the interval:</strong> Wilke, C. O. (2019). <em>Fundamentals of Data Visualization</em>, ch.&nbsp;16, “Visualizing uncertainty”.</li>
+<li><strong>Reproduce it:</strong> <code>Rscript R/fetch-gallery-data.R</code> pulls the study data; every figure on this page is built by the code shown above it.</li>
+</ul>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="../setup.html">Setup help</a> · <a href="../credits.html">Credits &amp; licences</a> · <a href="../privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Gallery · The specification curve – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>Gallery · Distribution &amp; uncertainty · <a href="../gallery.html">back to the gallery</a></p>
+</div>
+<section id="the-specification-curve" class="level1">
+<h1>The specification curve</h1>
+<div class="dsvar-lede">
+<p>Every defensible analysis at once. Where <a href="../gallery/many-analysts.html">many analysts</a> hands a dataset to twenty-nine teams, this form does the same job with one team and a loop. This is the closest a chart gets to showing you the space of answers a paper could have reported.</p>
+</div>
+</section>
+</div>
+<div style="height:2rem">
+
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE ORIGINAL</p>
+</div>
+<p><img src="img/specification-curve-original.png" class="img-fluid" style="width:100.0%" alt="Orben and Przybylski's specification curve: several hundred standardised regression coefficients ordered by size in an upper panel, with a lower dashboard of marks showing which analytic choices produced each one."></p>
+<div class="dsvar-attrib">
+<p><em>Figure 1</em> from Orben, A., &amp; Przybylski, A. K. (2019). The association between adolescent well-being and digital technology use. <em>Nature Human Behaviour, 3</em>, 173–182. Accepted-manuscript version, deposited by the authors at the <a href="https://ora.ox.ac.uk/objects/uuid:5d844350-a359-47d3-b10c-4bfb93ce613b">Oxford University Research Archive</a>. © Orben &amp; Przybylski 2019; the article itself is not open access. Reproduced here at reduced resolution as a quotation for criticism and review — see <a href="https://github.com/masurp/data-viz/blob/main/gallery/ORIGINALS.md">ORIGINALS.md</a>.</p>
+</div>
+<p>Amy Orben and Andrew Przybylski ran the screen-time-and-wellbeing question across every defensible analysis of the same survey data, and plotted every result. The famous conclusion, that the association is about the size of the association with eating potatoes, only means anything because the whole distribution is on the page. This is the Youth Risk and Behaviour Survey panel; two more, on 40,000 and 20,000 specifications, follow it in the paper.</p>
+<div class="dsvar-key">
+<div class="dsvar-key__title">
+<p>How to read it</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The upper panel is every result</strong>, one per analysis, sorted from most negative to most positive. It is a distribution of answers, not a time series.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw" style="background:#1a1a17"></span> <strong>Each point is one complete analysis</strong>: a particular well-being measure, technology measure and set of controls, run to completion. Black is significant, red is not.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The dashed horizontal line is the median</strong> of the whole curve: β = −.035 here. It is the paper’s headline number, and it is a summary of the distribution rather than a result of any one analysis.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>The lower panel is the recipe.</strong> Read straight down from any point and the marked rows tell you exactly which choices produced it.</p>
+</div>
+<div class="dsvar-key__row">
+<p><span class="dsvar-key__sw dsvar-key__sw--none"></span> <strong>Vertical bands of marks are the finding.</strong> <em>TV Use</em> is marked under the whole right-hand end and nowhere else: the choice of technology measure is doing most of the work.</p>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE CRITIQUE</p>
+</div>
+<div class="dsvar-critique">
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>01 · Describe</p>
+</div>
+<p>Two stacked panels sharing a horizontal axis. Above: a dense line or cloud of point estimates, ordered by size, usually with intervals. Below: a grid of small marks, one row per analytic option, aligned to the panel above.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>02 · Analyse</p>
+</div>
+<p>The horizontal axis is <em>rank</em>, not a variable: it exists only to order the results. That is unusual and it is the trick: it turns a set of unrelated analyses into a distribution you can read the shape of. The lower panel is a lookup table pretending to be a chart, and the alignment between the two is the entire mechanism.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>03 · Interpret</p>
+</div>
+<p>The claim is about the <em>robustness</em> of a result rather than its value. A curve that sits entirely on one side of zero says something a single estimate cannot; one that crosses zero says the headline depended on choices the reader never saw.</p>
+</div>
+<div class="dsvar-crit__step dsvar-crit__step--verdict">
+<div class="dsvar-crit__k">
+<p>04 · Judge</p>
+</div>
+<p>It works, with one limit: the curve contains only the specifications its author thought to include, so it looks exhaustive and is not. A specification curve is a much better summary than one regression, and it is still a set of choices about which choices to vary.</p>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE RECREATION</p>
+</div>
+<p>The survey data behind the original is registration-gated, so this runs the same question on a <strong>synthetic stand-in for one wave of <a href="https://www.pairfam.de/en/">pairfam</a></strong>: does adolescent media use go with worse well-being? The specifications are built with <a href="https://masurp.github.io/specr/">specr</a>, which turns the choices into a factorial design and fits every cell: three lines of set-up in place of a hand-written loop.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Every combination of these is one defensible analysis. specr expands the</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># controls into all four subsets (none, each, both) on its own, and `subsets`</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># additionally runs each specification on girls, on boys, and on everyone.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>specs <span class="ot">&lt;-</span> <span class="fu">setup</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data     =</span> d,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x        =</span> <span class="fu">c</span>(<span class="st">"tv_use"</span>, <span class="st">"sns_use"</span>, <span class="st">"internet_use"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y        =</span> <span class="fu">c</span>(<span class="st">"self_esteem"</span>, <span class="st">"depression"</span>, <span class="st">"depression_p1"</span>, <span class="st">"life_satisfaction_r"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">model    =</span> <span class="st">"lm"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"friend_satisfaction"</span>, <span class="st">"age"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">subsets  =</span> <span class="fu">list</span>(<span class="at">gender =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">specr</span>(specs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p><code>specr()</code> fits all of them and returns one row per analysis. The package’s own <code>plot()</code> turns that into a specification curve in a single line, with no ggplot written at all:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="specification-curve_files/figure-html/curve-specr-1.png" class="img-fluid figure-img" alt="specr's default plot of the same 144 specifications: panel A is the ranked curve of estimates with confidence intervals, panel B a dashboard of tick marks showing the predictor, outcome, model, controls and subset behind each estimate." width="2000"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>The package default, straight out of <code>plot(results)</code>: every estimate ranked by size above, the dashboard of choices below. Fine for looking at your own results. Not yet a figure for a reader: the labels are column names, there is no median, and a <em>model</em> row is shown even though only one model was fitted.</p>
+</div>
+<p>That is not where specr stops, because <code>results$data</code> is an ordinary tibble: one row per specification, with the estimate, its interval, its <em>p</em>-value and the choices that produced it as columns, and anything ggplot can draw can be drawn from it. Here is the same curve built by hand, with plain labels, a median line, the dashboard grouped by kind of choice, and the site’s colours.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># results$data is a plain tibble, so from here on this is ordinary ggplot:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># every choice below is one plot() makes for you and you can make differently.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(results<span class="sc">$</span>data) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">subsets =</span> <span class="fu">replace_na</span>(<span class="fu">as.character</span>(subsets), <span class="st">"all"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(estimate) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">sig  =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(p.value <span class="sc">&lt;</span> .<span class="dv">05</span>, <span class="st">"p &lt; .05"</span>, <span class="st">"not significant"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"p &lt; .05"</span>, <span class="st">"not significant"</span>)))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>pal  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"p &lt; .05"</span> <span class="ot">=</span> dsvar_cat[<span class="dv">1</span>], <span class="st">"not significant"</span> <span class="ot">=</span> <span class="st">"#a5a199"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>med  <span class="ot">&lt;-</span> <span class="fu">median</span>(r<span class="sc">$</span>estimate)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>curve <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(r, <span class="fu">aes</span>(rank, estimate)) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>ink_3) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> med, <span class="at">linetype =</span> <span class="st">"22"</span>, <span class="at">linewidth =</span> .<span class="dv">4</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> dsvar_light<span class="sc">$</span>muted) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high, <span class="at">colour =</span> sig),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">linewidth =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">55</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> sig), <span class="at">size =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> med, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">3.1</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> dsvar_light<span class="sc">$</span>muted,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"median β = %.3f"</span>, med)) <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standardised β"</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># The dashboard. One row per option, a mark wherever that option was used —</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># and the marks carry the same colour as the estimate above them, so a band of</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># grey in one row is visible as "this choice is where the effect disappears".</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>nice <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">tv_use =</span> <span class="st">"TV use"</span>, <span class="at">sns_use =</span> <span class="st">"social media use"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">internet_use =</span> <span class="st">"internet use"</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">self_esteem =</span> <span class="st">"self-esteem"</span>, <span class="at">depression =</span> <span class="st">"depression"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">depression_p1 =</span> <span class="st">"depression (subscale)"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">life_satisfaction_r =</span> <span class="st">"life satisfaction"</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>          <span class="st">"no covariates"</span> <span class="ot">=</span> <span class="st">"no controls"</span>,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>          <span class="at">friend_satisfaction =</span> <span class="st">"+ friend satisfaction"</span>, <span class="at">age =</span> <span class="st">"+ age"</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>          <span class="st">"friend_satisfaction + age"</span> <span class="ot">=</span> <span class="st">"+ both"</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>          <span class="at">all =</span> <span class="st">"everyone"</span>, <span class="at">female =</span> <span class="st">"girls only"</span>, <span class="at">male =</span> <span class="st">"boys only"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>choices <span class="ot">&lt;-</span> r <span class="sc">|&gt;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rank, sig, x, y, controls, subsets) <span class="sc">|&gt;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(x, y, controls, subsets), <span class="at">names_to =</span> <span class="st">"block"</span>, <span class="at">values_to =</span> <span class="st">"choice"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">block  =</span> <span class="fu">factor</span>(block, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"controls"</span>, <span class="st">"subsets"</span>),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Predictor"</span>, <span class="st">"Outcome"</span>, <span class="st">"Controls"</span>, <span class="st">"Sample"</span>)),</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">choice =</span> <span class="fu">factor</span>(nice[choice], <span class="at">levels =</span> <span class="fu">rev</span>(nice)))</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>dash <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(choices, <span class="fu">aes</span>(rank, choice, <span class="at">colour =</span> sig)) <span class="sc">+</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">9</span>, <span class="at">shape =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(block <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>, <span class="at">switch =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Specifications, ranked by effect size"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dsvar</span>(<span class="at">base_size =</span> <span class="dv">9</span>, <span class="at">grid =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement  =</span> <span class="st">"outside"</span>,</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text.y.left =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.spacing.y  =</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">"pt"</span>))</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co"># cowplot rather than patchwork: the two panels have different y-label widths,</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co"># and align = "v", axis = "lr" is the reliable way to make the ranks line up.</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(curve, dash, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">"v"</span>, <span class="at">axis =</span> <span class="st">"lr"</span>,</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">rel_heights =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="specification-curve_files/figure-html/curve-1.png" class="img-fluid figure-img" alt="A specification curve. The upper panel shows 144 standardised regression coefficients with confidence intervals, sorted ascending, running from about -0.07 to 0.18 with a median of 0.07; most are positive and significant. The lower dashboard shows which predictor, outcome, control set and sample produced each estimate; the internet-use row sits under the large effects and the TV-use row under the small ones." width="2000"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>144 specifications on n = 3,130 cases. Estimates run from -0.072 to 0.184, median 0.070; 104 of 144 reach <em>p</em> &lt; .05. All variables standardised, so β is comparable across specifications. The four well-being indicators are positively inter-correlated in this file (<em>r</em> = .40 to .92), so they point the same way and a positive β means more media use goes with higher scores on all four. Synthetic pairfam data from Masur’s <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">specification curve tutorial</a>.</p>
+</div>
+<div class="dsvar-note dsvar-note--check">
+<div class="dsvar-note__label">
+<p>WHAT SPECR DOES AND WHAT IT DOES NOT</p>
+</div>
+<p><code>setup()</code> builds the factorial design and <code>specr()</code> fits it. <code>plot()</code> is the quick look; because the results are a tibble, the figure a reader sees can be whatever you build from it. The package removes the bookkeeping, not the thinking: the list of choices passed to <code>setup()</code> is still the whole argument, and it is the part no function can check for you.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHICH CHOICE MOVES THE RESULT</p>
+</div>
+<p>The curve tells you how robust the effect is. The dashboard tells you <em>which choice</em> moves it, and the eye is bad at reading that off a grid of marks. Fitting a mixed model to the 144 estimates, with a random intercept per kind of choice, answers it directly.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vc <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(estimate <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> x) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> y) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> controls) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> subsets),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> r) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  lme4<span class="sc">::</span><span class="fu">VarCorr</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">choice =</span> <span class="fu">recode</span>(grp, <span class="at">x =</span> <span class="st">"Which media measure"</span>, <span class="at">y =</span> <span class="st">"Which well-being measure"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">controls =</span> <span class="st">"Which controls"</span>, <span class="at">subsets =</span> <span class="st">"Which sample"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">Residual =</span> <span class="st">"Everything else (residual)"</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent =</span> <span class="dv">100</span> <span class="sc">*</span> vcov <span class="sc">/</span> <span class="fu">sum</span>(vcov))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vc, <span class="fu">aes</span>(percent, <span class="fu">fct_reorder</span>(choice, percent))) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="fu">dsvar_accent</span>(), <span class="at">width =</span> .<span class="dv">62</span>) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"%.0f%%"</span>, percent)), <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.25</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="fl">3.2</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>ink_3) <span class="sc">+</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">12</span>))) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The predictor and the sample do the work. The controls do nothing."</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Share of variance in the 144 estimates attributable to each kind of choice"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="specification-curve_files/figure-html/variance-1.png" class="img-fluid figure-img" alt="A bar chart of variance in the specification curve attributable to each kind of analytic choice: predictor 38 per cent, sample 34 per cent, residual 29 per cent, outcome and controls essentially zero." width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-refrain">
+<p>Any single one of these 144 analyses could have been written up as <em>the</em> result, with a perfectly honest methods section, and the number in the abstract would have run anywhere from -0.072 to 0.184 depending on which one the author ran first. The curve cannot remove that problem, but it makes it visible, which is the most a chart can do.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE SAME 144, WITHOUT THE RANK AXIS</p>
+</div>
+<p>The critique says the curve’s horizontal axis is rank rather than a variable, and that this is the trick. It is also the cost: sorting by effect size throws the design away, and the dashboard underneath is there to put it back one row at a time. These 144 analyses are a complete 3 × 4 × 4 × 3 factorial, so they do not need reconstructing: they can be laid out on their own axes, every cell filled exactly once. This is close to the grid Steegen and colleagues drew for the multiverse analysis four years before the curve became the standard form, and it answers a different question.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the R code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The four choices become two nested axes and two facets. Nothing is sorted, so</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># every position on this page means something.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pred_lab <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">tv_use =</span> <span class="st">"TV use"</span>, <span class="at">sns_use =</span> <span class="st">"social media use"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">internet_use =</span> <span class="st">"internet use"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>samp_lab <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">all =</span> <span class="st">"everyone"</span>, <span class="at">female =</span> <span class="st">"girls only"</span>, <span class="at">male =</span> <span class="st">"boys only"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>out_lab  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">self_esteem =</span> <span class="st">"self-esteem"</span>, <span class="at">depression =</span> <span class="st">"depression"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">depression_p1 =</span> <span class="st">"depression (sub)"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">life_satisfaction_r =</span> <span class="st">"life satisfaction"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ctrl_lab <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"no covariates"</span> <span class="ot">=</span> <span class="st">"none"</span>, <span class="at">friend_satisfaction =</span> <span class="st">"+ friends"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">age =</span> <span class="st">"+ age"</span>, <span class="st">"friend_satisfaction + age"</span> <span class="ot">=</span> <span class="st">"+ both"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Brown-to-teal rather than red-to-green: the sign is the whole point of this</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># scale, so it has to survive red-green colour vision deficiency. Neutral at</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># zero, and the limits are symmetric so equal-and-opposite betas read as equal.</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>div <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#8c5109"</span>, <span class="st">"#cf9a4a"</span>, <span class="st">"#e9e4d8"</span>, <span class="st">"#5ab4ac"</span>, <span class="st">"#01665e"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>lim <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(r<span class="sc">$</span>estimate))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># The number inside a cell sits on a fill that runs from near-white to near-</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># black, so the label colour is computed from the tile rather than guessed from</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># a cut-off on beta: take the actual hex, then whichever of ink and paper wins</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># on WCAG contrast.</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>relative_luminance <span class="ot">&lt;-</span> <span class="cf">function</span>(hex) {</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  ch <span class="ot">&lt;-</span> <span class="fu">t</span>(grDevices<span class="sc">::</span><span class="fu">col2rgb</span>(hex)) <span class="sc">/</span> <span class="dv">255</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  ch <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(ch <span class="sc">&lt;=</span> .<span class="dv">03928</span>, ch <span class="sc">/</span> <span class="fl">12.92</span>, ((ch <span class="sc">+</span> .<span class="dv">055</span>) <span class="sc">/</span> <span class="fl">1.055</span>)<span class="sc">^</span><span class="fl">2.4</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(ch <span class="sc">%*%</span> <span class="fu">c</span>(.<span class="dv">2126</span>, .<span class="dv">7152</span>, .<span class="dv">0722</span>))</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>contrast_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">pmax</span>(<span class="fu">relative_luminance</span>(a), <span class="fu">relative_luminance</span>(b)) <span class="sc">+</span> .<span class="dv">05</span>) <span class="sc">/</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">pmin</span>(<span class="fu">relative_luminance</span>(a), <span class="fu">relative_luminance</span>(b)) <span class="sc">+</span> .<span class="dv">05</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> r <span class="sc">|&gt;</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    estimate, <span class="at">sig =</span> p.value <span class="sc">&lt;</span> .<span class="dv">05</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">predictor =</span> <span class="fu">factor</span>(pred_lab[x], <span class="at">levels =</span> pred_lab),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample    =</span> <span class="fu">factor</span>(samp_lab[subsets], <span class="at">levels =</span> samp_lab),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">outcome   =</span> <span class="fu">factor</span>(out_lab[y],  <span class="at">levels =</span> <span class="fu">rev</span>(out_lab)),</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">controls  =</span> <span class="fu">factor</span>(ctrl_lab[controls], <span class="at">levels =</span> ctrl_lab)) <span class="sc">|&gt;</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tile  =</span> scales<span class="sc">::</span><span class="fu">gradient_n_pal</span>(div)((estimate <span class="sc">+</span> lim) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> lim)),</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">if_else</span>(<span class="fu">contrast_ratio</span>(tile, dsvar_light<span class="sc">$</span>ink) <span class="sc">&gt;=</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">contrast_ratio</span>(tile, <span class="st">"#ffffff"</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>                         dsvar_light<span class="sc">$</span>ink, <span class="st">"#ffffff"</span>))</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(g, <span class="fu">aes</span>(controls, outcome)) <span class="sc">+</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># No tile border, and the gap made by shrinking the tile, so the page's paper</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># shows through rather than a drawn line — the same move as the unit chart in</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the many-analysts exhibit.</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> estimate), <span class="at">width =</span> .<span class="dv">94</span>, <span class="at">height =</span> .<span class="dv">94</span>, <span class="at">colour =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Significance cannot ride on the fill, which is already carrying magnitude.</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Outlining only the nulls keeps the extra ink on the minority of cells.</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">data =</span> <span class="fu">filter</span>(g, <span class="sc">!</span>sig), <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>ink,</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> .<span class="dv">45</span>, <span class="at">linetype =</span> <span class="st">"22"</span>, <span class="at">width =</span> .<span class="dv">94</span>, <span class="at">height =</span> .<span class="dv">94</span>) <span class="sc">+</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">sub</span>(<span class="st">"^(-?)0"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, estimate)),</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>                <span class="at">colour =</span> <span class="fu">I</span>(label)), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(sample <span class="sc">~</span> predictor) <span class="sc">+</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> div, <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>lim, lim),</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>                       <span class="at">name =</span> <span class="st">"Standardised β"</span>,</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="fu">guide_colourbar</span>(<span class="at">title.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">title.hjust =</span> .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"All 144 specifications, with the analytic choices as the axes"</span>,</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"One cell per analysis. Dashed outline: not significant at p &lt; .05"</span>,</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Controls"</span>, <span class="at">y =</span> <span class="st">"Well-being outcome"</span>) <span class="sc">+</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dsvar</span>(<span class="at">base_size =</span> <span class="dv">10</span>, <span class="at">grid =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text  =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fl">8.5</span>, <span class="at">colour =</span> dsvar_light<span class="sc">$</span>ink_3),</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"pt"</span>),</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="dv">6</span>, <span class="st">"pt"</span>), <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">40</span>, <span class="st">"pt"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="specification-curve_files/figure-html/grid-1.png" class="img-fluid figure-img" alt="The same 144 estimates as a grid of coloured cells, nine panels of sixteen. Panels run left to right by media measure and top to bottom by sample; within each panel the columns are control sets and the rows are well-being outcomes. Colour runs brown for negative to teal for positive. The columns inside every panel are the same colour, the panels deepen from left to right, and one block — TV use among girls — is brown where everything around it is teal." width="2000"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>The same 144 numbers as the curve, and the same significance test. Positive still means more media use goes with higher scores on all four well-being indicators. Read the bar chart above straight off this picture: the four columns <em>inside</em> every panel are the four control sets and they are the same colour, which is the 0% for controls; the panels deepen from left to right, which is the 38% for the predictor; and they deepen from top to bottom, which is the 34% for the sample. Nothing here is sorted, so every position on the page means something.</p>
+</div>
+<div class="dsvar-refrain">
+<p>Neither the curve nor the bar chart can show this: TV use among girls is the one block on this page that runs the other way, with mean β = −.031 across its 16 cells against +.093 for the same measure among boys. A ranked list has nowhere to put an interaction, and the mixed model above cannot report one either, because it fits main effects only. Add a predictor × sample term to it and 16% of the variance moves out of the residual, which falls from 29% to 22%. The grid did not test for that; it put the cells where an interaction would be visible if there were one, which is what a layout is for.</p>
+</div>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>WHY THIS IS NOT THE DEFAULT</p>
+</div>
+<p>The grid works here because the design is small and completely crossed. Drop one cell and it has a hole; add a choice with twenty levels and it has no shape; and at Orben and Przybylski’s 40,000 specifications there is no grid at all: 144 cells fit on a page and 40,000 do not. It also drops the intervals. The curve draws a confidence interval for every specification; this has room for a point estimate and a significance flag and nothing more. Most of all, it cannot be read as a distribution: the median, the share that crosses zero and the shape of the space of answers, which are the curve’s entire argument, are not in this picture. The curve asks how much the answer moves; the grid asks where the movement comes from.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE LIMIT OF THE FORM</p>
+</div>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>IT LOOKS EXHAUSTIVE AND IT IS NOT</p>
+</div>
+<p>144 is not every analysis of this data; it is every analysis we thought to list. We varied the predictor, the outcome, two controls and the sample. We did not vary how the scales were built, whether to model the items rather than their mean, how to handle missing data, whether to log the heavily skewed use variables, or whether to fit a multilevel model, and every one of those is defensible. Orben and Przybylski’s curve has the same limit at a much larger scale: forty thousand specifications is still a list somebody wrote. The honest caption states which choices were varied, not just how many analyses were run.</p>
+</div>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>AND THE COUNT ITSELF IS FRAGILE</p>
+</div>
+<p>Two rows of this file have no recorded gender. Passing <code>subsets = list(gender = unique(d$gender))</code>, the obvious thing to write, makes <code>NA</code> a third subset level, and <code>specr</code> then emits the pooled “everyone” specification twice: 192 rows instead of 144, with 48 of them exact duplicates. Nothing errors, the curve looks the same, and the median barely moves. A number in an abstract that says “we ran 192 specifications” can be wrong in a way no plot will show you, which is a good reason to print the design and read it before fitting anything.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>SOURCES</p>
+</div>
+<ul>
+<li><strong>Original:</strong> Orben, A., &amp; Przybylski, A. K. (2019). The association between adolescent well-being and digital technology use. <em>Nature Human Behaviour, 3</em>, 173–182. <a href="https://doi.org/10.1038/s41562-018-0506-1">doi:10.1038/s41562-018-0506-1</a>. Figure 1 shown above from the author-deposited accepted manuscript at <a href="https://ora.ox.ac.uk/objects/uuid:5d844350-a359-47d3-b10c-4bfb93ce613b">ORA</a>.</li>
+<li><strong>The method:</strong> Simonsohn, U., Simmons, J. P., &amp; Nelson, L. D. (2020). Specification curve analysis. <em>Nature Human Behaviour, 4</em>, 1208–1214. Earlier and still worth reading: Steegen, S., Tuerlinckx, F., Gelman, A., &amp; Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. <em>Perspectives on Psychological Science, 11</em>, 702–712.</li>
+<li><strong>The package:</strong> Masur, P. K., &amp; Scharkow, M. <strong>specr</strong>: Conducting and visualizing specification curve analyses. <a href="https://masurp.github.io/specr/">masurp.github.io/specr</a>.</li>
+<li><strong>The tutorial this recreation follows:</strong> <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">Specification curve analysis</a>, CCS Amsterdam R course material, which is also where the synthetic pairfam data comes from (CC BY 4.0). The data are synthetic, not pairfam survey data; this site replaces the file’s <code>id</code> column with the row number.</li>
+<li><strong>The companion:</strong> <a href="../gallery/many-analysts.html">Many analysts, one dataset</a>.</li>
+<li><strong>Reproduce it:</strong> <code>Rscript R/fetch-gallery-data.R</code> pulls the data; every figure on this page is built by the code shown above it.</li>
+</ul>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="../setup.html">Setup help</a> · <a href="../credits.html">Credits &amp; licences</a> · <a href="../privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

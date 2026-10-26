@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Gallery – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./gallery.html" aria-current="page"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>Cases first, principle second</p>
+</div>
+<section id="the-gallery" class="level1">
+<h1>The gallery</h1>
+<div class="dsvar-lede">
+<p>On this page, you’ll find real, published visualizations: some excellent, some bad, and a few that are both beautiful and dishonest. In every lecture, we discuss at least two of them. Here, you can explore the different examples and learn how published visualizations can be recreated with ggplot. Note: The gallery is a work in progress, and we will be adding more cases. It is our slightly “ambitious” attempt to show that everything can be done with ggplot.</p>
+</div>
+</section>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>GOOD AND BAD, NOT PRETTY AND UGLY</p>
+</div>
+<div class="dsvar-refrain">
+<p>The question is always whether the chart’s claim survives scrutiny, and that does not line up with how it looks. The two most instructive cases are the ugly-but-honest chart, which reports exactly what it found in a badly typeset figure, and the beautiful-and-deceptive one, where good design is doing work the data does not support.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE CASES</p>
+</div>
+<div class="dsvar-galbar"><div class="dsvar-chips" role="group" aria-label="Filter by rhetorical move"><button class="dsvar-chip dsvar-chip--on" data-filter="all">All</button><button class="dsvar-chip" data-filter="comparison &amp; ranking">Comparison &amp; ranking</button><button class="dsvar-chip" data-filter="distribution &amp; uncertainty">Distribution &amp; uncertainty</button><button class="dsvar-chip" data-filter="relationships &amp; structure">Relationships &amp; structure</button><button class="dsvar-chip" data-filter="change over time">Change over time</button><button class="dsvar-chip" data-filter="the whole story">The whole story</button></div><label class="dsvar-search"><span class="visually-hidden">Search the gallery</span><input type="search" id="dsvar-gal-q" placeholder="Search cases, people, years…" autocomplete="off" spellcheck="false"></label><p class="dsvar-galcount" id="dsvar-gal-count" role="status" aria-live="polite"></p></div><section class="dsvar-galgroup" data-group="classics"><h2 class="dsvar-galgroup__h">The classics<span>Made before anyone called it data visualization.</span></h2><div class="dsvar-exhibits"><a class="dsvar-ex" href="gallery/van-langren.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="van langren’s longitudes michael florent van langren, 1644 distribution &amp; uncertainty twelve estimates of one distance on one line, usually called the first graph of statistical data. the spread shows at a glance; the bias cannot, until you draw the answer."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/van-langren.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">Van Langren’s longitudes</span><span class="dsvar-ex__by">Michael Florent van Langren, 1644</span><span class="dsvar-ex__why">Twelve estimates of one distance on one line, usually called the first graph of statistical data. The spread shows at a glance; the bias cannot, until you draw the answer.</span></a><a class="dsvar-ex" href="gallery/minard.html" style="--dsvar-accent:var(--dsvar-era-5)" data-move="the whole story" data-built="yes" data-find="minard’s march on moscow charles joseph minard, 1869 the whole story six variables and no chart type. the case for composing a figure rather than choosing one."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/minard.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">The whole story</span><span class="dsvar-ex__name">Minard’s march on Moscow</span><span class="dsvar-ex__by">Charles Joseph Minard, 1869</span><span class="dsvar-ex__why">Six variables and no chart type. The case for composing a figure rather than choosing one.</span></a><a class="dsvar-ex" href="gallery/nightingale.html" style="--dsvar-accent:var(--dsvar-era-5)" data-move="the whole story" data-built="yes" data-find="nightingale’s rose diagram florence nightingale, 1858 the whole story polar area, and a real intervention: the graphic changed government policy. also a lesson in what area does to a comparison."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/nightingale.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">The whole story</span><span class="dsvar-ex__name">Nightingale’s rose diagram</span><span class="dsvar-ex__by">Florence Nightingale, 1858</span><span class="dsvar-ex__why">Polar area, and a real intervention: the graphic changed government policy. Also a lesson in what area does to a comparison.</span></a><a class="dsvar-ex" href="gallery/mayr-radar.html" style="--dsvar-accent:var(--dsvar-era-2)" data-move="comparison &amp; ranking" data-built="yes" data-find="mayr’s radar chart georg mayr, 1877 comparison &amp; ranking the first radar chart came with a rule: only for a real cycle, where the last spoke belongs next to the first. break it, and the order of the spokes decides which profile looks bigger."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/mayr-radar.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Comparison &amp; ranking</span><span class="dsvar-ex__name">Mayr’s radar chart</span><span class="dsvar-ex__by">Georg Mayr, 1877</span><span class="dsvar-ex__why">The first radar chart came with a rule: only for a real cycle, where the last spoke belongs next to the first. Break it, and the order of the spokes decides which profile looks bigger.</span></a><a class="dsvar-ex" href="gallery/snow.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="snow’s cholera map john snow, 1855 relationships &amp; structure structure in space, before the vocabulary existed. published after the pump handle came off: made to argue a conclusion he already held."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/snow.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">Snow’s cholera map</span><span class="dsvar-ex__by">John Snow, 1855</span><span class="dsvar-ex__why">Structure in space, before the vocabulary existed. Published after the pump handle came off: made to argue a conclusion he already held.</span></a><a class="dsvar-ex" href="gallery/hertzsprung-russell.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="the hertzsprung–russell diagram ejnar hertzsprung 1911, henry norris russell 1913 relationships &amp; structure a scatterplot that encodes an entire theory, and a reminder that a basic form can carry a great deal."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/hertzsprung-russell.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">The Hertzsprung–Russell diagram</span><span class="dsvar-ex__by">Ejnar Hertzsprung 1911, Henry Norris Russell 1913</span><span class="dsvar-ex__why">A scatterplot that encodes an entire theory, and a reminder that a basic form can carry a great deal.</span></a><a class="dsvar-ex" href="gallery/unknown-pleasures.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="unknown pleasures peter saville 1979, after harold craft 1970 distribution &amp; uncertainty a pulsar plot from a radio astronomy thesis, on an album cover. ridgelines, and a hook that lands in about four seconds."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/unknown-pleasures.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">Unknown Pleasures</span><span class="dsvar-ex__by">Peter Saville 1979, after Harold Craft 1970</span><span class="dsvar-ex__why">A pulsar plot from a radio astronomy thesis, on an album cover. Ridgelines, and a hook that lands in about four seconds.</span></a><a class="dsvar-ex" href="gallery/sankey.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="sankey and alluvial flows after sankey, 1898 relationships &amp; structure coalitions, energy budgets, funnels. part to whole, over time, without pretending the parts are independent."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/sankey.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">Sankey and alluvial flows</span><span class="dsvar-ex__by">after Sankey, 1898</span><span class="dsvar-ex__why">Coalitions, energy budgets, funnels. Part to whole, over time, without pretending the parts are independent.</span></a><a class="dsvar-ex" href="gallery/playfair-wheat.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="change over time" data-built="yes" data-find="playfair’s wheat and wages william playfair, 1821 change over time the inventor of the line chart puts a price and a wage on one time axis, and the gap between them means nothing. two pages later he draws the ratio, and the argument appears."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/playfair-wheat.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Playfair’s wheat and wages</span><span class="dsvar-ex__by">William Playfair, 1821</span><span class="dsvar-ex__why">The inventor of the line chart puts a price and a wage on one time axis, and the gap between them means nothing. Two pages later he draws the ratio, and the argument appears.</span></a><a class="dsvar-ex" href="gallery/dubois-illiteracy.html" style="--dsvar-accent:var(--dsvar-era-2)" data-move="comparison &amp; ranking" data-built="yes" data-find="du bois’s data portraits w. e. b. du bois and atlanta university, 1900 comparison &amp; ranking made to answer the racist science of 1900 with evidence: one generation after slavery, black americans’ illiteracy ranked among the nations of europe. the comparison set is the argument, and it was a deliberate one."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/dubois-illiteracy.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Comparison &amp; ranking</span><span class="dsvar-ex__name">Du Bois’s data portraits</span><span class="dsvar-ex__by">W. E. B. Du Bois and Atlanta University, 1900</span><span class="dsvar-ex__why">Made to answer the racist science of 1900 with evidence: one generation after slavery, Black Americans’ illiteracy ranked among the nations of Europe. The comparison set is the argument, and it was a deliberate one.</span></a></div></section><section class="dsvar-galgroup" data-group="modern"><h2 class="dsvar-galgroup__h">Modern<span>Newsrooms, agencies and research groups, mostly this century.</span></h2><div class="dsvar-exhibits"><a class="dsvar-ex" href="gallery/warming-stripes.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="change over time" data-built="yes" data-find="warming stripes ed hawkins, 2018 change over time a century and a half of temperature with no axes at all. the cleanest demonstration that a chart is a claim and not a table."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/warming-stripes.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Warming stripes</span><span class="dsvar-ex__by">Ed Hawkins, 2018</span><span class="dsvar-ex__why">A century and a half of temperature with no axes at all. The cleanest demonstration that a chart is a claim and not a table.</span></a><a class="dsvar-ex" href="gallery/cartograms.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="cartograms and hexbin maps magog the ogre &amp; drlovedrake, 2020 relationships &amp; structure structure in space, normalised. land does not vote, and a choropleth of counts quietly says it does."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/cartograms.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">Cartograms and hexbin maps</span><span class="dsvar-ex__by">Magog the Ogre &amp; Drlovedrake, 2020</span><span class="dsvar-ex__why">Structure in space, normalised. Land does not vote, and a choropleth of counts quietly says it does.</span></a><a class="dsvar-ex" href="gallery/outbreak-simulation.html" style="--dsvar-accent:var(--dsvar-era-5)" data-move="the whole story" data-built="yes" data-find="why outbreaks spread exponentially harry stevens, washington post, 2020 the whole story a simulation you watch rather than a chart you read, and the most read story in the paper’s history. argument by letting the reader run it."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/outbreak-simulation.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">The whole story</span><span class="dsvar-ex__name">Why outbreaks spread exponentially</span><span class="dsvar-ex__by">Harry Stevens, Washington Post, 2020</span><span class="dsvar-ex__why">A simulation you watch rather than a chart you read, and the most read story in the paper’s history. Argument by letting the reader run it.</span></a><a class="dsvar-ex" href="gallery/pandemic-trajectories.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="change over time" data-built="yes" data-find="pandemic trajectories on a log scale john burn-murdoch, financial times, 2020 change over time aligned by days since the tenth death rather than by calendar date, on a log axis. both choices are arguable and both were argued about."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/pandemic-trajectories.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Pandemic trajectories on a log scale</span><span class="dsvar-ex__by">John Burn-Murdoch, Financial Times, 2020</span><span class="dsvar-ex__why">Aligned by days since the tenth death rather than by calendar date, on a log axis. Both choices are arguable and both were argued about.</span></a><a class="dsvar-ex" href="gallery/iraq-bloody-toll.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="change over time" data-built="yes" data-find="iraq’s bloody toll simon scarr, south china morning post, 2011 change over time an inverted axis so the bars hang down like blood. the encoding is unconventional, the reading is unambiguous, and it works."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/iraq-bloody-toll.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Iraq’s bloody toll</span><span class="dsvar-ex__by">Simon Scarr, South China Morning Post, 2011</span><span class="dsvar-ex__why">An inverted axis so the bars hang down like blood. The encoding is unconventional, the reading is unambiguous, and it works.</span></a><a class="dsvar-ex" href="gallery/gun-deaths-florida.html" style="--dsvar-accent:var(--dsvar-era-2)" data-move="change over time" data-built="yes" data-find="gun deaths in florida christine chan, reuters, 2014 change over time the same inverted axis as scarr, on a rise that now reads as a fall. the article text said deaths went up. pair it with the one above."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/gun-deaths-florida.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Gun deaths in Florida</span><span class="dsvar-ex__by">Christine Chan, Reuters, 2014</span><span class="dsvar-ex__why">The same inverted axis as Scarr, on a rise that now reads as a fall. The article text said deaths went up. Pair it with the one above.</span></a><a class="dsvar-ex" href="gallery/datasaurus.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="the datasaurus dozen matejka &amp; fitzmaurice, autodesk, 2017 distribution &amp; uncertainty thirteen datasets with identical means, variances and correlations, and nothing else in common. anscombe’s point, made unignorable."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/datasaurus.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">The Datasaurus dozen</span><span class="dsvar-ex__by">Matejka &amp; Fitzmaurice, Autodesk, 2017</span><span class="dsvar-ex__why">Thirteen datasets with identical means, variances and correlations, and nothing else in common. Anscombe’s point, made unignorable.</span></a><a class="dsvar-ex" href="gallery/gapminder.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="income and life expectancy hans rosling, gapminder, from 2006 relationships &amp; structure four variables in a moving scatterplot, and a performance built around it. the case for animation, and the argument against it."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/gapminder.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">Income and life expectancy</span><span class="dsvar-ex__by">Hans Rosling, Gapminder, from 2006</span><span class="dsvar-ex__why">Four variables in a moving scatterplot, and a performance built around it. The case for animation, and the argument against it.</span></a><a class="dsvar-ex" href="gallery/bible-cross-references.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="relationships &amp; structure" data-built="yes" data-find="the bible’s cross-references chris harrison &amp; christoph r��mhild, 2007 relationships &amp; structure sixty-three thousand arcs, made to be more beautiful than functional. an arc diagram that works because the chapters have an order, and a picture that answers almost nothing you could ask of it."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/bible-cross-references.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">The Bible’s cross-references</span><span class="dsvar-ex__by">Chris Harrison &amp; Christoph Römhild, 2007</span><span class="dsvar-ex__why">Sixty-three thousand arcs, made to be more beautiful than functional. An arc diagram that works because the chapters have an order, and a picture that answers almost nothing you could ask of it.</span></a><a class="dsvar-ex" href="gallery/forest-plot.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="the forest plot wolfgang viechtbauer, metafor, from 2010 distribution &amp; uncertainty thirteen vaccine trials and one summary diamond. the standard figure of meta-analysis, and a lesson in what a pooled interval does not tell you."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/forest-plot.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">The forest plot</span><span class="dsvar-ex__by">Wolfgang Viechtbauer, metafor, from 2010</span><span class="dsvar-ex__why">Thirteen vaccine trials and one summary diamond. The standard figure of meta-analysis, and a lesson in what a pooled interval does not tell you.</span></a></div></section><section class="dsvar-galgroup" data-group="social"><h2 class="dsvar-galgroup__h">From the social sciences<span>Figures that carry an argument about people, and about method.</span></h2><div class="dsvar-exhibits"><a class="dsvar-ex" href="gallery/extreme-poverty.html" style="--dsvar-accent:var(--dsvar-era-5)" data-move="the whole story" data-built="yes" data-find="two centuries of extreme poverty our world in data, after ravallion, 2019 the whole story the count of the world’s poorest and the population they belong to, in one picture over two hundred years. equally confident about the ten reconstructed estimates on its left as about the surveys on its right."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/extreme-poverty.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">The whole story</span><span class="dsvar-ex__name">Two centuries of extreme poverty</span><span class="dsvar-ex__by">Our World in Data, after Ravallion, 2019</span><span class="dsvar-ex__why">The count of the world’s poorest and the population they belong to, in one picture over two hundred years. Equally confident about the ten reconstructed estimates on its left as about the surveys on its right.</span></a><a class="dsvar-ex" href="gallery/elephant-curve.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="the elephant curve lakner &amp; milanovic, world bank, 2013 distribution &amp; uncertainty twenty years of income growth across the world’s distribution, read as who won and who lost from globalisation. it compares positions, not people, and the paper says so."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/elephant-curve.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">The elephant curve</span><span class="dsvar-ex__by">Lakner &amp; Milanovic, World Bank, 2013</span><span class="dsvar-ex__why">Twenty years of income growth across the world’s distribution, read as who won and who lost from globalisation. It compares positions, not people, and the paper says so.</span></a><a class="dsvar-ex" href="gallery/pisa-league-table.html" style="--dsvar-accent:var(--dsvar-era-2)" data-move="comparison &amp; ranking" data-built="yes" data-find="the pisa league table national center for education statistics, 2023 comparison &amp; ranking eighty-one education systems in order, with significance marked against one country only. a printed rank that the data supports only as a range."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/pisa-league-table.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Comparison &amp; ranking</span><span class="dsvar-ex__name">The PISA league table</span><span class="dsvar-ex__by">National Center for Education Statistics, 2023</span><span class="dsvar-ex__why">Eighty-one education systems in order, with significance marked against one country only. A printed rank that the data supports only as a range.</span></a><a class="dsvar-ex" href="gallery/headline-sentiment.html" style="--dsvar-accent:var(--dsvar-era-1)" data-move="change over time" data-built="yes" data-find="headlines turning negative rozado, hughes &amp; halberstadt, plos one, 2022 change over time machine-coded sentiment of 23 million headlines, by year. a real trend, a percentage change on a scale with no zero, and an average over a growing room."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/headline-sentiment.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Change over time</span><span class="dsvar-ex__name">Headlines turning negative</span><span class="dsvar-ex__by">Rozado, Hughes &amp; Halberstadt, PLOS ONE, 2022</span><span class="dsvar-ex__why">Machine-coded sentiment of 23 million headlines, by year. A real trend, a percentage change on a scale with no zero, and an average over a growing room.</span></a><a class="dsvar-ex" href="gallery/conditional-effects.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="conditional effects masur &amp; parry, technology, mind, and behavior, 2026 distribution &amp; uncertainty a moderation from our own data, drawn both ways: pick-a-point and the johnson–neyman curve. one tells you how big, the other where it holds."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/conditional-effects.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">Conditional effects</span><span class="dsvar-ex__by">Masur &amp; Parry, Technology, Mind, and Behavior, 2026</span><span class="dsvar-ex__why">A moderation from our own data, drawn both ways: pick-a-point and the Johnson–Neyman curve. One tells you how big, the other where it holds.</span></a><a class="dsvar-ex" href="gallery/many-analysts.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="many analysts, one dataset silberzahn et al., 2018 distribution &amp; uncertainty twenty nine teams, one dataset, one question, and answers running from no effect to a large one. this course’s whole thesis, run as an experiment."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/many-analysts.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">Many analysts, one dataset</span><span class="dsvar-ex__by">Silberzahn et al., 2018</span><span class="dsvar-ex__why">Twenty nine teams, one dataset, one question, and answers running from no effect to a large one. This course’s whole thesis, run as an experiment.</span></a><a class="dsvar-ex" href="gallery/specification-curve.html" style="--dsvar-accent:var(--dsvar-era-3)" data-move="distribution &amp; uncertainty" data-built="yes" data-find="the specification curve orben &amp; przybylski, nature human behaviour, 2019 distribution &amp; uncertainty a specification curve over thousands of defensible analyses of the same survey data. the effect is there, and it is the size of eating potatoes."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/specification-curve.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Distribution &amp; uncertainty</span><span class="dsvar-ex__name">The specification curve</span><span class="dsvar-ex__by">Orben &amp; Przybylski, Nature Human Behaviour, 2019</span><span class="dsvar-ex__why">A specification curve over thousands of defensible analyses of the same survey data. The effect is there, and it is the size of eating potatoes.</span></a><a class="dsvar-ex" href="gallery/replication.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="original against replication open science collaboration, science, 2015 relationships &amp; structure one hundred effect sizes, measured twice. a scatterplot where the interesting thing is how far the points sit from the diagonal."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/replication.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">Original against replication</span><span class="dsvar-ex__by">Open Science Collaboration, Science, 2015</span><span class="dsvar-ex__why">One hundred effect sizes, measured twice. A scatterplot where the interesting thing is how far the points sit from the diagonal.</span></a><a class="dsvar-ex" href="gallery/media-ecosystem.html" style="--dsvar-accent:var(--dsvar-era-4)" data-move="relationships &amp; structure" data-built="yes" data-find="the asymmetric media ecosystem benkler, faris &amp; roberts, 2018 relationships &amp; structure media cloud link maps behind network propaganda. a network that is legible rather than a hairball, and what had to be decided to get there."><span class="dsvar-ex__thumb"><img src="gallery/img/thumbs/media-ecosystem.png" alt="" loading="lazy"></span><span class="dsvar-ex__move">Relationships &amp; structure</span><span class="dsvar-ex__name">The asymmetric media ecosystem</span><span class="dsvar-ex__by">Benkler, Faris &amp; Roberts, 2018</span><span class="dsvar-ex__why">Media Cloud link maps behind Network Propaganda. A network that is legible rather than a hairball, and what had to be decided to get there.</span></a></div></section><p class="dsvar-galempty" id="dsvar-gal-empty" hidden="">Nothing matches that. <button class="dsvar-linkish" data-filter="all">Show everything</button></p>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="./setup.html">Setup help</a> · <a href="./credits.html">Credits &amp; licences</a> · <a href="./privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+<script src="assets/gallery-filter.js"></script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

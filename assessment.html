@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assessment – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="./assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./assessment.html" aria-current="page"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="dsvar-page">
+<div class="dsvar-pagehead">
+<div class="dsvar-eyebrow">
+<p>Assessment · 2026</p>
+</div>
+<section id="three-types-of-assignments" class="level1">
+<h1>Three types of Assignments</h1>
+<div class="dsvar-lede">
+<p>The course has three graded assignments: a portfolio built over the course of all weeks, two written critiques, and one visualization project with your own on data. What you may use AI for, and how to say so, is on the <a href="./ai.html">AI use</a> page. Every deadline is on the <a href="./weeks/index.html">Weeks</a> page and on Canvas.</p>
+</div>
+</section>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-weights" style="margin-top:2.4rem">
+  <a class="dsvar-weight" href="#portfolio" style="--dsvar-accent:var(--dsvar-green); flex-grow:25">
+    <div class="dsvar-weight__pct">25%</div>
+    <div class="dsvar-weight__name">Portfolio</div>
+    <div class="dsvar-weight__note">Weeks 2 to 7 · individual · six entries</div>
+  </a>
+  <a class="dsvar-weight" href="#critiques" style="--dsvar-accent:var(--dsvar-era-3); flex-grow:25">
+    <div class="dsvar-weight__pct">25%</div>
+    <div class="dsvar-weight__name">Two critique pieces</div>
+    <div class="dsvar-weight__note">After weeks 4 and 6 · individual · two PDFs</div>
+  </a>
+  <a class="dsvar-weight" href="#take-home" style="--dsvar-accent:var(--dsvar-era-5); flex-grow:50">
+    <div class="dsvar-weight__pct">50%</div>
+    <div class="dsvar-weight__name">Take-home assignment</div>
+    <div class="dsvar-weight__note">End of week 8 · individual · your own data</div>
+  </a>
+</div>
+<div class="dsvar-caption">
+<p>Note: The final grade is the weighted average of the three. Every component is graded on a 0–10 scale, with 5.5 the passing mark. The final grade is rounded to the nearest half point (5.5 becomes 6.0). Every component must be passed with at least 5.5, and one component cannot compensate for another.</p>
+</div>
+</div>
+<div id="every-chart" class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHAT EVERY CHART HAS TO CARRY</p>
+</div>
+<p>Three things, on every chart you hand in, from the first portfolio entry to the take-home:</p>
+<ol type="1">
+<li><strong>A claim, written as a sentence.</strong> Not a description of the variables, but the thing you claiming the chart shows.</li>
+<li><strong>Uncertainty, in some form the chart can show.</strong> This could be a confidence interval, a range, an sample size, or a concrete sentence naming what the chart cannot show.</li>
+<li><strong>Code that runs on someone else’s machine.</strong> We ask you to submit the code that build the figure. It should be reproducible. Thus data is loading from a path that exists and the code runs without errors. If you use a dataset that is not public, you must provide it in the submission.</li>
+</ol>
+<p>A chart missing any of the three is incomplete.</p>
+</div>
+<div id="portfolio" class="dsvar-assign" style="--dsvar-accent:var(--dsvar-green)">
+<div class="dsvar-assign__head">
+<div class="dsvar-assign__pct">
+<p>25%</p>
+</div>
+<div class="dsvar-assign__title">
+<div class="dsvar-assign__n">
+<p>Assignment 1 of 3</p>
+</div>
+<section id="the-portfolio" class="level2">
+<h2 data-anchor-id="the-portfolio">The portfolio</h2>
+<div class="dsvar-assign__tag">
+<p>One entry a week, started in the work group</p>
+</div>
+<div class="dsvar-assign__when">
+<p>Weeks 2 to 7 · six entries, each due the Sunday after its work group · individual</p>
+</div>
+</section>
+</div>
+</div>
+<div class="dsvar-assign__body">
+<div class="dsvar-assign__intro">
+<p>Each Thursday from week 2 ends with a chart and its misleading twin. You finish the pair at home as that week’s portfolio entry and hand it in on the Sunday after the work group; there is no final submission. The next Tuesday’s lecture opens with a critique of some of the entries, without names, and what it shows you goes into your next entry. Each entry is graded fail (4), pass (8) or high pass (10), and your portfolio grade is the average of the six. It counts for 25% of the final grade.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>THE HONEST/DISHONEST PAIR</p>
+</div>
+<div class="dsvar-refrain">
+<p>Every entry has two versions of the week’s chart: the one you would defend and think is honest, and one that uses only defensible-looking choices to tell a different, dishonest story. Take the second as seriously as the first: building the misleading version on purpose is the clearest evidence that you know which choice was doing the work, and it is much harder to be fooled by a chart once you have made that chart yourself.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>HOW IT IS GRADED</p>
+</div>
+<div class="dsvar-matrix">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Grade</th>
+<th>What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>High pass (10)</strong></td>
+<td>Everything a pass needs, and a twin that changes the one choice doing the work, with a sentence that names that choice precisely</td>
+</tr>
+<tr class="even">
+<td><strong>Pass (8)</strong></td>
+<td>Complete: the sketch, the chart and its twin, the sentence on which choice did the work, what the charts cannot tell you, and the AI statement. The chart carries its claim and its uncertainty, and the file renders</td>
+</tr>
+<tr class="odd">
+<td><strong>Fail (4)</strong></td>
+<td>Something is missing: one of the six things, the claim or the uncertainty on the chart, or a file that does not render</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="critiques" class="dsvar-assign" style="--dsvar-accent:var(--dsvar-era-3)">
+<div class="dsvar-assign__head">
+<div class="dsvar-assign__pct">
+<p>25%</p>
+</div>
+<div class="dsvar-assign__title">
+<div class="dsvar-assign__n">
+<p>Assignment 2 of 3</p>
+</div>
+<section id="two-critique-pieces" class="level2">
+<h2 data-anchor-id="two-critique-pieces">Two critique pieces</h2>
+<div class="dsvar-assign__tag">
+<p>A published chart, taken apart</p>
+</div>
+<div class="dsvar-assign__when">
+<p>Due Wednesday 25 November and Wednesday 9 December, 23:59 · individual · PDF on Canvas</p>
+</div>
+</section>
+</div>
+</div>
+<div class="dsvar-assign__body">
+<div class="dsvar-assign__intro">
+<p>Two written analyses of a chart someone else published, using the method from the lectures: describe, analyse, interpret, and judge. This is the half of the skill the portfolio cannot test: reading a chart you did not make, and saying precisely where its claim and its evidence part ways.</p>
+<p>You find the chart yourself, in a newspaper, a report, a research paper or on social media. It has to be one the course has not shown, and the second piece takes a different chart from the first.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>TWO DEADLINES</p>
+</div>
+<div class="dsvar-cards dsvar-cards--2">
+<div class="dsvar-card dsvar-card--lane">
+<div class="dsvar-card__label">
+<p>Critique 1 · Wednesday 25 November</p>
+</div>
+<section id="after-part-ii-of-the-course" class="level3">
+<h3 data-anchor-id="after-part-ii-of-the-course">After Part II of the course</h3>
+<p>Due once weeks 3 and 4 have covered distributions, uncertainty and relationships, so you have those to work with as well as comparisons. The lecture the day before opens with a critique of the week 4 entries: treat it as practice.</p>
+</section>
+</div>
+<div class="dsvar-card dsvar-card--lane">
+<div class="dsvar-card__label">
+<p>Critique 2 · Wednesday 9 December</p>
+</div>
+<section id="after-part-iii-of-the-course" class="level3">
+<h3 data-anchor-id="after-part-iii-of-the-course">After Part III of the course</h3>
+<p>Due once weeks 5 and 6 have covered change over time, maps, networks and text, so you have those to work with too. The lecture the day before opens with a critique of the week 6 entries: treat it as practice.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHAT GOES IN THE PDF</p>
+</div>
+<p>Each piece is <strong>one PDF with at most two A4 pages of text</strong>, handed in on Canvas. The figure and its credit line come on top of that, and so does your AI statement. It has four parts, in this order:</p>
+<ol type="1">
+<li><strong>The figure, in the file.</strong> Put the chart itself into your document, large enough to read, with a credit line under it: who made it, where and when it was published, and a link. A link alone is not enough, because published charts change and disappear.</li>
+<li><strong>The four steps, in order.</strong> <em>Describe</em> what is on the page: marks, axes, ranges, and no evaluation yet. <em>Analyse</em> which slots of the grammar were set. <em>Interpret</em> the claim the chart makes, in one sentence with a verb. <em>Judge</em> whether the evidence supports that claim: a verdict, and a reason.</li>
+<li><strong>What you like and what you do not.</strong> Your own view as a reader: which choices work and which do not, each with a reason that points at a specific choice in the chart.</li>
+<li><strong>How you would improve it.</strong> Outline a better version: what you would change, and what a reader would then see that they cannot see now. You do not have to build it.</li>
+</ol>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>AI</p>
+</div>
+<p><strong>AI may improve your language, not add content.</strong> Grammar, spelling and translation are fine; the description, the arguments and the verdict have to be your own. End the piece with an <a href="./ai.html#statement">AI statement</a> that says what the tool changed, or <em>No AI used.</em></p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>HOW IT IS GRADED</p>
+</div>
+<p>Each piece is scored on five criteria, each at one of four levels: Excellent (10), Good (8), Sufficient (6) or Insufficient (4). The grade for a piece is the weighted average of its five scores, and your critique grade is the average of the two pieces.</p>
+<div class="dsvar-matrix dsvar-matrix--levels">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Excellent (10)</th>
+<th>Good (8)</th>
+<th>Sufficient (6)</th>
+<th>Insufficient (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Describe and analyse</strong> · 25%</td>
+<td>A complete and neutral account of marks, axes, scales and ranges, and every setting of the grammar named with what it does</td>
+<td>An accurate account of what is on the page, and the main settings named, with little judgement slipping in</td>
+<td>The main elements described and some settings named, but parts are missing or judgement arrives early</td>
+<td>Description skipped or inaccurate, or the piece judges before it says what is on the page</td>
+</tr>
+<tr class="even">
+<td><strong>Interpret</strong> · 20%</td>
+<td>The claim in one precise sentence with a verb, including what the chart implies but does not say</td>
+<td>The claim in one clear sentence with a verb</td>
+<td>A claim is given, but it is vague or names the topic more than the argument</td>
+<td>No claim, or only a description of the variables</td>
+</tr>
+<tr class="odd">
+<td><strong>Judge</strong> · 25%</td>
+<td>A clear verdict argued from specific choices and from the limits of the data, including what the chart cannot show</td>
+<td>A clear verdict with a reason that points at a specific choice in the chart</td>
+<td>A verdict, but its reasons are general (“misleading”, “cluttered”) rather than tied to a choice</td>
+<td>No verdict, or a verdict without reasons</td>
+</tr>
+<tr class="even">
+<td><strong>Reflect and improve</strong> · 20%</td>
+<td>Strengths and weaknesses tied to specific choices, and an improvement argued from the claim that lets a reader see something new</td>
+<td>Strengths and weaknesses tied to choices, and a concrete improvement</td>
+<td>Likes and dislikes given but general, or an improvement that stays vague</td>
+<td>Missing, or matters of taste without reasons</td>
+</tr>
+<tr class="odd">
+<td><strong>Form</strong> · 10%</td>
+<td>Figure legible with a full credit line, within two pages, precise and concise writing, complete AI statement</td>
+<td>All parts present and within two pages, with small lapses in the credit line or in clarity</td>
+<td>Over length, an incomplete credit line, or writing that is hard to follow in places</td>
+<td>Figure or credit line missing, or no AI statement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="take-home" class="dsvar-assign" style="--dsvar-accent:var(--dsvar-era-5)">
+<div class="dsvar-assign__head">
+<div class="dsvar-assign__pct">
+<p>50%</p>
+</div>
+<div class="dsvar-assign__title">
+<div class="dsvar-assign__n">
+<p>Assignment 3 of 3</p>
+</div>
+<section id="the-take-home-assignment" class="level2">
+<h2 data-anchor-id="the-take-home-assignment">The take-home assignment</h2>
+<div class="dsvar-assign__tag">
+<p>One new piece, on data of your own choosing</p>
+</div>
+<div class="dsvar-assign__when">
+<p>Due Sunday 20 December, 23:59 · end of week 8 · individual · your own dataset</p>
+</div>
+</section>
+</div>
+</div>
+<div class="dsvar-assign__body">
+<div class="dsvar-assign__intro">
+<p>A new piece of work on a dataset you choose yourself: one met in the course, or one you bring. You present it either as a data story or as an explanatory blog post. Week 7 is where you choose the dataset and find two claims it supports. Week 8 has no sessions: the whole week is yours to write the piece.</p>
+<p>The dataset has to support at least two defensible stories. You tell one of them, and your note says why not the other: a file with only one story in it cannot show that you chose.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>FINDING DATA</p>
+</div>
+<div class="dsvar-lede">
+<p>Finding the data is where many projects stall. The safest start is a file the course has used, with a question the course did not ask of it. If you bring your own, choose it in week 7 and test it before you commit.</p>
+</div>
+<div class="dsvar-note dsvar-note--check">
+<div class="dsvar-note__label">
+<p>THE FIVE-MINUTE TEST</p>
+</div>
+<p>Before you commit to a dataset, answer three questions. If it fails any of them, choose another.</p>
+<ol type="1">
+<li>Can you download it today, without filing an application, and hand it in with your code?</li>
+<li>Can you say in one sentence what one row is, and what each column you need means?</li>
+<li>Does it support at least two defensible stories?</li>
+</ol>
+</div>
+<div class="dsvar-matrix">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What is there</th>
+<th>The catch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>The course’s own files</strong></td>
+<td>World Bank indicators, Gapminder and KNMI weather, in the <code>data/</code> folder of earlier weeks</td>
+<td>None, as long as you ask a question the course did not. The safest start.</td>
+</tr>
+<tr class="even">
+<td><strong>Our World in Data</strong></td>
+<td>Thousands of indicators; every chart has a <em>Download</em> tab with its CSV</td>
+<td>Already aggregated and already charted. Do not redraw their chart, and check the original source it names.</td>
+</tr>
+<tr class="odd">
+<td><strong>Statistics offices</strong></td>
+<td>CBS StatLine (<code>cbsodataR</code>), Eurostat (<code>eurostat</code>), the World Bank (<code>WDI</code>)</td>
+<td>Read the definitions: a change of method can look like a change in the world.</td>
+</tr>
+<tr class="even">
+<td><strong>Surveys</strong></td>
+<td>European Social Survey, Eurobarometer (via GESIS), World Values Survey</td>
+<td>Free, after registration. Read the codebook for weights and for missing codes such as 77, 88 and 99.</td>
+</tr>
+<tr class="odd">
+<td><strong>Political data</strong></td>
+<td>V-Dem, ParlGov, the Manifesto Project</td>
+<td>Indices built from expert ratings or coding: say what the scale measures before you chart it.</td>
+</tr>
+<tr class="even">
+<td><strong>Research repositories</strong></td>
+<td>Harvard Dataverse, Zenodo, OSF, the replication packages of published papers</td>
+<td>Reusing data means inheriting someone else’s decisions. Read the codebook first.</td>
+</tr>
+<tr class="odd">
+<td><strong>TidyTuesday</strong></td>
+<td>A clean dataset every week, with a short description, on GitHub</td>
+<td>Hundreds of people have charted each one already. Your claim has to be your own.</td>
+</tr>
+<tr class="even">
+<td><strong>Kaggle</strong></td>
+<td>Many datasets on many topics</td>
+<td>Often no clear source. Use one only if it names its original source and you can check it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="dsvar-caption">
+<p>Whatever the source, the grader has to be able to run your code on your data. If its terms do not let you hand the file in, choose another, or ask the coordinator first.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>TWO FORMATS</p>
+</div>
+<div class="dsvar-lede">
+<p>Both formats tell one story from your data, in four charts and 1,000 to 1,500 words (charts not counted), for a reader who has not taken this course. They differ in what carries the argument: the charts, or the text.</p>
+</div>
+<div class="dsvar-cards dsvar-cards--2" style="margin-top:1.6rem">
+<div class="dsvar-card dsvar-card--lane">
+<div class="dsvar-card__label">
+<p>Option A · Data story</p>
+</div>
+<section id="the-charts-carry-it" class="level3">
+<h3 data-anchor-id="the-charts-carry-it">The charts carry it</h3>
+<ul>
+<li><strong>Four charts, one question.</strong> Each chart is one step of the answer, and its title states that step as a claim.</li>
+<li><strong>A structure, chosen.</strong> A martini glass (you lead, then the reader explores), a drill-down (overview, then detail) or a slideshow (one claim per chart).</li>
+<li><strong>Describe, then explain.</strong> First what the pattern looks like, then what it goes with.</li>
+<li><strong>Text between the charts</strong> that takes the reader from one step to the next.</li>
+<li><strong>One visual language.</strong> A category keeps its colour from chart to chart.</li>
+<li><strong>The limit, last.</strong> What the data cannot tell the reader.</li>
+</ul>
+</section>
+</div>
+<div class="dsvar-card dsvar-card--lane">
+<div class="dsvar-card__label">
+<p>Option B · Explanatory blog post</p>
+</div>
+<section id="the-text-carries-it" class="level3">
+<h3 data-anchor-id="the-text-carries-it">The text carries it</h3>
+<ul>
+<li><strong>A question in the first paragraph</strong>, and why a reader should care.</li>
+<li><strong>The data, introduced.</strong> Where it comes from, what one row is, what it covers and what it misses.</li>
+<li><strong>Four charts, each read for the reader.</strong> How to read it first: what the marks are and where to look. Then what it shows.</li>
+<li><strong>The choice that matters.</strong> For each chart, the setting that does the most work, and why you chose it.</li>
+<li><strong>The answer, with its uncertainty</strong>, and the other story the data could tell.</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="dsvar-caption">
+<p>For both, week 7’s four settings are the checklist: the title, the annotation, the colour and the order. And every chart carries what <a href="#every-chart">every chart has to carry</a>: a claim, its uncertainty, and code that runs.</p>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>WHAT YOU HAND IN</p>
+</div>
+<p>By <strong>Sunday 20 December, 23:59</strong>, on Canvas, two files:</p>
+<ol type="1">
+<li><strong>The piece, as a PDF</strong>: the data story or the blog post as a reader would see it. Render your <code>.qmd</code> to HTML and print it to PDF from the browser. At the end of the PDF come two short sections:
+<ul>
+<li><strong>A note on your choices</strong>, at most 250 words: who the reader is and what they can be assumed to decode, why the charts come in this order, and the other defensible story in your data and why you did not tell it.</li>
+<li><strong>Your <a href="./ai.html#statement">AI statement</a></strong>, in the same format as in the portfolio. AI is allowed as in Part II of a work group: as an assistant, a thinking partner or an instrument, never as a surrogate.</li>
+</ul></li>
+<li><strong>The code, the data and the output, as one zip</strong>: your take-home folder, with the <code>.qmd</code> that builds every chart, the data it reads from <code>data/</code>, and the rendered HTML. Unzipped on another machine and rendered from a clean session, it has to produce the same charts.</li>
+</ol>
+<p>A take-home without the PDF, the data, or code that runs is incomplete.</p>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>HOW IT IS GRADED</p>
+</div>
+<p>The take-home is scored on five criteria, each at one of four levels: Excellent (10), Good (8), Sufficient (6) or Insufficient (4). The grade is the weighted average of the five scores.</p>
+<div class="dsvar-matrix dsvar-matrix--levels">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Excellent (10)</th>
+<th>Good (8)</th>
+<th>Sufficient (6)</th>
+<th>Insufficient (4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data and question</strong> · 15%</td>
+<td>A sharp question the data can answer, the data fully explained (source, what one row is, what it covers and misses), and its limits used in the story</td>
+<td>A clear question the data can answer, and the data explained: source, what one row is, what it covers</td>
+<td>A question and a dataset, but the fit between them or the account of the data is thin</td>
+<td>No clear question, data that cannot answer it, or data not understood</td>
+</tr>
+<tr class="even">
+<td><strong>The charts</strong> · 30%</td>
+<td>Four charts in the right form, each carrying its claim and its uncertainty, with annotation and colour that make the evidence hard to miss</td>
+<td>Four charts in a suitable form, each with its claim and its uncertainty, annotated and coloured with care</td>
+<td>Four charts that work, but a form is poorly chosen, or a claim, the uncertainty or the annotation is missing in places</td>
+<td>Fewer than four charts, charts that mislead, or charts without claims or uncertainty</td>
+</tr>
+<tr class="odd">
+<td><strong>The story</strong> · 25%</td>
+<td>The four charts build one argument in an order that is part of it, and the chosen format is used to full effect</td>
+<td>One argument across the four charts, in an order the reader can follow, with what the chosen format asks for</td>
+<td>The charts answer one question but read as separate pieces, or the format is only partly followed</td>
+<td>No story the reader can follow, or the format and length not followed</td>
+</tr>
+<tr class="even">
+<td><strong>The note on your choices</strong> · 15%</td>
+<td>The reader, the order and the other defensible story each explained, with the trade-offs named</td>
+<td>The reader, the order and the other story each explained</td>
+<td>Only some of the three covered, or the choices described rather than explained</td>
+<td>Missing, or not about the choices</td>
+</tr>
+<tr class="odd">
+<td><strong>Reproducibility</strong> · 15%</td>
+<td>Renders from a clean session on another machine without changes; readable, commented code; complete AI statement</td>
+<td>Renders from a clean session; data and output in the zip; complete AI statement</td>
+<td>Renders only after a small fix (a path, a missing package), or the AI statement is incomplete</td>
+<td>Does not render, data missing, or no AI statement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="dsvar-block">
+<div class="dsvar-section-label">
+<p>DEADLINES, LATE WORK AND RESITS</p>
+</div>
+<div class="dsvar-matrix">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>How it works</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Deadlines</strong></td>
+<td>Each portfolio entry is due on the Sunday after its work group; the critique pieces and the take-home on the dates above. Every deadline is on the <a href="./weeks/index.html">Weeks</a> page and on Canvas.</td>
+</tr>
+<tr class="even">
+<td><strong>Late work</strong></td>
+<td>If you expect to miss a deadline, message the coordinator on Canvas as soon as you can. A late submission is accepted with a reasonable justification, at most twice in the course.</td>
+</tr>
+<tr class="odd">
+<td><strong>Resit</strong></td>
+<td>There is no resit for any part of this course.</td>
+</tr>
+<tr class="even">
+<td><strong>Language</strong></td>
+<td>Everything you hand in is written in English.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="./setup.html">Setup help</a> · <a href="./credits.html">Credits &amp; licences</a> · <a href="./privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

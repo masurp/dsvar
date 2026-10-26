@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='187.20pt' height='108.00pt' viewBox='0 0 187.20 108.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwxODcuMjB8MC4wMHwxMDguMDA='>
+    <rect x='0.00' y='0.00' width='187.20' height='108.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxODcuMjB8MC4wMHwxMDguMDA=)'>
+<rect x='0.00' y='0.00' width='187.20' height='108.00' style='stroke-width: 0.87; stroke: none;' />
+</g>
+<defs>
+  <clipPath id='cpMi45OXwxODQuMjF8MTMuNzF8MTA1LjAx'>
+    <rect x='2.99' y='13.71' width='181.22' height='91.30' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMi45OXwxODQuMjF8MTMuNzF8MTA1LjAx)'>
+<rect x='2.99' y='13.71' width='181.22' height='91.30' style='stroke-width: 0.87; stroke: none;' />
+<line x1='107.13' y1='37.27' x2='141.27' y2='37.27' style='stroke-width: 1.49; stroke: #73A29B; stroke-linecap: butt;' />
+<line x1='108.76' y1='22.55' x2='117.09' y2='22.55' style='stroke-width: 1.49; stroke: #73A29B; stroke-linecap: butt;' />
+<line x1='64.95' y1='52.00' x2='60.15' y2='52.00' style='stroke-width: 1.49; stroke: #73A29B; stroke-opacity: 0.32; stroke-linecap: butt;' />
+<line x1='58.52' y1='66.72' x2='61.61' y2='66.72' style='stroke-width: 1.49; stroke: #73A29B; stroke-linecap: butt;' />
+<line x1='49.55' y1='81.45' x2='43.12' y2='81.45' style='stroke-width: 1.49; stroke: #73A29B; stroke-opacity: 0.32; stroke-linecap: butt;' />
+<line x1='12.89' y1='96.18' x2='14.80' y2='96.18' style='stroke-width: 1.49; stroke: #73A29B; stroke-linecap: butt;' />
+<circle cx='107.13' cy='37.27' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; fill: #A2C5C0;' />
+<circle cx='108.76' cy='22.55' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; fill: #A2C5C0;' />
+<circle cx='64.95' cy='52.00' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; stroke-opacity: 0.32; fill: #A2C5C0; fill-opacity: 0.32;' />
+<circle cx='58.52' cy='66.72' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; fill: #A2C5C0;' />
+<circle cx='49.55' cy='81.45' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; stroke-opacity: 0.32; fill: #A2C5C0; fill-opacity: 0.32;' />
+<circle cx='12.89' cy='96.18' r='2.42' style='stroke-width: 0.58; stroke: #A2C5C0; fill: #A2C5C0;' />
+<circle cx='141.27' cy='37.27' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; fill: #B7E7AC;' />
+<circle cx='117.09' cy='22.55' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; fill: #B7E7AC;' />
+<circle cx='60.15' cy='52.00' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; stroke-opacity: 0.32; fill: #B7E7AC; fill-opacity: 0.32;' />
+<circle cx='61.61' cy='66.72' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; fill: #B7E7AC;' />
+<circle cx='43.12' cy='81.45' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; stroke-opacity: 0.32; fill: #B7E7AC; fill-opacity: 0.32;' />
+<circle cx='14.80' cy='96.18' r='2.42' style='stroke-width: 0.58; stroke: #B7E7AC; fill: #B7E7AC;' />
+<text x='101.25' y='39.66' text-anchor='end' style='font-size: 6.83px;fill: #CCD8D6; font-family: "IBM Plex Sans", system-ui, sans-serif;' textLength='13.59px' lengthAdjust='spacingAndGlyphs'>men</text>
+<text x='147.14' y='39.66' style='font-size: 6.83px; font-weight: bold;fill: #B7E7AC; font-family: "IBM Plex Sans", system-ui, sans-serif;' textLength='23.61px' lengthAdjust='spacingAndGlyphs'>women</text>
+</g>
+<g clip-path='url(#cpMC4wMHwxODcuMjB8MC4wMHwxMDguMDA=)'>
+<polyline points='2.99,105.01 184.21,105.01 ' style='stroke-width: 1.07; stroke: #184D47; stroke-linecap: butt;' />
+<text x='2.99' y='8.92' style='font-size: 8.50px; font-weight: bold;fill: #E7EBEA; font-family: "IBM Plex Sans", system-ui, sans-serif;' textLength='144.42px' lengthAdjust='spacingAndGlyphs'>Women ahead in 4 of 6 departments</text>
+</g>
+</svg>

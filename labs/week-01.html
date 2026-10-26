@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>First steps in R, and the grammar in ggplot – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">This session</h2>
+   
+  <ul>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">1 · Setup</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-folder" id="toc-this-weeks-folder" class="nav-link" data-scroll-target="#this-weeks-folder">This week’s folder</a></li>
+  <li><a href="#console-or-file" id="toc-console-or-file" class="nav-link" data-scroll-target="#console-or-file">Console or file</a></li>
+  </ul></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">2 · R basics</a>
+  <ul class="collapse">
+  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator">2.1 · R as a calculator</a></li>
+  <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects">2.2 · Objects</a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">2.3 · Vectors</a></li>
+  <li><a href="#kinds-of-value" id="toc-kinds-of-value" class="nav-link" data-scroll-target="#kinds-of-value">2.4 · Kinds of value</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">2.5 · Functions</a></li>
+  <li><a href="#help" id="toc-help" class="nav-link" data-scroll-target="#help">2.6 · Help</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">2.7 · Packages</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">2.8 · Tables</a></li>
+  </ul></li>
+  <li><a href="#meet-the-data" id="toc-meet-the-data" class="nav-link" data-scroll-target="#meet-the-data">3 · Meet the data</a>
+  <ul class="collapse">
+  <li><a href="#type-the-columns" id="toc-type-the-columns" class="nav-link" data-scroll-target="#type-the-columns">Type the columns</a></li>
+  </ul></li>
+  <li><a href="#wrangling-with-the-pipe" id="toc-wrangling-with-the-pipe" class="nav-link" data-scroll-target="#wrangling-with-the-pipe">4 · Wrangling with the pipe</a>
+  <ul class="collapse">
+  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe">4.1 · The pipe</a></li>
+  <li><a href="#filter-keeps-rows" id="toc-filter-keeps-rows" class="nav-link" data-scroll-target="#filter-keeps-rows">4.2 · <code>filter()</code> keeps rows</a></li>
+  <li><a href="#select-keeps-columns" id="toc-select-keeps-columns" class="nav-link" data-scroll-target="#select-keeps-columns">4.3 · <code>select()</code> keeps columns</a></li>
+  <li><a href="#mutate-makes-a-column" id="toc-mutate-makes-a-column" class="nav-link" data-scroll-target="#mutate-makes-a-column">4.4 · <code>mutate()</code> makes a column</a></li>
+  <li><a href="#arrange-sorts-rows" id="toc-arrange-sorts-rows" class="nav-link" data-scroll-target="#arrange-sorts-rows">4.5 · <code>arrange()</code> sorts rows</a></li>
+  <li><a href="#group_by-and-summarise-one-row-per-group" id="toc-group_by-and-summarise-one-row-per-group" class="nav-link" data-scroll-target="#group_by-and-summarise-one-row-per-group">4.6 · <code>group_by()</code> and <code>summarise()</code>: one row per group</a></li>
+  <li><a href="#wide-and-long-pivot_longer-and-pivot_wider" id="toc-wide-and-long-pivot_longer-and-pivot_wider" class="nav-link" data-scroll-target="#wide-and-long-pivot_longer-and-pivot_wider">4.7 · Wide and long: <code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
+  <li><a href="#the-whole-pipeline" id="toc-the-whole-pipeline" class="nav-link" data-scroll-target="#the-whole-pipeline">4.8 · The whole pipeline</a></li>
+  </ul></li>
+  <li><a href="#the-grammar-in-ggplot" id="toc-the-grammar-in-ggplot" class="nav-link" data-scroll-target="#the-grammar-in-ggplot">5 · The grammar in ggplot</a>
+  <ul class="collapse">
+  <li><a href="#data-and-mapping" id="toc-data-and-mapping" class="nav-link" data-scroll-target="#data-and-mapping">5.1 · Data and mapping</a></li>
+  <li><a href="#geom" id="toc-geom" class="nav-link" data-scroll-target="#geom">5.2 · Geom</a></li>
+  <li><a href="#stat" id="toc-stat" class="nav-link" data-scroll-target="#stat">5.3 · Stat</a></li>
+  <li><a href="#scale" id="toc-scale" class="nav-link" data-scroll-target="#scale">5.4 · Scale</a></li>
+  <li><a href="#coord" id="toc-coord" class="nav-link" data-scroll-target="#coord">5.5 · Coord</a></li>
+  <li><a href="#facet" id="toc-facet" class="nav-link" data-scroll-target="#facet">5.6 · Facet</a></li>
+  <li><a href="#theme-and-labels" id="toc-theme-and-labels" class="nav-link" data-scroll-target="#theme-and-labels">5.7 · Theme and labels</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">5.8 · Your turn</a></li>
+  </ul></li>
+  <li><a href="#next-week" id="toc-next-week" class="nav-link" data-scroll-target="#next-week">Next week</a></li>
+  <li><a href="#reference-sheet" id="toc-reference-sheet" class="nav-link" data-scroll-target="#reference-sheet">Reference sheet</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">First steps in R, and the grammar in ggplot</h1>
+<p class="subtitle lead">Week 1 · Work group</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="dsvar-labhead">
+<p><span class="dsvar-seqchip">02 CLAIM</span> <span class="dsvar-labhead__meta">Work group 1 · First steps in R, and the grammar in ggplot</span> <span class="dsvar-labhead__right">Thursday 13:30 · 105 min</span></p>
+</div>
+<p>Today is about getting started. You learn enough R to read a file and look at it, then the handful of functions that get a table into shape for a chart, and then you build one chart, one grammar slot at a time, from the same eight slots you saw in Tuesday’s lecture. Nothing is handed in this week. Whatever you do not reach in the room, finish at home: week 2 assumes all of it.</p>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>BEFORE THURSDAY</p>
+</div>
+<p>Install R, RStudio, the <strong>tidyverse</strong> and <strong>Quarto</strong>: <a href="../setup.html">Before the first work group</a> walks you through it. Then open RStudio and run the three lines under <em>Setup</em> below. If any of them fails, say so on Canvas before Thursday. Arriving with a broken install is fine; arriving with one and not saying so is not.</p>
+<p>Then make a folder called <code>dsvar</code> in Documents, not in Downloads. Every week’s folder goes into it, so all your work lives in one place.</p>
+</div>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>min</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>13:30</td>
+<td><strong>Setup</strong></td>
+<td>10</td>
+<td>Everyone’s R runs, and the week folder is open in RStudio</td>
+</tr>
+<tr class="even">
+<td>13:40</td>
+<td><strong>R basics</strong></td>
+<td>30</td>
+<td>Objects, vectors, kinds of value, functions, help, packages and tables. Type them, do not paste them</td>
+</tr>
+<tr class="odd">
+<td>14:10</td>
+<td><strong>Meet the data</strong></td>
+<td>10</td>
+<td>Read a file and look at it</td>
+</tr>
+<tr class="even">
+<td>14:20</td>
+<td><strong>Wrangling with the pipe</strong></td>
+<td>30</td>
+<td>Rows, columns, new columns, groups, and wide against long</td>
+</tr>
+<tr class="odd">
+<td>14:50</td>
+<td><strong>The grammar in ggplot</strong></td>
+<td>22</td>
+<td>One chart, built one slot at a time. The last step is homework</td>
+</tr>
+<tr class="even">
+<td>15:12</td>
+<td><strong>Next week</strong></td>
+<td>3</td>
+<td>What changes from next Thursday</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">1 · Setup</h2>
+<p>Run these in the <strong>console</strong>, the pane at the bottom left of RStudio. Each line prints something; none should give an error.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)          <span class="co"># loads ggplot2, dplyr, tidyr, readr and a few more</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">"ggplot2"</span>)   <span class="co"># 3.5 or higher; the course is written on 4.0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>R.version.string            <span class="co"># 4.4 or higher</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then, in the <strong>Terminal</strong> tab (not the console), type <code>quarto check</code>. It should end with <em>Checking Knitr engine render… OK</em>.</p>
+<section id="this-weeks-folder" class="level3">
+<h3 class="anchored" data-anchor-id="this-weeks-folder">This week’s folder</h3>
+<p>Every work group comes with a folder: the data, the course theme, and a Quarto file to work in.</p>
+<p><a href="files/week-01.zip" class="dsvar-cta">Download the week 1 folder</a></p>
+<ol type="1">
+<li><strong>Unzip it into your <code>dsvar</code> folder.</strong> On Windows that is right-click → <em>Extract All</em>. Working inside the zip without extracting it is the most common reason R cannot find a file.</li>
+<li><strong>Double-click <code>dsvar-week-01.Rproj</code>.</strong> RStudio opens with this folder as its working directory, which is why <code>"data/…"</code> below needs no full path. Every week, start here.</li>
+<li><strong>Open <code>workgroup-01.qmd</code> and press <em>Render</em>.</strong> If a page appears, R, Quarto, the theme and the data all work.</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>workgroup-01.qmd</code></td>
+<td>Today’s working file. This page’s headings, an empty chunk under each. Not handed in</td>
+</tr>
+<tr class="even">
+<td><code>theme-dsvar.R</code></td>
+<td>The course theme</td>
+</tr>
+<tr class="odd">
+<td><code>data/</code></td>
+<td>Today’s file, exactly as the KNMI publishes it</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="console-or-file" class="level3">
+<h3 class="anchored" data-anchor-id="console-or-file">Console or file</h3>
+<p>There are two places to type R.</p>
+<ul>
+<li>The <strong>console</strong> runs a line the moment you press Enter, and forgets it. Use it to try things out.</li>
+<li>A <strong>chunk</strong> in <code>workgroup-01.qmd</code> (the grey box that starts with <code>```{r}</code>) keeps your code. Put the cursor on a line and press <strong>Ctrl+Enter</strong> (Cmd+Enter on a Mac) to run it, or the green arrow to run the whole chunk.</li>
+</ul>
+<p>Anything you want to keep goes in the file. From section 2 on, type into the chunk under each heading.</p>
+</section>
+</section>
+<section id="r-basics" class="level2">
+<h2 class="anchored" data-anchor-id="r-basics">2 · R basics</h2>
+<section id="r-as-a-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="r-as-a-calculator">2.1 · R as a calculator</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">144</span> <span class="sc">/</span> <span class="dv">10</span>                   <span class="co"># tenths of a degree, into degrees</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">17.2</span> <span class="sc">+</span> <span class="fl">18.9</span> <span class="sc">+</span> <span class="fl">19.4</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>[1]</code> in front of each answer is R numbering its output. You can ignore it.</p>
+<p>Everything after a <code>#</code> is a <strong>comment</strong>. R skips it; it is there for whoever reads the code next, which is usually you. The code on this site uses comments to say what a line does.</p>
+</section>
+<section id="objects" class="level3">
+<h3 class="anchored" data-anchor-id="objects">2.2 · Objects</h3>
+<p><code>&lt;-</code> stores a value under a name. Read it out loud as “gets”: <em>july gets 18.1</em>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>july <span class="ot">&lt;-</span> <span class="fl">18.1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>july <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nothing prints when you store something. Type the name on its own to see it, or look in the <strong>Environment</strong> pane at the top right, which lists every object you have made. Names are case sensitive, so <code>July</code> is a different object, and one that does not exist yet. Try it in the console and read the error: <em>object ‘July’ not found</em> is the error you will see most often this term, and it nearly always means a typo.</p>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>RED TEXT IS NOT ALWAYS AN ERROR</p>
+</div>
+<p>R prints three kinds of red text, and only one means it failed. An <strong>error</strong> starts with <em>Error</em> and stops: nothing was made, and an error in a chunk stops <em>Render</em> too. A <strong>warning</strong> starts with <em>Warning</em>: it ran, but check the result. A <strong>message</strong> is information: the lines <code>library(tidyverse)</code> printed in section 1 were messages.</p>
+</div>
+</section>
+<section id="vectors" class="level3">
+<h3 class="anchored" data-anchor-id="vectors">2.3 · Vectors</h3>
+<p><code>c()</code> combines several values into one <strong>vector</strong>. These are De Bilt’s summer means for 2022 to 2025, in °C. Arithmetic on a vector happens to every value at once.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>summers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">18.6</span>, <span class="fl">18.4</span>, <span class="fl">17.7</span>, <span class="fl">18.5</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>summers <span class="sc">-</span> <span class="dv">17</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(summers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p><code>summers * 10</code> gives how many numbers? Say it, then run it.</p>
+</div>
+<p>Every column of a table is a vector, which 2.8 comes back to.</p>
+</section>
+<section id="kinds-of-value" class="level3">
+<h3 class="anchored" data-anchor-id="kinds-of-value">2.4 · Kinds of value</h3>
+<p>Numbers are one kind of value. Two more turn up today:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"JUL"</span>                <span class="co"># text, always in quotes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>summers <span class="sc">&gt;</span> <span class="dv">18</span>         <span class="co"># a comparison: TRUE or FALSE, once for every value</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(summers)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"JUL"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(summers <span class="sc">&gt;</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>class()</code> names the kind. R calls numbers <strong>numeric</strong>, text <strong>character</strong>, and TRUE or FALSE <strong>logical</strong>. <code>glimpse()</code> in section 3 writes the same kinds as short tags: <code>&lt;dbl&gt;</code> for numbers, <code>&lt;chr&gt;</code> for text, <code>&lt;lgl&gt;</code> for TRUE or FALSE.</p>
+<p>A comparison is all <code>filter()</code> in 4.2 needs: it keeps the rows where the condition is TRUE.</p>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p>What does <code>"18.1" * 2</code> give? Say it, then run it in the console.</p>
+</div>
+<p>In quotes, 18.1 is text, and R does no arithmetic on text. When a column of numbers arrives as <code>&lt;chr&gt;</code>, there is nearly always a letter or a symbol hiding in it somewhere.</p>
+</section>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">2.5 · Functions</h3>
+<p>A function takes values in and gives a value back. The values inside the brackets are its <strong>arguments</strong>, and they can have names.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(summers)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">18.36</span>, <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1901</span>, <span class="dv">2021</span>, <span class="at">by =</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>One more thing to know from the first day: <strong>missing values</strong>, written <code>NA</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="fl">17.2</span>, <span class="cn">NA</span>, <span class="fl">19.4</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="fl">17.2</span>, <span class="cn">NA</span>, <span class="fl">19.4</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>One missing value makes the whole mean missing, unless you say otherwise. R is being careful here, not difficult: an average of the values you happen to have is a different number, and R wants you to choose it on purpose. Today’s file has missing values in it.</p>
+</section>
+<section id="help" class="level3">
+<h3 class="anchored" data-anchor-id="help">2.6 · Help</h3>
+<p><code>?</code> and a function’s name, typed in the console, open its help page in the <strong>Help</strong> pane, bottom right. So does F1, with the cursor on the name.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Every help page has the same parts:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td>what the function does, in a sentence or two</td>
+</tr>
+<tr class="even">
+<td><strong>Usage</strong></td>
+<td>how to call it: every argument, and its default</td>
+</tr>
+<tr class="odd">
+<td><strong>Arguments</strong></td>
+<td>what each argument means</td>
+</tr>
+<tr class="even">
+<td><strong>Value</strong></td>
+<td>what it gives back</td>
+</tr>
+<tr class="odd">
+<td><strong>Examples</strong></td>
+<td>code that runs, at the bottom. Try one in the console</td>
+</tr>
+</tbody>
+</table>
+<p>Under <em>Usage</em>, <code>?mean</code> shows <code>mean(x, trim = 0, na.rm = FALSE, ...)</code>. An argument written with <code>=</code> has a <strong>default</strong>, and R uses it whenever you leave the argument out. <code>na.rm = FALSE</code> is why 2.5 gave <code>NA</code>: unless you say otherwise, R keeps the missing values in. A default is still a choice; someone else made it.</p>
+<p>Help pages are written for people who already know R, so do not expect to follow all of one. Usage and Examples are enough to start.</p>
+</section>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">2.7 · Packages</h3>
+<p>A package is a set of functions someone else wrote. You <strong>install</strong> it once per computer and <strong>load</strong> it once per session.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)   <span class="co"># once. You did this before Thursday</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)              <span class="co"># every session, at the top of every file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>ggplot2</code>, which draws every chart in this course, is one of the packages the tidyverse loads.</p>
+</section>
+<section id="tables" class="level3">
+<h3 class="anchored" data-anchor-id="tables">2.8 · Tables</h3>
+<p>A table in R is a <strong>data frame</strong>: vectors of the same length, side by side, one per column. <code>tibble()</code>, from the tidyverse, makes one from vectors you name. <code>2022:2025</code> is every whole number from 2022 to 2025.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>recent <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">year =</span> <span class="dv">2022</span><span class="sc">:</span><span class="dv">2025</span>, <span class="at">summer =</span> summers)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>recent</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>summer        <span class="co"># $ takes one column back out, as a vector</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Every column holds one kind of value, and the tags under the names say which; <code>&lt;int&gt;</code> is a whole number. A <em>tibble</em> is the tidyverse’s own data frame, and it prints more tidily. Help pages and AI answers say <em>data frame</em>; in this course the two mean the same thing.</p>
+<p>Every table in this course is a data frame like this one, read from a file instead of typed in. That is next.</p>
+</section>
+</section>
+<section id="meet-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="meet-the-data">3 · Meet the data</h2>
+<p>The Royal Netherlands Meteorological Institute (KNMI) publishes monthly mean temperatures for its weather stations. This is De Bilt, the reference station, and this is what the file looks like when it arrives:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Deze gegevens mogen vrij worden gebruikt mits de volgende bronvermelding wordt gegeven:
+KONINKLIJK NEDERLANDS METEOROLOGISCH INSTITUUT (KNMI)
+
+These data can be used freely provided that the following source is acknowledged:
+ROYAL NETHERLANDS METEOROLOGICAL INSTITUTE
+
+MAAND- en JAARGEMIDDELDE TEMPERATUREN (0.1 graden Celsius)
+MONTHLY AND YEARLY MEAN TEMPERATURES (0.1 degrees Celsius)
+
+STN = stationsnummer / WMO-number = 06... (235=De Kooy,240=Schiphol,260=De Bilt,270=Leeuwarden,280=Eelde,
+      290=Twenthe,310=Vlissingen,344=Rotterdam,370=Eindhoven,380=Maastricht)
+
+
+STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT,   NOV,   DEC,  YEAR
+
+260,1901,    -3,   -10,    35,    89,   120,   144,   184,   164,   144,   102,    52,    29,    88
+260,1902,    45,    -4,    52,    84,    92,   155,   153,   146,   129,    85,    37,     8,    82
+260,1903,    29,    56,    70,    55,   126,   140,   153,   150,   141,   110,    56,     7,    91</code></pre>
+</div>
+</div>
+<p>Two things to notice before reading it in. <strong>Thirteen lines of notes</strong> come before the header, and R has to be told to skip them. And <strong>the unit</strong> is “0.1 degrees Celsius”, so <code>144</code> means 14.4 °C. Nothing in the numbers tells you that; only the notes do.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/knmi-de-bilt-monthly.txt"</span>, <span class="at">skip =</span> <span class="dv">13</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bilt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>glimpse()</code> lists every column, its kind and its first values. Every column of <code>bilt</code> is <code>&lt;dbl&gt;</code>: the file holds no text at all. Four more ways to look:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(bilt)       <span class="co"># the table in a spreadsheet-style tab. Look, do not edit</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(bilt)       <span class="co"># how many rows</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bilt<span class="sc">$</span>JUL         <span class="co"># one column, as a vector. $ picks a column by name</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt)    <span class="co"># six numbers for every column, and how many are missing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>summary()</code> works on one column too, and it is worth running on every new file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt<span class="sc">$</span>JUL)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt<span class="sc">$</span>YEAR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The six numbers are the smallest and the largest, the mean, the median in the middle, and the two quartiles, a quarter of the way in from each end. Two things in them should stop you. The warmest July reads 223, which is no temperature in degrees: that is the unit from the notes, showing in the numbers. And <code>YEAR</code> has one <code>NA</code>, a year with no annual mean.</p>
+<p><strong>What is one row?</strong> One year. The twelve months sit side by side as columns, and <code>YEAR</code> is KNMI’s own annual mean. It is blank for 2026, which is not over yet.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>STN</code></td>
+<td>Station number. 260 is De Bilt. The same in every row</td>
+</tr>
+<tr class="even">
+<td><code>YYYY</code></td>
+<td>The year</td>
+</tr>
+<tr class="odd">
+<td><code>JAN</code> … <code>DEC</code></td>
+<td>Monthly mean temperature, <strong>tenths of °C</strong></td>
+</tr>
+<tr class="even">
+<td><code>YEAR</code></td>
+<td>KNMI’s annual mean, tenths of °C. Blank for the current year</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Source, for every caption you write today:</strong> <em>KNMI, De Bilt monthly means.</em></p>
+<section id="type-the-columns" class="level3">
+<h3 class="anchored" data-anchor-id="type-the-columns">Type the columns</h3>
+<p>Every week starts the same way: go down the columns and give each one a word. Four words cover almost everything this course will meet:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>identifier</strong></td>
+<td>names a row; you never compare by it</td>
+</tr>
+<tr class="even">
+<td><strong>categorical</strong></td>
+<td>sorts rows into groups: <em>nominal</em> with no order, <em>ordinal</em> with one</td>
+</tr>
+<tr class="odd">
+<td><strong>continuous</strong></td>
+<td>a measured quantity, where differences mean something</td>
+</tr>
+<tr class="even">
+<td><strong>date</strong></td>
+<td>a point in time, ordered by nature</td>
+</tr>
+</tbody>
+</table>
+<p>These words are about what a column <em>means</em>. The tags from 2.4 are about how R <em>stores</em> it, and the two do not always match. <code>STN</code> is an identifier. <code>YYYY</code> is a date, stored as a plain number. <code>JAN</code> to <code>DEC</code> and <code>YEAR</code> are continuous. Week 2 is built on the categorical kind.</p>
+</section>
+</section>
+<section id="wrangling-with-the-pipe" class="level2">
+<h2 class="anchored" data-anchor-id="wrangling-with-the-pipe">4 · Wrangling with the pipe</h2>
+<p>A chart can only show the table it is given. Most of the work before a chart is getting the table into the right shape: the right rows, the right columns, the right units, one row per thing you want to draw. The tidyverse does this with a handful of functions, often called <em>verbs</em>. Each one takes a table and gives back a table, which is why they chain.</p>
+<section id="the-pipe" class="level3">
+<h3 class="anchored" data-anchor-id="the-pipe">4.1 · The pipe</h3>
+<p><code>|&gt;</code> passes what is on its left into the function on its right, as the first argument. Read it out loud as “and then”. These two lines do exactly the same:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bilt)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The pipe earns its place once there are several steps. Inside out, you read the last step first:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">filter</span>(bilt, YYYY <span class="sc">&gt;=</span> <span class="dv">2016</span>), <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>With the pipe, you read the steps in the order they happen: take <code>bilt</code>, and then keep the years from 2016, and then show the first three.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(YYYY <span class="sc">&gt;=</span> <span class="dv">2016</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>NOTHING IS SAVED UNTIL YOU SAY SO</p>
+</div>
+<p>A verb returns a new table and leaves <code>bilt</code> as it was. To keep the result, give it a name with <code>&lt;-</code>. Running <code>bilt |&gt; filter(YYYY &gt;= 2016)</code> and then <code>nrow(bilt)</code> still gives 126.</p>
+</div>
+</section>
+<section id="filter-keeps-rows" class="level3">
+<h3 class="anchored" data-anchor-id="filter-keeps-rows">4.2 · <code>filter()</code> keeps rows</h3>
+<p><code>filter()</code> keeps the rows for which a condition is true. Everything else is dropped.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-filter-light.png" width="590" alt="A table of three De Bilt years, 2024, 2025 and 2026, with YEAR 118, 114 and NA. The 2026 row is faded. After filter(!is.na(YEAR)) only the 2024 and 2025 rows are left." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-filter-dark.png" width="590" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">filter</span>(YYYY <span class="sc">&gt;=</span> <span class="dv">2016</span>)                  <span class="co"># from 2016 on</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">filter</span>(YYYY <span class="sc">&gt;=</span> <span class="dv">1991</span>, YYYY <span class="sc">&lt;=</span> <span class="dv">2020</span>)    <span class="co"># a comma means "and"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(YEAR))                  <span class="co"># ! means "not"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>equal to. Two signs: one <code>=</code> sets an argument, <code>==</code> compares</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>not equal to</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+<td>greater, smaller, or equal</td>
+</tr>
+<tr class="even">
+<td><code>%in%</code></td>
+<td>one of: <code>month %in% c("JUN", "JUL", "AUG")</code></td>
+</tr>
+<tr class="odd">
+<td><code>is.na()</code></td>
+<td>missing</td>
+</tr>
+</tbody>
+</table>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p>How many rows does the second line keep? Then add <code>|&gt; nrow()</code> to the end of it and check.</p>
+</div>
+</section>
+<section id="select-keeps-columns" class="level3">
+<h3 class="anchored" data-anchor-id="select-keeps-columns">4.3 · <code>select()</code> keeps columns</h3>
+<p><code>select()</code> keeps the columns you name, in the order you name them. A minus sign drops one, and <code>new = old</code> renames it on the way.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-select-light.png" width="588" alt="A table with STN, YYYY and YEAR. STN is faded, YYYY is highlighted. After select(year = YYYY, YEAR) the table has two columns, year and YEAR." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-select-dark.png" width="588" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">select</span>(YYYY, JAN, JUL)        <span class="co"># three columns</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>STN)                  <span class="co"># every column except STN</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="at">year =</span> YYYY, YEAR)     <span class="co"># keep two, and rename one</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">select</span>(YYYY, JAN<span class="sc">:</span>DEC)         <span class="co"># a colon means "from ... to"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="mutate-makes-a-column" class="level3">
+<h3 class="anchored" data-anchor-id="mutate-makes-a-column">4.4 · <code>mutate()</code> makes a column</h3>
+<p><code>mutate()</code> adds a column, or replaces one, by computing it row by row. The arithmetic is the vector arithmetic from 2.3, done to a whole column at once.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-mutate-light.png" width="607" alt="A table with YYYY and YEAR, 118 and 114. After mutate(temp = YEAR / 10) a new highlighted column temp holds 11.8 and 11.4." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-mutate-dark.png" width="607" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">temp =</span> YEAR <span class="sc">/</span> <span class="dv">10</span>)                    <span class="co"># tenths of a degree, into degrees</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">summer =</span> (JUN <span class="sc">+</span> JUL <span class="sc">+</span> AUG) <span class="sc">/</span> <span class="dv">30</span>)     <span class="co"># summer mean, in degrees</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The second line divides by 30: three months added up, divided by three for the mean and by ten for the unit. For 2022 to 2025 it gives the four <code>summers</code> you typed in 2.3.</p>
+</section>
+<section id="arrange-sorts-rows" class="level3">
+<h3 class="anchored" data-anchor-id="arrange-sorts-rows">4.5 · <code>arrange()</code> sorts rows</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp =</span> YEAR <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(temp)) <span class="sc">|&gt;</span>        <span class="co"># desc(): largest first</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p>The five warmest years at De Bilt since 1901: from which decades do you expect them to come?</p>
+</div>
+</section>
+<section id="group_by-and-summarise-one-row-per-group" class="level3">
+<h3 class="anchored" data-anchor-id="group_by-and-summarise-one-row-per-group">4.6 · <code>group_by()</code> and <code>summarise()</code>: one row per group</h3>
+<p><code>summarise()</code> collapses many rows into one. After <code>group_by()</code>, it does that once per group. Here the groups are decades: <code>floor(year / 10) * 10</code> turns 1987 into 1980.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-summarise-light.png" width="636" alt="Six years of De Bilt, three from the 1900s highlighted green and three from the 2020s highlighted blue. After group_by(decade) and summarise() there are two rows: 1900 with a mean of 8.7 from 3 years, and 2020 with 11.3 from 3 years." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-summarise-dark.png" width="636" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp =</span> YEAR <span class="sc">/</span> <span class="dv">10</span>, <span class="at">decade =</span> <span class="fu">floor</span>(YYYY <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(decade) <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">temp =</span> <span class="fu">mean</span>(temp), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Always ask for <code>n = n()</code>. It says how many rows each summary stands for, and here it shows something the means hide: the first decade has nine years (the record starts in 1901) and the last has six. <code>count(decade)</code> is a shortcut for <code>group_by(decade) |&gt; summarise(n = n())</code>.</p>
+</section>
+<section id="wide-and-long-pivot_longer-and-pivot_wider" class="level3">
+<h3 class="anchored" data-anchor-id="wide-and-long-pivot_longer-and-pivot_wider">4.7 · Wide and long: <code>pivot_longer()</code> and <code>pivot_wider()</code></h3>
+<p>A table is <strong>tidy</strong> when every variable is a column and every row is one observation. <code>bilt</code> is not quite tidy: <em>month</em> is a variable, but its twelve values, <code>JAN</code> to <code>DEC</code>, are the column <em>names</em>. That shape is called <strong>wide</strong>. It is good for reading, and bad for ggplot, which can only map a column: there is no column called <em>month</em> to put on an axis or split into panels.</p>
+<p><code>pivot_longer()</code> turns the columns you name into two new columns: one for the old names, one for the values.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-pivot-longer-light.png" width="679" alt="A wide table: YYYY 1901 and 1902, with columns JAN, FEB and MAR. The month names are highlighted green and the temperatures blue. After pivot_longer(JAN:MAR, names_to = month, values_to = temp) there are six rows: each year three times, a month column with JAN, FEB, MAR in green, and a temp column with the six values in blue." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-pivot-longer-dark.png" width="679" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span> bilt <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(YYYY, JAN<span class="sc">:</span>DEC) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(JAN<span class="sc">:</span>DEC, <span class="at">names_to =</span> <span class="st">"month"</span>, <span class="at">values_to =</span> <span class="st">"temp"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p><code>bilt</code> has 126 rows. How many will <code>long</code> have? Then run <code>nrow(long)</code>.</p>
+</div>
+<p><code>pivot_wider()</code> is the way back. It takes the names for the new columns from one column and their values from another.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-pivot-wider-light.png" width="679" alt="The long table of six rows turned back: after pivot_wider(names_from = month, values_from = temp) there are two rows, 1901 and 1902, and one column per month." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-pivot-wider-dark.png" width="679" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> month, <span class="at">values_from =</span> temp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Neither shape is wrong. Wide is for people reading a table; long is what ggplot and <code>group_by()</code> need. You will pivot in both directions this term.</p>
+</section>
+<section id="the-whole-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="the-whole-pipeline">4.8 · The whole pipeline</h3>
+<p>Everything at once: the table the grammar section uses, made in one pipe.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-pipe-light.png" width="336" alt="Four tables from top to bottom. Three De Bilt years; after filter(!is.na(YEAR)) two; after mutate(temp = YEAR / 10) the same two with a new temp column; after select(year = YYYY, temp) only the year and temp columns." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-pipe-dark.png" width="336" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>annual <span class="ot">&lt;-</span> bilt <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(YEAR)) <span class="sc">|&gt;</span>      <span class="co"># keep the rows where YEAR is not missing</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp =</span> YEAR <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|&gt;</span>  <span class="co"># a new column: tenths of a degree, into degrees</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> YYYY, temp)    <span class="co"># keep two columns, and rename one</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p><code>bilt</code> has 126 rows. How many will <code>annual</code> have, and why? Then run <code>nrow(annual)</code>.</p>
+</div>
+<p>125 complete years, 1901 to 2025. That number is the <em>n</em> on the chart you are about to build.</p>
+</section>
+</section>
+<section id="the-grammar-in-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="the-grammar-in-ggplot">5 · The grammar in ggplot</h2>
+<p>Tuesday’s lecture described every chart with the same eight slots. In ggplot each slot is a piece of code, and you add the pieces with <code>+</code>. Most slots have a default, so a chart can be very short and still have all eight.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Slot</th>
+<th>What it decides</th>
+<th>In ggplot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>data</strong></td>
+<td>which table</td>
+<td><code>ggplot(annual, ...)</code></td>
+</tr>
+<tr class="even">
+<td><strong>mapping</strong></td>
+<td>which column goes to which channel</td>
+<td><code>aes(x = year, y = temp)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>geom</strong></td>
+<td>the mark</td>
+<td><code>geom_point()</code>, <code>geom_line()</code></td>
+</tr>
+<tr class="even">
+<td><strong>stat</strong></td>
+<td>anything computed before drawing</td>
+<td><code>geom_smooth()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>scale</strong></td>
+<td>how a value becomes a position or a colour</td>
+<td><code>scale_y_continuous()</code></td>
+</tr>
+<tr class="even">
+<td><strong>coord</strong></td>
+<td>the space the marks are drawn in</td>
+<td><code>coord_cartesian()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>facet</strong></td>
+<td>splitting into small panels</td>
+<td><code>facet_wrap()</code></td>
+</tr>
+<tr class="even">
+<td><strong>theme</strong></td>
+<td>everything that is not data</td>
+<td><code>theme_minimal()</code>, <code>labs()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Add one slot, run it, and look at what changed before you add the next.</p>
+<section id="data-and-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="data-and-mapping">5.1 · Data and mapping</h3>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT</p>
+</div>
+<p>What appears when there is data and a mapping but no geom?</p>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Axes with the right ranges and nothing on them. The mapping is set; no marks have been drawn yet.</p>
+</section>
+<section id="geom" class="level3">
+<h3 class="anchored" data-anchor-id="geom">5.2 · Geom</h3>
+<p>One mark per year:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Same mapping, another geom:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A line says the years are connected, that the temperature existed between two measurements and moved from one to the next. For a temperature that is true. For two separate surveys it would not be.</p>
+</section>
+<section id="stat" class="level3">
+<h3 class="anchored" data-anchor-id="stat">5.3 · Stat</h3>
+<p>Some layers draw something that is <strong>computed</strong> from the rows rather than the rows themselves. <code>geom_smooth()</code> fits a curve through the points and draws that, with a band around it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The message R prints says what it computed. Nothing on the chart says so, which is why a chart with a smooth needs a caption.</p>
+</section>
+<section id="scale" class="level3">
+<h3 class="anchored" data-anchor-id="scale">5.4 · Scale</h3>
+<p>The scale decides how a value becomes a position. Here the y axis is made to run from 0 to 20 °C:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--trap">
+<div class="dsvar-note__label">
+<p>LOOK AGAIN</p>
+</div>
+<p>Same data, same geom, and the warming has almost disappeared. Only the scale changed. Which version is right is week 2’s question. For now, notice how much one line can change.</p>
+</div>
+</section>
+<section id="coord" class="level3">
+<h3 class="anchored" data-anchor-id="coord">5.5 · Coord</h3>
+<p>The coord is the space the marks are drawn in. <code>coord_cartesian()</code> zooms in on part of it without dropping any data:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1990</span>, <span class="dv">2025</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="facet" class="level3">
+<h3 class="anchored" data-anchor-id="facet">5.6 · Facet</h3>
+<p>A facet splits one chart into small panels, one per group. It needs a column that says which group each row is in, and <code>annual</code> has none. The months are the obvious groups, but in <code>bilt</code> they are column <em>names</em>. This is where 4.7 pays off: <code>pivot_longer()</code> moves them into a column of their own.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>seasons <span class="ot">&lt;-</span> bilt <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(DEC)) <span class="sc">|&gt;</span>                      <span class="co"># complete years only</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> YYYY, JAN, APR, JUL, OCT) <span class="sc">|&gt;</span>  <span class="co"># one month from each season</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(JAN<span class="sc">:</span>OCT, <span class="at">names_to =</span> <span class="st">"month"</span>, <span class="at">values_to =</span> <span class="st">"temp"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp =</span> temp <span class="sc">/</span> <span class="dv">10</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>seasons</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Four rows per year now, one per month. ggplot can only map a <strong>column</strong>, so the shape of the table decides which charts are one line away.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(seasons, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> month)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The panels are in alphabetical order, April first. That is R’s default for text, and week 2 is about why it is rarely the order you want.</p>
+</section>
+<section id="theme-and-labels" class="level3">
+<h3 class="anchored" data-anchor-id="theme-and-labels">5.7 · Theme and labels</h3>
+<p><code>labs()</code> writes the words, and the <strong>title</strong> is the most-read line on a chart. Tuesday’s lecture argued that a chart is a claim, so the title states the claim instead of naming the variables. The caption carries the <em>n</em>, the source and what the chart cannot tell you.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(annual, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"De Bilt is about two degrees warmer than a century ago"</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Annual mean temperature at De Bilt, °C"</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption  =</span> <span class="st">"n = 125 complete years, 1901 to 2025 · KNMI, De Bilt monthly means · one station, raw record"</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"°C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Every chart on this page has used the course theme, which the setup chunk of <code>workgroup-01.qmd</code> switched on with <code>theme_set(theme_dsvar())</code>. A theme added to one chart overrides it for that chart only:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>... <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What is inside a theme, and how to write your own, is week 7.</p>
+</section>
+<section id="your-turn" class="level3">
+<h3 class="anchored" data-anchor-id="your-turn">5.8 · Your turn</h3>
+<p>Change slots, not data. Start this in the room if there is time; otherwise it is homework, and week 2 assumes it. Starting from the chart in 5.7:</p>
+<ol type="1">
+<li>Draw <strong>July only</strong>, with points instead of a line. (Which table has July in it, and which function keeps some rows?)</li>
+<li>Add a smooth.</li>
+<li>Write a title that says what the chart shows, in one sentence with a verb.</li>
+</ol>
+</section>
+</section>
+<section id="next-week" class="level2">
+<h2 class="anchored" data-anchor-id="next-week">Next week</h2>
+<p>Nothing is handed in today. Keep the folder and <code>workgroup-01.qmd</code>: the reference sheet below and your own file are what you will look things up in next week.</p>
+<p>From week 2 every work group has two parts. In <strong>Part I</strong>, the teacher works through one example with you, with all the code on the page. In <strong>Part II</strong> you build a different chart from the same file on your own, first on paper and then in R, and then a misleading version of it. Part II is that week’s portfolio entry, and the only thing you hand in. The charts from next Thursday are the first ones the room critiques, at the start of week 3’s lecture.</p>
+</section>
+<section id="reference-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="reference-sheet">Reference sheet</h2>
+<p>Everything today used. The examples run on <code>economics</code>, a dataset that comes with ggplot2, so they cannot be pasted into today’s file without being understood first.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>R basics
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span>                    <span class="co"># store a value under a name</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)                <span class="co"># several values in one vector</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">"text"</span>                    <span class="co"># text goes in quotes</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">2</span>                     <span class="co"># a comparison: TRUE or FALSE</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)                  <span class="co"># which kind: numeric, character or logical</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)   <span class="co"># leave missing values out, on purpose</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>?mean                     <span class="co"># the help page. Usage shows every default</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)        <span class="co"># load a package, once per session</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))   <span class="co"># a table: vectors of the same length</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>An <strong>error</strong> stops and makes nothing; a <strong>warning</strong> ran, but check the result; a <strong>message</strong> is information.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reading, looking at and changing a table
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">skip =</span> <span class="dv">13</span>)   <span class="co"># skip lines of notes before the header</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(d)                        <span class="co"># every column, its kind, its first values</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d)                        <span class="co"># six numbers per column, and the NAs</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>column                          <span class="co"># one column, as a vector</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>economics <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2010-01-01"</span>)) <span class="sc">|&gt;</span>   <span class="co"># some rows</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unemploy_m =</span> unemploy <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span>    <span class="co"># a new column</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, unemploy_m) <span class="sc">|&gt;</span>                <span class="co"># some columns</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>economics <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(unemploy)) <span class="sc">|&gt;</span>                 <span class="co"># sorted, largest first</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>group_by()</code> + <code>summarise()</code> give one row per group. Ask for <code>n()</code> every time:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>economics <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decade =</span> <span class="fu">floor</span>(<span class="fu">year</span>(date) <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(decade) <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">unemploy =</span> <span class="fu">mean</span>(unemploy), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>pivot_longer()</code> moves values that sit in column names into a column of their own; <code>pivot_wider()</code> goes back:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span> economics <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, psavert, uempmed) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(psavert<span class="sc">:</span>uempmed, <span class="at">names_to =</span> <span class="st">"series"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(long, <span class="dv">4</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> series, <span class="at">values_from =</span> value) <span class="sc">|&gt;</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Verb</th>
+<th>Works on</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filter()</code></td>
+<td>rows</td>
+<td>keeps the rows where a condition is true</td>
+</tr>
+<tr class="even">
+<td><code>select()</code></td>
+<td>columns</td>
+<td>keeps, drops or renames columns</td>
+</tr>
+<tr class="odd">
+<td><code>mutate()</code></td>
+<td>columns</td>
+<td>makes or replaces a column, row by row</td>
+</tr>
+<tr class="even">
+<td><code>arrange()</code></td>
+<td>rows</td>
+<td>sorts; <code>desc()</code> for largest first</td>
+</tr>
+<tr class="odd">
+<td><code>group_by()</code> + <code>summarise()</code></td>
+<td>groups</td>
+<td>one row per group</td>
+</tr>
+<tr class="even">
+<td><code>count()</code></td>
+<td>groups</td>
+<td>how many rows per group</td>
+</tr>
+<tr class="odd">
+<td><code>pivot_longer()</code> / <code>pivot_wider()</code></td>
+<td>shape</td>
+<td>column names into a column, and back</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The grammar, slot by slot
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> unemploy)) <span class="sc">+</span>   <span class="co"># data and mapping</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span>                                     <span class="co"># geom: the mark</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>                                   <span class="co"># stat: computed, then drawn</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>)) <span class="sc">+</span>           <span class="co"># scale: here, from zero</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1990-01-01"</span>, <span class="st">"2015-01-01"</span>))) <span class="sc">+</span>  <span class="co"># coord: zoom</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title   =</span> <span class="st">"US unemployment more than doubled in the 2008 recession"</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"n = 574 months, 1967 to 2015 · FRED via ggplot2::economics"</span>,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"thousands"</span>)                   <span class="co"># theme: the words</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>facet_wrap(~ column)</code> splits a chart into one panel per value of <code>column</code>. <code>theme_minimal()</code> and the other <code>theme_*()</code> functions go last.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="../setup.html">Setup help</a> · <a href="../credits.html">Credits &amp; licences</a> · <a href="../privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
