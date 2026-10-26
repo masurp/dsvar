@@ -415,12 +415,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dsvar-labhead">
 <p><span class="dsvar-seqchip">02 CLAIM</span> <span class="dsvar-labhead__meta">Work group 1 · First steps in R, and the grammar in ggplot</span> <span class="dsvar-labhead__right">Thursday 13:30 · 105 min</span></p>
 </div>
-<p>Today is about getting started. You learn enough R to read a file and look at it, then the handful of functions that get a table into shape for a chart, and then you build one chart, one grammar slot at a time, from the same eight slots you saw in Tuesday’s lecture. Nothing is handed in this week. Whatever you do not reach in the room, finish at home: week 2 assumes all of it.</p>
+<p>Today is about getting started with R and in RStudio. You learn enough R to read a file and look at it, then the handful of functions that get a table into shape for a chart, and then you build one chart, one grammar slot at a time, using the same eight settings you saw in Tuesday’s lecture. Important: Nothing is handed in this week. Yet, whatever you do not finish in the room, finish at home: week 2 assumes that you understood all of it.</p>
 <div class="dsvar-note dsvar-note--predict">
 <div class="dsvar-note__label">
 <p>BEFORE THURSDAY</p>
 </div>
-<p>Install R, RStudio, the <strong>tidyverse</strong> and <strong>Quarto</strong>: <a href="../setup.html">Before the first work group</a> walks you through it. Then open RStudio and run the three lines under <em>Setup</em> below. If any of them fails, say so on Canvas before Thursday. Arriving with a broken install is fine; arriving with one and not saying so is not.</p>
+<p>Install R, RStudio, the <strong>tidyverse</strong> and <strong>Quarto</strong>: <a href="../setup.html">Before the first work group</a> walks you through it. Then open RStudio and run the three lines under <em>Setup</em> below. If any of them fails, send us a message via Canvas before Thursday. Arriving with a broken install is fine; arriving with one and not saying so is not.</p>
 <p>Then make a folder called <code>dsvar</code> in Documents, not in Downloads. Every week’s folder goes into it, so all your work lives in one place.</p>
 </div>
 <section id="schedule" class="level2">
@@ -567,13 +567,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dsvar-note__label">
 <p>PREDICT, THEN RUN</p>
 </div>
-<p><code>summers * 10</code> gives how many numbers? Say it, then run it.</p>
+<p>If you run <code>summers * 10</code>, how many numbers will be printed?</p>
 </div>
 <p>Every column of a table is a vector, which 2.8 comes back to.</p>
 </section>
 <section id="kinds-of-value" class="level3">
 <h3 class="anchored" data-anchor-id="kinds-of-value">2.4 · Kinds of value</h3>
-<p>Numbers are one kind of value. Two more turn up today:</p>
+<p>Numbers are one kind of value. Two more are important to know:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"JUL"</span>                <span class="co"># text, always in quotes</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>summers <span class="sc">&gt;</span> <span class="dv">18</span>         <span class="co"># a comparison: TRUE or FALSE, once for every value</span></span>
@@ -581,13 +581,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"JUL"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(summers <span class="sc">&gt;</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>class()</code> names the kind. R calls numbers <strong>numeric</strong>, text <strong>character</strong>, and TRUE or FALSE <strong>logical</strong>. <code>glimpse()</code> in section 3 writes the same kinds as short tags: <code>&lt;dbl&gt;</code> for numbers, <code>&lt;chr&gt;</code> for text, <code>&lt;lgl&gt;</code> for TRUE or FALSE.</p>
+<p><code>class()</code> shows the kind. R calls numbers <strong>numeric</strong>, text <strong>character</strong>, and TRUE or FALSE <strong>logical</strong>. <code>glimpse()</code> in section 3 writes the same kinds as short tags: <code>&lt;dbl&gt;</code> for numbers, <code>&lt;chr&gt;</code> for text, <code>&lt;lgl&gt;</code> for TRUE or FALSE.</p>
 <p>A comparison is all <code>filter()</code> in 4.2 needs: it keeps the rows where the condition is TRUE.</p>
 <div class="dsvar-note dsvar-note--predict">
 <div class="dsvar-note__label">
 <p>PREDICT, THEN RUN</p>
 </div>
-<p>What does <code>"18.1" * 2</code> give? Say it, then run it in the console.</p>
+<p>What does <code>"18.1" * 2</code> give?</p>
 </div>
 <p>In quotes, 18.1 is text, and R does no arithmetic on text. When a column of numbers arrives as <code>&lt;chr&gt;</code>, there is nearly always a letter or a symbol hiding in it somewhere.</p>
 </section>
@@ -599,12 +599,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">18.36</span>, <span class="at">digits =</span> <span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1901</span>, <span class="dv">2021</span>, <span class="at">by =</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>One more thing to know from the first day: <strong>missing values</strong>, written <code>NA</code>.</p>
+<p>One more thing to know from the first day: <strong>missing values</strong>, which are written as <code>NA</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="fl">17.2</span>, <span class="cn">NA</span>, <span class="fl">19.4</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="fl">17.2</span>, <span class="cn">NA</span>, <span class="fl">19.4</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>One missing value makes the whole mean missing, unless you say otherwise. R is being careful here, not difficult: an average of the values you happen to have is a different number, and R wants you to choose it on purpose. Today’s file has missing values in it.</p>
+<p>One missing value makes the whole mean missing, unless you tell R how to handle it. R is being careful here, not difficult: an average of the values you happen to have is a different number, and R wants you to choose it on purpose. Today’s data set has missing values in it.</p>
 </section>
 <section id="help" class="level3">
 <h3 class="anchored" data-anchor-id="help">2.6 · Help</h3>
@@ -638,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>Under <em>Usage</em>, <code>?mean</code> shows <code>mean(x, trim = 0, na.rm = FALSE, ...)</code>. An argument written with <code>=</code> has a <strong>default</strong>, and R uses it whenever you leave the argument out. <code>na.rm = FALSE</code> is why 2.5 gave <code>NA</code>: unless you say otherwise, R keeps the missing values in. A default is still a choice; someone else made it.</p>
-<p>Help pages are written for people who already know R, so do not expect to follow all of one. Usage and Examples are enough to start.</p>
+<p>Help pages are written for people who already know R, so do not expect to understand all parts immediately. Usage and Examples are enough to start.</p>
 </section>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">2.7 · Packages</h3>
@@ -647,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)   <span class="co"># once. You did this before Thursday</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)              <span class="co"># every session, at the top of every file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>ggplot2</code>, which draws every chart in this course, is one of the packages the tidyverse loads.</p>
+<p><code>ggplot2</code>, which draws every chart in this course, is one of the packages in the tidyverse.</p>
 </section>
 <section id="tables" class="level3">
 <h3 class="anchored" data-anchor-id="tables">2.8 · Tables</h3>
@@ -738,7 +738,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 <p><strong>Source, for every caption you write today:</strong> <em>KNMI, De Bilt monthly means.</em></p>
 <section id="type-the-columns" class="level3">
 <h3 class="anchored" data-anchor-id="type-the-columns">Type the columns</h3>
-<p>Every week starts the same way: go down the columns and give each one a word. Four words cover almost everything this course will meet:</p>
+<p>Every week starts the same way: go down the columns and explain each one. Four words cover almost everything this course will meet:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -768,7 +768,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 </section>
 <section id="wrangling-with-the-pipe" class="level2">
 <h2 class="anchored" data-anchor-id="wrangling-with-the-pipe">4 · Wrangling with the pipe</h2>
-<p>A chart can only show the table it is given. Most of the work before a chart is getting the table into the right shape: the right rows, the right columns, the right units, one row per thing you want to draw. The tidyverse does this with a handful of functions, often called <em>verbs</em>. Each one takes a table and gives back a table, which is why they chain.</p>
+<p>A chart can only show the table or data set it is given. Most of the work before a chart is getting the table into the right shape: the right rows, the right columns, the right units, one row per thing you want to draw. The tidyverse does this with a handful of functions, often called <em>verbs</em>. Each one takes a table and gives back a table, which is why they chain.</p>
 <section id="the-pipe" class="level3">
 <h3 class="anchored" data-anchor-id="the-pipe">4.1 · The pipe</h3>
 <p><code>|&gt;</code> passes what is on its left into the function on its right, as the first argument. Read it out loud as “and then”. These two lines do exactly the same:</p>
@@ -780,7 +780,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">filter</span>(bilt, YYYY <span class="sc">&gt;=</span> <span class="dv">2016</span>), <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>With the pipe, you read the steps in the order they happen: take <code>bilt</code>, and then keep the years from 2016, and then show the first three.</p>
+<p>With the pipe, you read the steps in the order they happen: take <code>bilt</code>, and then keep the years from 2016, and then show the first three rows.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(YYYY <span class="sc">&gt;=</span> <span class="dv">2016</span>) <span class="sc">|&gt;</span></span>
@@ -926,7 +926,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 </section>
 <section id="the-grammar-in-ggplot" class="level2">
 <h2 class="anchored" data-anchor-id="the-grammar-in-ggplot">5 · The grammar in ggplot</h2>
-<p>Tuesday’s lecture described every chart with the same eight slots. In ggplot each slot is a piece of code, and you add the pieces with <code>+</code>. Most slots have a default, so a chart can be very short and still have all eight.</p>
+<p>Tuesday’s lecture described every chart with the same eight slots or lines. In ggplot each slot is a piece of code, and you add the pieces with <code>+</code>. Most slots have a default, so a chart can be very short and still have all eight.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1084,7 +1084,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 </section>
 <section id="your-turn" class="level3">
 <h3 class="anchored" data-anchor-id="your-turn">5.8 · Your turn</h3>
-<p>Change slots, not data. Start this in the room if there is time; otherwise it is homework, and week 2 assumes it. Starting from the chart in 5.7:</p>
+<p>Change slots, not data. Start this in the room if there is time; otherwise it is homework. Starting from the chart in 5.7:</p>
 <ol type="1">
 <li>Draw <strong>July only</strong>, with points instead of a line. (Which table has July in it, and which function keeps some rows?)</li>
 <li>Add a smooth.</li>
