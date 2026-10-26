@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Read these five</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  /* ==========================================================================
+     Week 1 lecture explainer — CLEVELAND & McGILL, RUN ON THE ROOM.
+
+     The same five values (23, 31, 27, 19, 29 — deliberately close together;
+     10 vs 90 would be legible in every channel and would prove nothing) shown
+     in five channels at once. Four clicks:
+
+       0  the five panels, unlabelled. The room reads B against E in each.
+       1  the true values appear on the position panel only
+       2  they appear everywhere, and each panel is marked for whether the
+          B-vs-E ORDER it showed you was readable at all
+       3  the measured ranking, as ranks
+
+     WHY IT IS BUILT THIS WAY. The wiki's didactic rule is that principles are
+     derived and not delivered. A slide that states "position beats angle" is
+     delivered. A room that has just got the angle panel wrong has derived it.
+     So the values are hidden first and the reveal is the whole mechanism.
+
+     B (31) and E (29) are the pair that matters: two units apart, obvious on
+     position and length, a coin flip on angle, area and saturation. That pair
+     is why these particular five numbers.
+
+     NO MEASURED ERROR VALUES ARE SHOWN. The Heer & Bostock log-error figures
+     are not in this repo and this course does not publish invented numbers.
+     Step 3 is ranks only and says so.
+
+     Click / Enter / space to advance. #N opens at step N. ?dark for the dark
+     ground. Philipp, 2026-09-16.
+     ========================================================================== */
+  :root{
+    --ink:#1a1a17; --ink-2:#3a3a34; --ink-3:#5a5a52; --muted:#7a7a70; --faint:#9a9a90;
+    --hair:#e7e3d9; --border:#e0dcd0; --surface:#ffffff; --paper:#faf8f4;
+    --accent:#1e7c50; --accent-2:#2d9e87; --accent-tint:rgba(45,158,135,.14);
+    --bad:#b4472f;
+    --font:"Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  body.dark{
+    --ink:#e7ebea; --ink-2:#ccd8d6; --ink-3:#a2c5c0; --muted:#73a29b; --faint:#62928b;
+    --hair:#184d47; --border:#184d47; --surface:#003732; --paper:#002a26;
+    --accent:#63ba8a; --accent-2:#90d49c; --accent-tint:rgba(99,186,138,.18);
+    --bad:#e2846a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font); background:transparent; color:var(--ink);
+       overflow:hidden; cursor:pointer; -webkit-tap-highlight-color:transparent;
+       display:flex; flex-direction:column}
+  .head{flex:0 0 auto; padding:14px 20px 8px}
+  .kick{font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--accent); text-transform:uppercase}
+  .q{font-size:15px; font-weight:700; margin-top:3px}
+  .q .sub{font-weight:400; color:var(--ink-3); font-size:13px}
+  .wrap{flex:1 1 auto; min-height:0; display:flex; gap:10px; padding:4px 20px 0}
+  .panel{flex:1 1 0; min-width:0; display:flex; flex-direction:column;
+         border-radius:9px; padding:8px 8px 6px; transition:background .35s, box-shadow .35s}
+  .panel.miss{background:rgba(180,71,47,.06); box-shadow:inset 0 0 0 1px var(--bad)}
+  .panel.hit{background:var(--accent-tint)}
+  .pt{font-size:10.5px; font-weight:700; letter-spacing:.05em; color:var(--ink-2); margin-bottom:2px}
+  .pt .rank{color:var(--faint); font-weight:500}
+  .pv{flex:1 1 auto; min-height:0}
+  .verdict{font-size:10px; font-weight:700; letter-spacing:.04em; margin-top:4px; min-height:13px}
+  .verdict.miss{color:var(--bad)}
+  .verdict.hit{color:var(--accent)}
+  .foot{flex:0 0 auto; padding:9px 20px 12px; border-top:1px solid var(--hair);
+        display:flex; gap:14px; align-items:flex-start}
+  .note{flex:1 1 auto; font-size:11.5px; line-height:1.45; color:var(--ink-3)}
+  .note b{color:var(--ink)}
+  .prog{flex:0 0 auto; font-size:10px; color:var(--faint); letter-spacing:.08em; align-self:center}
+  svg{width:100%;height:100%;display:block; overflow:visible}
+  text{font-family:var(--font)}
+  .val{font-size:11px; font-weight:700; fill:var(--ink)}
+  .key{font-size:10px; fill:var(--muted)}
+  .fade{transition:opacity .4s}
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="kick" id="kick">Estimate</div>
+  <div class="q" id="q"></div>
+</div>
+<div class="wrap" id="wrap"></div>
+<div class="foot">
+  <div class="note" id="note"></div>
+  <div class="prog" id="prog"></div>
+</div>
+<script>
+const KEYS = ["A","B","C","D","E"];
+const VALS = [23, 31, 27, 19, 29];
+// B and E are two units apart. Whether a channel lets you see that is the test.
+const PANELS = [
+  {id:"position",   name:"Position", rank:1, readable:true},
+  {id:"length",     name:"Length",   rank:2, readable:true},
+  {id:"angle",      name:"Angle",    rank:3, readable:false},
+  {id:"area",       name:"Area",     rank:4, readable:false},
+  {id:"saturation", name:"Saturation", rank:5, readable:false}
+];
+const STEPS = [
+  {kick:"Estimate", q:'Which is bigger, <b>B</b> or <b>E</b>? <span class="sub">Same five numbers in all five panels. Answer for each one.</span>',
+   note:'Do not think about it too long. The question is not whether you <i>can</i> work it out — it is which panels let you see it.'},
+  {kick:"Reveal", q:'Here are the actual numbers. <span class="sub">B is 31. E is 29.</span>',
+   note:'<b>Two units apart.</b> On position you saw it without trying. Hold that feeling — the next click is the same reveal on the other four.'},
+  {kick:"Reveal", q:'The same two units, in every channel.',
+   note:'<b>Three of these five panels cannot show you a 7% difference.</b> Not because they are badly drawn — they are drawn correctly. The channel itself will not carry it.'},
+  {kick:"The finding", q:'This is a measured result, not a matter of taste.',
+   note:'<b>Cleveland & McGill (1984)</b>, replicated at scale by <b>Heer & Bostock (2010)</b>. Ranks only: the measured error values are not in this repo, and this course does not draw numbers it does not have.'}
+];
+
+const wrap = document.getElementById('wrap');
+const NS = "http://www.w3.org/2000/svg";
+let step = 0;
+
+function el(t,a,p){ const n=document.createElementNS(NS,t); for(const k in a) n.setAttribute(k,a[k]); p.appendChild(n); return n; }
+
+function draw(p, host, showVals){
+  host.innerHTML = '';
+  const svg = document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox','0 0 120 150');
+  svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+  host.appendChild(svg);
+  const max = 35, W = 120, H = 150;
+  const acc = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+
+  if (p.id === 'position'){
+    VALS.forEach((v,i)=>{
+      const y = 14 + i*26;
+      el('line',{x1:26,x2:110,y1:y,y2:y,stroke:'var(--hair)','stroke-width':1},svg);
+      el('circle',{cx:26+(v/max)*84, cy:y, r:5, fill:acc},svg);
+      const t=el('text',{x:16,y:y+4,class:'key','text-anchor':'end'},svg); t.textContent=KEYS[i];
+      if(showVals){ const u=el('text',{x:26+(v/max)*84, y:y-9, class:'val','text-anchor':'middle'},svg); u.textContent=v; }
+    });
+  } else if (p.id === 'length'){
+    VALS.forEach((v,i)=>{
+      const x = 12 + i*21, h = (v/max)*112;
+      el('rect',{x:x, y:H-22-h, width:14, height:h, fill:acc, rx:1},svg);
+      const t=el('text',{x:x+7,y:H-9,class:'key','text-anchor':'middle'},svg); t.textContent=KEYS[i];
+      if(showVals){ const u=el('text',{x:x+7,y:H-27-h,class:'val','text-anchor':'middle'},svg); u.textContent=v; }
+    });
+  } else if (p.id === 'angle'){
+    const tot = VALS.reduce((a,b)=>a+b,0);
+    let a0 = -Math.PI/2; const cx=60, cy=70, r=40;
+    VALS.forEach((v,i)=>{
+      const a1 = a0 + (v/tot)*Math.PI*2;
+      const x0=cx+Math.cos(a0)*r, y0=cy+Math.sin(a0)*r;
+      const x1=cx+Math.cos(a1)*r, y1=cy+Math.sin(a1)*r;
+      const large = (a1-a0) > Math.PI ? 1 : 0;
+      el('path',{d:`M${cx} ${cy} L${x0} ${y0} A${r} ${r} 0 ${large} 1 ${x1} ${y1} Z`,
+                 fill:acc, opacity:(0.45+i*0.12).toFixed(2), stroke:'var(--surface)','stroke-width':1},svg);
+      // Labels sit OUTSIDE the arc. Inside, they had to be white, and white on
+      // the two palest slices of the opacity ramp is unreadable — a legibility
+      // failure inside the one panel whose job is to be hard to read for the
+      // RIGHT reason.
+      const am=(a0+a1)/2;
+      const lx=cx+Math.cos(am)*(r+13), ly=cy+Math.sin(am)*(r+13)+3;
+      const t=el('text',{x:lx, y:ly, class:showVals?'val':'key','text-anchor':'middle'},svg);
+      t.textContent = showVals ? (KEYS[i]+' '+v) : KEYS[i];
+      a0=a1;
+    });
+  } else if (p.id === 'area'){
+    VALS.forEach((v,i)=>{
+      const x = 12 + i*21;
+      const rad = Math.sqrt(v/max)*13.5;    // area-proportional, drawn correctly
+      el('circle',{cx:x+7, cy:68, r:rad, fill:acc},svg);
+      const t=el('text',{x:x+7,y:H-9,class:'key','text-anchor':'middle'},svg); t.textContent=KEYS[i];
+      if(showVals){ const u=el('text',{x:x+7,y:112,class:'val','text-anchor':'middle'},svg); u.textContent=v; }
+    });
+  } else {
+    VALS.forEach((v,i)=>{
+      const x = 12 + i*21;
+      const t01 = (v - 15) / (35 - 15);
+      el('rect',{x:x, y:40, width:16, height:56, rx:2, fill:acc, opacity:(0.15+t01*0.85).toFixed(2)},svg);
+      const t=el('text',{x:x+8,y:H-9,class:'key','text-anchor':'middle'},svg); t.textContent=KEYS[i];
+      if(showVals){ const u=el('text',{x:x+8,y:112,class:'val','text-anchor':'middle'},svg); u.textContent=v; }
+    });
+  }
+}
+
+function build(){
+  wrap.innerHTML = '';
+  PANELS.forEach(p=>{
+    const d = document.createElement('div');
+    d.className = 'panel'; d.id = 'p-'+p.id;
+    d.innerHTML = '<div class="pt"><span>'+p.name+'</span> <span class="rank" id="r-'+p.id+'"></span></div>'
+                + '<div class="pv" id="v-'+p.id+'"></div>'
+                + '<div class="verdict" id="d-'+p.id+'"></div>';
+    wrap.appendChild(d);
+  });
+}
+
+function setStep(n){
+  n = Math.max(0, Math.min(STEPS.length-1, n)); step = n;
+  document.getElementById('kick').textContent = STEPS[n].kick;
+  document.getElementById('q').innerHTML = STEPS[n].q;
+  document.getElementById('note').innerHTML = STEPS[n].note;
+  document.getElementById('prog').textContent = (n+1)+' / '+STEPS.length;
+  if (history.replaceState) history.replaceState(null,'','#'+(n+1));
+
+  PANELS.forEach(p=>{
+    const showVals = (n===1 && p.id==='position') || n>=2;
+    draw(p, document.getElementById('v-'+p.id), showVals);
+    const box = document.getElementById('p-'+p.id);
+    const ver = document.getElementById('d-'+p.id);
+    const rk  = document.getElementById('r-'+p.id);
+    box.className = 'panel';
+    ver.className = 'verdict'; ver.textContent = '';
+    rk.textContent = '';
+    if (n>=2){
+      if (p.readable){ box.classList.add('hit'); ver.classList.add('hit'); ver.textContent = 'B > E, visibly'; }
+      else { box.classList.add('miss'); ver.classList.add('miss'); ver.textContent = 'Could you tell?'; }
+    }
+    if (n>=3) rk.textContent = 'rank ' + p.rank;
+  });
+}
+
+build();
+function next(){ setStep(step>=STEPS.length-1 ? 0 : step+1); }
+document.body.addEventListener('click', next);
+document.addEventListener('keydown', e=>{
+  if (e.key==='Enter'||e.key===' '||e.key==='ArrowRight'){ e.preventDefault(); next(); }
+  if (e.key==='Backspace'||e.key==='ArrowLeft'){ e.preventDefault(); setStep(step-1); }
+});
+if (new URLSearchParams(location.search).has('dark')) document.body.classList.add('dark');
+if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+    && !new URLSearchParams(location.search).has('light')) document.body.classList.add('dark');
+const h = location.hash.replace('#','');
+setStep(/^\d+$/.test(h) ? (+h - 1) : 0);
+</script>
+</body>
+</html>

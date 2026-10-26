@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a80805fb9204df0454a85aec670eb5fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
+
+  <title>DSVAR – Week 1 · The argument in the graph</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #abb2bf;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #abb2bf; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #98c379; } /* Annotation */
+    code span.at { color: #c678dd; } /* Attribute */
+    code span.bn { color: #d19a66; } /* BaseN */
+    code span.bu { color: #c678dd; } /* BuiltIn */
+    code span.cf { color: #c678dd; } /* ControlFlow */
+    code span.ch { color: #98c379; } /* Char */
+    code span.cn { color: #d19a66; } /* Constant */
+    code span.co { color: #5c6370; font-style: italic; } /* Comment */
+    code span.cv { color: #e06c75; font-style: italic; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #c678dd; } /* DataType */
+    code span.dv { color: #d19a66; } /* DecVal */
+    code span.er { color: #f44747; text-decoration: underline; } /* Error */
+    code span.ex { color: #61afef; font-weight: bold; } /* Extension */
+    code span.fl { color: #d19a66; } /* Float */
+    code span.fu { color: #61afef; } /* Function */
+    code span.im { color: #98c379; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #c678dd; } /* Keyword */
+    code span.op { color: #c678dd; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #c678dd; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #56b6c2; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #98c379; } /* String */
+    code span.va { color: #e06c75; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9482db89341a8f280389b1190be2b214.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="section" class="slide level2 center dark" data-background-color="#002a26">
+<h2></h2>
+<div class="dsvar-label">
+<p>Week 1 · Lecture</p>
+</div>
+<div class="dsvar-title">
+<p>The argument<br>
+in the graph</p>
+</div>
+<span class="dsvar-era" data-era="1" hidden=""></span>
+<img class="dsvar-titlefig" src="../assets/glyphs/move-1-dark.svg" alt="The Nile at Aswan, 1871 to 1970: two fits over the same hundred points, a gentle slope and a step at the 1899 dam">
+<div class="dsvar-foot">
+  <div>
+    <div class="name">Dr. Philipp K. Masur</div>
+    <div>Data Science: Visualisation and Analytics in R · Vrije Universiteit Amsterdam</div>
+  </div>
+</div>
+</section>
+<section id="one-of-the-first-statistical-visualizations-1644" class="slide level2" data-background-color="#faf8f4">
+<h2>One of the first statistical visualizations (1644)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../gallery/img/van-langren-original.jpg" class="quarto-figure quarto-figure-center" style="width:72.0%" alt="A single horizontal scale from 0 to 30 degrees, with TOLEDO written vertically at zero. Twelve small ring-shaped markers sit on the scale between about 18 and 30 degrees, each with a name written vertically above it. The word ROMA sits in the gap between two clusters, and the title Grados de la Longitud fills the empty left half."></p>
+</figure>
+</div>
+<div class="dsvar-take">
+<p>What does this chart show?</p>
+</div>
+<div class="dsvar-ref">
+<p>Source: <em>Grados de la Longitud</em>, from M. F. van Langren, <em>La Verdadera Longitud por Mar y Tierra</em>, Antwerp, 1644. Public domain; scan via Wikimedia Commons.</p>
+</div>
+</section>
+<section id="how-far-east-of-toledo-is-rome" class="slide level2" data-background-color="#faf8f4">
+<h2>How far east of Toledo is Rome?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authority</th>
+<th style="text-align: left;">Worked in</th>
+<th style="text-align: right;">Degrees east</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Andrea Argoli</td>
+<td style="text-align: left;">Padua</td>
+<td style="text-align: right;">28.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Christoph Clavius</td>
+<td style="text-align: left;">Rome</td>
+<td style="text-align: right;">26.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claudius Ptolemaeus</td>
+<td style="text-align: left;">Alexandria</td>
+<td style="text-align: right;">27.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">David Origanus</td>
+<td style="text-align: left;">Frankfurt</td>
+<td style="text-align: right;">30.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gerardus Mercator</td>
+<td style="text-align: left;">Leuven</td>
+<td style="text-align: right;">19.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Giovanni Antonio Magini</td>
+<td style="text-align: left;">Bologna</td>
+<td style="text-align: right;">29.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authority</th>
+<th style="text-align: left;">Worked in</th>
+<th style="text-align: right;">Degrees east</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Jan Jansson</td>
+<td style="text-align: left;">Amsterdam</td>
+<td style="text-align: right;">17.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Johann Muller</td>
+<td style="text-align: left;">Nuremberg</td>
+<td style="text-align: right;">25.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Johann Schoner</td>
+<td style="text-align: left;">Bamberg</td>
+<td style="text-align: right;">20.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oronce Fine</td>
+<td style="text-align: left;">Paris</td>
+<td style="text-align: right;">26.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phillip van Lansberge</td>
+<td style="text-align: left;">Middelburg</td>
+<td style="text-align: right;">21.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tycho Brahe</td>
+<td style="text-align: left;">Hven</td>
+<td style="text-align: right;">21.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-take">
+<p>The data behind the graph: twelve answers from the astronomers and mapmakers of the day, as degrees of longitude east of Toledo.</p>
+</div>
+</section>
+<section id="rebuilt-in-r-with-the-correct-answer" class="slide level2" data-background-color="#faf8f4">
+<h2>Rebuilt in R, with the correct answer</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>langren <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Longitude,</span>
+<span id="cb1-3"><a aria-label="3"></a>             <span class="fu">reorder</span>(Name, Longitude))) <span class="sc">+</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">16.5</span>,</span>
+<span id="cb1-5"><a aria-label="5"></a>             <span class="at">colour =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">16.5</span>, <span class="at">xmax =</span> Longitude),</span>
+<span id="cb1-7"><a aria-label="7"></a>                 <span class="at">colour =</span> <span class="st">"#2a8558"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"#2a8558"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Degrees east of Toledo"</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-10"><a aria-label="10"></a>       <span class="at">title =</span> <span class="st">"All twelve put Rome too far east"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-3-1.png" alt="A dot plot of the twelve estimates, sorted, each joined by a faint line to a vertical line at the true distance of 16.5 degrees. Every estimate lies to the right of it." width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-aside">
+<p>The same twelve rows. One layer, <code>geom_vline()</code>, adds the distance we know now. <em>They disagree</em> becomes <em>they are all wrong</em>, by 1.2 to 13.6 degrees.</p>
+</div>
+</section>
+<section id="twelve-romes" class="slide level2" data-background-color="#faf8f4">
+<h2>Twelve Romes</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-4-1.png" alt="A map of southern Europe with Toledo and Rome marked. Curved arrows run from Toledo to twelve green dots along Rome's latitude, from central Italy across the Adriatic into North Macedonia and Bulgaria, each with its authority's name above it." width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-aside">
+<p>The same numbers as places on the ground, which is what a ship’s navigator needed. Only 2 of the twelve put Rome in Italy, 3 in the Adriatic and 7 in the Balkans.</p>
+</div>
+</section>
+<section id="a-few-hundred-stars-by-hand-1914" class="slide level2" data-background-color="#faf8f4">
+<h2>A few hundred stars, by hand (1914)</h2>
+<div class="columns">
+<div class="column" style="width:38%;">
+<p><img data-src="../gallery/img/hertzsprung-russell-1914.png" style="width:88.0%" alt="Russell's 1914 plate: a hand-drawn grid with spectral classes across the top and absolute magnitude down the side, brightest at the top. A few hundred dots stand in vertical columns, one per spectral class, forming a diagonal band between two ruled straight lines."></p>
+</div><div class="column" style="width:62%;">
+<ul>
+<li>Henry Norris Russell’s plate. <strong>Each dot is one star</strong> whose distance had been measured, a few hundred stars here, a few thousand in later versions.</li>
+<li><strong>Across the top: spectral class</strong>, B to M. It is the star’s colour, and it gives its surface temperature: hot and blue on the left, cool and red on the right</li>
+<li><strong>Down the side: absolute magnitude</strong>, how bright the star really is once its distance is taken out. Smaller numbers are brighter, so the brightest stars are at the top</li>
+<li>The dots stand in columns because a class is a category. Most fall on <strong>one diagonal band</strong>, from hot and bright to cool and faint. A few cool stars sit far above it, much brighter than their colour would suggest</li>
+<li>The two ruled lines are Russell’s own, drawn along the band</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Figure from H. N. Russell (1914), Relations between the spectra and other characteristics of the stars, <em>Nature, 93</em>, 252. Public domain in the US; in copyright in the EU until 2028; shown at reduced size for criticism and review.</p>
+</div>
+</section>
+<section id="rebuilt-in-r-with-67074-stars" class="slide level2" data-background-color="#faf8f4">
+<h2>Rebuilt in R, with 67,074 stars</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">ggplot</span>(stars, <span class="fu">aes</span>(ci, absmag, <span class="at">colour =</span> ci)) <span class="sc">+</span></span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">3</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a aria-label="3"></a>  <span class="fu">scale_colour_gradientn</span>(</span>
+<span id="cb2-4"><a aria-label="4"></a>    <span class="at">colours =</span> <span class="fu">c</span>(<span class="st">"#3f66ff"</span>, <span class="st">"#8fb0ff"</span>, <span class="st">"#f4f1e8"</span>,</span>
+<span id="cb2-5"><a aria-label="5"></a>                <span class="st">"#ffd23f"</span>, <span class="st">"#ff8a1a"</span>, <span class="st">"#ff3b1f"</span>),</span>
+<span id="cb2-6"><a aria-label="6"></a>    <span class="at">values =</span> scales<span class="sc">::</span><span class="fu">rescale</span>(</span>
+<span id="cb2-7"><a aria-label="7"></a>      <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">3</span>, <span class="dv">0</span>, .<span class="dv">4</span>, .<span class="dv">65</span>, <span class="fl">1.1</span>, <span class="fl">1.6</span>)),</span>
+<span id="cb2-8"><a aria-label="8"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">3</span>, <span class="fl">1.6</span>),</span>
+<span id="cb2-9"><a aria-label="9"></a>    <span class="at">oob =</span> scales<span class="sc">::</span>squish, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a aria-label="10"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb2-11"><a aria-label="11"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"#0b0e14"</span>,</span>
+<span id="cb2-12"><a aria-label="12"></a>    <span class="at">linewidth =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb2-13"><a aria-label="13"></a>    <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.75</span>, <span class="fl">1.85</span>, .<span class="dv">2</span>, <span class="sc">-</span>.<span class="dv">25</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">2.4</span>, <span class="fl">15.6</span>),</span>
+<span id="cb2-14"><a aria-label="14"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"main sequence"</span>, <span class="st">"giants"</span>,</span>
+<span id="cb2-15"><a aria-label="15"></a>              <span class="st">"subgiants"</span>, <span class="st">"white dwarfs"</span>)) <span class="sc">+</span></span>
+<span id="cb2-16"><a aria-label="16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Colour index (blue to red)"</span>,</span>
+<span id="cb2-17"><a aria-label="17"></a>       <span class="at">y =</span> <span class="st">"Absolute magnitude"</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a aria-label="18"></a>  <span class="fu">theme_dsvar</span>(<span class="at">dark =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a aria-label="19"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#0b0e14"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-5-1.png" alt="67,074 stars on a dark ground, each coloured as the star looks: a dense diagonal band from blue upper left to red lower right, a clump of orange giants above it and faint white dwarfs below." width="1280"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-aside">
+<p>One row per star within 250 parsecs, from a modern catalogue; colour index replaced Russell’s spectral class.</p>
+</div>
+</section>
+<section id="at-the-same-colour-two-kinds-of-star" class="slide level2" data-background-color="#faf8f4">
+<h2>At the same colour, two kinds of star</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-6-1.png" alt="Ridgelines of absolute magnitude for six spectral classes, B at the top to M at the bottom, brighter to the right. B, A and F stars each form one hump. K stars have two separate humps, dwarfs on the faint side and giants on the bright side. M stars are mostly in the bright giant hump." width="1320"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:38%;">
+<ul>
+<li>The same stars, another question. Cut them into strips by spectral class and ask: <strong>how bright are the stars of one colour?</strong></li>
+<li>One ridge per class, its height showing where the class’s stars are most common</li>
+<li>The K stars come in two humps: dwarfs and giants about 100 times brighter, with little in between</li>
+</ul>
+</div></div>
+</section>
+<section id="headlines-turning-negative-2022" class="slide level2" data-background-color="#faf8f4">
+<h2>Headlines turning negative (2022)</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><img data-src="../gallery/img/headline-sentiment-original.png" style="width:100.0%" alt="The original figure: a thick blue line falling from about 0.08 to minus 0.16 between 2000 and 2019 inside a light blue band, with the change of minus 314 per cent printed top left and a list of 47 outlets underneath."></p>
+</div><div class="column" style="width:44%;">
+<ul>
+<li><strong>One point per year</strong>, 2000 to 2019: the average tone of that year’s headlines across 47 US news outlets, from 23 million headlines</li>
+<li><strong>Sentiment</strong> was scored by a language model, from −1, negative, to +1, positive</li>
+<li><strong>The light band</strong> shows how uncertain each yearly average is</li>
+<li><strong>Top left</strong>, the change from 2000 to 2019, printed as −314 per cent</li>
+<li>Shared widely as evidence that the news has turned negative</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Rozado, D., Hughes, R., &amp; Halberstadt, J. (2022). Longitudinal analysis of sentiment and emotion in news media headlines using automated labelling with Transformer language models. <em>PLOS ONE, 17</em>(10), e0276367. CC BY 4.0.</p>
+</div>
+</section>
+<section id="rebuilt-in-r" class="slide level2" data-background-color="#faf8f4">
+<h2>Rebuilt in R</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>yearly <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, mean)) <span class="sc">+</span></span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> ci,</span>
+<span id="cb3-5"><a aria-label="5"></a>                  <span class="at">ymax =</span> mean <span class="sc">+</span> ci),</span>
+<span id="cb3-6"><a aria-label="6"></a>              <span class="at">fill =</span> <span class="st">"#2a8558"</span>, <span class="at">alpha =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a aria-label="7"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#2a8558"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Tone, −1 to +1"</span>,</span>
+<span id="cb3-9"><a aria-label="9"></a>       <span class="at">title =</span> <span class="st">"Headlines grew more negative"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-7-1.png" alt="A green line falling from about 0.08 in 2000 to minus 0.16 in 2019 in a light green band, with a grey line at zero." width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-aside">
+<p>From the authors’ own data: 655 rows, one per outlet and year, averaged into the twenty points of the line.</p>
+</div>
+</section>
+<section id="one-change-draw-every-outlet" class="slide level2" data-background-color="#faf8f4">
+<h2>One change: draw every outlet</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>yearly <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, mean)) <span class="sc">+</span></span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> outlets, <span class="at">colour =</span> <span class="st">"grey70"</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="fu">aes</span>(<span class="at">y =</span> sentiment, <span class="at">group =</span> outlet)) <span class="sc">+</span></span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> ci,</span>
+<span id="cb4-7"><a aria-label="7"></a>                  <span class="at">ymax =</span> mean <span class="sc">+</span> ci),</span>
+<span id="cb4-8"><a aria-label="8"></a>              <span class="at">fill =</span> <span class="st">"#2a8558"</span>, <span class="at">alpha =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a aria-label="9"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#2a8558"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Tone, −1 to +1"</span>,</span>
+<span id="cb4-11"><a aria-label="11"></a>       <span class="at">title =</span> <span class="st">"Outlets differ more than years do"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-8-1.png" alt="The same green average with 47 thin grey lines behind it, one per outlet, spread from about minus 0.6 to plus 0.6." width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-aside">
+<p>One layer added: each grey line is one outlet. The fall in the average is real, and small next to how far outlets differ from each other. In 2019 alone they run from -0.57 to 0.33.</p>
+</div>
+</section>
+<section>
+<section id="a-chart-is-a-claim." class="title-slide slide level1 center dark" data-background-color="#002a26">
+<h1>A chart is a claim.</h1>
+<div class="dsvar-take">
+<p>Each chart changed once, and the same data said something new. This course is about making those choices on purpose, and noticing when somebody else has.</p>
+</div>
+</section>
+<section id="this-lecture" class="slide level2" data-background-color="#faf8f4">
+<h2>This lecture</h2>
+<!-- The signpost slide. The numerals here are the numerals on the dark
+     dividers, so nobody has to wonder where they are in the hour. Thirty
+     seconds, not more. -->
+<div class="dsvar-toc dsvar-toc--4">
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">I</div>
+    <h3>What this course is</h3>
+    <p>Who we are, overview of the course, and how you are assessed</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">II</div>
+    <h3>Why plot anything</h3>
+    <p>What a summary throws away, and the two jobs a chart can have</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">III</div>
+    <h3>The grammar of graphics</h3>
+    <p>Eight decisions that make every chart you have ever seen</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">IV</div>
+    <h3>Perception</h3>
+    <p>Why some of those decisions are measurably better than others</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">V</div>
+    <h3>Integrity</h3>
+    <p>Tufte, where he is right, and where the evidence is against him</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">VI</div>
+    <h3>How we argue about charts</h3>
+    <p>The four steps every critique this term will run</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">VII</div>
+    <h3>Showing uncertainty</h3>
+    <p>How sure a chart is, and how to let the reader see it</p>
+  </div>
+  <div class="dsvar-toc__item">
+    <div class="dsvar-toc__n">VIII</div>
+    <h3>This week</h3>
+    <p>Thursday's first steps in R, and the reading</p>
+  </div>
+</div>
+</section></section>
+<section>
+<section id="i-what-this-course-is" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>I · What this course is</h1>
+
+</section>
+<section id="who-am-i" class="slide level2" data-background-color="#faf8f4">
+<h2>Who am I?</h2>
+<!-- From CADC's deck 1, in this course's greens. Career arc drawn to scale
+     from 2006 to today. The one place in the course where the lecturer's name
+     is written into a deck (consistency-review.md §14); the photo is
+     _canvas/team/masur.jpg. -->
+<div class="dsvar-cv">
+  <img src="img/masur.jpg" alt="Philipp K. Masur">
+  <ul>
+    <li><strong>Research focus</strong>: privacy and self-disclosure online, social influence and behavioural contagion, digital literacy, social media and well-being</li>
+    <li><strong>Methods</strong>: simulation and experimental designs, scale development and validation, Bayesian statistics, computational methods and machine learning</li>
+    <li>More at <a href="https://www.philippmasur.de">philippmasur.de</a></li>
+  </ul>
+</div>
+
+<svg class="dsvar-cvline" viewbox="0 0 1000 190" preserveaspectratio="xMidYMid meet" role="img" aria-label="Career timeline: studies in Mainz 2007 to 2012, PhD at Hohenheim 2012 to 2018, postdoc 2018 to 2020, VU Amsterdam since 2020, with visiting stays at Macquarie in 2009 and Cornell in 2018.">
+  <g class="seg">
+    <rect x="40" y="88" width="269" height="13" rx="6.5" fill="#cfe3d6"></rect>
+    <text x="44" y="60" class="r">Studies</text>
+    <text x="44" y="77" class="i">Mainz: communication science, philosophy, economics</text>
+    <text x="44" y="122" class="y">2007–2012</text>
+  </g>
+  <g class="seg">
+    <rect x="309.3" y="88" width="269" height="13" rx="6.5" fill="#9cc9ad"></rect>
+    <text x="313" y="60" class="r">PhD</text>
+    <text x="313" y="77" class="i">Hohenheim, Stuttgart</text>
+    <text x="313" y="122" class="y">2012–2018</text>
+  </g>
+  <g class="seg">
+    <rect x="578.5" y="88" width="90" height="13" rx="6.5" fill="#5fa57d"></rect>
+    <text x="582" y="60" class="r">Postdoc</text>
+    <text x="582" y="77" class="i">Hohenheim, Mainz</text>
+    <text x="582" y="122" class="y">2018–2020</text>
+  </g>
+  <g class="seg">
+    <rect x="668.3" y="88" width="292" height="13" rx="6.5" fill="var(--dsvar-green)"></rect>
+    <text x="672" y="60" class="r">Assistant → Associate Professor</text>
+    <text x="672" y="77" class="i">Vrije Universiteit Amsterdam</text>
+    <text x="672" y="122" class="y">2020–present</text>
+  </g>
+  <g class="pin">
+    <circle cx="174.6" cy="94.5" r="5"></circle>
+    <line x1="174.6" y1="103" x2="174.6" y2="140"></line>
+    <text x="174.6" y="155">2009 · Macquarie University</text>
+    <text x="174.6" y="170" class="s">Sydney, visiting student</text>
+  </g>
+  <g class="pin">
+    <circle cx="600.9" cy="94.5" r="5"></circle>
+    <line x1="600.9" y1="103" x2="600.9" y2="140"></line>
+    <text x="600.9" y="155">2018–19 · Cornell University</text>
+    <text x="600.9" y="170" class="s">New York, visiting scholar</text>
+  </g>
+</svg>
+<aside class="notes">
+<p>Keep this to a minute. Point at the two pins, then move on.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-work-group-teacher" class="slide level2" data-background-color="#faf8f4">
+<h2>Your work group teacher</h2>
+<!-- Name, role and remit as in team.yml; the photo is
+     _canvas/team/gil-clavel.jpg. Names appear in decks only in Part I of
+     deck 1 (consistency-review.md §14). -->
+<div class="dsvar-cv">
+  <img src="img/gil-clavel.jpg" alt="Sofía Gil-Clavel">
+  <ul>
+    <li><strong>Dr. Sofía Gil-Clavel</strong>, work group teacher</li>
+    <li><strong>Thursdays</strong>: the R that builds the week's chart, and the portfolio entry that comes out of it</li>
+    <li>Answers anything about R, and holds the technical bar on every deliverable</li>
+  </ul>
+</div>
+<div class="dsvar-take">
+<p>Tuesday argues, Thursday builds. Questions about either go through Canvas.</p>
+</div>
+</section>
+<section id="not-a-chart-menu-and-not-a-ggplot-manual" class="slide level2" data-background-color="#faf8f4">
+<h2>Not a chart menu, and not a ggplot manual</h2>
+<ul>
+<li>A chart menu tells you which picture goes with which data. It cannot tell you why one of them is a better argument than another</li>
+<li>A manual teaches syntax. Syntax you can look up, and increasingly you can ask for using AI</li>
+<li>What neither gives you is the ability to <strong>judge</strong>: the thing that lets you say <em>this chart is making a claim its data does not support</em></li>
+</ul>
+<div class="dsvar-take">
+<p>The course teaches you what a chart is being <em>asked to do</em>.</p>
+</div>
+</section>
+<section id="overview-five-themes" class="slide level2" data-background-color="#faf8f4">
+<h2>Overview: Five themes</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 47%">
+<col style="width: 38%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>The move</th>
+<th>The variables</th>
+<th>Week</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td><strong>The argument in the graph</strong></td>
+<td>the thesis</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td><strong>Comparison and ranking</strong></td>
+<td>categorical × continuous</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td><strong>Distribution and uncertainty</strong></td>
+<td>one continuous</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td><strong>Relationships and structure</strong></td>
+<td>two continuous; then space, graph, text</td>
+<td>4, 6</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td><strong>Change over time</strong></td>
+<td>continuous × time</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><em>The whole story, then the take-home</em></td>
+<td>all of them</td>
+<td>7, 8</td>
+</tr>
+</tbody>
+</table>
+<div class="dsvar-take">
+<p>Tuesday argues. Thursday builds. The following Tuesday we critique what you built.</p>
+</div>
+</section>
+<section id="three-assignments" class="slide level2" data-background-color="#faf8f4">
+<h2>Three assignments</h2>
+<!-- The site's assessment page, in the same three cards (assessment.qmd).
+     Weights and pass rules are Philipp's, 2026-10-26. -->
+<div class="dsvar-weights" style="margin-top:1.4rem; margin-bottom:2.2rem">
+  <a class="dsvar-weight" href="../assessment.html#portfolio" style="--dsvar-accent:var(--dsvar-green); flex-grow:25">
+    <div class="dsvar-weight__pct">25%</div>
+    <div class="dsvar-weight__name">Portfolio</div>
+    <div class="dsvar-weight__note">Weeks 2 to 7 · individual · six entries</div>
+  </a>
+  <a class="dsvar-weight" href="../assessment.html#critiques" style="--dsvar-accent:var(--dsvar-era-3); flex-grow:25">
+    <div class="dsvar-weight__pct">25%</div>
+    <div class="dsvar-weight__name">Two critique pieces</div>
+    <div class="dsvar-weight__note">After weeks 4 and 6 · individual · two PDFs</div>
+  </a>
+  <a class="dsvar-weight" href="../assessment.html#take-home" style="--dsvar-accent:var(--dsvar-era-5); flex-grow:50">
+    <div class="dsvar-weight__pct">50%</div>
+    <div class="dsvar-weight__name">Take-home assignment</div>
+    <div class="dsvar-weight__note">End of week 8 · individual · your own data</div>
+  </a>
+</div>
+<ul>
+<li>From week 2, every Thursday ends with a chart and its misleading twin. You finish the pair at home and hand it in that Sunday, graded fail, pass or high pass</li>
+<li>The next Tuesday opens with a critique of some of the entries, without names</li>
+</ul>
+<div class="dsvar-aside">
+<p>Each assignment is graded from 0 to 10 and must be passed with at least 5.5. One cannot make up for another. The details are on the course site’s assessment page.</p>
+</div>
+</section></section>
+<section>
+<section id="ii-why-plot-anything-at-all" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>II · Why plot anything at all</h1>
+
+</section>
+<section id="four-datasets-one-set-of-statistics" class="slide level2" data-background-color="#faf8f4">
+<h2>Four datasets, one set of statistics</h2>
+<div class="dsvar-smalltable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Set 1</th>
+<th>Set 2</th>
+<th>Set 3</th>
+<th>Set 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mean <em>x</em> / mean <em>y</em></td>
+<td>9.00 / 7.50</td>
+<td>9.00 / 7.50</td>
+<td>9.00 / 7.50</td>
+<td>9.00 / 7.50</td>
+</tr>
+<tr class="even">
+<td>sd <em>x</em> / correlation</td>
+<td>3.32 / 0.816</td>
+<td>3.32 / 0.816</td>
+<td>3.32 / 0.816</td>
+<td>3.32 / 0.817</td>
+</tr>
+<tr class="odd">
+<td>regression</td>
+<td>3.00 + 0.500<em>x</em></td>
+<td>3.00 + 0.500<em>x</em></td>
+<td>3.00 + 0.500<em>x</em></td>
+<td>3.00 + 0.500<em>x</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-9-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="dsvar-ref">
+<p>Anscombe, F. J. (1973). Graphs in statistical analysis. <em>The American Statistician, 27</em>(1), 17–21.</p>
+</div>
+</section>
+<section id="thirteen-datasets-one-set-of-numbers" class="slide level2" data-background-color="#faf8f4">
+<h2>Thirteen datasets, one set of numbers</h2>
+<div class="columns">
+<div class="column" style="width:34%;">
+<div class="dsvar-label">
+<p>The first rows of the file</p>
+</div>
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">dataset</th>
+<th style="text-align: right;">x</th>
+<th style="text-align: right;">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">55.4</td>
+<td style="text-align: right;">97.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">51.5</td>
+<td style="text-align: right;">96.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">94.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">42.8</td>
+<td style="text-align: right;">91.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">88.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">84.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>One row is one point: which dataset it belongs to, an x and a y.</p>
+<p><strong>Thirteen sets of 142 points</strong>, and their summaries agree to the second decimal. What do the points look like?</p>
+</div><div class="column" style="width:66%;">
+<div class="dsvar-label">
+<p>Each dataset, summarised</p>
+</div>
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">dataset</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean x</th>
+<th style="text-align: right;">mean y</th>
+<th style="text-align: right;">sd x</th>
+<th style="text-align: right;">sd y</th>
+<th style="text-align: right;">r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dino</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.26</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">away</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">h_lines</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.26</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">v_lines</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">x_shape</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.26</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.93</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">star</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.93</td>
+<td style="text-align: right;">-0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">high_lines</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dots</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.26</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.93</td>
+<td style="text-align: right;">-0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">circle</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.76</td>
+<td style="text-align: right;">26.93</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bullseye</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slant_up</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">slant_down</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.84</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wide_lines</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">54.27</td>
+<td style="text-align: right;">47.83</td>
+<td style="text-align: right;">16.77</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">-0.07</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-same-numbers-thirteen-pictures" class="slide level2" data-background-color="#faf8f4">
+<h2>The same numbers, thirteen pictures</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-12-1.png" alt="Thirteen small scatterplots in three rows, one per dataset: a dinosaur, a star, a circle, a bullseye, parallel lines, an X and others, all with the same summary statistics." width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-ref">
+<p>Matejka, J., &amp; Fitzmaurice, G. (2017). Same stats, different graphs. <em>CHI ’17</em>. Original dinosaur by Alberto Cairo.</p>
+</div>
+</section>
+<section id="derived-principle-1" class="slide level2" data-background-color="#faf8f4">
+<h2>Derived principle 1</h2>
+<div class="dsvar-principle">
+  <div class="dsvar-principle__mark"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="6" y1="32" x2="58" y2="32" stroke-dasharray="4 4" opacity=".55"></line>
+<circle cx="11" cy="17" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="19" cy="45" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="27" cy="12" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="34" cy="51" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="42" cy="21" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="50" cy="47" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="57" cy="26" r="2.6" fill="currentColor" stroke="none"></circle>
+</svg></div>
+  <div class="dsvar-principle__text">The summary is not the data</div>
+</div>
+<ul>
+<li>A mean, an sd and a correlation are a <strong>lossy compression</strong>, and Anscombe and the Datasaurus show exactly how much they throw away</li>
+<li>The compression is not neutral. It preserves some structures and destroys others, and it never tells you which it just did</li>
+<li><strong>Plot before you model, and plot the residuals after.</strong> If you only ever do one of those, do the first</li>
+</ul>
+</section>
+<section id="two-jobs-two-sets-of-rules" class="slide level2" data-background-color="#faf8f4">
+<h2>Two jobs, two sets of rules</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>A chart for finding</p>
+</div>
+<ul>
+<li>Made for one reader: you</li>
+<li>Fast, ugly, disposable. Twenty of them in an afternoon</li>
+<li>Succeeds if it <strong>shows you something you did not know</strong></li>
+<li>Hertzsprung and Russell’s was one, before anyone else saw it</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>A chart for arguing</p>
+</div>
+<ul>
+<li>Made for a reader who was not there</li>
+<li>Slow, designed, defended. One of them in an afternoon</li>
+<li>Succeeds if a sceptical reader <strong>believes the claim and can check it</strong></li>
+<li>Van Langren’s was one: it was drawn to win a royal grant</li>
+</ul>
+</div></div>
+</section>
+<section id="the-code-is-the-method-section" class="slide level2" data-background-color="#faf8f4">
+<h2>The code is the method section</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>climate <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1850</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lo, <span class="at">ymax =</span> hi),</span>
+<span id="cb5-5"><a aria-label="5"></a>              <span class="at">alpha =</span> .<span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">85</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a aria-label="7"></a>  <span class="fu">theme_dsvar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>This is why the course is in R and not in a tool where you drag things</li>
+<li>Every decision in that block is explicit, inspectable and reproducible</li>
+<li>A chart you cannot regenerate is a claim you cannot defend</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="iii-the-grammar-of-graphics" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>III · The grammar of graphics</h1>
+
+</section>
+<section id="eight-slots" class="slide level2" data-background-color="#faf8f4">
+<h2>Eight slots</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="dsvar-smalltable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Slot</th>
+<th>The decision it holds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>01</td>
+<td><code>data</code></td>
+<td>which table</td>
+</tr>
+<tr class="even">
+<td>02</td>
+<td><code>mapping</code></td>
+<td>which column to which channel</td>
+</tr>
+<tr class="odd">
+<td>03</td>
+<td><code>geom</code></td>
+<td>what you can actually see</td>
+</tr>
+<tr class="even">
+<td>04</td>
+<td><code>stat</code></td>
+<td>what gets computed first</td>
+</tr>
+<tr class="odd">
+<td>05</td>
+<td><code>scale</code></td>
+<td>how a value becomes a position, a size, a colour</td>
+</tr>
+<tr class="even">
+<td>06</td>
+<td><code>coord</code></td>
+<td>the space it is drawn in</td>
+</tr>
+<tr class="odd">
+<td>07</td>
+<td><code>facet</code></td>
+<td>whether to split it</td>
+</tr>
+<tr class="even">
+<td>08</td>
+<td><code>theme</code></td>
+<td>everything carrying no data</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:54%;">
+<ul>
+<li>Leland <strong>Wilkinson</strong> (1999) argued that every statistical graphic is one setting of a small number of slots like these</li>
+<li>Hadley <strong>Wickham</strong> (2010) turned that into <code>ggplot2</code>, which is why the R you write on Thursday looks the way it does</li>
+<li>You are not learning a library. You are learning a <strong>decomposition</strong></li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Wilkinson, L. (1999). <em>The Grammar of Graphics</em>. Springer. · Wickham, H. (2010). A layered grammar of graphics. <em>Journal of Computational and Graphical Statistics, 19</em>(1), 3–28.</p>
+</div>
+</section>
+<section id="why-this-beats-a-chart-menu" class="slide level2" data-background-color="#faf8f4">
+<h2>Why this beats a chart menu</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>A chart menu says</p>
+</div>
+<ul>
+<li>“Use a bar chart for categories, a line chart for time, a pie for parts of a whole”</li>
+<li>Useful once. Then you meet data that is none of those, and you are stuck</li>
+<li>It cannot tell you what a bar chart and a line chart have <strong>in common</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>The grammar says</p>
+</div>
+<ul>
+<li>Decide eight things, in order</li>
+<li>A bar chart and a line chart differ in <strong>one slot</strong>. So do an honest chart and a dishonest one</li>
+<li>Which means you can <em>reason</em> about a chart you have never seen before</li>
+</ul>
+</div></div>
+<div class="dsvar-take">
+<p>Every chart you have ever seen is one setting of eight dials.</p>
+</div>
+</section>
+<section id="data-a-table-and-no-chart" class="slide level2" data-background-color="#faf8f4">
+<h2>01 · data — a table, and no chart</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>climate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 176 × 4
+    year anomaly     lo      hi
+   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1  1850  -0.418 -0.589 -0.246 
+ 2  1851  -0.233 -0.412 -0.0548
+ 3  1852  -0.229 -0.409 -0.0494
+ 4  1853  -0.270 -0.430 -0.111 
+ 5  1854  -0.292 -0.433 -0.150 
+ 6  1855  -0.297 -0.439 -0.155 
+ 7  1856  -0.320 -0.468 -0.173 
+ 8  1857  -0.467 -0.616 -0.318 
+ 9  1858  -0.389 -0.537 -0.241 
+10  1859  -0.281 -0.424 -0.139 
+# ℹ 166 more rows</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:52%;">
+<ul>
+<li><strong>HadCRUT5</strong>, the Met Office and University of East Anglia record of global surface temperature: one row per year, 1850 to 2025, each year’s average given as its difference from the 1961–1990 average, in °C</li>
+<li>A new file: 176 rows, four columns. A year, a global temperature anomaly, and the two ends of a 95% interval</li>
+<li><strong>Nothing in this table says what it should look like.</strong> Not one thing</li>
+<li>You will have this open again in week 5, when change over time gets a week of its own. Today it is only something to turn the dials on</li>
+</ul>
+</div></div>
+</section>
+<section id="mapping-axes-and-still-no-chart" class="slide level2" data-background-color="#faf8f4">
+<h2>02 · mapping — axes, and still no chart</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-14-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li><code>aes()</code> says <strong>which column goes to which channel</strong>: year to horizontal position, anomaly to vertical position</li>
+<li>Position is only two channels. <code>colour</code>, <code>fill</code>, <code>size</code>, <code>shape</code> and <code>linetype</code> take a column too, and <code>group</code> says which rows belong to one line</li>
+<li>The two we set gave us axes, ranges, gridlines and breaks: a whole coordinate system</li>
+<li>And not a single mark. There is nothing here that is the data</li>
+</ul>
+<div class="dsvar-take">
+<p>The most important empty panel in the course.</p>
+</div>
+</div></div>
+</section>
+<section id="geom-now-you-can-see-it" class="slide level2" data-background-color="#faf8f4">
+<h2>03 · geom — now you can see it</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb9-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">9</span>, <span class="at">alpha =</span> .<span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-15-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>The <strong>geom</strong> is the mark: what actually gets drawn at each mapped position</li>
+<li>176 observations, 176 points. One to one</li>
+<li>This is the first thing on the page that <em>is</em> the data, rather than furniture around it</li>
+</ul>
+</div></div>
+</section>
+<section id="geom-one-slot-a-different-claim" class="slide level2" data-background-color="#faf8f4">
+<h2>03 · geom — one slot, a different claim</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb10-2"><a aria-label="2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-16-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>One word changed. But a line is <strong>an assertion about continuity</strong>: that these observations belong on a path, that 1851 follows 1850</li>
+<li>True for a temperature record</li>
+<li>A lie if your x axis is countries, and people draw it anyway</li>
+</ul>
+<div class="dsvar-take">
+<p>A default is an argument. This is the first place in the course where that bites.</p>
+</div>
+</div></div>
+</section>
+<section id="stat-a-layer-that-is-not-in-the-file" class="slide level2" data-background-color="#faf8f4">
+<h2>04 · stat — a layer that is not in the file</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>,</span>
+<span id="cb11-4"><a aria-label="4"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">span =</span> .<span class="dv">4</span>,</span>
+<span id="cb11-5"><a aria-label="5"></a>              <span class="at">linewidth =</span> .<span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-17-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>A <strong>stat</strong> computes something and draws <em>that</em> instead of the data</li>
+<li>This curve is nowhere in the 176 rows. It is a model of them</li>
+<li>And it is drawn heavier than the data it is summarising, which is a choice nobody made deliberately</li>
+</ul>
+<div class="dsvar-take">
+<p>Week 5 spends an hour on <code>span</code>. Week 3 meets the same idea first, as a histogram’s bin.</p>
+</div>
+</div></div>
+</section>
+<section id="scale-what-counts-as-a-big-change" class="slide level2" data-background-color="#faf8f4">
+<h2>05 · scale — what counts as a big change</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb12-2"><a aria-label="2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a aria-label="3"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">12</span>, <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-18-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>The <strong>scale</strong> turns a value into a position. Change it and the same numbers occupy a different amount of the page</li>
+<li>The warming is still in there. You cannot see it</li>
+<li>You have met this chart already today, in Fahrenheit</li>
+</ul>
+<div class="dsvar-take">
+<p>Week 2 is largely about this slot.</p>
+</div>
+</div></div>
+</section>
+<section id="coord-the-space-it-is-drawn-in" class="slide level2" data-background-color="#faf8f4">
+<h2>06 · coord — the space it is drawn in</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">ggplot</span>(climate, <span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb13-2"><a aria-label="2"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a aria-label="3"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1975</span>, <span class="dv">2025</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-19-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>The <strong>coordinate system</strong> is the space the marks are placed in. Every chart so far has used the default: two straight axes at right angles</li>
+<li>Limits here move the <em>window</em>: the last fifty years only. All 176 rows are still in the chart, most of them just off-screen</li>
+<li>Limits on a scale <em>drop</em> whatever falls outside them. It looks like the same move; it is a different slot, and it matters once a <code>stat</code> is computing on what is left</li>
+<li>The slot can also bend the space: <code>coord_polar()</code> runs time round a circle, which is week 5’s climate spiral, and a map projection in week 6 is this slot too</li>
+</ul>
+</div></div>
+</section>
+<section id="facet-splitting-is-conditioning" class="slide level2" data-background-color="#faf8f4">
+<h2>07 · facet — splitting is conditioning</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>climate <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">era =</span> <span class="fu">paste0</span>(<span class="dv">50</span> <span class="sc">*</span> (year <span class="sc">%/%</span> <span class="dv">50</span>), <span class="st">"s"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb14-4"><a aria-label="4"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a aria-label="5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>era, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a aria-label="6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1860</span>, <span class="dv">2020</span>, <span class="dv">20</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-20-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li><strong>Facetting</strong> splits one chart into panels on the value of a variable: here, each half-century gets its own</li>
+<li>The marks did not change. Their arrangement did, and so did what is easy to compare</li>
+<li><code>scales = "free_x"</code> gives each panel only its own fifty years. The y axis stays shared, so a height means the same thing in every panel</li>
+<li>Tufte called these <strong>small multiples</strong> and thought them the best idea in the field. Week 4 agrees</li>
+</ul>
+</div></div>
+</section>
+<section id="theme-everything-that-is-not-data" class="slide level2" data-background-color="#faf8f4">
+<h2>08 · theme — everything that is not data</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>climate <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">era =</span> <span class="fu">paste0</span>(<span class="dv">50</span> <span class="sc">*</span> (year <span class="sc">%/%</span> <span class="dv">50</span>), <span class="st">"s"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, anomaly)) <span class="sc">+</span></span>
+<span id="cb15-4"><a aria-label="4"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a aria-label="5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>era, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a aria-label="6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1860</span>, <span class="dv">2020</span>, <span class="dv">20</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-7"><a aria-label="7"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-21-1.png" width="1080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>The last slide’s chart, plus one line. Same data, same marks, same panels</li>
+<li>The <strong>theme</strong> owns everything that is not data: background, gridlines, borders, the strip above each panel, the type</li>
+<li><code>theme_bw()</code> boxes each panel and shades its label, so four panels now read as four</li>
+<li>ggplot ships several complete themes (<code>theme_minimal()</code>, <code>theme_classic()</code>, <code>theme_void()</code>), and each is one line</li>
+</ul>
+</div></div>
+</section>
+<section id="all-eight-on-one-dataset" class="slide level2" data-background-color="#faf8f4">
+<h2>All eight, on one dataset</h2>
+<div class="dsvar-figfill">
+<figure class="dsvar-explainer"><iframe src="../explainers/grammar/index.html" title="grammar — interactive explainer" loading="lazy" style="width:100%;height:560px;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg);background:var(--dsvar-surface)"></iframe><noscript><img src="../explainers/grammar/fallback.png" alt="grammar — interactive explainer" style="width:100%;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg)"></noscript><figcaption class="dsvar-explainer__cap">Interactive — click, or press Enter, to step through. <a href="../explainers/grammar/index.html" target="_blank" rel="noopener">Open full screen</a></figcaption></figure>
+</div>
+</section>
+<section id="derived-principle-2" class="slide level2" data-background-color="#faf8f4">
+<h2>Derived principle 2</h2>
+<div class="dsvar-principle">
+  <div class="dsvar-principle__mark"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="14" y1="8" x2="14" y2="56" opacity=".45"></line>
+<line x1="32" y1="8" x2="32" y2="56" opacity=".45"></line>
+<line x1="50" y1="8" x2="50" y2="56" opacity=".45"></line>
+<rect x="8" y="36" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+<rect x="26" y="15" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+<rect x="44" y="28" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+</svg></div>
+  <div class="dsvar-principle__text">Every slot is a choice</div>
+</div>
+<ul>
+<li>Every chart today was the same eight slots, filled in differently. The changes at the start were slots: a <strong>layer</strong> for van Langren’s answer and for every outlet, a <strong>coord</strong> for the map, a <strong>geom</strong> and a <strong>stat</strong> for the stars’ ridges</li>
+<li>There is no right chart for a dataset. Each slot has a setting, and most settings come from a default nobody looked at</li>
+<li><strong>A default you did not change is still your choice</strong>, made earlier by somebody else for another purpose. Which raises the next question: are some settings better than others, or is it taste?</li>
+</ul>
+</section></section>
+<section>
+<section id="iv-perception" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>IV · Perception</h1>
+<div class="dsvar-take">
+<p>Are some settings better, or is it just taste? The answer has been around since 1984.</p>
+</div>
+</section>
+<section id="read-these-five" class="slide level2" data-background-color="#faf8f4">
+<h2>Read these five</h2>
+<div class="dsvar-figfill">
+<figure class="dsvar-explainer"><iframe src="../explainers/encodings/index.html" title="encodings — interactive explainer" loading="lazy" style="width:100%;height:540px;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg);background:var(--dsvar-surface)"></iframe><noscript><img src="../explainers/encodings/fallback.png" alt="encodings — interactive explainer" style="width:100%;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg)"></noscript><figcaption class="dsvar-explainer__cap">Answer before you click. The point is the reading, not the answer. <a href="../explainers/encodings/index.html" target="_blank" rel="noopener">Open full screen</a></figcaption></figure>
+</div>
+</section>
+<section id="what-just-happened" class="slide level2" data-background-color="#faf8f4">
+<h2>What just happened</h2>
+<ul>
+<li>The same five numbers were in all five panels. <strong>Correctly drawn in all five</strong>: no truncation, no distortion, nothing hidden</li>
+<li>On position and length you read B against E without effort. On angle, area and saturation you guessed, or you gave up</li>
+<li>The difference was 31 against 29. Two units, about 7%</li>
+</ul>
+<div class="dsvar-take">
+<p>The channel decided what you could see. Not the data, and not the designer’s skill.</p>
+</div>
+</section>
+<section id="this-has-been-measured" class="slide level2" data-background-color="#faf8f4">
+<h2>This has been measured</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-22-1.png" width="2000"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="dsvar-ref">
+<p>Cleveland, W. S., &amp; McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. <em>Journal of the American Statistical Association, 79</em>(387), 531–554. · Heer, J., &amp; Bostock, M. (2010). Crowdsourcing graphical perception. <em>CHI ’10</em>.</p>
+</div>
+</section>
+<section id="what-follows-from-a-ranking" class="slide level2" data-background-color="#faf8f4">
+<h2>What follows from a ranking</h2>
+<ul>
+<li>A <strong>pie chart</strong> asks you to judge angle and area (ranks 3 and 4) to read a number that a bar chart hands you at rank 1</li>
+<li><strong>3-D</strong> on a 2-D screen adds a projective distortion on top of whichever channel you were already using. This is why Wilke has a section called <code>no-3d</code> rather than a preference</li>
+<li><strong>Bubble size</strong> is worse than it looks: perceived magnitude scales roughly as area to the power of 0.7, so large circles are systematically under-read</li>
+</ul>
+<div class="dsvar-take">
+<p>None of these are style opinions. They are findings, and you can look up the confidence intervals.</p>
+</div>
+<div class="dsvar-ref">
+<p>Stevens, S. S. (1957). On the psychophysical law. <em>Psychological Review, 64</em>(3), 153–181. · Flannery, J. J. (1971). The relative effectiveness of some common graduated point symbols. <em>The Canadian Cartographer, 8</em>(2), 96–109.</p>
+</div>
+</section>
+<section id="derived-principle-3" class="slide level2" data-background-color="#faf8f4">
+<h2>Derived principle 3</h2>
+<div class="dsvar-principle">
+  <div class="dsvar-principle__mark"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="10" y1="14" x2="54" y2="14" stroke-width="4"></line>
+<circle cx="44" cy="14" r="4.5" fill="currentColor" stroke="none"></circle>
+<line x1="10" y1="28" x2="54" y2="28" stroke-width="2.6" opacity=".6"></line>
+<line x1="10" y1="41" x2="54" y2="41" stroke-width="2" opacity=".38"></line>
+<line x1="10" y1="53" x2="54" y2="53" stroke-width="1.6" opacity=".22"></line>
+</svg></div>
+  <div class="dsvar-principle__text">Put what matters in the strongest channel</div>
+</div>
+<ul>
+<li>The full sentence is <em>the strongest channel you can afford</em>, and “afford” is doing real work: you have one position channel per axis and a lot of variables</li>
+<li>So the question is never “which channels are good” but <strong>which variable deserves the good one</strong></li>
+<li>That is an editorial decision about what your chart is for, disguised as a technical one, which is the shape of nearly every decision in this course</li>
+</ul>
+</section>
+<section id="find-the-odd-one-out" class="slide level2" data-background-color="#faf8f4">
+<h2>Find the odd one out</h2>
+<div class="dsvar-figfill">
+<figure class="dsvar-explainer"><iframe src="../explainers/preattentive/index.html" title="preattentive — interactive explainer" loading="lazy" style="width:100%;height:540px;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg);background:var(--dsvar-surface)"></iframe><noscript><img src="../explainers/preattentive/fallback.png" alt="preattentive — interactive explainer" style="width:100%;border:1px solid var(--dsvar-hairline);border-radius:var(--dsvar-r-lg)"></noscript><figcaption class="dsvar-explainer__cap">Click the moment you have found it. The clock is the content. <a href="../explainers/preattentive/index.html" target="_blank" rel="noopener">Open full screen</a></figcaption></figure>
+</div>
+</section>
+<section id="some-channels-do-not-need-to-be-searched" class="slide level2" data-background-color="#faf8f4">
+<h2>Some channels do not need to be searched</h2>
+<ul>
+<li><strong>Rounds 1 and 2:</strong> one red dot among grey ones. It jumped out, as fast among 120 dots as among 24. For colour, size and tilt your eyes take in the whole picture at once: they are <strong>preattentive</strong></li>
+<li><strong>Round 3:</strong> one square among circles. A little slower: shape stands out less than colour</li>
+<li><strong>Round 4:</strong> one red square among red circles and grey squares. Slowest: only the <em>combination</em> is unique, and no feature finds a combination at once. You check marks one by one, so more marks take more time</li>
+</ul>
+<div class="dsvar-take">
+<p>What a reader should find has to differ from everything else in one strong feature, such as colour.</p>
+</div>
+<div class="dsvar-ref">
+<p>Treisman, A. M., &amp; Gelade, G. (1980). A feature-integration theory of attention. <em>Cognitive Psychology, 12</em>(1), 97–136.</p>
+</div>
+</section>
+<section id="which-is-why-highlighting-works" class="slide level2" data-background-color="#faf8f4">
+<h2>Which is why highlighting works</h2>
+<ul>
+<li>Every annotated chart you admire is exploiting this. One line in colour among twenty grey ones is found in constant time, however many grey ones there are</li>
+<li>It also explains a common failure: a legend that distinguishes eight series by hue asks for <strong>eight-way discrimination</strong>, which is not preattentive, and readers stop trying</li>
+<li>And it is why “just make the important one red” is better advice than it sounds</li>
+</ul>
+<div class="dsvar-take">
+<p>Week 7 comes back to this: it is the mechanism under every annotation you will make.</p>
+</div>
+</section>
+<section id="what-makes-marks-look-like-a-group" class="slide level2" data-background-color="#faf8f4">
+<h2>What makes marks look like a group</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-23-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Same twenty points every time. Nothing in the data changed</li>
+<li><strong>Proximity, similarity, enclosure, connection</strong>: four Gestalt rules, four different answers to “which of these belong together”</li>
+</ul>
+</section>
+<section id="bertins-vocabulary" class="slide level2" data-background-color="#faf8f4">
+<h2>Bertin’s vocabulary</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-24-1.png" width="1120"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Jacques Bertin, a French cartographer, in 1967 listed the <strong>retinal variables</strong>: the complete set of visual properties a mark can vary</li>
+<li>Then he asked of each one: can it express <em>difference</em>, can it express <em>order</em>, can it express <em>amount</em></li>
+<li>Colour hue can tell you two things are different. It cannot tell you which is more</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Bertin, J. (1967). <em>Sémiologie graphique</em>. Gauthier-Villars. English edition: <em>Semiology of Graphics</em>, 1983.</p>
+</div>
+</section>
+<section id="the-data-type-picks-the-channel" class="slide level2" data-background-color="#faf8f4">
+<h2>The data type picks the channel</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li><strong>Nominal</strong> data (countries, parties, species) needs a channel that shows difference without order. Hue does that; size does not</li>
+<li><strong>Ordinal and quantitative</strong> data needs a channel that carries order. Position and size do; hue does not</li>
+<li>Every Thursday starts by naming each column’s kind for this reason</li>
+</ul>
+</div><div class="column" style="width:56%;">
+<p><a href="../field-guide.html"><img data-src="img/field-guide-tree.png" style="width:100.0%" alt="The course field guide: tabs for kinds of variable (categories, category and number, numbers, time, space, networks and text) above a tree that branches from one or two categorical variables to bar charts, lollipops, waffles, grouped and stacked bars, count grids and alluvial flows."></a></p>
+<div class="dsvar-aside">
+<p>The course <a href="../field-guide.html">field guide</a> does this for you: pick the kinds of variable you have, and it branches to the charts that can carry them, each with the R that draws it.</p>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="v-integrity" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>V · Integrity</h1>
+
+</section>
+<section id="a-law-in-numbers" class="slide level2" data-background-color="#faf8f4">
+<h2>A law, in numbers</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-25-1.png" alt="A line with eight dots: the required fuel economy of new US cars rising from 18 miles per gallon in 1978 to 27.5 in 1985, on an axis from zero." width="1200"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:42%;">
+<ul>
+<li>In 1975 the US Congress set a minimum fuel economy for new cars, rising every year: <strong>18 miles per gallon</strong> for 1978, <strong>27.5</strong> by 1985</li>
+<li>One row per year, eight in all, labelled on the dots</li>
+<li>From 18 to 27.5 is a rise of <strong>53 per cent</strong>. That is the size of the effect in the data</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>The standards as Tufte (1983) gives them, pp.&nbsp;57–58: Energy Policy and Conservation Act, 1975, supplemented by the US Department of Transportation.</p>
+</div>
+</section>
+<section id="how-the-new-york-times-drew-it" class="slide level2" data-background-color="#faf8f4">
+<h2>How the New York Times drew it</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<div class="dsvar-badexample" data-why="Bad on purpose · rebuilt from the 1978 original">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-26-1.png" alt="Eight horizontal lines stacked down a road that narrows into the distance: 1978 at the top, short, and 1985 at the bottom, long, each labelled with its miles per gallon." width="1200"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:42%;">
+<div class="dsvar-key">
+<div class="dsvar-key__title">
+<p>How to read it</p>
+</div>
+<p><strong>Each line is one year</strong>, painted across a road that runs into the distance.</p>
+<p><strong>A line’s length is meant to be the standard</strong>: 1978 is the short line at the back, 1985 the long one in front.</p>
+</div>
+<ul>
+<li>On the page the 1985 line is 5.3 inches long and the 1978 line 0.6: <strong>nearly nine times</strong> as long, for a standard about one and a half times as high</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p><em>The New York Times</em>, 9 August 1978, p.&nbsp;D-2, as reproduced and measured in Tufte (1983), p.&nbsp;57. Rebuilt here from his measurements.</p>
+</div>
+</section>
+<section id="the-lie-factor" class="slide level2" data-background-color="#faf8f4">
+<h2>The lie factor</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-calc">
+  <div class="dsvar-calc__row"><span>The effect in the graphic<br>the line grew 0.6 to 5.3 inches</span><b>+783%</b></div>
+  <div class="dsvar-calc__row"><span>The effect in the data<br>the standard grew 18 to 27.5 mpg</span><b>+53%</b></div>
+  <div class="dsvar-calc__rule"></div>
+  <div class="dsvar-calc__row"><span>Lie factor</span><b>783 ÷ 53</b></div>
+  <div class="dsvar-calc__out">14.8</div>
+  <div class="dsvar-calc__note">An honest chart scores 1. Tufte allowed 0.95 to 1.05.</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Tufte’s measure divides the size of a change <strong>as drawn</strong> by the size of the same change <strong>in the data</strong></li>
+<li>The <em>Times</em> let the lines grow far faster than the numbers they stood for. The chart shows the change about fifteen times larger than it was</li>
+<li>It is one number, and you can work it out with a ruler</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Tufte, E. R. (1983). <em>The Visual Display of Quantitative Information</em>. Graphics Press, pp.&nbsp;57–58.</p>
+</div>
+</section>
+<section id="beautiful-competent-backwards" class="slide level2" data-background-color="#faf8f4">
+<h2>Beautiful, competent, backwards</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-badexample" data-why="As published">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-27-1.png" width="1000"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-28-1.png" width="1000"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<ul>
+<li>Same data, same geom, one reversed axis. The lie factor is <strong>1.0</strong>: every value is drawn to scale, and Tufte’s measure does not catch this at all</li>
+</ul>
+<div class="dsvar-take">
+<p>Most readers read the 2007 spike as a fall. Which is the opposite of what happened.</p>
+</div>
+</section>
+<section id="data-ink" class="slide level2" data-background-color="#faf8f4">
+<h2>Data-ink</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-29-1.png" width="980"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-30-1.png" width="980"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<ul>
+<li>Tufte’s rule: maximise the share of ink that carries data, and <strong>erase everything else</strong>. On the right is his own redrawn boxplot: same five numbers per group, a fraction of the marks</li>
+</ul>
+<div class="dsvar-ref">
+<p>Tufte, E. R. (1983), ch.&nbsp;4 and 6.</p>
+</div>
+</section>
+<section id="embellished-charts-were-remembered-better" class="slide level2" data-background-color="#faf8f4">
+<h2>Embellished charts were remembered better</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>Embellished: Nigel Holmes, <em>Time</em>, 1982</p>
+</div>
+<p><img data-src="img/bateman-2010-fig1.png" style="width:72.0%" alt="Nigel Holmes's Monstrous Costs: a cartoon monster whose open mouth is a bar chart of House and Senate campaign spending from 1972 to 1982, the bars drawn as its teeth."></p>
+</div><div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>Plain: the same numbers</p>
+</div>
+<p><img data-src="img/bateman-2010-fig2.png" style="width:78.0%" alt="A plain bar chart of the same campaign spending, 1972 to 1982 estimated, rising from about 60 to 300 million dollars."></p>
+</div></div>
+<div class="dsvar-aside">
+<p>Bateman and colleagues showed people charts like these in pairs. Readers described both <strong>equally accurately</strong>. Two to three weeks later, they <strong>remembered the illustrated ones better</strong>.</p>
+</div>
+<div class="dsvar-ref">
+<p>Both from Bateman, S., Mandryk, R. L., Gutwin, C., Genest, A., McDine, D., &amp; Brooks, C. (2010). Useful junk? <em>CHI ’10</em>, 2573–2582; shown for criticism and review. Holmes’s original: <em>Time</em>, 1982.</p>
+</div>
+</section>
+<section id="minimal-charts-were-liked-less" class="slide level2" data-background-color="#faf8f4">
+<h2>Minimal charts were liked less</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>Conventional</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-31-1.png" alt="A conventional bar chart of mean chick weight by feed, with a frame, gridlines and axis ticks." width="1000"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>Tufte’s minimal version</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-32-1.png" alt="The same bars with no frame, no axis lines and no gridlines; white lines cut through the bars at 100, 200 and 300 instead." width="1000"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="dsvar-aside">
+<p>Inbar and colleagues showed students a conventional bar chart and Tufte’s minimal redesign of it, as here. Most preferred the conventional one. Data-ink helps you find what to cut; it does not prove that less is always better.</p>
+</div>
+<div class="dsvar-ref">
+<p>Inbar, O., Tractinsky, N., &amp; Meyer, J. (2007). Minimalism in information visualization: Attitudes towards maximizing the data-ink ratio. <em>ECCE ’07</em>, 185–188.</p>
+</div>
+</section>
+<section id="plain-and-dishonest" class="slide level2" data-background-color="#faf8f4">
+<h2>Plain, and dishonest</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<div class="dsvar-badexample" data-why="Bad on purpose · axis cut at 68">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-33-1.png" alt="A bar chart of life expectancy in five US states with the axis starting at 68 years, so Hawaii's bar looks several times as long as Alabama's." width="1120"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:44%;">
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">State</th>
+<th style="text-align: right;">Life expectancy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hawaii</td>
+<td style="text-align: right;">73.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minnesota</td>
+<td style="text-align: right;">73.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">71.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York</td>
+<td style="text-align: right;">70.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">69.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>Life expectancy around 1970, from R’s <code>state.x77</code>. The states are 4.5 years apart</li>
+<li>The axis starts at 68, so the bars’ lengths say Hawaii’s people live about 5 times as long as Alabama’s</li>
+</ul>
+</div></div>
+</section>
+<section id="derived-principle-4" class="slide level2" data-background-color="#faf8f4">
+<h2>Derived principle 4</h2>
+<div class="dsvar-principle">
+  <div class="dsvar-principle__mark"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<path d="M13 8 V52 H56"></path>
+<path d="M9.5 46 L13 52 L16.5 46"></path>
+<path d="M18 18 C28 19, 33 40, 52 43" stroke-width="2.6"></path>
+<circle cx="52" cy="43" r="3" fill="currentColor" stroke="none"></circle>
+</svg></div>
+  <div class="dsvar-principle__text">A chart can be beautiful and wrong</div>
+</div>
+<ul>
+<li>Beauty is frequently how a chart gets past you, including past people who have taken a course like this one</li>
+<li>Every integrity check you have been given today, the lie factor first, <strong>passes the Florida chart</strong>. Craft is not a defence, and neither is our own</li>
+<li>The defence is having <strong>built the dishonest version yourself</strong>, on purpose, and knowing how little it took. Week 2, Thursday: you make the pair</li>
+</ul>
+</section>
+<section id="bullshit-visualization" class="slide level2" data-background-color="#faf8f4">
+<h2>Bullshit visualization</h2>
+<ul>
+<li>Michael Correll’s term, after Frankfurt: charts <strong>indifferent</strong> to whether they are true. A lie at least cares what the truth is. Against a lie you check the numbers; against this you ask what the chart was <em>for</em>. None of these four needed bad data</li>
+</ul>
+<div class="dsvar-badexample" data-why="All four bad on purpose">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-35-1.png" width="2080"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="dsvar-ref">
+<p>Correll, M. (2019). Ethical dimensions of visualization research. <em>CHI ’19</em>. · Frankfurt, H. G. (2005). <em>On Bullshit</em>. Princeton University Press.</p>
+</div>
+</section></section>
+<section>
+<section id="vi-how-we-will-argue-about-charts" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>VI · How we will argue about charts</h1>
+
+</section>
+<section id="four-steps-in-this-order" class="slide level2" data-background-color="#faf8f4">
+<h2>Four steps, in this order</h2>
+<div class="dsvar-critique dsvar-critique--4">
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>01 · Describe</p>
+</div>
+<p><strong>What is on the page?</strong></p>
+<p>Marks, axes, ranges, labels. No evaluation yet.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>02 · Analyse</p>
+</div>
+<p><strong>Which slots were set, and how?</strong></p>
+<p>The grammar, named: data, mapping, geom, scale and the rest.</p>
+</div>
+<div class="dsvar-crit__step">
+<div class="dsvar-crit__k">
+<p>03 · Interpret</p>
+</div>
+<p><strong>What claim is it making?</strong></p>
+<p>One sentence, with a verb, for the reader it was made for.</p>
+</div>
+<div class="dsvar-crit__step dsvar-crit__step--verdict">
+<div class="dsvar-crit__k">
+<p>04 · Judge</p>
+</div>
+<p><strong>Does the evidence carry the claim?</strong></p>
+<p>A verdict, and the reason for it.</p>
+</div>
+</div>
+<div class="dsvar-take">
+<p>Most bad critique is step 4 arriving first: “it’s a bit cluttered” before anyone has said what the chart shows. Every exhibit in the gallery runs these four steps, in this order.</p>
+</div>
+</section>
+<section id="who-is-this-for" class="slide level2" data-background-color="#faf8f4">
+<h2>Who is this for?</h2>
+<ul>
+<li>A chart is decoded by a particular reader with particular training, and <strong>visualization literacy</strong> is not evenly distributed</li>
+<li>So three questions belong in step 4, not step 1: how much can this reader be assumed to decode, what does the chart owe them, and what has it assumed they already know</li>
+<li>A log axis is honest and clear to this room. On a newspaper front page it is neither</li>
+</ul>
+<div class="dsvar-ref">
+<p>Riche, N. H., Hurter, C., Diakopoulos, N., &amp; Carpendale, S. (Eds.) (2018). <em>Data-Driven Storytelling</em>. CRC Press.</p>
+</div>
+</section>
+<section id="describe-it-before-you-judge-it" class="slide level2" data-background-color="#faf8f4">
+<h2>Describe it before you judge it</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../gallery/img/pandemic-trajectories-original.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="John Burn-Murdoch's Financial Times chart: cumulative COVID deaths by country on a logarithmic axis, aligned by days since the tenth death, with straight dotted guide lines annotated with doubling times."></p>
+</figure>
+</div>
+<div class="dsvar-ref">
+<p>“Coronavirus deaths in Italy, Spain and the US are increasing more rapidly than they did in China”. John Burn-Murdoch, <em>Financial Times</em>, data to 26 March 2020. © The Financial Times Limited; shown at reduced size for criticism and review.</p>
+</div>
+</section>
+<section id="the-four-steps-on-this-chart" class="slide level2" data-background-color="#faf8f4">
+<h2>The four steps, on this chart</h2>
+<div class="dsvar-critique">
+<div class="dsvar-crit__step fragment">
+<div class="dsvar-crit__k">
+<p>01 · Describe</p>
+</div>
+<p>One line per country, labelled at its end. The vertical axis climbs in powers of ten. Faint straight guide lines run across the plot, marked with doubling times. The horizontal axis counts days since each country’s tenth death.</p>
+</div>
+<div class="dsvar-crit__step fragment">
+<div class="dsvar-crit__k">
+<p>02 · Analyse</p>
+</div>
+<p>Two scales do the work. The log axis turns exponential growth into slope, which people read well. Aligning on the tenth death removes the fact that outbreaks started weeks apart. Direct labels keep a dozen lines readable.</p>
+</div>
+<div class="dsvar-crit__step fragment">
+<div class="dsvar-crit__k">
+<p>03 · Interpret</p>
+</div>
+<p>The claim is about the <em>rate</em>: from a comparable start, some countries slowed their deaths and others did not. It is careful not to claim that one country did worse overall.</p>
+</div>
+<div class="dsvar-crit__step dsvar-crit__step--verdict fragment">
+<div class="dsvar-crit__k">
+<p>04 · Judge</p>
+</div>
+<p>For this room, it holds. On a front page in March 2020 it is harder: on a log axis a flattening line still means deaths are rising. The FT labelled the axis loudly and published linear versions too. Who is it for decides the verdict.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="vii-showing-uncertainty" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>VII · Showing uncertainty</h1>
+
+</section>
+<section id="how-sure-is-this" class="slide level2" data-background-color="#faf8f4">
+<h2>How sure is this?</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<div class="r-stack">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-36-1.png" alt="Two points: the perceived norm is 4.14 after a feed with few personal posts and 5.97 after one with many." width="1160"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-37-1.png" alt="The same two points with their 95% intervals, 3.95 to 4.33 and 5.84 to 6.10." width="1160"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-38-1.png" alt="The same chart with the number of participants under each point: 308 and 281." width="1160"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:44%;">
+<ul>
+<li><p><strong>Masur and Parry (2026): </strong> People saw a simulated social media feed with few or with many personal posts, then rated how normal posting personal things is there: three items on a 1 to 7 scale, averaged.</p></li>
+<li><p>Two means on their own: a big difference, and no way to tell how sure it is.</p></li>
+</ul>
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>With their <strong>95% intervals</strong>: how far each mean could be off. Here, not far.</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>With each group’s <strong>n</strong>: how many people each mean rests on.</li>
+</ul>
+</div>
+<div class="dsvar-aside">
+<p>The axis is cut to 3.5–6.5 so the short whiskers can be seen. The scale runs from 1 to 7: the next slide shows all of it.</p>
+</div>
+</div></div>
+</section>
+<section id="every-person-behind-the-two-means" class="slide level2" data-background-color="#faf8f4">
+<h2>Every person behind the two means</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="01_the-argument-in-the-graph_files/figure-revealjs/unnamed-chunk-39-1.png" alt="A raincloud plot of the perceived norm for the two feeds on the full 1 to 7 scale: each person as a dot, a box for the quartiles, a half-violin of the distribution, and the mean with its narrow 95% interval in green. Both groups spread across most of the scale." width="1320"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:38%;">
+<ul>
+<li>The whole scale, and every one of the 589 people as a dot, with a box for the middle half and the shape of each group beside it</li>
+<li>The intervals were narrow because they are about the <strong>mean</strong>. People vary far more: in both groups, answers run across most of the scale</li>
+<li>Week 3 comes back to this: an interval for the mean is not the spread of the data</li>
+</ul>
+</div></div>
+</section>
+<section id="the-data-and-what-the-chart-cannot-tell-you" class="slide level2" data-background-color="#faf8f4">
+<h2>The data, and what the chart cannot tell you</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<div class="dsvar-label">
+<p>Five of the 589 rows</p>
+</div>
+<div class="dsvar-smalltable">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">feed</th>
+<th style="text-align: right;">DES_VIS_01</th>
+<th style="text-align: right;">DES_VIS_02</th>
+<th style="text-align: right;">DES_VIS_03</th>
+<th style="text-align: right;">norm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">few personal posts</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">many personal posts</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">many personal posts</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">few personal posts</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">few personal posts</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5.67</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>One row is one person: the feed they saw, their three answers, and the mean of the three.</p>
+</div><div class="column" style="width:48%;">
+<ul>
+<li>The fourth way to show uncertainty is a <strong>sentence</strong>. For this chart: <em>One sample, one simulated feed, and the norm asked right after it. Whether real feeds move norms this much, the chart cannot say</em></li>
+<li>An interval, a range, an n or a sentence. Any one of them counts, and good charts carry more than one</li>
+</ul>
+</div></div>
+<div class="dsvar-ref">
+<p>Masur, P. K., &amp; Parry, D. A. (2026). When sharing becomes the norm. <em>Technology, Mind, and Behavior</em>. Data: osf.io/zw6pb, CC BY 4.0.</p>
+</div>
+</section>
+<section id="derived-principle-5" class="slide level2" data-background-color="#faf8f4">
+<h2>Derived principle 5</h2>
+<div class="dsvar-principle">
+  <div class="dsvar-principle__mark"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<path d="M9 33 L56 11 L56 55 Z" fill="currentColor" stroke="none" opacity=".15"></path>
+<path d="M9 33 L56 11" stroke-width="1.4" opacity=".5"></path>
+<path d="M9 33 L56 55" stroke-width="1.4" opacity=".5"></path>
+<path d="M9 33 L56 33" stroke-width="2.8"></path>
+</svg></div>
+  <div class="dsvar-principle__text">Every chart carries its uncertainty</div>
+</div>
+<ul>
+<li>It is the second of the three things every chart you hand in has to carry, from the first portfolio entry on. A habit picked up in week 6 comes too late: by then your defaults are set</li>
+<li>Week 3 has the techniques: intervals, the summary that hides a distribution, and the specification curve, which shows every defensible analysis instead of one</li>
+<li>A chart that states its limits is <strong>harder to argue with</strong>. The reader can see what you claim and how far it goes</li>
+</ul>
+</section></section>
+<section>
+<section id="viii-this-week" class="title-slide slide level1 center dark" data-background-color="#0d3330">
+<h1>VIII · This week</h1>
+
+</section>
+<section id="thursday" class="slide level2" data-background-color="#faf8f4">
+<h2>Thursday</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="dsvar-label">
+<p>Thursday</p>
+</div>
+<ul>
+<li>R, RStudio, the tidyverse and Quarto, installed and <strong>checked</strong></li>
+<li><strong>First steps in R</strong>: objects, vectors, functions, missing values, packages. Reading a file, looking at it, and changing it</li>
+<li><strong>Today’s eight slots, as code</strong>: one ggplot built a slot at a time, from data and mapping to theme</li>
+<li>On a file these slides have <strong>not</strong> shown you: KNMI’s De Bilt station record, one Dutch weather station since 1901</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Arriving without the toolchain installed is recoverable</li>
+<li>Arriving and <strong>not saying so</strong> is not</li>
+<li>If the install fights you before Thursday, say so on Canvas rather than at the start of the session</li>
+</ul>
+</div></div>
+<p><strong>Before next Tuesday:</strong> Healy, chapters 1 and 2 (<a href="https://socviz.co">socviz.co</a>); Wilke, <em>Introduction</em>, <em>Mapping data onto aesthetics</em> and <em>Don’t go 3D</em> (<a href="https://clauswilke.com/dataviz">clauswilke.com/dataviz</a>).</p>
+</section>
+<section id="the-five-principles-in-order" class="slide level2" data-background-color="#faf8f4">
+<h2>The five principles, in order</h2>
+<!-- The same five marks, in the same order, as the five principle slides.
+     The summary has to be recognisably those slides compressed rather than a
+     new list that happens to agree with them. -->
+<div class="dsvar-principles">
+  <div class="p">
+    <div class="n">01</div>
+    <div class="mk"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="6" y1="32" x2="58" y2="32" stroke-dasharray="4 4" opacity=".55"></line>
+<circle cx="11" cy="17" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="19" cy="45" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="27" cy="12" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="34" cy="51" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="42" cy="21" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="50" cy="47" r="2.6" fill="currentColor" stroke="none"></circle>
+<circle cx="57" cy="26" r="2.6" fill="currentColor" stroke="none"></circle>
+</svg></div>
+    <div class="tx">The summary is not the data</div>
+  </div>
+  <div class="p">
+    <div class="n">02</div>
+    <div class="mk"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="14" y1="8" x2="14" y2="56" opacity=".45"></line>
+<line x1="32" y1="8" x2="32" y2="56" opacity=".45"></line>
+<line x1="50" y1="8" x2="50" y2="56" opacity=".45"></line>
+<rect x="8" y="36" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+<rect x="26" y="15" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+<rect x="44" y="28" width="12" height="7" rx="3.5" fill="currentColor" stroke="none"></rect>
+</svg></div>
+    <div class="tx">Every slot is a choice</div>
+  </div>
+  <div class="p">
+    <div class="n">03</div>
+    <div class="mk"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<line x1="10" y1="14" x2="54" y2="14" stroke-width="4"></line>
+<circle cx="44" cy="14" r="4.5" fill="currentColor" stroke="none"></circle>
+<line x1="10" y1="28" x2="54" y2="28" stroke-width="2.6" opacity=".6"></line>
+<line x1="10" y1="41" x2="54" y2="41" stroke-width="2" opacity=".38"></line>
+<line x1="10" y1="53" x2="54" y2="53" stroke-width="1.6" opacity=".22"></line>
+</svg></div>
+    <div class="tx">Put what matters in the strongest channel</div>
+  </div>
+  <div class="p">
+    <div class="n">04</div>
+    <div class="mk"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<path d="M13 8 V52 H56"></path>
+<path d="M9.5 46 L13 52 L16.5 46"></path>
+<path d="M18 18 C28 19, 33 40, 52 43" stroke-width="2.6"></path>
+<circle cx="52" cy="43" r="3" fill="currentColor" stroke="none"></circle>
+</svg></div>
+    <div class="tx">A chart can be beautiful and wrong</div>
+  </div>
+  <div class="p">
+    <div class="n">05</div>
+    <div class="mk"><svg viewbox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+<path d="M9 33 L56 11 L56 55 Z" fill="currentColor" stroke="none" opacity=".15"></path>
+<path d="M9 33 L56 11" stroke-width="1.4" opacity=".5"></path>
+<path d="M9 33 L56 55" stroke-width="1.4" opacity=".5"></path>
+<path d="M9 33 L56 33" stroke-width="2.8"></path>
+</svg></div>
+    <div class="tx">Every chart carries its uncertainty</div>
+  </div>
+</div>
+<div class="dsvar-aside">
+<p>These five hold for every week. From next week each week adds one principle, with four settings under it that you can ask of any chart.</p>
+</div>
+</section>
+<section id="section-1" class="slide level2 center dark" data-background-color="#002a26">
+<h2></h2>
+<div class="dsvar-title">
+<p>A chart is a claim.</p>
+</div>
+<div class="dsvar-take">
+<p>Next week: comparison and ranking, and the question under every comparison: <em>compared to what?</em></p>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'flex',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 7.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <!-- DSVAR deck chrome: fixed outside .reveal so it persists across every slide.
+         One white-on-transparent VU mark; a CSS filter darkens it on light slides
+         and it stays white on the dark title / section-divider slides. -->
+    <div class="dsvar-slide-strip">
+      <span class="on" style="background:var(--dsvar-era-1)"></span>
+      <span style="background:var(--dsvar-era-2)"></span>
+      <span style="background:var(--dsvar-era-3)"></span>
+      <span style="background:var(--dsvar-era-4)"></span>
+      <span style="background:var(--dsvar-era-5)"></span>
+    </div>
+    <img class="dsvar-slide-logo" src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam">
+
+    <script>
+    // ---------------------------------------------------------------------------
+    // 0. WHICH ERA THIS DECK LIGHTS. A deck declares its week with
+    //      <span class="dsvar-era" data-era="2" hidden></span>
+    //    anywhere on its title slide. That segment of the strip goes solid and
+    //    --dsvar-accent takes the era colour, so the take lines, display numbers
+    //    and label ticks follow the strip. Without the tag: era 1, VU blue.
+    // ---------------------------------------------------------------------------
+    (function () {
+      var tag = document.querySelector(".dsvar-era[data-era]");
+      var era = tag ? parseInt(tag.getAttribute("data-era"), 10) : 1;
+      if (!(era >= 1 && era <= 5)) era = 1;
+      var spans = document.querySelectorAll(".dsvar-slide-strip > span");
+      for (var i = 0; i < spans.length; i++) spans[i].classList.toggle("on", i === era - 1);
+      if (era !== 1) document.documentElement.style.setProperty("--dsvar-accent", "var(--dsvar-era-" + era + ")");
+    })();
+    </script>
+
+    <script>
+    // ---------------------------------------------------------------------------
+    // 1. FIXED TITLE. Wrap everything that is not the slide's own heading in a
+    //    .dsvar-body element, so theme.scss can pin the h2 at a constant top and
+    //    vertically centre the rest underneath it. Pandoc emits the heading and
+    //    the content as siblings, so without this wrapper there is nothing to
+    //    centre independently of the title. Runs immediately, before Reveal's
+    //    first layout.
+    // ---------------------------------------------------------------------------
+    (function () {
+      var sections = document.querySelectorAll(".reveal .slides section");
+      for (var i = 0; i < sections.length; i++) {
+        var s = sections[i];
+        if (s.querySelector(":scope > section")) continue;   // vertical stack wrapper
+        if (s.querySelector(":scope > .dsvar-body")) continue;
+        var body = document.createElement("div");
+        body.className = "dsvar-body";
+        var kids = Array.prototype.slice.call(s.children);
+        for (var k = 0; k < kids.length; k++) {
+          var el = kids[k];
+          var tag = el.tagName;
+          if (el === s.firstElementChild && (tag === "H1" || tag === "H2")) continue;
+          if (tag === "ASIDE" && el.classList.contains("notes")) continue;
+          body.appendChild(el);
+        }
+        if (body.childNodes.length) s.appendChild(body);
+      }
+    })();
+
+    // ---------------------------------------------------------------------------
+    // 2. RESERVE THE REFERENCE'S OWN HEIGHT. theme.scss pins .dsvar-ref to the
+    //    bottom of the slide and reserves a FIXED band for it (--pad-bottom, 68px),
+    //    which fits ONE line. A two or three line APA reference is taller than the
+    //    band, so the vertically centred body — in practice the .dsvar-take line —
+    //    ran into it (Philipp, 2026-09-14; measured overlap of 2px on the
+    //    fine-tuning slide of deck 4). The reference is absolutely positioned, so
+    //    no flex rule can see its height: measure it and give that section the
+    //    bottom padding it actually needs. The reference does not move — it is
+    //    pinned to the bottom edge — the body is pushed up.
+    //
+    //    MEASURING IS THE WHOLE PROBLEM. reveal keeps every slide that is not on
+    //    screen at display:none, so reading offsetHeight off the references
+    //    themselves returns 0 for all but the current slide (the first version of
+    //    this did exactly that and silently did nothing). Instead: one hidden probe
+    //    INSIDE .reveal — so it inherits --fs-ref and the face — at the reference's
+    //    own width, and every reference's markup is measured through it. Widths are
+    //    layout pixels, which reveal's transform does not touch, so this is the
+    //    design-pixel height. Runs once, before the first paint of any slide, and
+    //    again when the webfont lands, because the wrap depends on it.
+    //    `important` because the print-pdf rule sets padding with !important.
+    // ---------------------------------------------------------------------------
+    (function () {
+      var BOTTOM = 26, GAP = 20;   /* the .dsvar-ref's own offset, and the clearance above it */
+      var reveal = document.querySelector(".reveal");
+      if (!reveal) return;
+      var refs = document.querySelectorAll(".reveal .slides section .dsvar-ref");
+      if (!refs.length) return;
+
+      var probe = document.createElement("div");
+      probe.className = "dsvar-ref";
+      probe.setAttribute("aria-hidden", "true");
+      probe.style.cssText = "position:absolute; visibility:hidden; pointer-events:none; left:-9999px; top:0; right:auto; bottom:auto;";
+      reveal.appendChild(probe);
+
+      function refWidth() {
+        var slides = document.querySelector(".reveal .slides");
+        var section = refs[0].closest("section");
+        var cs = getComputedStyle(section);
+        var padX = parseFloat(cs.paddingLeft) || 72;
+        /* .dsvar-ref is left:var(--pad-x); right:calc(var(--pad-x) + 90px) against the
+           section's padding box, which is the full slide width (no border). */
+        return (slides ? slides.offsetWidth : 1280) - padX - (padX + 90);
+      }
+
+      function fit() {
+        var w = refWidth();
+        if (w > 0) probe.style.width = w + "px";
+        for (var i = 0; i < refs.length; i++) {
+          var r = refs[i], s = r.closest("section");
+          if (!s) continue;
+          probe.innerHTML = r.innerHTML;
+          var h = probe.offsetHeight;
+          if (h) s.style.setProperty("padding-bottom", (BOTTOM + h + GAP) + "px", "important");
+        }
+        probe.innerHTML = "";
+      }
+      /* ---------------------------------------------------------------------
+         AND THE OTHER HALF OF THE SAME PROBLEM. Reserving the reference's height
+         is not enough on a slide whose body is TALLER than the band it is centred
+         in: the overflow is split top and bottom, so the take line still ends up
+         in the reference. Measured on deck 4: three slides overflow by 12 to 18
+         design pixels. The .dsvar-take carries a 41.6px top margin — deliberately
+         generous, so the takeaway reads as an aside — and on exactly those slides
+         it is the one piece of air that can be spent. Trim it by the overflow,
+         never below FLOOR, and leave anything still too tall alone: that is an
+         editorial problem (cut a bullet), not one a stylesheet should hide.
+         Needs real layout, so it runs after reveal is ready; every slide is
+         forced to lay out behind visibility:hidden for the measurement, because
+         reveal keeps the ones off screen at display:none.
+         --------------------------------------------------------------------- */
+      var FLOOR = 16, GAP_MIN = 20;
+
+      /* AND THE OTHER HALF OF THE SAME PROBLEM. Reserving the reference's height is
+         not enough on a slide whose body is TALLER than the band it is centred in:
+         the overflow is split top and bottom, so the take line still lands in the
+         reference. The .dsvar-take carries a deliberately generous top margin, and on
+         exactly those slides it is the one piece of air that can be spent.
+
+         Two things this went through before it worked, both worth not repeating.
+         (1) Do not infer the problem from body.scrollHeight vs clientHeight:
+         content overflowing UPWARD out of a centred flex box is not counted in
+         scrollHeight, so a slide could overlap by 15px and report zero. Measure the
+         take's bottom edge against the reference's top edge — the thing we care
+         about. (2) Do not try to measure every slide at once behind a
+         visibility:hidden override: reveal positions off-screen slides differently
+         and the rects that come back are not the ones the viewer will see. Fit the
+         slide that is ON SCREEN, when it is shown. A figure inside it may also
+         still have been loading during any earlier pass, and this is the moment its
+         real height exists.
+
+         Iterated, because shrinking the margin changes what the flex box gives back.
+         Anything still tight after the floor is an editorial problem — cut a bullet
+         or shorten the figure — not something a stylesheet should paper over. */
+      function fitCurrent() {
+        var s = document.querySelector(".reveal .slides section.present");
+        if (!s) return;
+        var inner = s.querySelector("section.present"); if (inner) s = inner;
+        var t = s.querySelector(".dsvar-take"), ref = s.querySelector(".dsvar-ref");
+        if (!t || !ref) return;
+        t.style.removeProperty("margin-top");
+        for (var pass = 0; pass < 3; pass++) {
+          var gap = ref.getBoundingClientRect().top - t.getBoundingClientRect().bottom;
+          if (gap >= GAP_MIN) break;
+          var m = parseFloat(getComputedStyle(t).marginTop) || 0;
+          var trimmed = Math.max(FLOOR, m - (GAP_MIN - gap));
+          if (trimmed >= m) break;
+          t.style.setProperty("margin-top", trimmed.toFixed(1) + "px", "important");
+        }
+      }
+
+      function fitAll() { fit(); fitCurrent(); }
+      fit();
+      if (window.Reveal && Reveal.on) Reveal.on("ready", fitAll);
+      else { var tries = 0, iv = setInterval(function () { if (window.Reveal && Reveal.on) { clearInterval(iv); Reveal.on("ready", fitAll); } else if (++tries > 100) clearInterval(iv); }, 50); }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+      window.addEventListener("resize", fitAll);
+      /* A knitr figure is an <img> with no width or height attribute, so until it has
+         LOADED the browser lays it out at zero height and the body measures short — the
+         take line then gets no trim and lands on the reference (Philipp, 2026-09-14; it
+         looked like the earlier fix had failed, but the fix was running too early).
+         Re-fit as each figure arrives, and once more when the page is fully loaded. */
+      (function () {
+        var imgs = document.querySelectorAll(".reveal .slides section img");
+        var left = 0;
+        for (var i = 0; i < imgs.length; i++) {
+          if (imgs[i].complete) continue;
+          left++;
+          imgs[i].addEventListener("load", function () { if (--left <= 0) fitAll(); else fitAll(); });
+          imgs[i].addEventListener("error", function () { if (--left <= 0) fitAll(); });
+        }
+        window.addEventListener("load", fitAll);
+      })();
+      /* Belt and braces: re-fit whenever a slide is shown. Reveal lays a slide out
+         only once it is displayed, and a figure inside it may still have been
+         loading when the earlier passes ran, so this is the one moment we can be
+         sure the real heights exist. Cheap, and it removes the timing dependence. */
+      (function () {
+        var pending = null;
+        /* twice: once as soon as the slide is marked present, once after the fade,
+           because a mid-transition layout can still report the old geometry */
+        function later() { clearTimeout(pending); pending = setTimeout(fitAll, 30); setTimeout(fitAll, 260); }
+        function bind() { if (!window.Reveal || !Reveal.on) return false; Reveal.on("slidechanged", later); return true; }
+        if (!bind()) { var n = 0, iv = setInterval(function () { if (bind() || ++n > 100) clearInterval(iv); }, 50); }
+      })();
+    })();
+
+    // ---------------------------------------------------------------------------
+    // 3. Mark the body while a dark slide is showing, so the fixed chrome adapts.
+    // ---------------------------------------------------------------------------
+    (function () {
+      function current() {
+        var s = document.querySelector(".reveal .slides section.present");
+        if (s) { var inner = s.querySelector("section.present"); if (inner) s = inner; }
+        return s;
+      }
+      function sync() {
+        var s = current();
+        document.body.classList.toggle("dsvar-dark-slide", !!(s && s.classList.contains("dark")));
+      }
+      function bind() {
+        if (!window.Reveal || !window.Reveal.on) return false;
+        Reveal.on("ready", sync);
+        Reveal.on("slidechanged", sync);
+        sync();
+        return true;
+      }
+      if (!bind()) {
+        var tries = 0;
+        var t = setInterval(function () { if (bind() || ++tries > 100) clearInterval(t); }, 50);
+      }
+    })();
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find the odd one</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  /* ==========================================================================
+     Week 1 lecture explainer — PREATTENTIVE SEARCH VERSUS SERIAL SEARCH.
+
+     Four conditions. In each, one item differs and the viewer has to find it.
+     The clock is the whole content of the explainer: there is no static version
+     of this, because the finding IS a reaction time.
+
+       0  colour singleton,  24 items   instant
+       1  colour singleton, 120 items   still instant — SET SIZE DID NOT MATTER
+       2  shape singleton,  120 items   slower
+       3  colour AND shape, 120 items   serial. The room feels this one.
+          (red circles + grey squares as distractors; the target is the one
+          mark that is red AND square, so neither feature alone finds it)
+
+     Steps 0 and 1 are the pair that carries the argument. A channel is
+     preattentive if search time is flat in set size; the fifth-fold increase
+     between them costs nothing, and then step 3 — same set size as step 2 —
+     costs a lot. That contrast is why the set sizes are what they are.
+
+     Treisman & Gelade (1980), feature integration theory. In week 7 this is
+     the mechanism behind every highlight and every annotation: a reader finds
+     the marked point without looking for it, or does not.
+
+     Two clicks per condition: one to say FOUND IT (stops the clock and reveals
+     the target), one to move on. #N opens at condition N. ?dark for the dark
+     ground. Philipp, 2026-09-16.
+
+     The layouts are seeded (see rng below) so the demo is the same every time
+     it is run in front of a room, and so a target never lands under the text.
+     ========================================================================== */
+  :root{
+    --ink:#1a1a17; --ink-2:#3a3a34; --ink-3:#5a5a52; --muted:#7a7a70; --faint:#9a9a90;
+    --hair:#e7e3d9; --border:#e0dcd0; --surface:#ffffff; --paper:#faf8f4;
+    --accent:#1e7c50; --accent-2:#2d9e87; --bad:#b4472f;
+    --mark:#5a5a52; --target:#b4472f;
+    --font:"Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  body.dark{
+    --ink:#e7ebea; --ink-2:#ccd8d6; --ink-3:#a2c5c0; --muted:#73a29b; --faint:#62928b;
+    --hair:#184d47; --border:#184d47; --surface:#003732; --paper:#002a26;
+    --accent:#63ba8a; --accent-2:#90d49c; --bad:#e2846a;
+    --mark:#a2c5c0; --target:#e2846a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font); background:transparent; color:var(--ink);
+       overflow:hidden; cursor:pointer; -webkit-tap-highlight-color:transparent;
+       display:flex; flex-direction:column}
+  .head{flex:0 0 auto; padding:13px 20px 6px; display:flex; align-items:baseline; gap:14px}
+  .kick{font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--accent); text-transform:uppercase}
+  .task{font-size:15px; font-weight:700}
+  .setn{font-size:11px; color:var(--muted); margin-left:auto}
+  .clock{font-size:26px; font-weight:700; font-variant-numeric:tabular-nums;
+         letter-spacing:-.02em; min-width:104px; text-align:right}
+  .clock.stopped{color:var(--accent)}
+  .clock.slow{color:var(--bad)}
+  .stage{flex:1 1 auto; min-height:0; position:relative}
+  svg{width:100%;height:100%;display:block}
+  .foot{flex:0 0 auto; padding:9px 20px 12px; border-top:1px solid var(--hair);
+        display:flex; gap:14px; align-items:flex-start}
+  .note{flex:1 1 auto; font-size:11.5px; line-height:1.45; color:var(--ink-3); min-height:32px}
+  .note b{color:var(--ink)}
+  .times{flex:0 0 auto; font-size:10.5px; color:var(--muted); line-height:1.5; text-align:right;
+         font-variant-numeric:tabular-nums}
+  .times .lbl{color:var(--faint)}
+  .prog{flex:0 0 auto; font-size:10px; color:var(--faint); letter-spacing:.08em; align-self:center}
+  .ring{fill:none; stroke:var(--accent); stroke-width:2.5; opacity:0}
+  .ring.on{opacity:1; animation:pop .45s ease-out}
+  @keyframes pop{ from{ r:38; opacity:0 } to{ r:19; opacity:1 } }
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="kick" id="kick">Condition 1</div>
+  <div class="task" id="task"></div>
+  <div class="setn" id="setn"></div>
+  <div class="clock" id="clock">0.00s</div>
+</div>
+<div class="stage"><svg id="svg" viewBox="0 0 760 360" preserveAspectRatio="xMidYMid meet"></svg></div>
+<div class="foot">
+  <div class="note" id="note"></div>
+  <div class="times" id="times"></div>
+  <div class="prog" id="prog"></div>
+</div>
+<script>
+// Deterministic RNG so the same field comes up in front of every room.
+function rng(seed){ let s=seed>>>0; return ()=>{ s=(s*1664525+1013904223)>>>0; return s/4294967296; }; }
+
+const COND = [
+  {kick:"Condition 1", n:24,  kind:"colour",
+   task:"Find the odd one out.", seed:7,
+   note:'<b>Colour is preattentive.</b> You did not search. It arrived.'},
+  {kick:"Condition 2", n:120, kind:"colour",
+   task:"Again. Five times as many.", seed:23,
+   note:'<b>Five times the items, the same time.</b> That flatness is the definition: a preattentive channel is processed across the whole field at once, so set size does not matter.'},
+  {kick:"Condition 3", n:120, kind:"shape",
+   task:"Same number of items. Find the square.", seed:41,
+   note:'<b>Shape is weaker.</b> Still fast, but you can feel yourself looking now rather than simply seeing.'},
+  {kick:"Condition 4", n:120, kind:"conjunction",
+   task:"Find the one red square.", seed:59,
+   note:'<b>A conjunction of two features is not preattentive at all.</b> There are red marks and there are squares; only one is both, and nothing in your visual system finds that in parallel. You are checking items one at a time.'}
+];
+
+const svg = document.getElementById('svg');
+const NS = "http://www.w3.org/2000/svg";
+const W = 760, H = 360, PAD = 26;
+let step = 0, phase = 0, t0 = 0, raf = null;
+const results = [];
+
+function el(t,a,p){ const n=document.createElementNS(NS,t); for(const k in a) n.setAttribute(k,a[k]); (p||svg).appendChild(n); return n; }
+
+// Jittered grid: even coverage, no overlaps, no accidental clusters that would
+// make one run easier than another.
+function positions(n, rand){
+  const cols = Math.ceil(Math.sqrt(n * W / H));
+  const rows = Math.ceil(n / cols);
+  const cw = (W - PAD*2) / cols, ch = (H - PAD*2) / rows;
+  const out = [];
+  for (let i=0;i<n;i++){
+    const c = i % cols, r = Math.floor(i / cols);
+    out.push({
+      x: PAD + c*cw + cw/2 + (rand()-.5)*cw*.34,
+      y: PAD + r*ch + ch/2 + (rand()-.5)*ch*.34
+    });
+  }
+  return out;
+}
+
+let targetPos = null;
+function build(i){
+  svg.innerHTML = '';
+  const c = COND[i], rand = rng(c.seed);
+  const pos = positions(c.n, rand);
+  // Target never in the first or last row, so it is not next to the chrome.
+  const lo = Math.floor(c.n*0.18), hi = Math.floor(c.n*0.82);
+  const ti = lo + Math.floor(rand()*(hi-lo));
+  targetPos = pos[ti];
+  const R = c.n > 60 ? 8 : 12;
+
+  pos.forEach((p,k)=>{
+    const isT = k===ti;
+    let fill = 'var(--mark)', square = false;
+    if (c.kind === 'colour'){ if (isT) fill = 'var(--target)'; }
+    else if (c.kind === 'shape'){ square = isT; }
+    else {
+      // half the distractors are the target colour, half are squares —
+      // only the target is both.
+      const a = rand() < .5;
+      square = a;
+      if (!a && rand() < .5) fill = 'var(--target)';
+      if (isT){ square = true; fill = 'var(--target)'; }
+      else if (square && fill === 'var(--target)') fill = 'var(--mark)';
+    }
+    if (square) el('rect',{x:p.x-R*.86, y:p.y-R*.86, width:R*1.72, height:R*1.72, fill:fill, rx:1});
+    else el('circle',{cx:p.x, cy:p.y, r:R, fill:fill});
+  });
+  el('circle',{class:'ring', cx:targetPos.x, cy:targetPos.y, r:19, id:'ring'});
+}
+
+function tick(){
+  const s = (performance.now()-t0)/1000;
+  const cl = document.getElementById('clock');
+  cl.textContent = s.toFixed(2)+'s';
+  cl.className = 'clock' + (s > 3 ? ' slow' : '');
+  raf = requestAnimationFrame(tick);
+}
+
+function setStep(i, replay){
+  i = Math.max(0, Math.min(COND.length-1, i)); step = i; phase = 0;
+  const c = COND[i];
+  document.getElementById('kick').textContent = c.kick;
+  document.getElementById('task').textContent = c.task;
+  document.getElementById('setn').textContent = c.n + ' items';
+  document.getElementById('note').innerHTML = '<span style="color:var(--faint)">Click the moment you have found it.</span>';
+  document.getElementById('prog').textContent = (i+1)+' / '+COND.length;
+  if (history.replaceState) history.replaceState(null,'','#'+(i+1));
+  if (!replay) results.length = Math.min(results.length, i);
+  renderTimes();
+  build(i);
+  const cl = document.getElementById('clock'); cl.className = 'clock'; cl.textContent = '0.00s';
+  if (raf) cancelAnimationFrame(raf); raf = null;
+  if (!live) {
+    // Embedded in a deck: wait until the slide is on screen (or a click).
+    document.getElementById('note').innerHTML = '<span style="color:var(--faint)">The clock starts when this slide opens, or on a click.</span>';
+    return;
+  }
+  t0 = performance.now();
+  tick();
+}
+
+// In a reveal.js deck the frame loads while the slide is still off screen,
+// and the clock would already be running when the slide arrives. Reveal sends
+// 'slide:start' to the frames on a slide when it opens and 'slide:stop' when
+// it closes, so an embedded copy waits for that. Opened on its own, it starts
+// at once.
+let live = window.parent === window;
+window.addEventListener('message', e => {
+  if (e.data === 'slide:start' && !live) { live = true; setStep(step, true); }
+  if (e.data === 'slide:stop') { live = false; setStep(step, true); }
+});
+
+function renderTimes(){
+  document.getElementById('times').innerHTML = results.map((r,k)=>
+    '<div><span class="lbl">'+COND[k].kick.replace('Condition ','C')+' · '+COND[k].n+' items</span> &nbsp;<b>'+r.toFixed(2)+'s</b></div>'
+  ).join('');
+}
+
+function found(){
+  if (raf) cancelAnimationFrame(raf); raf = null;
+  const s = (performance.now()-t0)/1000;
+  results[step] = s;
+  const cl = document.getElementById('clock');
+  cl.textContent = s.toFixed(2)+'s';
+  cl.className = 'clock stopped' + (s > 3 ? ' slow' : '');
+  document.getElementById('ring').classList.add('on');
+  document.getElementById('note').innerHTML = COND[step].note;
+  renderTimes();
+  phase = 1;
+}
+
+document.body.addEventListener('click', ()=>{
+  if (!live) { live = true; setStep(step, true); return; }
+  if (phase === 0) found();
+  else setStep(step >= COND.length-1 ? 0 : step+1);
+});
+document.addEventListener('keydown', e=>{
+  if (e.key==='Enter'||e.key===' '||e.key==='ArrowRight'){ e.preventDefault();
+    if (!live) { live = true; setStep(step, true); return; }
+    if (phase===0) found(); else setStep(step >= COND.length-1 ? 0 : step+1); }
+  if (e.key==='ArrowLeft'||e.key==='Backspace'){ e.preventDefault(); setStep(step-1, true); }
+  if (e.key==='r'||e.key==='R'){ setStep(step, true); }
+});
+if (new URLSearchParams(location.search).has('dark')) document.body.classList.add('dark');
+if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+    && !new URLSearchParams(location.search).has('light')) document.body.classList.add('dark');
+const h = location.hash.replace('#','');
+setStep(/^\d+$/.test(h) ? (+h - 1) : 0);
+</script>
+</body>
+</html>

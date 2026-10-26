@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eight slots</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  /* ==========================================================================
+     Week 1 lecture explainer — THE GRAMMAR OF GRAPHICS AS EIGHT SLOTS.
+
+     One dataset (HadCRUT5 global annual anomaly, 1850-2025, 176 rows, embedded
+     below) and nine clicks. Each click sets one slot of the grammar and the
+     SAME 176 marks move to their new positions:
+
+       0 data      the numbers, as numbers. No chart yet.
+       1 mapping   year->x, anomaly->y. Axes appear. NOTHING IS DRAWN. This is
+                   the step the whole act turns on.
+       2 geom      geom_point()
+       3 geom      geom_line() — one slot, two settings, a different claim
+       4 stat      geom_smooth() — a COMPUTED layer, not the data
+       5 scale     the y scale opened to an absolute range; the series flattens
+       6 coord     coord_polar() — the same line, bent
+       7 facet     split by half-century
+       8 theme     everything that is not data, removed -> warming stripes
+
+     WHY IT ANIMATES. The point of the act is that these are not nine different
+     charts, they are one chart with one slot changed. A cut between static
+     images says "different chart"; a tween says "same marks, moved", which is
+     the actual claim. Every step tweens cx/cy/r/fill on the same 176 <circle>
+     elements; only the furniture (axes, labels, panels) fades.
+
+     This explainer is re-embedded in later weeks a slot at a time — #scale in
+     week 2, #facet in week 4, #stat and #coord in week 5, #theme in week 7. Hence the named anchors: do not renumber the steps without
+     updating those decks.
+
+     Click / Enter / space to advance; Backspace or left arrow to go back.
+     #N or #<slotname> opens at that step. ?dark for the dark ground.
+     Philipp, 2026-09-16.
+     ========================================================================== */
+  :root{
+    --ink:#1a1a17; --ink-2:#3a3a34; --ink-3:#5a5a52; --muted:#7a7a70; --faint:#9a9a90;
+    --hair:#e7e3d9; --border:#e0dcd0; --surface:#ffffff; --paper:#faf8f4;
+    --accent:#1e7c50; --accent-2:#2d9e87; --accent-tint:rgba(45,158,135,.16);
+    --cold:#2171B5; --warm:#CB181D;
+    --font:"Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  body.dark{
+    --ink:#e7ebea; --ink-2:#ccd8d6; --ink-3:#a2c5c0; --muted:#73a29b; --faint:#62928b;
+    --hair:#184d47; --border:#184d47; --surface:#003732; --paper:#002a26;
+    --accent:#63ba8a; --accent-2:#90d49c; --accent-tint:rgba(99,186,138,.2);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font); background:transparent; color:var(--ink);
+       overflow:hidden; cursor:pointer; -webkit-tap-highlight-color:transparent;
+       display:flex; flex-direction:column}
+  svg{width:100%;height:100%;display:block}
+  text{font-family:var(--font); fill:var(--ink)}
+  .wrap{flex:1 1 auto; min-height:0; display:flex}
+  .slots{flex:0 0 190px; padding:16px 0 16px 18px; display:flex; flex-direction:column; gap:1px}
+  .slot{display:flex; align-items:baseline; gap:8px; padding:5px 8px; border-radius:6px;
+        font-size:12px; font-weight:500; color:var(--faint);
+        transition:color .3s, background .3s}
+  .slot .n{font-size:9px; font-weight:700; letter-spacing:.08em; opacity:.6; width:12px}
+  .slot.on{color:var(--ink); background:var(--accent-tint); font-weight:700}
+  .slot.done{color:var(--ink-3)}
+  .stage{flex:1 1 auto; min-width:0; position:relative}
+  .foot{flex:0 0 auto; padding:10px 18px 12px; border-top:1px solid var(--hair);
+        display:flex; align-items:flex-start; gap:14px}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11.5px;
+        color:var(--ink-2); line-height:1.5; white-space:pre; flex:1 1 auto;
+        overflow:hidden}
+  .code .new{color:var(--accent); font-weight:700}
+  .note{flex:0 0 46%; font-size:11.5px; line-height:1.45; color:var(--ink-3)}
+  .note b{color:var(--ink)}
+  .prog{flex:0 0 auto; font-size:10px; color:var(--faint); letter-spacing:.08em; align-self:center}
+  .tick{font-size:9.5px; fill:var(--muted)}
+  .axis{stroke:var(--border); stroke-width:1}
+  .grid{stroke:var(--hair); stroke-width:1}
+  .lab{font-size:10px; font-weight:700; letter-spacing:.06em; fill:var(--muted)}
+  .num{font-size:10px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+  .hd{font-size:10px; font-weight:700; letter-spacing:.09em; fill:var(--accent)}
+  .fade{transition:opacity .45s}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="slots" id="slots"></div>
+  <div class="stage"><svg id="svg" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet"></svg></div>
+</div>
+<div class="foot">
+  <div class="code" id="code"></div>
+  <div class="note" id="note"></div>
+  <div class="prog" id="prog"></div>
+</div>
+<script>
+const DATA = [[1850,-0.418],[1851,-0.233],[1852,-0.229],[1853,-0.270],[1854,-0.292],[1855,-0.297],[1856,-0.320],[1857,-0.467],[1858,-0.389],[1859,-0.281],[1860,-0.390],[1861,-0.429],[1862,-0.536],[1863,-0.344],[1864,-0.465],[1865,-0.332],[1866,-0.341],[1867,-0.357],[1868,-0.352],[1869,-0.317],[1870,-0.328],[1871,-0.369],[1872,-0.328],[1873,-0.341],[1874,-0.373],[1875,-0.376],[1876,-0.424],[1877,-0.101],[1878,-0.011],[1879,-0.304],[1880,-0.316],[1881,-0.232],[1882,-0.296],[1883,-0.346],[1884,-0.492],[1885,-0.471],[1886,-0.421],[1887,-0.499],[1888,-0.379],[1889,-0.250],[1890,-0.507],[1891,-0.401],[1892,-0.508],[1893,-0.495],[1894,-0.484],[1895,-0.449],[1896,-0.284],[1897,-0.260],[1898,-0.486],[1899,-0.355],[1900,-0.234],[1901,-0.293],[1902,-0.439],[1903,-0.533],[1904,-0.598],[1905,-0.408],[1906,-0.319],[1907,-0.504],[1908,-0.514],[1909,-0.536],[1910,-0.531],[1911,-0.539],[1912,-0.476],[1913,-0.467],[1914,-0.262],[1915,-0.192],[1916,-0.420],[1917,-0.543],[1918,-0.424],[1919,-0.325],[1920,-0.298],[1921,-0.240],[1922,-0.339],[1923,-0.318],[1924,-0.312],[1925,-0.282],[1926,-0.123],[1927,-0.229],[1928,-0.206],[1929,-0.392],[1930,-0.177],[1931,-0.103],[1932,-0.145],[1933,-0.322],[1934,-0.174],[1935,-0.206],[1936,-0.170],[1937,-0.019],[1938,-0.012],[1939,-0.041],[1940,0.076],[1941,0.038],[1942,0.001],[1943,0.006],[1944,0.144],[1945,0.043],[1946,-0.119],[1947,-0.091],[1948,-0.125],[1949,-0.144],[1950,-0.227],[1951,-0.061],[1952,0.015],[1953,0.078],[1954,-0.117],[1955,-0.197],[1956,-0.263],[1957,-0.035],[1958,-0.018],[1959,-0.048],[1960,-0.115],[1961,-0.020],[1962,-0.064],[1963,-0.037],[1964,-0.306],[1965,-0.204],[1966,-0.149],[1967,-0.118],[1968,-0.169],[1969,-0.031],[1970,-0.085],[1971,-0.206],[1972,-0.094],[1973,0.050],[1974,-0.173],[1975,-0.111],[1976,-0.216],[1977,0.103],[1978,0.005],[1979,0.091],[1980,0.196],[1981,0.250],[1982,0.034],[1983,0.224],[1984,0.048],[1985,0.050],[1986,0.096],[1987,0.243],[1988,0.282],[1989,0.179],[1990,0.361],[1991,0.339],[1992,0.125],[1993,0.166],[1994,0.234],[1995,0.377],[1996,0.277],[1997,0.422],[1998,0.577],[1999,0.324],[2000,0.331],[2001,0.489],[2002,0.543],[2003,0.544],[2004,0.467],[2005,0.607],[2006,0.573],[2007,0.592],[2008,0.466],[2009,0.597],[2010,0.680],[2011,0.538],[2012,0.578],[2013,0.624],[2014,0.673],[2015,0.825],[2016,0.933],[2017,0.845],[2018,0.763],[2019,0.891],[2020,0.923],[2021,0.762],[2022,0.801],[2023,1.100],[2024,1.181],[2025,1.190]];
+const SLOTS = ["data","mapping","geom","geom","stat","scale","coord","facet","theme"];
+const NAMES = ["data","mapping","geom","stat","scale","coord","facet","theme"];
+
+const STEPS = [
+ {slot:"data", anchor:"data", code:["climate"],
+  note:"<b>176 rows, two columns.</b> A year and a temperature anomaly. Nothing about this table says what it should look like."},
+ {slot:"mapping", anchor:"mapping", code:["ggplot(climate,","  aes(year, anomaly))"],
+  note:"<b>Axes, scales, ranges — and not one mark.</b> The mapping says which column goes to which channel. It does not draw anything. Every chart you have ever seen started here."},
+ {slot:"geom", anchor:"geom", code:["ggplot(climate,","  aes(year, anomaly)) +","  geom_point()"],
+  note:"<b>The geom is what you can see.</b> 176 observations, 176 marks. The first thing on the page that is actually the data."},
+ {slot:"geom", anchor:"geom-line", code:["ggplot(climate,","  aes(year, anomaly)) +","  geom_line()"],
+  note:"<b>One slot, two settings.</b> A line asserts that these points belong on a path — that 1851 follows 1850. True here. It would be a lie on a bar chart of countries."},
+ {slot:"stat", anchor:"stat", code:["ggplot(climate,","  aes(year, anomaly)) +","  geom_line() +","  geom_smooth()"],
+  note:"<b>A stat is a computed layer.</b> This curve is not in the file. It is a model of the file, drawn at the same weight as the data — which is a decision, and week 5 argues about it."},
+ {slot:"scale", anchor:"scale", code:["  ... +","  scale_y_continuous(","    limits = c(-20, 20))"],
+  note:"<b>The scale decides what counts as a big change.</b> Same numbers, same marks, y opened to plus or minus twenty degrees. The warming is still there. You cannot see it. Week 2."},
+ {slot:"coord", anchor:"coord", code:["  ... +","  coord_polar()"],
+  note:"<b>The coord is the space it is drawn in.</b> Bend the x axis into a circle and the time series becomes a spiral. In week 6 you will find that a map projection is this slot and nothing more."},
+ {slot:"facet", anchor:"facet", code:["  ... +","  facet_wrap(~ half_century)"],
+  note:"<b>Facetting is conditioning.</b> One panel per half-century: the same marks, split so they can be compared rather than overlaid. Tufte called these small multiples. Week 4."},
+ {slot:"theme", anchor:"theme", code:["  ... +","  theme_void() +","  scale_fill_gradientn(...)"],
+  note:"<b>The theme is everything that is not data.</b> Remove all of it — axes, labels, gridlines, numbers — and 176 marks still say the thing. This is Ed Hawkins's warming stripes, and it is one setting of eight slots."}
+];
+
+const svg = document.getElementById('svg');
+const NS = "http://www.w3.org/2000/svg";
+const W = 700, H = 380, M = {t:26, r:26, b:34, l:46};
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+
+const years = DATA.map(d=>d[0]), vals = DATA.map(d=>d[1]);
+const y0 = years[0], y1 = years[years.length-1];
+const vmin = Math.min(...vals), vmax = Math.max(...vals);
+
+// The step-0 number grid. Shared by layout() and drawFurniture() so the
+// heading sits on top of the block rather than pinned to the panel edge with a
+// gap between them — at the sizes this gets embedded at, that gap read as a
+// chart that had failed to draw.
+const GRID = (function(){
+  const cols = 22, cw = PW/cols, rh = 15;
+  const rows = Math.ceil(176/cols);
+  const top  = M.t + (PH - rows*rh)/2 + 6;
+  return {cols, cw, rh, rows, top};
+})();
+
+function el(tag, attrs, parent){
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  (parent||svg).appendChild(n); return n;
+}
+const lerp = (a,b,t)=>a+(b-a)*t;
+const ease = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
+
+// colour ramp for the stripes step
+function stripeColour(v){
+  const t = (v - vmin) / (vmax - vmin);
+  const cold=[8,48,107], pale=[247,247,247], warm=[103,0,13];
+  let c;
+  if (t < .5){ const u=t/.5; c = cold.map((x,i)=>lerp(x,pale[i],u)); }
+  else { const u=(t-.5)/.5; c = pale.map((x,i)=>lerp(x,warm[i],u)); }
+  return "rgb("+c.map(x=>Math.round(x)).join(",")+")";
+}
+
+// --- target geometry per step ------------------------------------------------
+// Each returns {x,y,r,fill,op} per datum. The SAME circles are reused throughout.
+function layout(step){
+  const out = [];
+  for (let i=0;i<DATA.length;i++){
+    const yr = years[i], v = vals[i];
+    let x,y,r=2.6,fill="var(--accent)",op=1;
+
+    if (step===0){                                   // numbers in a grid
+      // Centred in the panel rather than hung from the top: the block is eight
+      // rows in a panel that fits twenty, and left at the top it reads as a
+      // chart that failed to draw rather than as a table.
+      x = M.l + (i%GRID.cols)*GRID.cw + GRID.cw/2;
+      y = GRID.top + Math.floor(i/GRID.cols)*GRID.rh + 10;
+      r = 0; op = 0;
+    } else if (step===1){                            // mapped, not drawn
+      x = M.l + (yr-y0)/(y1-y0)*PW;
+      y = M.t + PH - (v-vmin)/(vmax-vmin)*PH;
+      r = 0; op = 0;
+    } else if (step===2 || step===3 || step===4){    // point / line / stat
+      x = M.l + (yr-y0)/(y1-y0)*PW;
+      y = M.t + PH - (v-vmin)/(vmax-vmin)*PH;
+      r = step===2 ? 2.6 : 1.5;
+      op = step===2 ? .9 : .45;
+    } else if (step===5){                            // scale opened to +/-20
+      x = M.l + (yr-y0)/(y1-y0)*PW;
+      y = M.t + PH - (v+20)/40*PH;
+      r = 1.5; op = .45;
+    } else if (step===6){                            // polar
+      const a = (yr-y0)/(y1-y0+1)*Math.PI*2 - Math.PI/2;
+      const rad = 28 + (v-vmin)/(vmax-vmin)*(Math.min(PW,PH)/2 - 34);
+      x = M.l + PW/2 + Math.cos(a)*rad;
+      y = M.t + PH/2 + Math.sin(a)*rad;
+      r = 1.8; op = .75;
+    } else if (step===7){                            // facet by half-century
+      const f = Math.min(3, Math.floor((yr-1850)/50));
+      const gap=16, fw=(PW-gap*3)/4;
+      const fy0 = 1850+f*50, fy1 = fy0+50;
+      x = M.l + f*(fw+gap) + (yr-fy0)/(fy1-fy0)*fw;
+      y = M.t + 14 + PH-14 - (v-vmin)/(vmax-vmin)*(PH-14);
+      r = 1.7; op = .8;
+    } else {                                         // stripes
+      const bw = PW/DATA.length;
+      x = M.l + i*bw + bw/2;
+      y = M.t + PH/2;
+      r = 0; op = 1; fill = stripeColour(v);
+    }
+    out.push({x,y,r,fill,op});
+  }
+  return out;
+}
+
+// --- persistent marks --------------------------------------------------------
+const gFurniture = el('g', {});           // axes, labels, panels — fade in/out
+const gStripes   = el('g', {});           // rects, only on the last step
+const gPath      = el('g', {});           // the line / spiral path
+const gSmooth    = el('g', {});
+const gMarks     = el('g', {});           // the 176 circles
+const gNumbers   = el('g', {});           // step 0 only
+
+const circles = DATA.map(()=> el('circle', {r:0, opacity:0, fill:"var(--accent)"}, gMarks));
+
+const numbers = DATA.map((d,i)=>{
+  const t = el('text', {class:'num', 'text-anchor':'middle', opacity:0}, gNumbers);
+  t.textContent = d[1].toFixed(2); return t;
+});
+
+const stripes = DATA.map(()=> el('rect', {opacity:0}, gStripes));
+
+const pathLine = el('path', {fill:'none', stroke:'var(--accent)', 'stroke-width':1.6,
+                             'stroke-linejoin':'round', opacity:0}, gPath);
+const pathSmooth = el('path', {fill:'none', stroke:'var(--accent-2)', 'stroke-width':2.6,
+                               'stroke-linecap':'round', opacity:0}, gSmooth);
+
+function pathFrom(pts){
+  return pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+}
+
+// loess-ish: a simple moving average, which is all this needs to make the point
+function smoothPts(pts, win){
+  const out=[];
+  for(let i=0;i<pts.length;i++){
+    let sx=0, sy=0, n=0;
+    for(let j=Math.max(0,i-win); j<=Math.min(pts.length-1,i+win); j++){ sx+=pts[j].x; sy+=pts[j].y; n++; }
+    out.push({x:sx/n, y:sy/n});
+  }
+  return out;
+}
+
+// --- furniture per step ------------------------------------------------------
+function drawFurniture(step){
+  gFurniture.innerHTML = '';
+  if (step===0){
+    const t = el('text', {class:'hd', x:M.l, y:GRID.top - 13}, gFurniture);
+    t.textContent = 'CLIMATE — 176 ROWS, 2 COLUMNS';
+    const u = el('text', {class:'tick', x:M.l+PW, y:GRID.top - 13, 'text-anchor':'end'}, gFurniture);
+    u.textContent = 'anomaly in °C, in year order';
+    return;
+  }
+  if (step===8) return;                    // stripes have no furniture at all
+
+  if (step===7){                           // four facet panels
+    const gap=16, fw=(PW-gap*3)/4;
+    for(let f=0;f<4;f++){
+      const x0 = M.l + f*(fw+gap);
+      el('line', {class:'axis', x1:x0, x2:x0+fw, y1:M.t+PH, y2:M.t+PH}, gFurniture);
+      const t = el('text', {class:'lab', x:x0, y:M.t+8}, gFurniture);
+      t.textContent = (1850+f*50) + '–' + (1850+f*50+49);
+    }
+    return;
+  }
+  if (step===6){                           // polar: rings, no cartesian axes
+    for (const rr of [60, 110, 160]){
+      el('circle', {class:'grid', fill:'none', cx:M.l+PW/2, cy:M.t+PH/2, r:rr}, gFurniture);
+    }
+    const t = el('text', {class:'lab', x:M.l+PW/2, y:M.t+PH/2+4, 'text-anchor':'middle'}, gFurniture);
+    t.textContent = '1850 → 2025';
+    return;
+  }
+
+  // cartesian: y gridlines + x ticks
+  const yTicks = step===5 ? [-20,-10,0,10,20] : [-0.5, 0, 0.5, 1.0];
+  const toY = step===5 ? (v => M.t + PH - (v+20)/40*PH)
+                       : (v => M.t + PH - (v-vmin)/(vmax-vmin)*PH);
+  for (const v of yTicks){
+    const y = toY(v);
+    el('line', {class:'grid', x1:M.l, x2:M.l+PW, y1:y, y2:y}, gFurniture);
+    const t = el('text', {class:'tick', x:M.l-8, y:y+3, 'text-anchor':'end'}, gFurniture);
+    t.textContent = v.toFixed(step===5?0:1);
+  }
+  el('line', {class:'axis', x1:M.l, x2:M.l+PW, y1:M.t+PH, y2:M.t+PH}, gFurniture);
+  for (const yr of [1850,1900,1950,2000]){
+    const x = M.l + (yr-y0)/(y1-y0)*PW;
+    const t = el('text', {class:'tick', x:x, y:M.t+PH+16, 'text-anchor':'middle'}, gFurniture);
+    t.textContent = yr;
+  }
+  const yl = el('text', {class:'lab', x:M.l-34, y:M.t-8}, gFurniture);
+  yl.textContent = '°C';
+}
+
+// --- the tween ---------------------------------------------------------------
+let cur = layout(0), step = 0, anim = null;
+
+function render(target, t){
+  for (let i=0;i<circles.length;i++){
+    const a = cur[i], b = target[i];
+    const x = lerp(a.x,b.x,t), y = lerp(a.y,b.y,t);
+    const c = circles[i];
+    c.setAttribute('cx', x.toFixed(2)); c.setAttribute('cy', y.toFixed(2));
+    c.setAttribute('r', lerp(a.r,b.r,t).toFixed(2));
+    c.setAttribute('opacity', lerp(a.op,b.op,t).toFixed(3));
+    if (b.fill !== a.fill) c.setAttribute('fill', t>.5 ? b.fill : a.fill);
+  }
+}
+
+function setStep(n, instant){
+  n = Math.max(0, Math.min(STEPS.length-1, n));
+  const target = layout(n);
+  const from = cur.map(o=>({...o}));
+  step = n;
+
+  // slots
+  document.querySelectorAll('.slot').forEach((s,i)=>{
+    const active = NAMES.indexOf(STEPS[n].slot);
+    s.classList.toggle('on', i===active);
+    s.classList.toggle('done', i<active);
+  });
+
+  // code + note
+  const code = STEPS[n].code;
+  document.getElementById('code').innerHTML =
+    code.map((l,i)=> i===code.length-1 ? '<span class="new">'+l+'</span>' : l).join('\n');
+  document.getElementById('note').innerHTML = STEPS[n].note;
+  document.getElementById('prog').textContent = (n+1)+' / '+STEPS.length;
+  if (history.replaceState) history.replaceState(null,'','#'+STEPS[n].anchor);
+
+  drawFurniture(n);
+
+  // numbers only at step 0
+  numbers.forEach((t,i)=>{
+    t.setAttribute('opacity', n===0 ? .85 : 0);
+    if (n===0){ t.setAttribute('x', target[i].x); t.setAttribute('y', target[i].y); }
+  });
+
+  // line path: steps 3,4,5 cartesian; 6 polar; 7 facet (per panel)
+  const wantLine = n>=3 && n<=7;
+  pathLine.setAttribute('opacity', wantLine ? (n===4?.4:.85) : 0);
+  pathSmooth.setAttribute('opacity', n>=4 && n<=5 ? .95 : 0);
+
+  // stripes
+  const bw = PW/DATA.length;
+  stripes.forEach((rct,i)=>{
+    rct.setAttribute('opacity', n===8 ? 1 : 0);
+    if (n===8){
+      rct.setAttribute('x', M.l + i*bw); rct.setAttribute('y', M.t);
+      rct.setAttribute('width', Math.ceil(bw)+.5); rct.setAttribute('height', PH);
+      rct.setAttribute('fill', stripeColour(vals[i]));
+    }
+  });
+
+  if (anim) cancelAnimationFrame(anim);
+  const dur = instant ? 0 : 820;
+  const t0 = performance.now();
+  (function frame(now){
+    const raw = dur ? Math.min(1,(now-t0)/dur) : 1;
+    const t = ease(raw);
+    render(target, t);
+    // rebuild the paths from the tweened positions so the line bends with the marks
+    if (wantLine){
+      const pts = circles.map(c=>({x:+c.getAttribute('cx'), y:+c.getAttribute('cy')}));
+      if (n===7){
+        // one path per facet, so panels are not joined by a stray line
+        let d='', prevF=-1;
+        for(let i=0;i<pts.length;i++){
+          const f = Math.min(3, Math.floor((years[i]-1850)/50));
+          d += (f!==prevF ? 'M' : 'L') + pts[i].x.toFixed(1)+' '+pts[i].y.toFixed(1)+' ';
+          prevF = f;
+        }
+        pathLine.setAttribute('d', d);
+      } else {
+        pathLine.setAttribute('d', pathFrom(pts));
+      }
+      if (n>=4 && n<=5) pathSmooth.setAttribute('d', pathFrom(smoothPts(pts, 8)));
+    }
+    if (raw < 1) anim = requestAnimationFrame(frame);
+    else { cur = target; anim = null; }
+  })(performance.now());
+}
+
+// --- slot rail ---------------------------------------------------------------
+const rail = document.getElementById('slots');
+NAMES.forEach((nm,i)=>{
+  const d = document.createElement('div');
+  d.className = 'slot';
+  d.innerHTML = '<span class="n">'+String(i+1).padStart(2,'0')+'</span><span>'+nm+'</span>';
+  d.addEventListener('click', e=>{
+    e.stopPropagation();
+    const k = STEPS.findIndex(s=>s.slot===nm);
+    if (k>=0) setStep(k);
+  });
+  rail.appendChild(d);
+});
+
+// --- drive -------------------------------------------------------------------
+function next(){ setStep(step>=STEPS.length-1 ? 0 : step+1); }
+function prev(){ setStep(step-1); }
+document.body.addEventListener('click', next);
+document.addEventListener('keydown', e=>{
+  if (e.key==='Enter' || e.key===' ' || e.key==='ArrowRight'){ e.preventDefault(); next(); }
+  if (e.key==='Backspace' || e.key==='ArrowLeft'){ e.preventDefault(); prev(); }
+});
+
+if (new URLSearchParams(location.search).has('dark')) document.body.classList.add('dark');
+if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+    && !new URLSearchParams(location.search).has('light')) document.body.classList.add('dark');
+
+const h = location.hash.replace('#','');
+let start = 0;
+if (h){
+  const byAnchor = STEPS.findIndex(s=>s.anchor===h);
+  const bySlot   = STEPS.findIndex(s=>s.slot===h);
+  const byNum    = /^\d+$/.test(h) ? (+h - 1) : -1;
+  start = byAnchor>=0 ? byAnchor : (bySlot>=0 ? bySlot : (byNum>=0 ? byNum : 0));
+}
+cur = layout(start); setStep(start, true);
+</script>
+</body>
+</html>
