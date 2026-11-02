@@ -533,7 +533,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="dsvar-caption">
-<p>144 specifications on n = 3,130 cases. Estimates run from -0.072 to 0.184, median 0.070; 104 of 144 reach <em>p</em> &lt; .05. All variables standardised, so β is comparable across specifications. The four well-being indicators are positively inter-correlated in this file (<em>r</em> = .40 to .92), so they point the same way and a positive β means more media use goes with higher scores on all four. Synthetic pairfam data from Masur’s <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">specification curve tutorial</a>.</p>
+<p>144 specifications on n = 3,130 cases. Estimates run from -0.072 to 0.184, median 0.070; 104 of 144 reach <em>p</em> &lt; .05. All variables standardised, so β is comparable across specifications. The four well-being indicators are positively inter-correlated in this dataset (<em>r</em> = .40 to .92), so they point the same way and a positive β means more media use goes with higher scores on all four. Synthetic pairfam data from Masur’s <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">specification curve tutorial</a>.</p>
 </div>
 <div class="dsvar-note dsvar-note--check">
 <div class="dsvar-note__label">
@@ -696,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dsvar-note__label">
 <p>AND THE COUNT ITSELF IS FRAGILE</p>
 </div>
-<p>Two rows of this file have no recorded gender. Passing <code>subsets = list(gender = unique(d$gender))</code>, the obvious thing to write, makes <code>NA</code> a third subset level, and <code>specr</code> then emits the pooled “everyone” specification twice: 192 rows instead of 144, with 48 of them exact duplicates. Nothing errors, the curve looks the same, and the median barely moves. A number in an abstract that says “we ran 192 specifications” can be wrong in a way no plot will show you, which is a good reason to print the design and read it before fitting anything.</p>
+<p>Two rows of this dataset have no recorded gender. Passing <code>subsets = list(gender = unique(d$gender))</code>, the obvious thing to write, makes <code>NA</code> a third subset level, and <code>specr</code> then emits the pooled “everyone” specification twice: 192 rows instead of 144, with 48 of them exact duplicates. Nothing errors, the curve looks the same, and the median barely moves. A number in an abstract that says “we ran 192 specifications” can be wrong in a way no plot will show you, which is a good reason to print the design and read it before fitting anything.</p>
 </div>
 </div>
 <div class="dsvar-block">
@@ -707,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Original:</strong> Orben, A., &amp; Przybylski, A. K. (2019). The association between adolescent well-being and digital technology use. <em>Nature Human Behaviour, 3</em>, 173–182. <a href="https://doi.org/10.1038/s41562-018-0506-1">doi:10.1038/s41562-018-0506-1</a>. Figure 1 shown above from the author-deposited accepted manuscript at <a href="https://ora.ox.ac.uk/objects/uuid:5d844350-a359-47d3-b10c-4bfb93ce613b">ORA</a>.</li>
 <li><strong>The method:</strong> Simonsohn, U., Simmons, J. P., &amp; Nelson, L. D. (2020). Specification curve analysis. <em>Nature Human Behaviour, 4</em>, 1208–1214. Earlier and still worth reading: Steegen, S., Tuerlinckx, F., Gelman, A., &amp; Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. <em>Perspectives on Psychological Science, 11</em>, 702–712.</li>
 <li><strong>The package:</strong> Masur, P. K., &amp; Scharkow, M. <strong>specr</strong>: Conducting and visualizing specification curve analyses. <a href="https://masurp.github.io/specr/">masurp.github.io/specr</a>.</li>
-<li><strong>The tutorial this recreation follows:</strong> <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">Specification curve analysis</a>, CCS Amsterdam R course material, which is also where the synthetic pairfam data comes from (CC BY 4.0). The data are synthetic, not pairfam survey data; this site replaces the file’s <code>id</code> column with the row number.</li>
+<li><strong>The tutorial this recreation follows:</strong> <a href="https://github.com/ccs-amsterdam/r-course-material/blob/master/tutorials/R_spec-curve-analysis.md">Specification curve analysis</a>, CCS Amsterdam R course material, which is also where the synthetic pairfam data comes from (CC BY 4.0). The data are synthetic, not pairfam survey data; this site replaces the dataset’s <code>id</code> column with the row number.</li>
 <li><strong>The companion:</strong> <a href="../gallery/many-analysts.html">Many analysts, one dataset</a>.</li>
 <li><strong>Reproduce it:</strong> <code>Rscript R/fetch-gallery-data.R</code> pulls the data; every figure on this page is built by the code shown above it.</li>
 </ul>

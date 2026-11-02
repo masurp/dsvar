@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dsvar-labhead">
 <p><span class="dsvar-seqchip">02 CLAIM</span> <span class="dsvar-labhead__meta">Work group 1 · First steps in R, and the grammar in ggplot</span> <span class="dsvar-labhead__right">Thursday 13:30 · 105 min</span></p>
 </div>
-<p>Today is about getting started with R and in RStudio. You learn enough R to read a file and look at it, then the handful of functions that get a table into shape for a chart, and then you build one chart, one grammar slot at a time, using the same eight settings you saw in Tuesday’s lecture. Important: Nothing is handed in this week. Yet, whatever you do not finish in the room, finish at home: week 2 assumes that you understood all of it.</p>
+<p>Today is about getting started with R and in RStudio. You learn enough R to read a dataset and look at it, then the handful of functions that get a table into shape for a chart, and then you build one chart, one grammar slot at a time, using the same eight settings you saw in Tuesday’s lecture. Important: Nothing is handed in this week. Yet, whatever you do not finish in the room, finish at home: week 2 assumes that you understood all of it.</p>
 <div class="dsvar-note dsvar-note--predict">
 <div class="dsvar-note__label">
 <p>BEFORE THURSDAY</p>
@@ -457,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>14:10</td>
 <td><strong>Meet the data</strong></td>
 <td>10</td>
-<td>Read a file and look at it</td>
+<td>Read a dataset and look at it</td>
 </tr>
 <tr class="even">
 <td>14:20</td>
@@ -514,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><code>data/</code></td>
-<td>Today’s file, exactly as the KNMI publishes it</td>
+<td>Today’s dataset, exactly as the KNMI publishes it</td>
 </tr>
 </tbody>
 </table>
@@ -691,14 +691,14 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bilt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/knmi-de-bilt-monthly.txt"</span>, <span class="at">skip =</span> <span class="dv">13</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bilt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>glimpse()</code> lists every column, its kind and its first values. Every column of <code>bilt</code> is <code>&lt;dbl&gt;</code>: the file holds no text at all. Four more ways to look:</p>
+<p><code>glimpse()</code> lists every column, its kind and its first values. Every column of <code>bilt</code> is <code>&lt;dbl&gt;</code>: the dataset holds no text at all. Four more ways to look:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(bilt)       <span class="co"># the table in a spreadsheet-style tab. Look, do not edit</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(bilt)       <span class="co"># how many rows</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bilt<span class="sc">$</span>JUL         <span class="co"># one column, as a vector. $ picks a column by name</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt)    <span class="co"># six numbers for every column, and how many are missing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>summary()</code> works on one column too, and it is worth running on every new file:</p>
+<p><code>summary()</code> works on one column too, and it is worth running on every new dataset:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt<span class="sc">$</span>JUL)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bilt<span class="sc">$</span>YEAR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1095,7 +1095,7 @@ STN,YYYY,   JAN,   FEB,   MAR,   APR,   MAY,   JUN,   JUL,   AUG,   SEP,   OCT, 
 <section id="next-week" class="level2">
 <h2 class="anchored" data-anchor-id="next-week">Next week</h2>
 <p>Nothing is handed in today. Keep the folder and <code>workgroup-01.qmd</code>: the reference sheet below and your own file are what you will look things up in next week.</p>
-<p>From week 2 every work group has two parts. In <strong>Part I</strong>, the teacher works through one example with you, with all the code on the page. In <strong>Part II</strong> you build a different chart from the same file on your own, first on paper and then in R, and then a misleading version of it. Part II is that week’s portfolio entry, and the only thing you hand in. The charts from next Thursday are the first ones the room critiques, at the start of week 3’s lecture.</p>
+<p>From week 2 every work group has two parts. In <strong>Part I</strong>, the teacher works through one example with you, with all the code on the page. In <strong>Part II</strong> you build a different chart from the same dataset on your own, first on paper and then in R, and then a misleading version of it. Part II is that week’s portfolio entry, and the only thing you hand in. The charts from next Thursday are the first ones the room critiques, at the start of week 3’s lecture.</p>
 </section>
 <section id="reference-sheet" class="level2">
 <h2 class="anchored" data-anchor-id="reference-sheet">Reference sheet</h2>

@@ -1,23 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://masurp.github.io/dsvar/weeks/week-01.html</loc>
-    <lastmod>2026-10-26T21:24:56.678Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/weeks/week-02.html</loc>
+    <lastmod>2026-11-02T20:56:09.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/weeks/index.html</loc>
+    <lastmod>2026-10-26T08:23:31.812Z</lastmod>
   </url>
   <url>
     <loc>https://masurp.github.io/dsvar/slides/01_the-argument-in-the-graph.html</loc>
-    <lastmod>2026-10-26T21:05:49.898Z</lastmod>
+    <lastmod>2026-11-02T21:01:08.624Z</lastmod>
   </url>
   <url>
     <loc>https://masurp.github.io/dsvar/privacy.html</loc>
     <lastmod>2026-10-26T08:36:43.336Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/info.html</loc>
-    <lastmod>2026-10-26T10:27:05.360Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/labs/week-01.html</loc>
+    <lastmod>2026-11-02T20:51:35.594Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/gallery/warming-stripes.html</loc>
+    <loc>https://masurp.github.io/dsvar/index.html</loc>
+    <lastmod>2026-10-26T08:13:51.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/van-langren.html</loc>
+    <lastmod>2026-10-26T08:21:30.034Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/specification-curve.html</loc>
+    <lastmod>2026-11-02T20:57:48.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/sankey.html</loc>
+    <lastmod>2026-10-26T08:21:07.354Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/playfair-wheat.html</loc>
+    <lastmod>2026-10-26T08:20:24.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/pandemic-trajectories.html</loc>
+    <lastmod>2026-10-26T08:21:07.331Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/nightingale.html</loc>
+    <lastmod>2026-10-26T08:21:07.394Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/media-ecosystem.html</loc>
+    <lastmod>2026-11-02T20:57:45.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/many-analysts.html</loc>
+    <lastmod>2026-11-02T20:57:48.917Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/hertzsprung-russell.html</loc>
+    <lastmod>2026-11-02T20:57:50.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/gun-deaths-florida.html</loc>
+    <lastmod>2026-10-26T08:36:43.345Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/forest-plot.html</loc>
+    <lastmod>2026-10-26T08:20:24.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/elephant-curve.html</loc>
+    <lastmod>2026-10-26T08:19:31.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/datasaurus.html</loc>
+    <lastmod>2026-10-26T08:21:07.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/cartograms.html</loc>
+    <lastmod>2026-11-02T20:57:37.474Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery.html</loc>
+    <lastmod>2026-10-26T08:23:31.809Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/credits.html</loc>
+    <lastmod>2026-11-02T20:58:32.683Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/ai.html</loc>
+    <lastmod>2026-11-02T20:58:27.629Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/assessment.html</loc>
+    <lastmod>2026-11-02T21:01:08.643Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/field-guide.html</loc>
+    <lastmod>2026-10-26T08:16:14.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/bible-cross-references.html</loc>
+    <lastmod>2026-11-02T20:57:39.759Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/conditional-effects.html</loc>
+    <lastmod>2026-11-02T20:57:36.711Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/dubois-illiteracy.html</loc>
+    <lastmod>2026-10-26T08:20:24.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/extreme-poverty.html</loc>
+    <lastmod>2026-11-02T20:57:42.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/gapminder.html</loc>
+    <lastmod>2026-10-26T08:36:43.344Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/headline-sentiment.html</loc>
+    <lastmod>2026-10-26T08:21:00.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/iraq-bloody-toll.html</loc>
+    <lastmod>2026-10-26T08:36:43.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/mayr-radar.html</loc>
+    <lastmod>2026-10-26T08:20:24.744Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/minard.html</loc>
+    <lastmod>2026-10-26T08:20:19.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/outbreak-simulation.html</loc>
+    <lastmod>2026-10-26T08:21:07.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/pisa-league-table.html</loc>
+    <lastmod>2026-11-02T20:57:44.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/replication.html</loc>
+    <lastmod>2026-11-02T20:57:49.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/gallery/snow.html</loc>
     <lastmod>2026-10-26T08:36:43.350Z</lastmod>
   </url>
   <url>
@@ -25,147 +157,27 @@
     <lastmod>2026-10-26T08:36:43.350Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/gallery/snow.html</loc>
-    <lastmod>2026-10-26T08:36:43.350Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/gallery/warming-stripes.html</loc>
+    <lastmod>2026-11-02T20:57:45.104Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/gallery/replication.html</loc>
-    <lastmod>2026-10-26T08:36:43.350Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/info.html</loc>
+    <lastmod>2026-11-02T21:29:11.705Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/gallery/pisa-league-table.html</loc>
-    <lastmod>2026-10-26T08:17:34.934Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/outbreak-simulation.html</loc>
-    <lastmod>2026-10-26T08:21:07.387Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/minard.html</loc>
-    <lastmod>2026-10-26T08:20:19.290Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/mayr-radar.html</loc>
-    <lastmod>2026-10-26T08:20:24.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/iraq-bloody-toll.html</loc>
-    <lastmod>2026-10-26T08:36:43.350Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/headline-sentiment.html</loc>
-    <lastmod>2026-10-26T08:21:00.437Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/gapminder.html</loc>
-    <lastmod>2026-10-26T08:36:43.344Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/extreme-poverty.html</loc>
-    <lastmod>2026-10-26T08:16:42.927Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/dubois-illiteracy.html</loc>
-    <lastmod>2026-10-26T08:20:24.729Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/conditional-effects.html</loc>
-    <lastmod>2026-10-26T08:36:43.344Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/bible-cross-references.html</loc>
-    <lastmod>2026-10-26T08:17:18.509Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/field-guide.html</loc>
-    <lastmod>2026-10-26T08:16:14.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/assessment.html</loc>
-    <lastmod>2026-10-26T10:37:29.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/ai.html</loc>
-    <lastmod>2026-10-26T09:20:01.337Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/credits.html</loc>
-    <lastmod>2026-10-26T08:19:52.598Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery.html</loc>
-    <lastmod>2026-10-26T08:23:31.809Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/cartograms.html</loc>
-    <lastmod>2026-10-26T08:21:00.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/datasaurus.html</loc>
-    <lastmod>2026-10-26T08:21:07.364Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/elephant-curve.html</loc>
-    <lastmod>2026-10-26T08:19:31.131Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/forest-plot.html</loc>
-    <lastmod>2026-10-26T08:20:24.733Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/gun-deaths-florida.html</loc>
-    <lastmod>2026-10-26T08:36:43.345Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/hertzsprung-russell.html</loc>
-    <lastmod>2026-10-26T08:19:12.700Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/many-analysts.html</loc>
-    <lastmod>2026-10-26T08:36:43.349Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/media-ecosystem.html</loc>
-    <lastmod>2026-10-26T08:21:00.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/nightingale.html</loc>
-    <lastmod>2026-10-26T08:21:07.394Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/pandemic-trajectories.html</loc>
-    <lastmod>2026-10-26T08:21:07.331Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/playfair-wheat.html</loc>
-    <lastmod>2026-10-26T08:20:24.740Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/sankey.html</loc>
-    <lastmod>2026-10-26T08:21:07.354Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/specification-curve.html</loc>
-    <lastmod>2026-10-26T08:20:24.748Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/gallery/van-langren.html</loc>
-    <lastmod>2026-10-26T08:21:30.034Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/index.html</loc>
-    <lastmod>2026-10-26T08:13:51.093Z</lastmod>
-  </url>
-  <url>
-    <loc>https://masurp.github.io/dsvar/labs/week-01.html</loc>
-    <lastmod>2026-10-26T12:43:23.246Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/labs/week-02.html</loc>
+    <lastmod>2026-11-02T21:28:53.945Z</lastmod>
   </url>
   <url>
     <loc>https://masurp.github.io/dsvar/setup.html</loc>
-    <lastmod>2026-10-26T10:26:58.651Z</lastmod>
+    <lastmod>2026-11-02T20:58:49.369Z</lastmod>
   </url>
   <url>
-    <loc>https://masurp.github.io/dsvar/weeks/index.html</loc>
-    <lastmod>2026-10-26T08:23:31.812Z</lastmod>
+    <loc>https://masurp.github.io/dsvar/slides/02_comparison-and-ranking.html</loc>
+    <lastmod>2026-11-02T21:29:11.706Z</lastmod>
+  </url>
+  <url>
+    <loc>https://masurp.github.io/dsvar/weeks/week-01.html</loc>
+    <lastmod>2026-11-02T20:56:07.561Z</lastmod>
   </url>
 </urlset>

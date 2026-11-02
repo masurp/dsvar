@@ -561,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>HOW WE KNOW</p>
 </div>
 <p><strong>The numbers.</strong> The table is drawn in the browser from NCES’s data service, the same service behind its PISA Data Explorer. Asking it for the 2022 mathematics means, and for every pairwise comparison between the 81 systems, returns exactly the published table: the same scores to the unit, and the same 25, 43 and 12 against the US.</p>
-<p><strong>What we checked first.</strong> The page also ships an older cached copy of the comparisons, and that one does not match: it marks France and Spain as significantly above the US, where the table, and the live service, say they are not. An exhibit about how fragile a ranking is should not rest on the wrong file, so the cached copy is not used.</p>
+<p><strong>What we checked first.</strong> The page also ships an older cached copy of the comparisons, and that one does not match: it marks France and Spain as significantly above the US, where the table, and the live service, say they are not. An exhibit about how fragile a ranking is should not rest on the wrong dataset, so the cached copy is not used.</p>
 <p><strong>The footnote marks</strong> are drawn by the page’s stylesheet, not written in its text, so they were transcribed by eye from the rendered table: 13 systems marked ¹, 2 marked ², and 4 differences marked ! or !!.</p>
 <p><strong>The rank ranges</strong> below need no new statistics, only the table’s own tests applied to every pair. A system is certainly below every system that is significantly higher than it, and certainly above every system it is significantly higher than. Everything in between is a place it could hold.</p>
 </div>
@@ -616,7 +616,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="dsvar-caption">
-<p>Left: the scores themselves, with the uncertainty the table compresses into three symbols; grey marks a sample covering under 75 per cent of the country’s 15-year-olds. 2 systems, Cyprus and Baku, have no standard error in NCES’s file and are drawn without an interval. Right: the range of places each system could hold on the table’s own tests, with its printed place as the dot. The United States could be anywhere from 26th to 38th, and 43 of the 81 systems could move five places or more.</p>
+<p>Left: the scores themselves, with the uncertainty the table compresses into three symbols; grey marks a sample covering under 75 per cent of the country’s 15-year-olds. 2 systems, Cyprus and Baku, have no standard error in NCES’s dataset and are drawn without an interval. Right: the range of places each system could hold on the table’s own tests, with its printed place as the dot. The United States could be anywhere from 26th to 38th, and 43 of the 81 systems could move five places or more.</p>
 </div>
 <section id="why-not-bars" class="level3">
 <h3 data-anchor-id="why-not-bars">Why not bars</h3>
@@ -664,7 +664,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li><strong>Original:</strong> National Center for Education Statistics (2023). Table M1, <em>Highlights of U.S. PISA 2022 Results Web Report</em> (NCES 2023-115 and 2024-103). U.S. Department of Education, Institute of Education Sciences. <a href="https://nces.ed.gov/surveys/pisa/pisa2022/">nces.ed.gov/surveys/pisa/pisa2022</a>. Public domain.</li>
-<li><strong>Data:</strong> OECD, PISA 2022, as served by NCES’s data service: means and pairwise significance tests for mathematics, plus the standard-error file the same page loads. Source: OECD (2023), <em>PISA 2022 Database</em>, via NCES. The OECD’s terms allow reuse with that credit, and ask anyone reusing it from here to keep it. Vendored here as <code>data/raw/pisa-2022-math.csv</code>.</li>
+<li><strong>Data:</strong> OECD, PISA 2022, as served by NCES’s data service: means and pairwise significance tests for mathematics, plus the standard-error dataset the same page loads. Source: OECD (2023), <em>PISA 2022 Database</em>, via NCES. The OECD’s terms allow reuse with that credit, and ask anyone reusing it from here to keep it. Vendored here as <code>data/raw/pisa-2022-math.csv</code>.</li>
 <li><strong>The OECD’s own report:</strong> OECD (2023). <em>PISA 2022 Results (Volume I): The State of Learning and Equity in Education</em>. <a href="https://doi.org/10.1787/53f23881-en">doi:10.1787/53f23881-en</a>.</li>
 <li><strong>Reproduce it:</strong> every figure on this page is built by the code shown above it.</li>
 </ul>

@@ -7,7 +7,7 @@
 Every dataset any gallery exhibit uses is committed in `data/raw/`, cleaned only
 as far as subsetting and renaming. Nothing here is fetched at render time — the
 site builds offline, and an exhibit cannot silently change because an upstream
-file was revised. To refresh: `Rscript R/fetch-gallery-data.R`.
+dataset was revised. To refresh: `Rscript R/fetch-gallery-data.R`.
 
 These are also the pool to draw on for **lecture slides and work group
 exercises**. Each one is small, open, and already has a worked exhibit showing
@@ -54,7 +54,7 @@ doi:10.1029/2019JD032361. The generic OGL line is not the right one here.
 | `gapminder.csv` | 1,704 | Income, life expectancy, population; 142 countries, 1952–2007 | CC BY 4.0 (Gapminder); required wording "Based on free material from GAPMINDER.ORG, CC-BY LICENSE" | yes | work groups 3 and 4; gapminder |
 | `gapminder-world-2015.csv` | 193 | Income (2011 PPP), life expectancy, population and Gapminder's four regions, 2015, as Gapminder had them on 2016-10-31: the Gapminder World 2015 poster's own data | CC BY 4.0 (Gapminder, open-numbers repository); same required wording | yes | gapminder (the recreation only) |
 | `openbible-cross-references.csv` | 117,200 | Bible cross-references, verse to verse, with readers' votes; links with 5 votes or more, from the export of 2026-10-12 | CC BY 4.0 (OpenBible.info); mostly from the public-domain *Treasury of Scripture Knowledge* | yes | bible-cross-references |
-| `openbible-chapters.csv` | 1,189 | The Bible's chapters in canonical order, with verse counts (highest verse cited in OpenBible's full file) | CC BY 4.0 (derived from OpenBible.info) | yes | bible-cross-references |
+| `openbible-chapters.csv` | 1,189 | The Bible's chapters in canonical order, with verse counts (highest verse cited in OpenBible's full dataset) | CC BY 4.0 (derived from OpenBible.info) | yes | bible-cross-references |
 | `florida-firearm-murders.csv` | 48 | Florida murders by firearm, 1971–2020 | Florida public record (FDLE); counts are facts | yes | week 1 lecture; gun-deaths-florida |
 | `iraq-body-count-yearly.csv` | 15 | Documented civilian deaths, 2003–2017 | © Iraq Body Count; free for not-for-profit use citing iraqbodycount.org, written agreement for institutional use. **Not served** | no | iraq-bloody-toll |
 | `hyg-stars.csv` | 67,074 | Stars within 250 pc: magnitude, colour index, distance | **CC BY-SA 4.0** (astronexus); this subset is CC BY-SA too | yes | week 4 lecture; hertzsprung-russell |
@@ -75,7 +75,7 @@ doi:10.1029/2019JD032361. The generic OGL line is not the right one here.
 | `rpp-replications.csv` | 168 | Reproducibility Project: Psychology, original vs replication | CC0 1.0 (osf.io/ezcuj) | yes | week 4 lecture (the diagonal); replication |
 | `bcg-trials.csv` | 13 | BCG vaccine trials: TB counts by arm, absolute latitude, allocation method (`dat.bcg`) | GPL ≥ 2 (`metadat`); trial counts from Colditz et al. (1994) | yes | forest-plot |
 | `masur-parry-study1_data.csv` | 590 | Masur & Parry (2026) study 1 | CC BY 4.0 (osf.io/zw6pb). **Not served**: raw export, OSF holds the public copy | no | week 3 lecture (binwidth; the intervals; the ceiling; the build); conditional-effects |
-| `masur-parry-study2_data.csv` | 1,714 | Masur & Parry (2026) study 2, feed experiment | CC BY 4.0 (osf.io/zw6pb). **Not served**: raw export, OSF holds the public copy | no | vendored, read by nothing yet |
+| `masur-parry-study2_data.csv` | 1,714 | Masur & Parry (2026) study 2, feed experiment | CC BY 4.0 (osf.io/zw6pb). **Not served**: raw export, OSF holds the public copy | no | week 2 lecture (comparing groups: means and intervals, the feeds' own order, likes side by side; `w2_mp2()`) |
 | `us-county-2020-president.csv` | 3,152 | 2020 presidential election by county: votes, shares, margin | MIT (Tony McGovern), scraped from Fox News, Politico and the New York Times; vote counts are facts | yes | week 1 and week 6 lectures; cartograms |
 | `worldbank-indicators.csv` | 117 | World Development Indicators: life expectancy, GDP per capita, tertiary enrolment, urbanisation, fertility, female labour, internet use, over-65 share, growth, Gini | CC BY 4.0 (World Bank WDI); every indicator used is CC BY 4.0 in the WDI metadata | yes | work groups 2 and 6; week 7's demonstration |
 | `fred-us-annual.csv` | 98 | CPI-U (annual mean), median household income nominal and real, real GDP, federal minimum wage; 1929– | US public domain (BLS, Census, BEA, DOL), via FRED; cite as "Source: <agency> via FRED" | yes | week 2 lecture (cold open; real vs nominal; the minimum wage) |
@@ -100,8 +100,8 @@ from `ggplot2::map_data()` and `maps::county.fips`, which also ship with R.
 
 **The work groups never run on the lecture's data.** Weeks 1 and 5 lecture on
 HadCRUT5 and Niño 3.4; their Thursdays get the KNMI station record. Week 2
-lectures on FRED and V-Dem; its Thursday gets the World Bank file. Keep it that
-way when adding a dataset: if a file is in a deck, it is not for the lab.
+lectures on FRED and V-Dem; its Thursday gets the World Bank dataset. Keep it that
+way when adding a dataset: if a dataset is in a deck, it is not for the lab.
 `planning/data-map.md` is the file-by-file record, generated from the code.
 
 `knmi-de-bilt-monthly.txt` is deliberately not cleaned. `read_csv(skip = 13)`
@@ -127,7 +127,7 @@ Archive because FDLE's live site refuses connections. The gaps are of two
 kinds, and they are not the same kind: **1988 is present with `NA`** in both
 murder columns, while **2016 and 2018 are absent as rows entirely**. So a span
 is not the same as a count here — 1990 to 2020 is 31 calendar years and 29
-observations. Anything stating an n off this file should count rows rather than
+observations. Anything stating an n off this dataset should count rows rather than
 subtract years.
 
 `masur-parry-*` are the raw Qualtrics exports, byte-identical to the files on
@@ -160,7 +160,7 @@ and `internet_use` and `tv_use` carry realistic **digit heaping** — 55% of
 internet-use answers are multiples of five where precise answering would give
 20%.
 
-Its `id` column is **not** the upstream one. The ccs-amsterdam file carries IDs
+Its `id` column is **not** the upstream one. The ccs-amsterdam dataset carries IDs
 up to 749,731,000, all multiples of 1,000 and 2,000 distinct over 3,132 rows —
 the shape of real pairfam person IDs — so `R/fetch-gallery-data.R` replaces it
 with the row number. Nothing reads `id`.
@@ -168,7 +168,7 @@ with the row number. Nothing reads `id`.
 `worldbank-indicators.csv` is one row per country at the most recent year each
 indicator is available, which means the rows are **not all the same year**. That
 is fine for a cross-sectional comparison and wrong for anything about change
-over time; a chart off this file should say "most recent year available" rather
+over time; a chart off this dataset should say "most recent year available" rather
 than name one. `iso3` is carried so charts too small for country names have
 something to label bars with.
 
@@ -193,8 +193,8 @@ and the dual-axis case runs on the Fed's balance sheet against the CPI instead.
 **`vdem-indices.csv`** is 535 rows cut from the 34 MB `vdem.RData` in the
 `vdemdata` GitHub package, which is how V-Dem distributes the dataset to R
 users. It carries point estimates only; V-Dem publishes a credible interval on
-every index, and a chart ranking countries off this file should say that
-adjacent ranks are not distinguishable. It is **v16**: the file has rows for
+every index, and a chart ranking countries off this dataset should say that
+adjacent ranks are not distinguishable. It is **v16**: the dataset has rows for
 2025, which v15 does not reach. Citation: Coppedge, M. et al. (2026), *V-Dem
 Dataset v16*, Varieties of Democracy (V-Dem) Project,
 doi:10.23696/vdemds26. Licensed CC BY-SA 4.0, so this extract is too.
@@ -208,7 +208,7 @@ but it cannot sit under the site's CC BY. The igorol repository's MIT licence
 does not relicense it.
 
 `us-county-2020-president.csv` is the compiler's own tally rather than an
-official federal source — there is no single federal county-level file. Its
+official federal source — there is no single federal county-level dataset. Its
 national totals match the certified result (81,264,994 to 74,208,196), which is
 the check worth repeating before using it for anything assessed. McGovern's
 README says the 2020 numbers were scraped from Fox News, Politico and the New

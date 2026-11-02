@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Factors, bars and reordering – DSVAR</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c61507855d90337c9b4db870d10e6768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9dff8e4d46c8c482120a7957c0c03c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo light-content">
+    <img src="../assets/img/vu-logo-white.png" alt="Vrije Universiteit Amsterdam" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DSVAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../weeks/index.html"> 
+<span class="menu-text">Weeks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../gallery.html"> 
+<span class="menu-text">Gallery</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../field-guide.html"> 
+<span class="menu-text">Field guide</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assessment.html"> 
+<span class="menu-text">Assessment</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai.html"> 
+<span class="menu-text">AI use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../info.html"> 
+<span class="menu-text">Info</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">This session</h2>
+   
+  <ul>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">0 · Setup</a></li>
+  <li><a href="#part-i-together" id="toc-part-i-together" class="nav-link" data-scroll-target="#part-i-together">Part I · Together</a>
+  <ul class="collapse">
+  <li><a href="#meet-the-data" id="toc-meet-the-data" class="nav-link" data-scroll-target="#meet-the-data">1 · Meet the data</a></li>
+  <li><a href="#a-chart-that-runs-and-lies" id="toc-a-chart-that-runs-and-lies" class="nav-link" data-scroll-target="#a-chart-that-runs-and-lies">2 · A chart that runs and lies</a></li>
+  <li><a href="#a-categorical-variable-made-on-purpose" id="toc-a-categorical-variable-made-on-purpose" class="nav-link" data-scroll-target="#a-categorical-variable-made-on-purpose">3 · A categorical variable, made on purpose</a></li>
+  <li><a href="#sorted-one-country-marked-and-the-first-theme-call" id="toc-sorted-one-country-marked-and-the-first-theme-call" class="nav-link" data-scroll-target="#sorted-one-country-marked-and-the-first-theme-call">4 · Sorted, one country marked, and the first <code>theme()</code> call</a></li>
+  <li><a href="#the-claim-in-the-title" id="toc-the-claim-in-the-title" class="nav-link" data-scroll-target="#the-claim-in-the-title">5 · The claim in the title</a></li>
+  </ul></li>
+  <li><a href="#part-ii-on-your-own-portfolio-entry-1" id="toc-part-ii-on-your-own-portfolio-entry-1" class="nav-link" data-scroll-target="#part-ii-on-your-own-portfolio-entry-1">Part II · On your own: portfolio entry 1</a>
+  <ul class="collapse">
+  <li><a href="#the-claim-your-chart-should-support" id="toc-the-claim-your-chart-should-support" class="nav-link" data-scroll-target="#the-claim-your-chart-should-support">The claim your chart should support</a></li>
+  <li><a href="#draw-it" id="toc-draw-it" class="nav-link" data-scroll-target="#draw-it">6 · Draw it</a></li>
+  <li><a href="#build-it" id="toc-build-it" class="nav-link" data-scroll-target="#build-it">7 · Build it</a></li>
+  <li><a href="#twist-it" id="toc-twist-it" class="nav-link" data-scroll-target="#twist-it">8 · Twist it</a></li>
+  <li><a href="#hand-it-in" id="toc-hand-it-in" class="nav-link" data-scroll-target="#hand-it-in">Hand it in</a></li>
+  </ul></li>
+  <li><a href="#reference-sheet" id="toc-reference-sheet" class="nav-link" data-scroll-target="#reference-sheet">Reference sheet</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Factors, bars and reordering</h1>
+<p class="subtitle lead">Week 2 · Work group</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="dsvar-labhead">
+<p><span class="dsvar-seqchip">04 ENCODING</span> <span class="dsvar-labhead__meta">Work group 2 · Factors, bars and reordering</span> <span class="dsvar-labhead__right">Thursday 13:30 · 105 min</span></p>
+</div>
+<p>Tuesday’s lecture asked <em>compared to what?</em> of Du Bois’s 1900 chart, the PISA league table, Mayr’s first radar chart, the median income of every US state and an experiment with six social media feeds. It named four settings that answer the question: where the axis starts, how it is sorted, who is in it, and per what. Today the same question goes to a dataset the lecture never showed you: 117 countries from the World Bank.</p>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>TWO PARTS, FROM THIS WEEK ON</p>
+</div>
+<p><strong>Part I, together.</strong> The teacher builds one chart from today’s dataset, step by step, and you run each step on your own screen. It shows you this week’s tools. Nothing from Part I is handed in.</p>
+<p><strong>Part II, on your own.</strong> You build a <em>different</em> chart from the same dataset, without code to copy. You draw it on paper in the room and start building it; the build and its misleading twin you finish at home. The sketch, the chart and the twin are <strong>portfolio entry 1</strong>, and the only thing you hand in.</p>
+</div>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>min</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>13:30</td>
+<td><strong>Meet the data</strong></td>
+<td>10</td>
+<td>One row per country. Name the type of every column out loud</td>
+</tr>
+<tr class="even">
+<td>13:40</td>
+<td><strong>Part I · together</strong></td>
+<td>45</td>
+<td>One chart, built with the teacher: a chart that lies, a categorical variable made with <code>mutate()</code>, groups compared with <code>summarise()</code>, sorted bars, one country marked, the claim in the title. Two short turns of your own</td>
+</tr>
+<tr class="odd">
+<td>14:25</td>
+<td><strong>Part II · Draw it</strong></td>
+<td>10</td>
+<td>Pairs, paper, felt pen. Your chart, for the claim it should support</td>
+</tr>
+<tr class="even">
+<td>14:35</td>
+<td><strong>Part II · Build it</strong></td>
+<td>40</td>
+<td>Start on your own, from your sketch. The rest of the build and the twin are for home. At the end: what you hand in on Sunday</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">0 · Setup</h2>
+<p><a href="files/week-02.zip" class="dsvar-cta">Download the week 2 folder</a></p>
+<p>Unzip it into your <code>dsvar</code> folder and double-click <code>dsvar-week-02.Rproj</code>. The folder has two Quarto files, one for each part:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>week-02-part1.qmd</code></td>
+<td><strong>Part I</strong>, with the teacher. Every step of the example, ready to run. Not handed in</td>
+</tr>
+<tr class="even">
+<td><code>week-02-part2.qmd</code></td>
+<td><strong>Part II</strong>, on your own. Empty chunks for your chart and its twin. <strong>This is what you hand in</strong></td>
+</tr>
+<tr class="odd">
+<td><code>theme-dsvar.R</code></td>
+<td>The course theme</td>
+</tr>
+<tr class="even">
+<td><code>data/</code></td>
+<td>Today’s dataset</td>
+</tr>
+</tbody>
+</table>
+<p>Both start with the same setup lines as last week:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"theme-dsvar.R"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_dsvar</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="part-i-together" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-together">Part I · Together</h2>
+<p>Open <code>week-02-part1.qmd</code>. The teacher goes through it on the screen, and you run each chunk on yours. Before you run a chunk, say what you expect it to do. No <a href="../ai.html">AI</a> in Part I, code completion included: this is where you learn the code you will later judge a tool’s output against.</p>
+<section id="meet-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="meet-the-data">1 · Meet the data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/worldbank-indicators.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>iso3</code>, <code>country</code></td>
+<td>The country, as a three-letter code and as a name</td>
+</tr>
+<tr class="even">
+<td><code>female_labour</code></td>
+<td>Women aged 15 and over who are in the labour force, % (the ILO’s modelled estimate)</td>
+</tr>
+<tr class="odd">
+<td><code>internet_pct</code>, <code>urban_pct</code>, <code>over_65_pct</code></td>
+<td>Share of the population online, living in cities, aged 65 and over, %</td>
+</tr>
+<tr class="even">
+<td><code>tertiary_enrolment</code></td>
+<td>Enrolled in higher education, as a % of the age group: a <em>gross</em> ratio</td>
+</tr>
+<tr class="odd">
+<td><code>life_expectancy</code>, <code>fertility</code></td>
+<td>Years at birth; births per woman</td>
+</tr>
+<tr class="even">
+<td><code>gdp_per_capita</code>, <code>gdp_growth</code>, <code>gini</code></td>
+<td>Income per person in US dollars, annual growth in %, inequality from 0 to 100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Source, for every caption you write today:</strong> <em>World Bank, World Development Indicators.</em></p>
+<section id="type-the-columns" class="level4">
+<h4 class="anchored" data-anchor-id="type-the-columns">Type the columns</h4>
+<p>Before any code, the room goes down the <code>glimpse()</code> output and gives every column one of these words. This happens every week from now on.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>identifier</strong></td>
+<td>names a row; you never compare by it</td>
+</tr>
+<tr class="even">
+<td><strong>categorical</strong></td>
+<td>sorts rows into groups: <em>nominal</em> if the groups have no order, <em>ordinal</em> if they do</td>
+</tr>
+<tr class="odd">
+<td><strong>continuous</strong></td>
+<td>a measured quantity; differences between values mean something</td>
+</tr>
+<tr class="even">
+<td><strong>date</strong></td>
+<td>a point in time, and ordered by nature</td>
+</tr>
+</tbody>
+</table>
+<p>Then the question the rest of the session builds on: which columns can sort countries into groups? The answer is none. <code>country</code> is an identifier, with one of each, and the other ten are continuous. A dataset with no categorical variable cannot be compared <em>by group</em> at all until you make one, and making one is a decision about the argument.</p>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>THREE THINGS TO NOTICE</p>
+</div>
+<ol type="1">
+<li><strong>Greece’s <code>tertiary_enrolment</code> is 144.</strong> A gross ratio counts everyone enrolled, at any age, against the population of the usual student age. It is not a share of people, and it can pass 100.</li>
+<li><strong>The Netherlands’ <code>gdp_growth</code> is -3.9.</strong> Whatever year that is, it is not this one. Every row is the <em>most recent year available for that country</em>, and the years differ between countries.</li>
+<li><strong>There are no missing values.</strong> That is unusual: the dataset was built from countries with a recent value for every column, so these 117 are not all the world’s countries. Which ones would drop out first?</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="a-chart-that-runs-and-lies" class="level3">
+<h3 class="anchored" data-anchor-id="a-chart-that-runs-and-lies">2 · A chart that runs and lies</h3>
+<p>The example question for Part I: <strong>how does the Netherlands compare with the countries around it on higher education?</strong> This first attempt runs without an error and looks finished. It lies twice. Find both before going on.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nearby <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"NLD"</span>, <span class="st">"BEL"</span>, <span class="st">"LUX"</span>, <span class="st">"DEU"</span>, <span class="st">"FRA"</span>, <span class="st">"GBR"</span>, <span class="st">"DNK"</span>, <span class="st">"CHE"</span>, <span class="st">"AUT"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-badexample" data-why="Bad on purpose · it runs and lies">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wb <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(iso3 <span class="sc">%in%</span> nearby) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tertiary_enrolment, country)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">90</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="a-categorical-variable-made-on-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="a-categorical-variable-made-on-purpose">3 · A categorical variable, made on purpose</h3>
+<p>“Near the Netherlands” is not in the dataset, so make it. <code>%in%</code> asks, for every row, whether its code is in the list; <code>if_else()</code> turns the answer into two groups.</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-if-else-light.png" width="482" alt="Four rows of the World Bank dataset, NLD, BEL, JPN and KEN, with their tertiary enrolment. NLD and BEL are highlighted as being in the list. After mutate(region = if_else(iso3 %in% nearby, ...)) a new region column says near the Netherlands for NLD and BEL and elsewhere for JPN and KEN." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-if-else-dark.png" width="482" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> wb <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">if_else</span>(iso3 <span class="sc">%in%</span> nearby, <span class="st">"near the Netherlands"</span>, <span class="st">"elsewhere"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(wb, region)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is a <strong>nominal</strong> categorical variable: two groups, no order between them. Which countries count as “near” is a choice, and a different list would give a different chart.</p>
+<p>With a group in the dataset, the verbs from week 1 can compare the groups. <code>group_by()</code> + <code>summarise()</code> gives one row per group:</p>
+<figure class="dsvar-schematic figure"><img class="dsvar-schematic__light figure-img" src="../labs/img/schematic-group-region-light.png" width="422" alt="Four rows: two near the Netherlands, highlighted green, with 85.3 and 79.5, and two elsewhere, highlighted blue, with 62.3 and 10.5. After group_by(region) and summarise() there are two rows: elsewhere with a mean of 36.4 from 2 countries, and near the Netherlands with 82.4 from 2." loading="lazy"><img class="dsvar-schematic__dark figure-img" src="../labs/img/schematic-group-region-dark.png" width="422" alt="" aria-hidden="true" loading="lazy"></figure>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wb <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">enrolment =</span> <span class="fu">mean</span>(tertiary_enrolment), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(enrolment))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p>Which group has the higher mean, and how many countries does each mean stand for? Then look at <code>n</code>: one of these averages is over nine countries, the other over 108.</p>
+</div>
+<div class="dsvar-note">
+<div class="dsvar-note__label">
+<p>YOUR TURN · 1</p>
+</div>
+<p>Compare the two groups on <code>internet_pct</code> instead of <code>tertiary_enrolment</code>. Which group is more online, and how many countries does each mean stand for?</p>
+</div>
+<p>A mean per group is one number per group, and a chart of two bars would hide everything this dataset knows about the countries. The rest of Part I shows them all.</p>
+</section>
+<section id="sorted-one-country-marked-and-the-first-theme-call" class="level3">
+<h3 class="anchored" data-anchor-id="sorted-one-country-marked-and-the-first-theme-call">4 · Sorted, one country marked, and the first <code>theme()</code> call</h3>
+<p>A character column has no order of its own, so it gets the alphabet. A <strong>factor</strong> is a categorical variable that carries its order with it, and <code>fct_reorder()</code> sets that order from another column. This is the form of Du Bois’s 1900 chart from Tuesday: sorted bars, one of them marked.</p>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>PREDICT, THEN RUN</p>
+</div>
+<p>Which country will be first in <code>levels()</code> after the line below: the lowest value or the highest?</p>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>near <span class="ot">&lt;-</span> wb <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">"near the Netherlands"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">fct_reorder</span>(country, tertiary_enrolment))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(near<span class="sc">$</span>country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The lowest value is the first level, and a vertical axis counts up from the bottom, so the longest bar lands on top. Colour costs the reader attention, so spend it on one thing: the country the question is about. And once the bars are sorted, the gridlines between them carry nothing.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(near, <span class="fu">aes</span>(tertiary_enrolment, country,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> country <span class="sc">==</span> <span class="st">"Netherlands"</span>)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey75"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>theme()</code> changes <strong>ink, not data</strong>: which lines are drawn, where the legend sits, how big the type is. Nothing in it can change a value or an order.</p>
+</section>
+<section id="the-claim-in-the-title" class="level3">
+<h3 class="anchored" data-anchor-id="the-claim-in-the-title">5 · The claim in the title</h3>
+<p>The claim goes in the title, the most-read line on the chart. The caption gets the three things every chart in this course carries: the <em>n</em>, the source, and what the chart cannot tell you.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(near, <span class="fu">aes</span>(tertiary_enrolment, country,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> country <span class="sc">==</span> <span class="st">"Netherlands"</span>)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey75"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Only Austria enrols more students in higher education than the Netherlands"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Gross enrolment in higher education, % of the age group, the Netherlands and eight nearby countries"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption  =</span> <span class="st">"n = 9 countries · World Bank, World Development Indicators · gross ratio: counts students of any age, most recent year for each country"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="dsvar-note">
+<div class="dsvar-note__label">
+<p>YOUR TURN · 2</p>
+</div>
+<p>Draw the same sorted chart for <code>internet_pct</code>, with the Netherlands marked. Where does the Netherlands land now, and how far is it from the country above it?</p>
+</div>
+<p>Everything you need for Part II is now on your screen.</p>
+</section>
+</section>
+<section id="part-ii-on-your-own-portfolio-entry-1" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-on-your-own-portfolio-entry-1">Part II · On your own: portfolio entry 1</h2>
+<div class="dsvar-handin">
+<div class="dsvar-handin__label">
+<p>What you hand in · portfolio entry 1 · due Sunday</p>
+</div>
+<p><strong>Your sketch, your chart and its misleading twin, in <code>week-02-part2.qmd</code>.</strong> That file is the only thing you hand in. It has the data and the EU codes loaded, and empty chunks for the rest. There is no code to copy on this page: Part I is your model, and the <a href="#reference-sheet">reference sheet</a> has the syntax on other data.</p>
+</div>
+<section id="the-claim-your-chart-should-support" class="level3">
+<h3 class="anchored" data-anchor-id="the-claim-your-chart-should-support">The claim your chart should support</h3>
+<blockquote class="blockquote">
+<p><strong>The Netherlands has the highest share of women in work in the EU.</strong></p>
+</blockquote>
+<p>And the twin you will build from the same column:</p>
+<blockquote class="blockquote">
+<p><strong>Sixteen countries have a higher share of women in work than the Netherlands.</strong></p>
+</blockquote>
+<p>Both sentences are true of this dataset. Only one choice will differ between the two charts, and naming it is part of the entry.</p>
+</section>
+<section id="draw-it" class="level3">
+<h3 class="anchored" data-anchor-id="draw-it">6 · Draw it</h3>
+<div class="dsvar-paper">
+<div class="dsvar-paper__label">
+<p>ON PAPER · IN PAIRS · 10 MIN</p>
+</div>
+<div class="dsvar-paper__question">
+<p><strong>The Netherlands has the highest share of women in work in the EU.</strong></p>
+</div>
+<p>Draw the chart that supports the first claim, with a felt pen. No laptop.</p>
+<ol type="1">
+<li>Which countries are on it, and how would you know which ones to keep?</li>
+<li>Bars or dots? Where does the axis start, and why?</li>
+<li>In what order do the countries go down the page?</li>
+<li>How does a reader find the Netherlands without reading every label?</li>
+</ol>
+<div class="dsvar-paper__foot">
+<p>The teacher reads the sketches before anyone opens RStudio. Keep yours and photograph it: the sketch is part of what you hand in.</p>
+</div>
+</div>
+</section>
+<section id="build-it" class="level3">
+<h3 class="anchored" data-anchor-id="build-it">7 · Build it</h3>
+<p>Build your sketch in the chunk <em>The chart</em> of <code>week-02-part2.qmd</code>: start in the room, finish at home. The column is <code>female_labour</code>; the 27 EU codes are already in <code>eu_members</code>. The finished chart carries the claim as its title, and the <em>n</em>, the source and what it cannot tell you in its caption.</p>
+<p><a href="../ai.html">AI is allowed</a> from here on: describe how you used it in the entry’s AI statement.</p>
+<div class="dsvar-note">
+<div class="dsvar-note__label">
+<p>STUCK?</p>
+</div>
+<p>Find the step in Part I that did the same job, and do it again on this column: making the group (step 3), keeping and sorting the countries (step 4), marking one (step 4), the claim and the caption (step 5).</p>
+</div>
+<div class="dsvar-note dsvar-note--predict">
+<div class="dsvar-note__label">
+<p>BEFORE THE TWIN</p>
+</div>
+<p>The title says <em>highest</em>. What would a reader need to know to decide whether “highest” is a good thing? Write one sentence. You will need it at 15:05.</p>
+</div>
+</section>
+<section id="twist-it" class="level3">
+<h3 class="anchored" data-anchor-id="twist-it">8 · Twist it</h3>
+<p>Same column. In the chunk <em>The misleading twin</em>, build a chart that supports the second claim:</p>
+<blockquote class="blockquote">
+<p><strong>Sixteen countries have a higher share of women in work than the Netherlands.</strong></p>
+</blockquote>
+<p>The rule: only changes you could defend in a paper. No cut axis, no alphabetical order, nothing a reviewer would send back. This one is for home.</p>
+<p>If you want to go further, ask the chart the question the first one could not answer: <em>who are the sixteen?</em> <code>gdp_per_capita</code> can become a second categorical variable, this time an <strong>ordinal</strong> one, because income bands have an order. <code>cut()</code> makes it.</p>
+</section>
+<section id="hand-it-in" class="level3">
+<h3 class="anchored" data-anchor-id="hand-it-in">Hand it in</h3>
+<p>Next Tuesday’s lecture opens with a critique of some of the handed-in entries, shown as screenshots and without names.</p>
+<div class="dsvar-handin">
+<div class="dsvar-handin__label">
+<p>What you hand in · portfolio entry 1 · due Sunday</p>
+</div>
+<p><strong><code>week-02-part2.qmd</code>, with these six things in it:</strong></p>
+<ol type="1">
+<li><strong>Your sketch</strong>, photographed and saved in the week folder as <code>sketch.jpg</code>. The file shows it automatically. If your phone saves <code>.heic</code>, export the photo as JPG first: browsers cannot show HEIC.</li>
+<li><strong>The chart</strong> for the first claim, with the claim as its title.</li>
+<li><strong>The misleading twin</strong> for the second claim, made only with choices you could defend.</li>
+<li><strong>One sentence: which choice did the work</strong>, named as Tuesday named it: where the axis starts, how it is sorted, who is in it, or per what.</li>
+<li><strong>What the charts cannot tell you</strong>, in a sentence or two.</li>
+<li><strong>Your AI statement</strong>, as the <a href="../ai.html">AI use</a> page describes it.</li>
+</ol>
+<p>Render the file, then upload <strong><code>week-02-part2.html</code></strong> to Canvas. Only that file: nothing from Part I, and not the whole folder. The HTML holds your code and your charts together, which is what the portfolio is built from.</p>
+</div>
+</section>
+</section>
+<section id="reference-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="reference-sheet">Reference sheet</h2>
+<p>Everything today used, with one line on what it <em>claims</em> rather than what it does. The examples run on <code>mpg</code> and <code>precip</code>, built into R, so that they cannot be pasted into today’s build without being understood first. The forms themselves are in the <a href="../field-guide.html#ch-category-number">field guide</a>: <a href="../field-guide.html#form-sorted-bar">sorted bars</a>, <a href="../field-guide.html#form-dot-plot">dot plot</a>, <a href="../field-guide.html#form-bar-count">bar chart of counts</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Categorical variables: character, factor, ordered
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A character column has no order, so ggplot uses the alphabet. A factor carries its order in <code>levels()</code>. An <em>ordered</em> factor also says the order means something, which is what <code>cut()</code> produces from a continuous variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mpg<span class="sc">$</span>class)                                   <span class="co"># character: alphabetical when plotted</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">fct_infreq</span>(mpg<span class="sc">$</span>class))                      <span class="co"># a factor, ordered by count</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">fct_reorder</span>(mpg<span class="sc">$</span>class, mpg<span class="sc">$</span>hwy, <span class="at">.fun =</span> median))   <span class="co"># ordered by another column</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">fct_lump_n</span>(mpg<span class="sc">$</span>manufacturer, <span class="at">n =</span> <span class="dv">4</span>))        <span class="co"># the four biggest, everyone else "Other"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">25</span>, <span class="dv">41</span>), <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="cn">Inf</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"thirsty"</span>, <span class="st">"middling"</span>, <span class="st">"frugal"</span>))   <span class="co"># continuous into ordinal bands</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>fct_lump_n()</code> is an editorial act: “Other” is where things go to stop being compared. Say in the caption what is in it.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Bars and dots
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>geom_col()</code> draws a value you already have; <code>geom_bar()</code> counts rows for you. Both are lengths, so both need zero. <code>geom_point()</code> is a position, which is why a dot plot may start its axis elsewhere, and why it should say so.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">city =</span> <span class="fu">names</span>(precip), <span class="at">inches =</span> precip) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(inches, <span class="at">n =</span> <span class="dv">8</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(inches, <span class="fu">fct_reorder</span>(city, inches))) <span class="sc">+</span>   <span class="co"># category on y: labels stay readable</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"inches of rain a year"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The first <code>theme()</code> call
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>theme()</code> changes ink, never data. The two lines you need this week:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>... <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position    =</span> <span class="st">"none"</span>,            <span class="co"># the colour is explained in the title</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())   <span class="co"># bars sorted: lines between them say nothing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>theme_set()</code> at the top of a session sets the defaults for everything after it; <code>+ theme(...)</code> on one chart changes that chart only.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>One colour, spent on purpose
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(class) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, <span class="fu">fct_reorder</span>(class, n), <span class="at">fill =</span> class <span class="sc">==</span> <span class="st">"suv"</span>)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey75"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"cars in the data"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.4 remembers the dark/light toggle in localStorage only when a page
+// is served over http(s). Opened from disk (file://, which is how _site gets
+// looked at before it is published), every page starts light again. This
+// keeps the choice across pages there too. Over http it does nothing, because
+// Quarto already does the same thing itself, under the same key.
+//
+// Quarto writes this include *before* its own script, which defines the toggle
+// in a DOMContentLoaded listener. Hence the listener plus setTimeout: it runs
+// after every DOMContentLoaded listener, Quarto's included.
+window.document.addEventListener('DOMContentLoaded', function () { setTimeout(function () {
+  if (window.location.protocol !== 'file:' || !window.quartoToggleColorScheme) return;
+  var KEY = 'quarto-color-scheme';
+  var isDark = function () { return document.body.classList.contains('quarto-dark'); };
+  var stored = null;
+  try { stored = window.localStorage.getItem(KEY); } catch (e) { return; }
+
+  var toggle = window.quartoToggleColorScheme;
+  window.quartoToggleColorScheme = function () {
+    toggle();
+    try { window.localStorage.setItem(KEY, isDark() ? 'alternate' : 'default'); } catch (e) {}
+  };
+  if (stored === 'alternate' && !isDark()) toggle();
+}, 0); });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tuesday lecture · Thursday work group</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="../setup.html">Setup help</a> · <a href="../credits.html">Credits &amp; licences</a> · <a href="../privacy.html">Privacy</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Vrije Universiteit Amsterdam · CC BY 4.0</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
