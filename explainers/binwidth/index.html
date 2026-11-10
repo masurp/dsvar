@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Move the binwidth</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  /* ==========================================================================
+     Week 3 lecture explainer — BINWIDTH.
+
+     Drag, and the shape moves. That is the whole content, and it is why this
+     is an explainer rather than three static panels: the lesson is that the
+     histogram is a CONTINUOUS function of a parameter nobody prints, and no
+     set of stills says "continuous".
+
+     THE DATA is real: the descriptive-norm measure from study 1 of Masur &
+     Parry (2026), n = 589. It is a three-item mean on a seven-point scale, so
+     every value sits on a 1/3 grid — 19 possible values and nothing between
+     them. Only the 19 counts are embedded below, which is exact rather than a
+     sample, because no value can fall off the grid.
+
+     WHAT THE ROOM IS SUPPOSED TO SEE, in this order:
+       0.33  the grid itself. One bar per possible answer. Honest and ugly.
+       0.25  THE COMB. Bins finer than the grid but not aligned to it, so
+             every fourth bin is necessarily empty. The gaps are a property of
+             the BINS, not of the people. This is the step that carries the
+             explainer, and it is a bug students ship.
+       0.50  three bumps, which look like structure and are half grid artefact
+       1.00  one smooth hill. Everything above is gone.
+       2.00  four bars. A different claim entirely.
+
+     There is no correct answer and the explainer never offers one. What it
+     offers is that you cannot avoid choosing, and that the choice is not
+     reported anywhere on a finished chart.
+
+     Drag anywhere, or use the arrow keys; 1-5 jump to the presets; #N opens at
+     preset N. ?dark for the dark ground. Philipp, 2026-09-19.
+     ========================================================================== */
+  :root{
+    --ink:#1a1a17; --ink-2:#3a3a34; --ink-3:#5a5a52; --muted:#7a7a70; --faint:#9a9a90;
+    --hair:#e7e3d9; --border:#e0dcd0; --surface:#ffffff; --paper:#faf8f4;
+    --accent:#1e7c50; --accent-2:#2d9e87; --bad:#b4472f;
+    --font:"Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  body.dark{
+    --ink:#e7ebea; --ink-2:#ccd8d6; --ink-3:#a2c5c0; --muted:#73a29b; --faint:#62928b;
+    --hair:#184d47; --border:#184d47; --surface:#003732; --paper:#002a26;
+    --accent:#63ba8a; --accent-2:#90d49c; --bad:#e2846a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font); background:transparent; color:var(--ink);
+       overflow:hidden; cursor:ew-resize; -webkit-tap-highlight-color:transparent;
+       display:flex; flex-direction:column; user-select:none}
+  .head{flex:0 0 auto; padding:13px 20px 4px; display:flex; align-items:baseline; gap:14px}
+  .kick{font-size:10px; font-weight:700; letter-spacing:.1em; color:var(--accent); text-transform:uppercase}
+  .task{font-size:14.5px; font-weight:700; color:var(--ink-2)}
+  .bw{margin-left:auto; font-size:26px; font-weight:700; font-variant-numeric:tabular-nums;
+      letter-spacing:-.02em; min-width:150px; text-align:right}
+  .bw .u{font-size:13px; color:var(--muted); font-weight:500}
+  .bw.warn{color:var(--bad)}
+  .stage{flex:1 1 auto; min-height:0; position:relative}
+  svg{width:100%;height:100%;display:block}
+  .slider{flex:0 0 auto; padding:2px 20px 0}
+  .track{position:relative; height:26px}
+  .rail{position:absolute; left:0; right:0; top:11px; height:4px; border-radius:2px;
+        background:var(--hair)}
+  .fill{position:absolute; left:0; top:11px; height:4px; border-radius:2px; background:var(--accent)}
+  .knob{position:absolute; top:4px; width:18px; height:18px; margin-left:-9px;
+        border-radius:50%; background:var(--accent); border:2px solid var(--paper);
+        box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .ticks{position:relative; height:15px; font-size:9.5px; color:var(--faint)}
+  .ticks span{position:absolute; transform:translateX(-50%); white-space:nowrap}
+  .ticks span.on{color:var(--accent); font-weight:700}
+  .foot{flex:0 0 auto; padding:6px 20px 12px; border-top:1px solid var(--hair);
+        display:flex; gap:16px; align-items:flex-start}
+  .note{flex:1 1 auto; font-size:11.5px; line-height:1.45; color:var(--ink-3); min-height:46px}
+  .note b{color:var(--ink)}
+  .stats{flex:0 0 auto; font-size:10.5px; color:var(--muted); line-height:1.55;
+         text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .stats b{color:var(--ink)} .stats .bad{color:var(--bad); font-weight:700}
+  .bar{fill:var(--accent)}
+  .bar.empty{fill:var(--bad); opacity:.28}
+  .axis{stroke:var(--hair); stroke-width:1}
+  .atx{fill:var(--muted); font-size:11px; text-anchor:middle}
+  .gridline{stroke:var(--hair); stroke-width:1; stroke-dasharray:2 3}
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="kick">Week 3 · the bin is an argument</div>
+  <div class="task" id="task">Drag to change the binwidth</div>
+  <div class="bw" id="bw">0.33<span class="u"> binwidth</span></div>
+</div>
+<div class="stage"><svg id="svg" viewBox="0 0 760 300" preserveAspectRatio="xMidYMid meet"></svg></div>
+<div class="slider">
+  <div class="track" id="track">
+    <div class="rail"></div><div class="fill" id="fill"></div><div class="knob" id="knob"></div>
+  </div>
+  <div class="ticks" id="ticks"></div>
+</div>
+<div class="foot">
+  <div class="note" id="note"></div>
+  <div class="stats" id="stats"></div>
+</div>
+<script>
+// ---------------------------------------------------------------- the data
+// Masur & Parry (2026) study 1, descriptive norm (visual route), n = 589.
+// A three-item mean on a 1-7 scale: every value is 1 + k/3 for k = 0..18.
+// Counts only — exact, because nothing can fall between the grid points.
+const COUNTS = [14,5,9,18,21,17,26,22,20,26,25,25,37,44,34,63,35,43,105];
+const VALUES = COUNTS.map((n,k)=>({v: 1 + k/3, n: n}));
+const N = COUNTS.reduce((a,b)=>a+b,0);   // 589
+
+// ------------------------------------------------------------- the presets
+// Order is the teaching order, not ascending: the grid first so the room
+// knows what the data can do, then the comb, which is the point.
+const PRESETS = [
+  {bw:1/3, label:"0.33",
+   note:'<b>One bar per possible answer.</b> The variable is a three-item mean on a seven-point scale, so it can only take 19 values. At this width the histogram is the raw tally — honest, ugly, and showing the pile-up at the ceiling that everything below will smooth away.'},
+  {bw:0.25, label:"0.25",
+   note:'<b>The comb.</b> Every fourth bar is exactly zero, and not one person is missing. Bins of 0.25 do not line up with a grid of 0.33, so some bins cannot contain a possible answer. The gaps are a fact about your bins. Fine enough, and you stop seeing the distribution and start seeing the instrument.'},
+  {bw:0.5, label:"0.50",
+   note:'<b>Three bumps.</b> They look like structure and they are mostly the grid: at 0.5 some bins swallow two possible answers and some only one, so the bars alternate. A reader who has not seen the previous slide will describe these humps as findings.'},
+  {bw:1.0, label:"1.00",
+   note:'<b>One smooth hill, rising to the right.</b> Everything above has gone: the comb, the bumps, the visible ceiling. This is a perfectly defensible chart of the same 589 people, and it is the one most papers print.'},
+  {bw:2.0, label:"2.00",
+   note:'<b>Four bars, and a different claim.</b> At this width the chart says "most people are high", which is true, and cannot say anything else. Nothing warns you: a histogram never prints its binwidth.'}
+];
+
+const svg = document.getElementById('svg');
+const NS = "http://www.w3.org/2000/svg";
+const W = 760, H = 300, L = 44, R = 16, T = 14, B = 30;
+const LO = 0.1, HI = 2.0;          // binwidth range of the slider
+let bw = 1/3;
+
+function el(t,a,p){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);(p||svg).appendChild(n);return n;}
+
+// Bins are anchored so that the FIRST bin is centred on 1, which is what
+// ggplot's boundary = 1 - bw/2 does. The comb depends on this alignment, so
+// it has to match the deck exactly or the explainer teaches a different chart.
+function bin(w){
+  const start = 1 - w/2, end = 7 + w;
+  const out = [];
+  for (let lo = start; lo < end - 1e-9; lo += w){
+    const hi = lo + w;
+    let n = 0;
+    // RIGHT-CLOSED, (lo, hi], because that is ggplot's `closed = "right"`
+    // default. It only matters where a value lands exactly on a boundary —
+    // at binwidth 2 it does, and a left-closed rule there gives 28/124/191/246
+    // against ggplot's 46/132/228/183. The explainer has to draw the same
+    // chart as the slide beside it.
+    for (const d of VALUES) if (d.v > lo + 1e-9 && d.v <= hi + 1e-9) n += d.n;
+    out.push({lo, hi, n});
+  }
+  while (out.length && out[out.length-1].n === 0 && out[out.length-1].lo > 7) out.pop();
+  return out;
+}
+
+function draw(){
+  svg.innerHTML = '';
+  const bins = bin(bw);
+  const maxN = Math.max(...bins.map(b=>b.n), 1);
+  const x = v => L + (v - 0.4) / (7.8 - 0.4) * (W - L - R);
+  const y = n => H - B - (n / maxN) * (H - T - B);
+
+  for (let g = 0; g <= 4; g++){
+    const yy = y(maxN * g / 4);
+    el('line',{class:'gridline', x1:L, x2:W-R, y1:yy, y2:yy});
+  }
+  bins.forEach(b=>{
+    const x0 = x(b.lo), x1 = x(b.hi);
+    const w = Math.max(x1 - x0 - 1, 0.7);
+    if (b.n === 0){
+      // An empty bin inside the data's range is drawn as a ghost, because an
+      // absence you cannot see is the whole trap.
+      if (b.lo > 0.9 && b.hi < 7.1)
+        el('rect',{class:'bar empty', x:x0, y:y(maxN*0.03), width:w, height:y(0)-y(maxN*0.03)});
+    } else {
+      el('rect',{class:'bar', x:x0, y:y(b.n), width:w, height:y(0)-y(b.n)});
+    }
+  });
+  el('line',{class:'axis', x1:L, x2:W-R, y1:y(0), y2:y(0)});
+  for (let v = 1; v <= 7; v++){
+    el('text',{class:'atx', x:x(v), y:y(0)+17}).textContent = v;
+  }
+  el('text',{class:'atx', x:L-8, y:T+10, style:'text-anchor:end'}).textContent = maxN;
+
+  const empties = bins.filter(b=>b.n===0 && b.lo>0.9 && b.hi<7.1).length;
+  document.getElementById('bw').innerHTML =
+    bw.toFixed(2) + '<span class="u"> binwidth</span>';
+  document.getElementById('bw').className = 'bw' + (empties ? ' warn' : '');
+  document.getElementById('stats').innerHTML =
+    '<div>n = <b>' + N + '</b> · 19 possible values</div>' +
+    '<div>bins drawn: <b>' + bins.length + '</b></div>' +
+    '<div>empty bins inside the range: ' +
+      (empties ? '<span class="bad">' + empties + '</span>' : '<b>0</b>') + '</div>';
+
+  // Nearest preset's note, so dragging still narrates itself.
+  let best = 0, bd = Infinity;
+  PRESETS.forEach((p,i)=>{ const d = Math.abs(p.bw - bw); if (d < bd){ bd = d; best = i; } });
+  document.getElementById('note').innerHTML = bd < 0.035 ? PRESETS[best].note :
+    '<span style="color:var(--faint)">Keep dragging. Nothing on a finished histogram records where you stopped.</span>';
+  Array.from(document.querySelectorAll('.ticks span')).forEach((s,i)=>
+    s.className = (bd < 0.035 && i === best) ? 'on' : '');
+}
+
+function setBw(v, snap){
+  bw = Math.max(LO, Math.min(HI, v));
+  if (snap) { const p = PRESETS.reduce((a,b)=> Math.abs(b.bw-bw) < Math.abs(a.bw-bw) ? b : a); bw = p.bw; }
+  const f = (bw - LO) / (HI - LO);
+  document.getElementById('knob').style.left = (f*100) + '%';
+  document.getElementById('fill').style.width = (f*100) + '%';
+  draw();
+}
+
+const ticks = document.getElementById('ticks');
+ticks.innerHTML = PRESETS.map(p =>
+  '<span style="left:' + ((p.bw-LO)/(HI-LO)*100) + '%">' + p.label + '</span>').join('');
+
+// ------------------------------------------------------------------ input
+let dragging = false;
+function fromEvent(e){
+  const r = document.getElementById('track').getBoundingClientRect();
+  const cx = (e.touches ? e.touches[0].clientX : e.clientX);
+  setBw(LO + (HI - LO) * Math.max(0, Math.min(1, (cx - r.left) / r.width)));
+}
+// Dragging works anywhere on the page, not only on the rail: in a lecture the
+// pointer is a long way from a 4px track.
+document.body.addEventListener('pointerdown', e=>{ dragging = true; fromEvent(e); });
+document.body.addEventListener('pointermove', e=>{ if (dragging) fromEvent(e); });
+window.addEventListener('pointerup', ()=>{ dragging = false; });
+document.addEventListener('keydown', e=>{
+  if (e.key==='ArrowRight'){ e.preventDefault(); setBw(bw + 0.01); }
+  if (e.key==='ArrowLeft'){ e.preventDefault(); setBw(bw - 0.01); }
+  if (e.key==='ArrowUp'){ e.preventDefault(); setBw(bw + 0.1); }
+  if (e.key==='ArrowDown'){ e.preventDefault(); setBw(bw - 0.1); }
+  const k = parseInt(e.key, 10);
+  if (k >= 1 && k <= PRESETS.length){ e.preventDefault(); setBw(PRESETS[k-1].bw); }
+});
+if (new URLSearchParams(location.search).has('dark')) document.body.classList.add('dark');
+if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
+    && !new URLSearchParams(location.search).has('light')) document.body.classList.add('dark');
+const h = location.hash.replace('#','');
+setBw(/^\d+$/.test(h) && +h <= PRESETS.length ? PRESETS[+h-1].bw : PRESETS[0].bw);
+</script>
+</body>
+</html>
