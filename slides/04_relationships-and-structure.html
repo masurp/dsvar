@@ -6,21 +6,26 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a80805fb9204df0454a85aec670eb5fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
-  <title>Week 4 · Relationships &amp; structure</title>
+  <title>DSVAR – Week 4 · Relationships &amp; structure</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -29,8 +34,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -94,209 +100,11 @@
     code span.vs { color: #da4453; } /* VerbatimString */
     code span.wa { color: #da4453; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f11272e5866c7f5357fbacde58da9838.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-
-  .callout {
-    margin-top: 1em;
-    margin-bottom: 1em;  
-    border-radius: .25rem;
-  }
-
-  .callout.callout-style-simple { 
-    padding: 0em 0.5em;
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-    display: flex;
-  }
-
-  .callout.callout-style-default {
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-  }
-
-  .callout .callout-body-container {
-    flex-grow: 1;
-  }
-
-  .callout.callout-style-simple .callout-body {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-style-default .callout-body {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-titled.callout-style-simple .callout-body {
-    margin-top: 0.2em;
-  }
-
-  .callout:not(.callout-titled) .callout-body {
-      display: flex;
-  }
-
-  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
-    padding-left: 1.6em;
-  }
-
-  .callout.callout-titled .callout-header {
-    padding-top: 0.2em;
-    margin-bottom: -0.2em;
-  }
-
-  .callout.callout-titled .callout-title  p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-    
-  .callout.callout-titled.callout-style-simple .callout-content  p {
-    margin-top: 0;
-  }
-
-  .callout.callout-titled.callout-style-default .callout-content  p {
-    margin-top: 0.7em;
-  }
-
-  .callout.callout-style-simple div.callout-title {
-    border-bottom: none;
-    font-size: .9rem;
-    font-weight: 600;
-    opacity: 75%;
-  }
-
-  .callout.callout-style-default  div.callout-title {
-    border-bottom: none;
-    font-weight: 600;
-    opacity: 85%;
-    font-size: 0.9rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-default div.callout-content {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-simple .callout-icon::before {
-    height: 1rem;
-    width: 1rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 1rem 1rem;
-  }
-
-  .callout.callout-style-default .callout-icon::before {
-    height: 0.9rem;
-    width: 0.9rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 0.9rem 0.9rem;
-  }
-
-  .callout-title {
-    display: flex
-  }
-    
-  .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  .callout.no-icon::before {
-    display: none !important;
-  }
-
-  .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .callout.callout-titled .callout-icon::before {
-    margin-top: .5rem;
-    padding-right: .5rem;
-  }
-
-  .callout:not(.callout-titled) .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  /* Callout Types */
-
-  div.callout-note {
-    border-left-color: #4582ec !important;
-  }
-
-  div.callout-note .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
-  }
-
-  div.callout-note.callout-style-default .callout-title {
-    background-color: #dae6fb
-  }
-
-  div.callout-important {
-    border-left-color: #d9534f !important;
-  }
-
-  div.callout-important .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-important.callout-style-default .callout-title {
-    background-color: #f7dddc
-  }
-
-  div.callout-warning {
-    border-left-color: #f0ad4e !important;
-  }
-
-  div.callout-warning .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-warning.callout-style-default .callout-title {
-    background-color: #fcefdc
-  }
-
-  div.callout-tip {
-    border-left-color: #02b875 !important;
-  }
-
-  div.callout-tip .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-tip.callout-style-default .callout-title {
-    background-color: #ccf1e3
-  }
-
-  div.callout-caution {
-    border-left-color: #fd7e14 !important;
-  }
-
-  div.callout-caution .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
-  }
-
-  div.callout-caution.callout-style-default .callout-title {
-    background-color: #ffe5d0
-  }
-
-  </style>
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -489,8 +297,7 @@
 <p><strong>Describe:</strong> the same 142, in four bars about seventeen years wide, the mean dashed. <strong>Interpret:</strong> one hump, around 67, and a new title.</p>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="r-stack">
 <div class="fragment fade-out" data-fragment-index="2">
 <div class="dsvar-aside">
@@ -521,8 +328,7 @@
 <div class="dsvar-aside">
 <p>The same claims as pair 1. What did this sketch decide before any code was written?</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="pair-2-the-chart-and-its-twin" class="slide level2" data-background-color="#faf8f4">
 <h2>Pair 2 · the chart and its twin</h2>
@@ -547,8 +353,7 @@
 <p><strong>Describe:</strong> the same 142 in bars twenty years wide, the mean dashed, the binwidth in the caption. <strong>Interpret:</strong> one peak, around 67.</p>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="r-stack">
 <div class="fragment fade-out" data-fragment-index="2">
 <div class="dsvar-aside">
@@ -571,8 +376,7 @@
 <div class="dsvar-take">
 <p>What does this chart show?</p>
 </div>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>“Diagram based on Table I”, from F. Galton (1886), Regression towards mediocrity in hereditary stature, <em>Journal of the Anthropological Institute of Great Britain and Ireland, 15</em>, 246–263. Public domain; scan via Wikimedia Commons.</p>
 </div>
@@ -589,8 +393,7 @@
 <li><strong>How to read it:</strong> each number counts the adult children in one cell, their own height across the top and their parents’ average height down the side. Daughters’ heights are multiplied by 1.08, to put them on their brothers’ scale</li>
 <li>The oval joins cells with about the same count. The two lines through its centre are Galton’s: how children’s heights change with their parents’, and the other way round</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-data-934-children-of-205-families" class="slide level2" data-background-color="#faf8f4">
 <h2>The data: 934 children of 205 families</h2>
@@ -602,7 +405,7 @@
 <div class="dsvar-smalltable">
 <div class="cell">
 <div class="cell-output-display">
-<table>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -673,8 +476,7 @@
 <li>Galton’s notebook survives. Beverley Shipley transcribed it for James Hanley in 2001, and it ships with R’s HistData package</li>
 <li>Heights were recorded to the nearest inch or half inch, so many children share exactly the same height</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>Hanley, J. A. (2004). “Transmuting” women into men: Galton’s family data on human stature. <em>The American Statistician, 58</em>(3), 237–243. Data: HistData::GaltonFamilies (GPL).</p>
 </div>
@@ -684,18 +486,18 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>galton <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">mutate</span>(<span class="at">height =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">"female"</span>,</span>
-<span id="cb1-3"><a></a>                          childHeight <span class="sc">*</span> <span class="fl">1.08</span>,</span>
-<span id="cb1-4"><a></a>                          childHeight)) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(midparentHeight, height)) <span class="sc">+</span></span>
-<span id="cb1-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">position =</span></span>
-<span id="cb1-7"><a></a>    <span class="fu">position_jitter</span>(.<span class="dv">2</span>, .<span class="dv">2</span>, <span class="at">seed =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb1-8"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb1-9"><a></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
-<span id="cb1-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Parents' average height (inches)"</span>,</span>
-<span id="cb1-11"><a></a>       <span class="at">y =</span> <span class="st">"Adult child's height (inches)"</span>,</span>
-<span id="cb1-12"><a></a>       <span class="at">title =</span> <span class="st">"Taller parents, taller children"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>galton <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">height =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">"female"</span>,</span>
+<span id="cb1-3"><a aria-label="3"></a>                          childHeight <span class="sc">*</span> <span class="fl">1.08</span>,</span>
+<span id="cb1-4"><a aria-label="4"></a>                          childHeight)) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(midparentHeight, height)) <span class="sc">+</span></span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">position =</span></span>
+<span id="cb1-7"><a aria-label="7"></a>    <span class="fu">position_jitter</span>(.<span class="dv">2</span>, .<span class="dv">2</span>, <span class="at">seed =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb1-9"><a aria-label="9"></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Parents' average height (inches)"</span>,</span>
+<span id="cb1-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Adult child's height (inches)"</span>,</span>
+<span id="cb1-12"><a aria-label="12"></a>       <span class="at">title =</span> <span class="st">"Taller parents, taller children"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:53%;">
 <div class="cell">
@@ -707,8 +509,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="dsvar-aside">
 <p>The same cells, as one point per child. Heights in whole inches pile up on top of each other, so <code>position_jitter()</code> moves each point a fraction of an inch. Galton’s counts in cells were his answer to the same problem.</p>
 </div>
@@ -718,20 +519,20 @@
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="8-9,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>galton <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">height =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">"female"</span>,</span>
-<span id="cb2-3"><a></a>                          childHeight <span class="sc">*</span> <span class="fl">1.08</span>,</span>
-<span id="cb2-4"><a></a>                          childHeight)) <span class="sc">|&gt;</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(midparentHeight, height)) <span class="sc">+</span></span>
-<span id="cb2-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">position =</span></span>
-<span id="cb2-7"><a></a>    <span class="fu">position_jitter</span>(.<span class="dv">2</span>, .<span class="dv">2</span>, <span class="at">seed =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb2-8"><a></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>,</span>
-<span id="cb2-9"><a></a>              <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb2-11"><a></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
-<span id="cb2-12"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Parents' average height (inches)"</span>,</span>
-<span id="cb2-13"><a></a>       <span class="at">y =</span> <span class="st">"Adult child's height (inches)"</span>,</span>
-<span id="cb2-14"><a></a>       <span class="at">title =</span> <span class="st">"Children are closer to the average"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="8-9,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>galton <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">height =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">"female"</span>,</span>
+<span id="cb2-3"><a aria-label="3"></a>                          childHeight <span class="sc">*</span> <span class="fl">1.08</span>,</span>
+<span id="cb2-4"><a aria-label="4"></a>                          childHeight)) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(midparentHeight, height)) <span class="sc">+</span></span>
+<span id="cb2-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">position =</span></span>
+<span id="cb2-7"><a aria-label="7"></a>    <span class="fu">position_jitter</span>(.<span class="dv">2</span>, .<span class="dv">2</span>, <span class="at">seed =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-8"><a aria-label="8"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>,</span>
+<span id="cb2-9"><a aria-label="9"></a>              <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a aria-label="10"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb2-11"><a aria-label="11"></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
+<span id="cb2-12"><a aria-label="12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Parents' average height (inches)"</span>,</span>
+<span id="cb2-13"><a aria-label="13"></a>       <span class="at">y =</span> <span class="st">"Adult child's height (inches)"</span>,</span>
+<span id="cb2-14"><a aria-label="14"></a>       <span class="at">title =</span> <span class="st">"Children are closer to the average"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:53%;">
 <div class="cell">
@@ -743,8 +544,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="dsvar-aside">
 <p>Each inch of the parents’ height goes with 0.71 of an inch in the children’s: parents at 72 inches have children averaging 71.2, parents at 64, 65.5. Galton called it <em>regression towards mediocrity</em>. It runs from children to parents too: a correlation below 1, not a force.</p>
 </div>
@@ -769,8 +569,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="one-hundred-findings-tested-twice-2015" class="slide level2" data-background-color="#faf8f4">
 <h2>One hundred findings, tested twice (2015)</h2>
@@ -781,8 +580,7 @@
 <div class="dsvar-take">
 <p>What does this chart show?</p>
 </div>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>“RPP_Figure3”, Open Science Collaboration (2015). Estimating the reproducibility of psychological science. <em>Science, 349</em>(6251), aac4716. Figure file from osf.io/ezcuj, CC0 1.0.</p>
 </div>
@@ -799,29 +597,28 @@
 <li><strong>How to read it:</strong> each dot is one finding, measured twice: the original effect across, the replication’s effect up, both as a correlation. Colour says whether the replication was significant, and size how likely it was to detect the effect</li>
 <li><strong>The grey diagonal</strong> is where the second result equals the first. The short marks on the axes, a <strong>rug</strong>, repeat each dot’s position, so each variable’s spread can be read on its own</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="rebuilt-in-r-1" class="slide level2" data-background-color="#faf8f4">
 <h2>Rebuilt in R</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>rpp <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(orig, rep, <span class="at">colour =</span> replication)) <span class="sc">+</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>,</span>
-<span id="cb3-5"><a></a>              <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a></a>  <span class="fu">geom_rug</span>(<span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">scale_colour_manual</span>(</span>
-<span id="cb3-9"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>)) <span class="sc">+</span></span>
-<span id="cb3-10"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb3-11"><a></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb3-12"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Original effect size (r)"</span>,</span>
-<span id="cb3-13"><a></a>       <span class="at">y =</span> <span class="st">"Replication effect size (r)"</span>,</span>
-<span id="cb3-14"><a></a>       <span class="at">colour =</span> <span class="st">"Replication"</span>,</span>
-<span id="cb3-15"><a></a>       <span class="at">title =</span> <span class="st">"Most replications found less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>rpp <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(orig, rep, <span class="at">colour =</span> replication)) <span class="sc">+</span></span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>,</span>
+<span id="cb3-5"><a aria-label="5"></a>              <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a aria-label="7"></a>  <span class="fu">geom_rug</span>(<span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a aria-label="8"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb3-9"><a aria-label="9"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>)) <span class="sc">+</span></span>
+<span id="cb3-10"><a aria-label="10"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb3-11"><a aria-label="11"></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb3-12"><a aria-label="12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Original effect size (r)"</span>,</span>
+<span id="cb3-13"><a aria-label="13"></a>       <span class="at">y =</span> <span class="st">"Replication effect size (r)"</span>,</span>
+<span id="cb3-14"><a aria-label="14"></a>       <span class="at">colour =</span> <span class="st">"Replication"</span>,</span>
+<span id="cb3-15"><a aria-label="15"></a>       <span class="at">title =</span> <span class="st">"Most replications found less"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>rpp</code> has one row per finding, both effects as correlations: 97 pairs</li>
@@ -838,29 +635,28 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="one-change-fit-a-line-where-the-diagonal-was" class="slide level2" data-background-color="#faf8f4">
 <h2>One change: fit a line where the diagonal was</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="4-5,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>rpp <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(orig, rep, <span class="at">colour =</span> replication)) <span class="sc">+</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb4-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb4-5"><a></a>              <span class="at">colour =</span> <span class="st">"grey30"</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a></a>  <span class="fu">geom_rug</span>(<span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a></a>  <span class="fu">scale_colour_manual</span>(</span>
-<span id="cb4-9"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>)) <span class="sc">+</span></span>
-<span id="cb4-10"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb4-11"><a></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb4-12"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Original effect size (r)"</span>,</span>
-<span id="cb4-13"><a></a>       <span class="at">y =</span> <span class="st">"Replication effect size (r)"</span>,</span>
-<span id="cb4-14"><a></a>       <span class="at">colour =</span> <span class="st">"Replication"</span>,</span>
-<span id="cb4-15"><a></a>       <span class="at">title =</span> <span class="st">"Bigger originals, bigger replications"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="4-5,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>rpp <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(orig, rep, <span class="at">colour =</span> replication)) <span class="sc">+</span></span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>), <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>              <span class="at">colour =</span> <span class="st">"grey30"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a aria-label="7"></a>  <span class="fu">geom_rug</span>(<span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a aria-label="8"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb4-9"><a aria-label="9"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>)) <span class="sc">+</span></span>
+<span id="cb4-10"><a aria-label="10"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb4-11"><a aria-label="11"></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb4-12"><a aria-label="12"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Original effect size (r)"</span>,</span>
+<span id="cb4-13"><a aria-label="13"></a>       <span class="at">y =</span> <span class="st">"Replication effect size (r)"</span>,</span>
+<span id="cb4-14"><a aria-label="14"></a>       <span class="at">colour =</span> <span class="st">"Replication"</span>,</span>
+<span id="cb4-15"><a aria-label="15"></a>       <span class="at">title =</span> <span class="st">"Bigger originals, bigger replications"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Original and replication correlate at 0.60: by the fitted line, the originals predicted well</li>
@@ -877,8 +673,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="twenty-nine-teams-one-dataset-2018" class="slide level2" data-background-color="#faf8f4">
 <h2>Twenty-nine teams, one dataset (2018)</h2>
@@ -890,8 +685,7 @@
 </div>
 </div><div class="column" style="width:68%;">
 <p><span style="display:block; max-width:none; font-size:12px; line-height:1.35; color:#7a7a70">“Results summary”, Silberzahn, R., Uhlmann, E. L., Martin, D. P., et al.&nbsp;(2018). Many analysts, one data set. <em>Advances in Methods and Practices in Psychological Science, 1</em>(3), 337–356. Figure file from osf.io/gvm2z, CC0 1.0.</span></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="who-asked-and-how-to-read-it" class="slide level2" data-background-color="#faf8f4">
 <h2>Who asked, and how to read it</h2>
@@ -905,25 +699,24 @@
 <li>Each team chose its own analysis, and reported one estimate</li>
 <li><strong>How to read it:</strong> each row is a team. The dot is its <strong>odds ratio</strong>, how many times as likely a red card was for darker-skinned players, and the line its 95% interval. At 1 there is no difference</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="rebuilt-in-r-2" class="slide level2" data-background-color="#faf8f4">
 <h2>Rebuilt in R</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>teams <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(est, <span class="fu">factor</span>(team))) <span class="sc">+</span></span>
-<span id="cb5-3"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lo, <span class="at">xmax =</span> hi),</span>
-<span id="cb5-5"><a></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-6"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(.<span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odds ratio of a red card (log scale)"</span>,</span>
-<span id="cb5-9"><a></a>       <span class="at">y =</span> <span class="st">"Team"</span>,</span>
-<span id="cb5-10"><a></a>       <span class="at">title =</span> <span class="st">"Twenty-nine teams, one dataset"</span>) <span class="sc">+</span></span>
-<span id="cb5-11"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>teams <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(est, <span class="fu">factor</span>(team))) <span class="sc">+</span></span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lo, <span class="at">xmax =</span> hi),</span>
+<span id="cb5-5"><a aria-label="5"></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a aria-label="7"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(.<span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb5-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odds ratio of a red card (log scale)"</span>,</span>
+<span id="cb5-9"><a aria-label="9"></a>       <span class="at">y =</span> <span class="st">"Team"</span>,</span>
+<span id="cb5-10"><a aria-label="10"></a>       <span class="at">title =</span> <span class="st">"Twenty-nine teams, one dataset"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a aria-label="11"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>teams</code> has one row per team: its estimate and its interval</li>
@@ -940,30 +733,29 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="one-change-sort-it-and-name-the-verdicts" class="slide level2" data-background-color="#faf8f4">
 <h2>One change: sort it, and name the verdicts</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2-5,12-13,15-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>teams <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(<span class="at">found =</span> <span class="fu">if_else</span>(lo <span class="sc">&gt;</span> <span class="dv">1</span>, <span class="st">"an effect"</span>,</span>
-<span id="cb6-3"><a></a>                         <span class="st">"no clear effect"</span>),</span>
-<span id="cb6-4"><a></a>         <span class="at">team =</span> <span class="fu">fct_reorder</span>(<span class="fu">factor</span>(team), est)) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(est, team, <span class="at">colour =</span> found)) <span class="sc">+</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb6-7"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lo, <span class="at">xmax =</span> hi),</span>
-<span id="cb6-8"><a></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb6-9"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb6-10"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(.<span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
-<span id="cb6-11"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odds ratio of a red card (log scale)"</span>,</span>
-<span id="cb6-12"><a></a>       <span class="at">y =</span> <span class="st">"Team"</span>, <span class="at">colour =</span> <span class="st">"The team found"</span>,</span>
-<span id="cb6-13"><a></a>       <span class="at">title =</span> <span class="st">"Twenty found an effect, nine did not"</span>) <span class="sc">+</span></span>
-<span id="cb6-14"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) <span class="sc">+</span></span>
-<span id="cb6-15"><a></a>  <span class="fu">scale_colour_manual</span>(</span>
-<span id="cb6-16"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2-5,12-13,15-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>teams <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">found =</span> <span class="fu">if_else</span>(lo <span class="sc">&gt;</span> <span class="dv">1</span>, <span class="st">"an effect"</span>,</span>
+<span id="cb6-3"><a aria-label="3"></a>                         <span class="st">"no clear effect"</span>),</span>
+<span id="cb6-4"><a aria-label="4"></a>         <span class="at">team =</span> <span class="fu">fct_reorder</span>(<span class="fu">factor</span>(team), est)) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(est, team, <span class="at">colour =</span> found)) <span class="sc">+</span></span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a aria-label="7"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lo, <span class="at">xmax =</span> hi),</span>
+<span id="cb6-8"><a aria-label="8"></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a aria-label="9"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb6-10"><a aria-label="10"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(.<span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb6-11"><a aria-label="11"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Odds ratio of a red card (log scale)"</span>,</span>
+<span id="cb6-12"><a aria-label="12"></a>       <span class="at">y =</span> <span class="st">"Team"</span>, <span class="at">colour =</span> <span class="st">"The team found"</span>,</span>
+<span id="cb6-13"><a aria-label="13"></a>       <span class="at">title =</span> <span class="st">"Twenty found an effect, nine did not"</span>) <span class="sc">+</span></span>
+<span id="cb6-14"><a aria-label="14"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb6-15"><a aria-label="15"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb6-16"><a aria-label="16"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey60"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>20 intervals lie wholly above 1, 9 cross it, and none lies below</li>
@@ -979,8 +771,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="every-line-is-a-choice" class="title-slide slide level1 center dark" data-background-color="#002a26">
@@ -1160,8 +951,7 @@
 <li>The <strong>chart</strong> decides how overlapping points are shown, and what an equal step on an axis means</li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-dataset-3987-working-people-in-ontario" class="slide level2" data-background-color="#faf8f4">
 <h2>The dataset: 3,987 working people in Ontario</h2>
@@ -1173,7 +963,7 @@
 <div class="dsvar-smalltable">
 <div class="cell">
 <div class="cell-output-display">
-<table>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: right;">wages</th>
@@ -1237,8 +1027,7 @@
 <li><strong>One row is one person</strong>: hourly wage from all their jobs, years of school, age, sex and first language</li>
 <li>7,425 people were interviewed. 3,278 have no wage, mostly because they had no job, so every chart of wages here is about people in work</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>Statistics Canada public-use data, prepared by the Institute for Social Research, York University; as <code>SLID</code> in Fox, J., &amp; Weisberg, S. (2019). <em>An R Companion to Applied Regression</em> (3rd ed.), carData package (GPL).</p>
 </div>
@@ -1268,8 +1057,8 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Two columns, two positions: years of school across, the hourly wage up. One point per person</li>
@@ -1288,16 +1077,15 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="make-the-points-transparent" class="slide level2" data-background-color="#faf8f4">
 <h2>Make the points transparent</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>alpha = .1</code> makes each point nearly transparent, so the colour adds up where points overlap. Ten on one spot make it black. <code>size = 1</code> makes them smaller</li>
@@ -1314,16 +1102,15 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-linear-model-one-line-two-numbers" class="slide level2" data-background-color="#faf8f4">
 <h2>A linear model: one line, two numbers</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>m_lin <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education, <span class="at">data =</span> slid)</span>
-<span id="cb9-2"><a></a><span class="fu">coef</span>(m_lin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>m_lin <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education, <span class="at">data =</span> slid)</span>
+<span id="cb9-2"><a aria-label="2"></a><span class="fu">coef</span>(m_lin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)   education 
   4.9716912   0.7923091 </code></pre>
@@ -1348,17 +1135,16 @@
 <div class="dsvar-take">
 <p>wage = 4.97 + 0.79 × years of school</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="add-the-line" class="slide level2" data-background-color="#faf8f4">
 <h2>Add the line</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>geom_smooth(method = "lm")</code> fits the same model and draws its line, with a 95% band around it</li>
@@ -1410,25 +1196,24 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="add-the-claim" class="slide level2" data-background-color="#faf8f4">
 <h2>Add the claim</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="4-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-5"><a></a>    <span class="at">title =</span> <span class="st">"A year of school: 80 cents more an hour"</span>,</span>
-<span id="cb12-6"><a></a>    <span class="at">subtitle =</span> <span class="st">"Hourly wage, Ontario 1994"</span>,</span>
-<span id="cb12-7"><a></a>    <span class="at">x =</span> <span class="st">"Years of school"</span>, <span class="at">y =</span> <span class="st">"Dollars an hour"</span>,</span>
-<span id="cb12-8"><a></a>    <span class="at">caption =</span> <span class="fu">paste0</span>(</span>
-<span id="cb12-9"><a></a>      <span class="st">"n = 3,987 people in work · band: 95% "</span>,</span>
-<span id="cb12-10"><a></a>      <span class="st">"interval for the line</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb12-11"><a></a>      <span class="st">"A survey, not an experiment"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="4-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb12-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a aria-label="4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-5"><a aria-label="5"></a>    <span class="at">title =</span> <span class="st">"A year of school: 80 cents more an hour"</span>,</span>
+<span id="cb12-6"><a aria-label="6"></a>    <span class="at">subtitle =</span> <span class="st">"Hourly wage, Ontario 1994"</span>,</span>
+<span id="cb12-7"><a aria-label="7"></a>    <span class="at">x =</span> <span class="st">"Years of school"</span>, <span class="at">y =</span> <span class="st">"Dollars an hour"</span>,</span>
+<span id="cb12-8"><a aria-label="8"></a>    <span class="at">caption =</span> <span class="fu">paste0</span>(</span>
+<span id="cb12-9"><a aria-label="9"></a>      <span class="st">"n = 3,987 people in work · band: 95% "</span>,</span>
+<span id="cb12-10"><a aria-label="10"></a>      <span class="st">"interval for the line</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb12-11"><a aria-label="11"></a>      <span class="st">"A survey, not an experiment"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The <strong>title</strong> says the finding, in units a reader knows</li>
@@ -1444,8 +1229,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="iii-how-points-pile-up" class="title-slide slide level1 center dark" data-background-color="#0d3330">
@@ -1509,17 +1293,16 @@
 <li><strong>Counted:</strong> <code>geom_bin_2d()</code> cuts the plane into squares and colours each by its count. Week 3’s bins, in two dimensions, and the caption names their size</li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="move-the-points-apart" class="slide level2" data-background-color="#faf8f4">
 <h2>Move the points apart</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
-<span id="cb13-3"><a></a>              <span class="at">width =</span> .<span class="dv">25</span>, <span class="at">height =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb13-2"><a aria-label="2"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb13-3"><a aria-label="3"></a>              <span class="at">width =</span> .<span class="dv">25</span>, <span class="at">height =</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The survey recorded schooling mostly in whole years, so people stand in columns. Galton’s inches did the same. The stripes come from the measurement</li>
@@ -1536,8 +1319,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="setting-1-how-points-pile-up" class="slide level2" data-background-color="#faf8f4">
 <h2>Setting 1 · How points pile up</h2>
@@ -1570,8 +1352,8 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>m_age1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> age, <span class="at">data =</span> slid)</span>
-<span id="cb14-2"><a></a><span class="fu">coef</span>(m_age1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>m_age1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> age, <span class="at">data =</span> slid)</span>
+<span id="cb14-2"><a aria-label="2"></a><span class="fu">coef</span>(m_age1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)         age 
   6.8909006   0.2331079 </code></pre>
@@ -1595,17 +1377,16 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="let-the-line-bend" class="slide level2" data-background-color="#faf8f4">
 <h2>Let the line bend</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age, wages)) <span class="sc">+</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">08</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age, wages)) <span class="sc">+</span></span>
+<span id="cb16-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">08</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><strong>Loess</strong> fits no single line. At each age it takes the people nearest in age, fits a small regression to them alone, with the closest counting most, and keeps the value at that age. The curve joins those values</li>
@@ -1622,25 +1403,24 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-curve-with-an-equation" class="slide level2" data-background-color="#faf8f4">
 <h2>A curve with an equation</h2>
 <div class="columns">
 <div class="column" style="width:46%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age, wages)) <span class="sc">+</span></span>
-<span id="cb17-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">08</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb17-4"><a></a>              <span class="at">colour =</span> <span class="st">"grey35"</span>,</span>
-<span id="cb17-5"><a></a>              <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb17-6"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb17-7"><a></a>              <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age, wages)) <span class="sc">+</span></span>
+<span id="cb17-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">08</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb17-4"><a aria-label="4"></a>              <span class="at">colour =</span> <span class="st">"grey35"</span>,</span>
+<span id="cb17-5"><a aria-label="5"></a>              <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a aria-label="6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb17-7"><a aria-label="7"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>m_age2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>), slid)</span>
-<span id="cb18-2"><a></a><span class="fu">coef</span>(m_age2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>m_age2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>), slid)</span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">coef</span>(m_age2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept)          age     I(age^2) 
 -10.24724726   1.21716482  -0.01271279 </code></pre>
@@ -1664,8 +1444,7 @@
 <div class="dsvar-take">
 <p>wage = -10.25 + 1.22 × age − 0.0127 × age²</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-band-is-about-the-line" class="slide level2" data-background-color="#faf8f4">
 <h2>The band is about the line</h2>
@@ -1686,8 +1465,7 @@
 <li>The <strong>dashed lines</strong> mark where 95% of people are expected to be. At 12 years, anywhere between about $0 and $29</li>
 <li><code>geom_smooth()</code> draws only the band. Last week’s distinction, now for a line: the band describes the estimate, and the people spread far wider</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="setting-2-which-line-is-drawn" class="slide level2" data-background-color="#faf8f4">
 <h2>Setting 2 · Which line is drawn</h2>
@@ -1723,17 +1501,17 @@
 <div class="r-stack dsvar-codestack">
 <div class="fragment fade-out" data-fragment-index="1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb20-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment" data-fragment-index="1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb21-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb21-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a></a>  <span class="fu">scale_y_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb21-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1771,8 +1549,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-same-people-on-both-axes" class="slide level2" data-background-color="#faf8f4">
 <h2>The same people on both axes</h2>
@@ -1795,15 +1572,15 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education, <span class="at">data =</span> slid) <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a></a>  <span class="fu">coef</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education, <span class="at">data =</span> slid) <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a aria-label="2"></a>  <span class="fu">coef</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)   education 
  1.99927284  0.04649482 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(<span class="fl">0.0465</span>) <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(<span class="fl">0.0465</span>) <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.759808</code></pre>
 </div>
@@ -1814,8 +1591,7 @@
 <li>On dollars, the line said 0.79 dollars more per year. Both are true. In per cent, the same step is worth more to someone already earning more</li>
 <li>Linear for differences, log for ratios. Incomes mostly differ by ratios, across people and across countries</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="setting-3-what-an-equal-step-means" class="slide level2" data-background-color="#faf8f4">
 <h2>Setting 3 · What an equal step means</h2>
@@ -1883,17 +1659,16 @@
 <li><strong>Mediation:</strong> the first variable changes a second, and that one changes the outcome. In our experiment the feed changed what seemed normal, and that changed what people meant to post</li>
 <li>A moderator answers <em>for whom, or when?</em> A mediator answers <em>how?</em> The rest of this part is about moderation</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="moderation-in-a-model-the-interaction" class="slide level2" data-background-color="#faf8f4">
 <h2>Moderation in a model: the interaction</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>m_sex <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education <span class="sc">*</span> sex,</span>
-<span id="cb26-2"><a></a>            <span class="at">data =</span> slid)</span>
-<span id="cb26-3"><a></a><span class="fu">coef</span>(m_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>m_sex <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education <span class="sc">*</span> sex,</span>
+<span id="cb26-2"><a aria-label="2"></a>            <span class="at">data =</span> slid)</span>
+<span id="cb26-3"><a aria-label="3"></a><span class="fu">coef</span>(m_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      (Intercept)         education 
         1.9020018         0.8904731 
@@ -1912,20 +1687,19 @@ Men: 0.89 − 0.16 = $0.74.</p>
 <li><strong>education:sexMale</strong>, −0.16, is how much the slope changes for men</li>
 <li><strong>sexMale</strong>, 5.59, is conditional too: the gap between men and women at 0 years of school, where almost nobody is</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="two-groups-colour-them" class="slide level2" data-background-color="#faf8f4">
 <h2>Two groups: colour them</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2,5-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages,</span>
-<span id="cb28-2"><a></a>                 <span class="at">colour =</span> sex)) <span class="sc">+</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb28-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb28-5"><a></a>  <span class="fu">scale_colour_manual</span>(</span>
-<span id="cb28-6"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey40"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2,5-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages,</span>
+<span id="cb28-2"><a aria-label="2"></a>                 <span class="at">colour =</span> sex)) <span class="sc">+</span></span>
+<span id="cb28-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-4"><a aria-label="4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a aria-label="5"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb28-6"><a aria-label="6"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="fu">dsvar_accent</span>(), <span class="st">"grey40"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>colour = sex</code> splits every layer in two, so <code>geom_smooth()</code> fits one line per group. These two lines are the interaction model, with slopes of 0.89 and 0.74</li>
@@ -1942,16 +1716,15 @@ Men: 0.89 − 0.16 = $0.74.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="or-give-each-group-a-panel" class="slide level2" data-background-color="#faf8f4">
 <h2>Or give each group a panel</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb29-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb29-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
-<span id="cb29-4"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> age_group, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb29-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
+<span id="cb29-4"><a aria-label="4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> age_group, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -1971,9 +1744,9 @@ Men: 0.89 − 0.16 = $0.74.</p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>m_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education <span class="sc">*</span> age,</span>
-<span id="cb30-2"><a></a>            <span class="at">data =</span> slid)</span>
-<span id="cb30-3"><a></a><span class="fu">coef</span>(m_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>m_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(wages <span class="sc">~</span> education <span class="sc">*</span> age,</span>
+<span id="cb30-2"><a aria-label="2"></a>            <span class="at">data =</span> slid)</span>
+<span id="cb30-3"><a aria-label="3"></a><span class="fu">coef</span>(m_age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  (Intercept)     education           age 
  4.4515711271  0.0874085323  0.0006927425 
@@ -1993,27 +1766,26 @@ education:age
 <li>At 25: 0.09 + 0.020 × 25 = $0.59. At 37, the average age, $0.83. At 49, $1.08</li>
 <li>Four coefficients in a table hide all of this. Conditional effects are where a chart helps most</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="pick-a-point-three-ages-three-lines" class="slide level2" data-background-color="#faf8f4">
 <h2>Pick a point: three ages, three lines</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>pred <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(<span class="at">education =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,</span>
-<span id="cb32-2"><a></a>                    <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">37</span>, <span class="dv">49</span>))</span>
-<span id="cb32-3"><a></a>pred<span class="sc">$</span>wages <span class="ot">&lt;-</span> <span class="fu">predict</span>(m_age, pred)</span>
-<span id="cb32-4"><a></a></span>
-<span id="cb32-5"><a></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages,</span>
-<span id="cb32-6"><a></a>                 <span class="at">colour =</span> age)) <span class="sc">+</span></span>
-<span id="cb32-7"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">15</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb32-8"><a></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred, <span class="fu">aes</span>(<span class="at">group =</span> age),</span>
-<span id="cb32-9"><a></a>            <span class="at">linewidth =</span> <span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb32-10"><a></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">filter</span>(pred, education <span class="sc">==</span> <span class="dv">19</span>),</span>
-<span id="cb32-11"><a></a>             <span class="fu">aes</span>(<span class="at">label =</span> age)) <span class="sc">+</span></span>
-<span id="cb32-12"><a></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">end =</span> .<span class="dv">85</span>,</span>
-<span id="cb32-13"><a></a>                         <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>pred <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(<span class="at">education =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,</span>
+<span id="cb32-2"><a aria-label="2"></a>                    <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">37</span>, <span class="dv">49</span>))</span>
+<span id="cb32-3"><a aria-label="3"></a>pred<span class="sc">$</span>wages <span class="ot">&lt;-</span> <span class="fu">predict</span>(m_age, pred)</span>
+<span id="cb32-4"><a aria-label="4"></a></span>
+<span id="cb32-5"><a aria-label="5"></a><span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(education, wages,</span>
+<span id="cb32-6"><a aria-label="6"></a>                 <span class="at">colour =</span> age)) <span class="sc">+</span></span>
+<span id="cb32-7"><a aria-label="7"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">15</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a aria-label="8"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred, <span class="fu">aes</span>(<span class="at">group =</span> age),</span>
+<span id="cb32-9"><a aria-label="9"></a>            <span class="at">linewidth =</span> <span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb32-10"><a aria-label="10"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">filter</span>(pred, education <span class="sc">==</span> <span class="dv">19</span>),</span>
+<span id="cb32-11"><a aria-label="11"></a>             <span class="fu">aes</span>(<span class="at">label =</span> age)) <span class="sc">+</span></span>
+<span id="cb32-12"><a aria-label="12"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">end =</span> .<span class="dv">85</span>,</span>
+<span id="cb32-13"><a aria-label="13"></a>                         <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Pick a few values of the moderator, by habit the average and one standard deviation either side: here 25, 37 and 49</li>
@@ -2030,28 +1802,27 @@ education:age
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-effect-at-every-age-compute-it" class="slide level2" data-background-color="#faf8f4">
 <h2>The effect at every age: compute it</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>b  <span class="ot">&lt;-</span> <span class="fu">coef</span>(m_age)</span>
-<span id="cb33-2"><a></a>V  <span class="ot">&lt;-</span> <span class="fu">vcov</span>(m_age)</span>
-<span id="cb33-3"><a></a>x  <span class="ot">&lt;-</span> <span class="st">"education"</span></span>
-<span id="cb33-4"><a></a>xz <span class="ot">&lt;-</span> <span class="st">"education:age"</span></span>
-<span id="cb33-5"><a></a></span>
-<span id="cb33-6"><a></a>ce <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">age =</span> <span class="dv">16</span><span class="sc">:</span><span class="dv">69</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-7"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb33-8"><a></a>    <span class="at">effect =</span> b[[x]] <span class="sc">+</span> b[[xz]] <span class="sc">*</span> age,</span>
-<span id="cb33-9"><a></a>    <span class="at">se =</span> <span class="fu">sqrt</span>(V[x, x] <span class="sc">+</span> age<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> V[xz, xz] <span class="sc">+</span></span>
-<span id="cb33-10"><a></a>              <span class="dv">2</span> <span class="sc">*</span> age <span class="sc">*</span> V[x, xz]),</span>
-<span id="cb33-11"><a></a>    <span class="at">low  =</span> effect <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
-<span id="cb33-12"><a></a>    <span class="at">high =</span> effect <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se)</span>
-<span id="cb33-13"><a></a></span>
-<span id="cb33-14"><a></a><span class="fu">filter</span>(ce, age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">37</span>, <span class="dv">49</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>b  <span class="ot">&lt;-</span> <span class="fu">coef</span>(m_age)</span>
+<span id="cb33-2"><a aria-label="2"></a>V  <span class="ot">&lt;-</span> <span class="fu">vcov</span>(m_age)</span>
+<span id="cb33-3"><a aria-label="3"></a>x  <span class="ot">&lt;-</span> <span class="st">"education"</span></span>
+<span id="cb33-4"><a aria-label="4"></a>xz <span class="ot">&lt;-</span> <span class="st">"education:age"</span></span>
+<span id="cb33-5"><a aria-label="5"></a></span>
+<span id="cb33-6"><a aria-label="6"></a>ce <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">age =</span> <span class="dv">16</span><span class="sc">:</span><span class="dv">69</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-7"><a aria-label="7"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb33-8"><a aria-label="8"></a>    <span class="at">effect =</span> b[[x]] <span class="sc">+</span> b[[xz]] <span class="sc">*</span> age,</span>
+<span id="cb33-9"><a aria-label="9"></a>    <span class="at">se =</span> <span class="fu">sqrt</span>(V[x, x] <span class="sc">+</span> age<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> V[xz, xz] <span class="sc">+</span></span>
+<span id="cb33-10"><a aria-label="10"></a>              <span class="dv">2</span> <span class="sc">*</span> age <span class="sc">*</span> V[x, xz]),</span>
+<span id="cb33-11"><a aria-label="11"></a>    <span class="at">low  =</span> effect <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
+<span id="cb33-12"><a aria-label="12"></a>    <span class="at">high =</span> effect <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se)</span>
+<span id="cb33-13"><a aria-label="13"></a></span>
+<span id="cb33-14"><a aria-label="14"></a><span class="fu">filter</span>(ce, age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">37</span>, <span class="dv">49</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
     age effect     se   low  high
@@ -2068,26 +1839,25 @@ education:age
 <li>1.96 standard errors either side give the 95% interval, as in week 3</li>
 <li><strong>One row:</strong> at 37, a year of school goes with $0.83 more an hour, and the interval runs from 0.76 to 0.91</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="draw-it-a-line-of-coefficients" class="slide level2" data-background-color="#faf8f4">
 <h2>Draw it: a line of coefficients</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p_effect <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ce, <span class="fu">aes</span>(age, effect)) <span class="sc">+</span></span>
-<span id="cb35-2"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>,</span>
-<span id="cb35-3"><a></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb35-4"><a></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb35-5"><a></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> low, <span class="at">ymax =</span> high),</span>
-<span id="cb35-6"><a></a>              <span class="at">fill =</span> <span class="fu">dsvar_accent</span>(),</span>
-<span id="cb35-7"><a></a>              <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb35-8"><a></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="fu">dsvar_accent</span>(),</span>
-<span id="cb35-9"><a></a>            <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb35-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age"</span>,</span>
-<span id="cb35-11"><a></a>       <span class="at">y =</span> <span class="st">"Dollars more per year of school"</span>)</span>
-<span id="cb35-12"><a></a>p_effect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>p_effect <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ce, <span class="fu">aes</span>(age, effect)) <span class="sc">+</span></span>
+<span id="cb35-2"><a aria-label="2"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb35-3"><a aria-label="3"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb35-4"><a aria-label="4"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb35-5"><a aria-label="5"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> low, <span class="at">ymax =</span> high),</span>
+<span id="cb35-6"><a aria-label="6"></a>              <span class="at">fill =</span> <span class="fu">dsvar_accent</span>(),</span>
+<span id="cb35-7"><a aria-label="7"></a>              <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a aria-label="8"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="fu">dsvar_accent</span>(),</span>
+<span id="cb35-9"><a aria-label="9"></a>            <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb35-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age"</span>,</span>
+<span id="cb35-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Dollars more per year of school"</span>)</span>
+<span id="cb35-12"><a aria-label="12"></a>p_effect</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Across is the moderator. Up is no longer the wage: it is the slope, so every point on the line is a whole regression coefficient</li>
@@ -2103,23 +1873,22 @@ education:age
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="show-who-is-at-each-age" class="slide level2" data-background-color="#faf8f4">
 <h2>Show who is at each age</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>p_ages <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age)) <span class="sc">+</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>,</span>
-<span id="cb36-3"><a></a>                 <span class="at">fill =</span> <span class="st">"grey70"</span>,</span>
-<span id="cb36-4"><a></a>                 <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb36-5"><a></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb36-6"><a></a></span>
-<span id="cb36-7"><a></a>p_ages <span class="sc">/</span> p_effect <span class="sc">+</span></span>
-<span id="cb36-8"><a></a>  <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">&amp;</span></span>
-<span id="cb36-9"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">70</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a>p_ages <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(slid, <span class="fu">aes</span>(age)) <span class="sc">+</span></span>
+<span id="cb36-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>,</span>
+<span id="cb36-3"><a aria-label="3"></a>                 <span class="at">fill =</span> <span class="st">"grey70"</span>,</span>
+<span id="cb36-4"><a aria-label="4"></a>                 <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a aria-label="5"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb36-6"><a aria-label="6"></a></span>
+<span id="cb36-7"><a aria-label="7"></a>p_ages <span class="sc">/</span> p_effect <span class="sc">+</span></span>
+<span id="cb36-8"><a aria-label="8"></a>  <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">&amp;</span></span>
+<span id="cb36-9"><a aria-label="9"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">70</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The model draws its line across the whole range, whether or not anyone is there. The histogram on top counts the people at each age</li>
@@ -2136,8 +1905,7 @@ education:age
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="the-same-form-in-our-own-paper" class="slide level2" data-background-color="#faf8f4">
 <h2>The same form, in our own paper</h2>
@@ -2151,8 +1919,7 @@ education:age
 <li><strong>Panel B:</strong> how strongly what seemed normal goes with their own intention to post, at each level of similarity</li>
 <li>The line turns red where its band includes zero, and a vertical dashed line marks the changeover</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>Figure 3 from Masur, P. K., &amp; Parry, D. A. (2026). When sharing becomes the norm. <em>Technology, Mind, and Behavior</em>. © American Psychological Association; reproduced by one of its authors for teaching. Data: osf.io/zw6pb.</p>
 </div>
@@ -2177,8 +1944,7 @@ education:age
 <li><strong>Grey</strong>, below 2.8: the band includes zero. <strong>Green:</strong> it does not. The histogram shows who is in the grey part: 41 of 589 people</li>
 <li>Nothing switches on at 2.8. A band that just includes zero and one that just excludes it are nearly the same estimate, and the published figure, with stricter exclusions, puts the changeover about half a point higher</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="setting-4-the-third-variable" class="slide level2" data-background-color="#faf8f4">
 <h2>Setting 4 · The third variable</h2>
@@ -2211,9 +1977,9 @@ education:age
 <div class="columns">
 <div class="column" style="width:56%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>m_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
-<span id="cb37-2"><a></a>               sex <span class="sc">+</span> language, <span class="at">data =</span> slid)</span>
-<span id="cb37-3"><a></a><span class="fu">summary</span>(m_full)<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>m_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
+<span id="cb37-2"><a aria-label="2"></a>               sex <span class="sc">+</span> language, <span class="at">data =</span> slid)</span>
+<span id="cb37-3"><a aria-label="3"></a><span class="fu">summary</span>(m_full)<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Estimate Std. Error t value Pr(&gt;|t|)
 (Intercept)          1.381      0.033  42.323    0.000
@@ -2233,18 +1999,17 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <li>Age group, sex and language are categories, so each row compares one group with a reference: the youngest, women, and English speakers</li>
 <li>Most papers print this table. Which predictor matters most, and how sure is each number?</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="step-1-the-model-as-a-table-of-rows" class="slide level2" data-background-color="#faf8f4">
 <h2>Step 1: the model as a table of rows</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>coefs <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">tidy</span>(m_full, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb39-3"><a></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high)</span>
-<span id="cb39-4"><a></a>coefs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>coefs <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">tidy</span>(m_full, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a aria-label="2"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a aria-label="3"></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high)</span>
+<span id="cb39-4"><a aria-label="4"></a>coefs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 4
   term              estimate conf.low conf.high
@@ -2265,23 +2030,22 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <li>A tibble is something ggplot can draw. <code>term</code> will be the row, <code>estimate</code> the point, and <code>conf.low</code> and <code>conf.high</code> the ends of its line</li>
 <li>The intercept goes. It is the log wage of someone with every predictor at 0 or at its reference, so it is not an effect of anything</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="step-2-a-point-and-its-interval" class="slide level2" data-background-color="#faf8f4">
 <h2>Step 2: a point and its interval</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>coefs <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
-<span id="cb41-3"><a></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
-<span id="cb41-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
-<span id="cb41-5"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb41-6"><a></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb41-7"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
-<span id="cb41-8"><a></a>                      <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
-<span id="cb41-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>coefs <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
+<span id="cb41-3"><a aria-label="3"></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
+<span id="cb41-4"><a aria-label="4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
+<span id="cb41-5"><a aria-label="5"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb41-6"><a aria-label="6"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb41-7"><a aria-label="7"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
+<span id="cb41-8"><a aria-label="8"></a>                      <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb41-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>mutate()</code> turns log points into per cent, and sorts the rows by estimate</li>
@@ -2301,8 +2065,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <div class="dsvar-aside">
 <p>The row labels are R’s own names. Rename them before anyone else sees the chart.</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="units-decide-the-picture" class="slide level2" data-background-color="#faf8f4">
 <h2>Units decide the picture</h2>
@@ -2311,47 +2074,47 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <div class="r-stack dsvar-codestack">
 <div class="fragment fade-out" data-fragment-index="1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="14,16-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>slid <span class="sc">|&gt;</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
-<span id="cb42-3"><a></a>       sex <span class="sc">+</span> language, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb42-4"><a></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-5"><a></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-6"><a></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high) <span class="sc">|&gt;</span></span>
-<span id="cb42-7"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
-<span id="cb42-8"><a></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
-<span id="cb42-9"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
-<span id="cb42-10"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb42-11"><a></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb42-12"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
-<span id="cb42-13"><a></a>                      <span class="at">xmax =</span> conf.high,</span>
-<span id="cb42-14"><a></a>                      <span class="at">colour =</span> term <span class="sc">==</span> <span class="st">"education"</span>),</span>
-<span id="cb42-15"><a></a>                  <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb42-16"><a></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb42-17"><a></a>    <span class="st">"grey45"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
-<span id="cb42-18"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" data-code-line-numbers="14,16-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>slid <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a aria-label="2"></a>  <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
+<span id="cb42-3"><a aria-label="3"></a>       sex <span class="sc">+</span> language, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb42-4"><a aria-label="4"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-5"><a aria-label="5"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-6"><a aria-label="6"></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high) <span class="sc">|&gt;</span></span>
+<span id="cb42-7"><a aria-label="7"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
+<span id="cb42-8"><a aria-label="8"></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
+<span id="cb42-9"><a aria-label="9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
+<span id="cb42-10"><a aria-label="10"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb42-11"><a aria-label="11"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb42-12"><a aria-label="12"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
+<span id="cb42-13"><a aria-label="13"></a>                      <span class="at">xmax =</span> conf.high,</span>
+<span id="cb42-14"><a aria-label="14"></a>                      <span class="at">colour =</span> term <span class="sc">==</span> <span class="st">"education"</span>),</span>
+<span id="cb42-15"><a aria-label="15"></a>                  <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb42-16"><a aria-label="16"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb42-17"><a aria-label="17"></a>    <span class="st">"grey45"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb42-18"><a aria-label="18"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment" data-fragment-index="1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>slid <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a></a>  <span class="fu">mutate</span>(<span class="at">education =</span> education <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a></a>  <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
-<span id="cb43-4"><a></a>       sex <span class="sc">+</span> language, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
-<span id="cb43-5"><a></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-6"><a></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-7"><a></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high) <span class="sc">|&gt;</span></span>
-<span id="cb43-8"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
-<span id="cb43-9"><a></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
-<span id="cb43-10"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
-<span id="cb43-11"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb43-12"><a></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb43-13"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
-<span id="cb43-14"><a></a>                      <span class="at">xmax =</span> conf.high,</span>
-<span id="cb43-15"><a></a>                      <span class="at">colour =</span> term <span class="sc">==</span> <span class="st">"education"</span>),</span>
-<span id="cb43-16"><a></a>                  <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb43-17"><a></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb43-18"><a></a>    <span class="st">"grey45"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
-<span id="cb43-19"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>slid <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">education =</span> education <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a aria-label="3"></a>  <span class="fu">lm</span>(<span class="fu">log</span>(wages) <span class="sc">~</span> education <span class="sc">+</span> age_group <span class="sc">+</span></span>
+<span id="cb43-4"><a aria-label="4"></a>       sex <span class="sc">+</span> language, <span class="at">data =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb43-5"><a aria-label="5"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-6"><a aria-label="6"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-7"><a aria-label="7"></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high) <span class="sc">|&gt;</span></span>
+<span id="cb43-8"><a aria-label="8"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>term, \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)),</span>
+<span id="cb43-9"><a aria-label="9"></a>         <span class="at">term =</span> <span class="fu">fct_reorder</span>(term, estimate)) <span class="sc">|&gt;</span></span>
+<span id="cb43-10"><a aria-label="10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term)) <span class="sc">+</span></span>
+<span id="cb43-11"><a aria-label="11"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb43-12"><a aria-label="12"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb43-13"><a aria-label="13"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low,</span>
+<span id="cb43-14"><a aria-label="14"></a>                      <span class="at">xmax =</span> conf.high,</span>
+<span id="cb43-15"><a aria-label="15"></a>                      <span class="at">colour =</span> term <span class="sc">==</span> <span class="st">"education"</span>),</span>
+<span id="cb43-16"><a aria-label="16"></a>                  <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb43-17"><a aria-label="17"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb43-18"><a aria-label="18"></a>    <span class="st">"grey45"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb43-19"><a aria-label="19"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% more pay per hour"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2388,25 +2151,24 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <p><code>mutate()</code> now counts schooling in steps of four years, about one degree: 21%. One line moved the point. Say what one unit is: <em>what an equal step means</em>, for a model.</p>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="three-outcomes-three-models" class="slide level2" data-background-color="#faf8f4">
 <h2>Three outcomes, three models</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(norm <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
-<span id="cb44-2"><a></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(approval <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
-<span id="cb44-3"><a></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(intention <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
-<span id="cb44-4"><a></a></span>
-<span id="cb44-5"><a></a>effects <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">norm =</span> m1, <span class="at">approval =</span> m2,</span>
-<span id="cb44-6"><a></a>                <span class="at">intention =</span> m3) <span class="sc">|&gt;</span></span>
-<span id="cb44-7"><a></a>  <span class="fu">map</span>(broom<span class="sc">::</span>tidy, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb44-8"><a></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"outcome"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb44-9"><a></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb44-10"><a></a>  <span class="fu">select</span>(outcome, term, estimate, conf.low, conf.high)</span>
-<span id="cb44-11"><a></a>effects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(norm <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
+<span id="cb44-2"><a aria-label="2"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(approval <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
+<span id="cb44-3"><a aria-label="3"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(intention <span class="sc">~</span> many_photos <span class="sc">+</span> many_texts, study1)</span>
+<span id="cb44-4"><a aria-label="4"></a></span>
+<span id="cb44-5"><a aria-label="5"></a>effects <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">norm =</span> m1, <span class="at">approval =</span> m2,</span>
+<span id="cb44-6"><a aria-label="6"></a>                <span class="at">intention =</span> m3) <span class="sc">|&gt;</span></span>
+<span id="cb44-7"><a aria-label="7"></a>  <span class="fu">map</span>(broom<span class="sc">::</span>tidy, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb44-8"><a aria-label="8"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"outcome"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb44-9"><a aria-label="9"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb44-10"><a aria-label="10"></a>  <span class="fu">select</span>(outcome, term, estimate, conf.low, conf.high)</span>
+<span id="cb44-11"><a aria-label="11"></a>effects</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   outcome   term        estimate conf.low conf.high
@@ -2425,25 +2187,24 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <li>Afterwards they rated, from 1 to 7, how common posting personal photos seemed there (<strong>norm</strong>), how much others would approve of it (<strong>approval</strong>), and whether they would do it themselves (<strong>intention</strong>)</li>
 <li>One model per outcome, all with the same two predictors. <code>bind_rows()</code> stacks the three tables, and <code>.id</code> says which model a row came from</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="several-outcomes-on-one-chart" class="slide level2" data-background-color="#faf8f4">
 <h2>Several outcomes on one chart</h2>
 <div class="columns">
 <div class="column" style="width:48%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>effects <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term, <span class="at">colour =</span> outcome)) <span class="sc">+</span></span>
-<span id="cb46-3"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb46-4"><a></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb46-5"><a></a>  <span class="fu">geom_pointrange</span>(</span>
-<span id="cb46-6"><a></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high),</span>
-<span id="cb46-7"><a></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> .<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb46-8"><a></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb46-9"><a></a>    <span class="st">"grey60"</span>, <span class="st">"#0072B2"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
-<span id="cb46-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Difference on a 1-to-7 scale"</span>,</span>
-<span id="cb46-11"><a></a>       <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a>effects <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(estimate, term, <span class="at">colour =</span> outcome)) <span class="sc">+</span></span>
+<span id="cb46-3"><a aria-label="3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb46-4"><a aria-label="4"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a aria-label="5"></a>  <span class="fu">geom_pointrange</span>(</span>
+<span id="cb46-6"><a aria-label="6"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high),</span>
+<span id="cb46-7"><a aria-label="7"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> .<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb46-8"><a aria-label="8"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb46-9"><a aria-label="9"></a>    <span class="st">"grey60"</span>, <span class="st">"#0072B2"</span>, <span class="fu">dsvar_accent</span>())) <span class="sc">+</span></span>
+<span id="cb46-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Difference on a 1-to-7 scale"</span>,</span>
+<span id="cb46-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Colour is the outcome, and <code>position_dodge()</code> puts the three points of a predictor next to each other</li>
@@ -2460,8 +2221,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="viii-how-many-analyses" class="title-slide slide level1 center dark" data-background-color="#0d3330">
@@ -2482,8 +2242,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <li><strong>How to read it:</strong> the upper panel is every estimate, sorted; the dashed line is their median. The lower panel says which choices produced each one</li>
 <li>The association was there, and about as large as the one with eating potatoes</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>Figure 1 from Orben, A., &amp; Przybylski, A. K. (2019). The association between adolescent well-being and digital technology use. <em>Nature Human Behaviour, 3</em>, 173–182. © the authors; shown at reduced size for criticism and review.</p>
 </div>
@@ -2493,17 +2252,17 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">library</span>(specr)</span>
-<span id="cb47-2"><a></a></span>
-<span id="cb47-3"><a></a>specs <span class="ot">&lt;-</span> <span class="fu">setup</span>(</span>
-<span id="cb47-4"><a></a>  <span class="at">data =</span> slid,</span>
-<span id="cb47-5"><a></a>  <span class="at">y =</span> <span class="st">"log_wage"</span>, <span class="at">x =</span> <span class="st">"education"</span>,</span>
-<span id="cb47-6"><a></a>  <span class="at">model =</span> <span class="st">"lm"</span>,</span>
-<span id="cb47-7"><a></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"age_group"</span>, <span class="st">"language"</span>),</span>
-<span id="cb47-8"><a></a>  <span class="at">subsets =</span> <span class="fu">list</span>(<span class="at">sex =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>),</span>
-<span id="cb47-9"><a></a>                 <span class="at">ages =</span> <span class="st">"25 to 54"</span>))</span>
-<span id="cb47-10"><a></a></span>
-<span id="cb47-11"><a></a>results <span class="ot">&lt;-</span> <span class="fu">specr</span>(specs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">library</span>(specr)</span>
+<span id="cb47-2"><a aria-label="2"></a></span>
+<span id="cb47-3"><a aria-label="3"></a>specs <span class="ot">&lt;-</span> <span class="fu">setup</span>(</span>
+<span id="cb47-4"><a aria-label="4"></a>  <span class="at">data =</span> slid,</span>
+<span id="cb47-5"><a aria-label="5"></a>  <span class="at">y =</span> <span class="st">"log_wage"</span>, <span class="at">x =</span> <span class="st">"education"</span>,</span>
+<span id="cb47-6"><a aria-label="6"></a>  <span class="at">model =</span> <span class="st">"lm"</span>,</span>
+<span id="cb47-7"><a aria-label="7"></a>  <span class="at">controls =</span> <span class="fu">c</span>(<span class="st">"age_group"</span>, <span class="st">"language"</span>),</span>
+<span id="cb47-8"><a aria-label="8"></a>  <span class="at">subsets =</span> <span class="fu">list</span>(<span class="at">sex =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>),</span>
+<span id="cb47-9"><a aria-label="9"></a>                 <span class="at">ages =</span> <span class="st">"25 to 54"</span>))</span>
+<span id="cb47-10"><a aria-label="10"></a></span>
+<span id="cb47-11"><a aria-label="11"></a>results <span class="ot">&lt;-</span> <span class="fu">specr</span>(specs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>setup()</code> lists the choices: each control in or out, women, men or everyone, all ages or only 25 to 54</li>
@@ -2511,9 +2270,9 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 </ul>
 </div><div class="column" style="width:53%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>results<span class="sc">$</span>data <span class="sc">|&gt;</span></span>
-<span id="cb48-2"><a></a>  <span class="fu">select</span>(controls, subsets, estimate) <span class="sc">|&gt;</span></span>
-<span id="cb48-3"><a></a>  <span class="fu">head</span>(<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-label="1"></a>results<span class="sc">$</span>data <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a aria-label="2"></a>  <span class="fu">select</span>(controls, subsets, estimate) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a aria-label="3"></a>  <span class="fu">head</span>(<span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   controls      subsets           estimate
@@ -2529,8 +2288,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <ul>
 <li><strong>One row is one model</strong>: which controls it had, who was in it, and its estimate, still in log points</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="dsvar-ref">
 <p>Simonsohn, U., Simmons, J. P., &amp; Nelson, L. D. (2020). Specification curve analysis. <em>Nature Human Behaviour, 4</em>, 1208–1214. · Masur, P. K., &amp; Scharkow, M. (2020). specr: Conducting and visualizing specification curve analyses. R package.</p>
 </div>
@@ -2540,23 +2298,23 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <div class="columns">
 <div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>curve <span class="ot">&lt;-</span> results<span class="sc">$</span>data <span class="sc">|&gt;</span></span>
-<span id="cb50-2"><a></a>  <span class="fu">arrange</span>(estimate) <span class="sc">|&gt;</span></span>
-<span id="cb50-3"><a></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>(),</span>
-<span id="cb50-4"><a></a>         <span class="at">who =</span> <span class="fu">coalesce</span>(<span class="fu">as.character</span>(sex), <span class="st">"Both"</span>),</span>
-<span id="cb50-5"><a></a>         <span class="fu">across</span>(<span class="fu">c</span>(estimate, conf.low, conf.high),</span>
-<span id="cb50-6"><a></a>                \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)))</span>
-<span id="cb50-7"><a></a>who_colours <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Both =</span> <span class="st">"grey60"</span>, <span class="at">Male =</span> <span class="st">"#0072B2"</span>,</span>
-<span id="cb50-8"><a></a>                 <span class="at">Female =</span> <span class="fu">dsvar_accent</span>())</span>
-<span id="cb50-9"><a></a></span>
-<span id="cb50-10"><a></a>p_curve <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(curve, <span class="fu">aes</span>(rank, estimate,</span>
-<span id="cb50-11"><a></a>                             <span class="at">colour =</span> who)) <span class="sc">+</span></span>
-<span id="cb50-12"><a></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low,</span>
-<span id="cb50-13"><a></a>                      <span class="at">ymax =</span> conf.high),</span>
-<span id="cb50-14"><a></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb50-15"><a></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> who_colours) <span class="sc">+</span></span>
-<span id="cb50-16"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"% more pay per year"</span>)</span>
-<span id="cb50-17"><a></a>p_curve</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-label="1"></a>curve <span class="ot">&lt;-</span> results<span class="sc">$</span>data <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a aria-label="2"></a>  <span class="fu">arrange</span>(estimate) <span class="sc">|&gt;</span></span>
+<span id="cb50-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb50-4"><a aria-label="4"></a>         <span class="at">who =</span> <span class="fu">coalesce</span>(<span class="fu">as.character</span>(sex), <span class="st">"Both"</span>),</span>
+<span id="cb50-5"><a aria-label="5"></a>         <span class="fu">across</span>(<span class="fu">c</span>(estimate, conf.low, conf.high),</span>
+<span id="cb50-6"><a aria-label="6"></a>                \(b) <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">exp</span>(b) <span class="sc">-</span> <span class="dv">1</span>)))</span>
+<span id="cb50-7"><a aria-label="7"></a>who_colours <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Both =</span> <span class="st">"grey60"</span>, <span class="at">Male =</span> <span class="st">"#0072B2"</span>,</span>
+<span id="cb50-8"><a aria-label="8"></a>                 <span class="at">Female =</span> <span class="fu">dsvar_accent</span>())</span>
+<span id="cb50-9"><a aria-label="9"></a></span>
+<span id="cb50-10"><a aria-label="10"></a>p_curve <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(curve, <span class="fu">aes</span>(rank, estimate,</span>
+<span id="cb50-11"><a aria-label="11"></a>                             <span class="at">colour =</span> who)) <span class="sc">+</span></span>
+<span id="cb50-12"><a aria-label="12"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low,</span>
+<span id="cb50-13"><a aria-label="13"></a>                      <span class="at">ymax =</span> conf.high),</span>
+<span id="cb50-14"><a aria-label="14"></a>                  <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb50-15"><a aria-label="15"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> who_colours) <span class="sc">+</span></span>
+<span id="cb50-16"><a aria-label="16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"% more pay per year"</span>)</span>
+<span id="cb50-17"><a aria-label="17"></a>p_curve</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>arrange()</code> sorts the models by estimate, and <code>rank</code> is their place in that order</li>
@@ -2572,27 +2330,26 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="add-the-choices-underneath" class="slide level2" data-background-color="#faf8f4">
 <h2>Add the choices underneath</h2>
 <div class="columns">
 <div class="column" style="width:46%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>p_choices <span class="ot">&lt;-</span> curve <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(controls, subsets),</span>
-<span id="cb51-3"><a></a>               <span class="at">names_to =</span> <span class="st">"choice"</span>,</span>
-<span id="cb51-4"><a></a>               <span class="at">values_to =</span> <span class="st">"option"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb51-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(rank, option, <span class="at">colour =</span> who)) <span class="sc">+</span></span>
-<span id="cb51-6"><a></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
-<span id="cb51-7"><a></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb51-8"><a></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(choice),</span>
-<span id="cb51-9"><a></a>             <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb51-10"><a></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> who_colours) <span class="sc">+</span></span>
-<span id="cb51-11"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Models, by estimate"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb51-12"><a></a></span>
-<span id="cb51-13"><a></a>p_curve <span class="sc">/</span> p_choices</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a>p_choices <span class="ot">&lt;-</span> curve <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a aria-label="2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(controls, subsets),</span>
+<span id="cb51-3"><a aria-label="3"></a>               <span class="at">names_to =</span> <span class="st">"choice"</span>,</span>
+<span id="cb51-4"><a aria-label="4"></a>               <span class="at">values_to =</span> <span class="st">"option"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb51-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(rank, option, <span class="at">colour =</span> who)) <span class="sc">+</span></span>
+<span id="cb51-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb51-7"><a aria-label="7"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-8"><a aria-label="8"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(choice),</span>
+<span id="cb51-9"><a aria-label="9"></a>             <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb51-10"><a aria-label="10"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> who_colours) <span class="sc">+</span></span>
+<span id="cb51-11"><a aria-label="11"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Models, by estimate"</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb51-12"><a aria-label="12"></a></span>
+<span id="cb51-13"><a aria-label="13"></a>p_curve <span class="sc">/</span> p_choices</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>A square marks the option a model used. Read one column downward: a dot, then the squares under it</li>
@@ -2609,8 +2366,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="ix-this-week" class="title-slide slide level1 center dark" data-background-color="#0d3330">
@@ -2641,25 +2397,24 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <div class="dsvar-take">
 <p>Every number is right. What is wrong?</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="one-line-did-it" class="slide level2" data-background-color="#faf8f4">
 <h2>One line did it</h2>
 <div class="columns">
 <div class="column" style="width:46%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>slid <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a></a>  <span class="fu">filter</span>(wages <span class="sc">&gt;=</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb52-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
-<span id="cb52-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb52-5"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb52-6"><a></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
-<span id="cb52-7"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb52-8"><a></a>    <span class="at">title =</span> <span class="st">"Above $20 an hour, school barely pays"</span>,</span>
-<span id="cb52-9"><a></a>    <span class="at">subtitle =</span> <span class="st">"Hourly wage, Ontario 1994"</span>,</span>
-<span id="cb52-10"><a></a>    <span class="at">caption =</span> <span class="st">"n = 973 · band: 95% interval"</span>,</span>
-<span id="cb52-11"><a></a>    <span class="at">x =</span> <span class="st">"Years of school"</span>, <span class="at">y =</span> <span class="st">"Dollars an hour"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a>slid <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a aria-label="2"></a>  <span class="fu">filter</span>(wages <span class="sc">&gt;=</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(education, wages)) <span class="sc">+</span></span>
+<span id="cb52-4"><a aria-label="4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb52-5"><a aria-label="5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb52-6"><a aria-label="6"></a>              <span class="at">colour =</span> <span class="fu">dsvar_accent</span>()) <span class="sc">+</span></span>
+<span id="cb52-7"><a aria-label="7"></a>  <span class="fu">labs</span>(</span>
+<span id="cb52-8"><a aria-label="8"></a>    <span class="at">title =</span> <span class="st">"Above $20 an hour, school barely pays"</span>,</span>
+<span id="cb52-9"><a aria-label="9"></a>    <span class="at">subtitle =</span> <span class="st">"Hourly wage, Ontario 1994"</span>,</span>
+<span id="cb52-10"><a aria-label="10"></a>    <span class="at">caption =</span> <span class="st">"n = 973 · band: 95% interval"</span>,</span>
+<span id="cb52-11"><a aria-label="11"></a>    <span class="at">x =</span> <span class="st">"Years of school"</span>, <span class="at">y =</span> <span class="st">"Dollars an hour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>filter(wages &gt;= 20)</code> kept only people who already earn a lot: <strong>who is in it</strong>, week 2’s setting, and the twin in this week’s portfolio entry</li>
@@ -2680,8 +2435,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <p>Journals that publish only significant results crop the same way, and so does any wage survey: only people in work have a wage (Heckman, 1979).</p>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="principle-8-a-line-is-a-claim.-say-what-it-ignores." class="slide level2" data-background-color="#faf8f4">
 <h2>Principle 8 · A line is a claim. Say what it ignores.</h2>
@@ -2765,8 +2519,7 @@ languageOther        0.010      0.020   0.506    0.613</code></pre>
 <li>The twin changes <strong>one</strong> setting, and one sentence names it: how points pile up, which line is drawn, what an equal step means, the third variable, or who is in it</li>
 <li>Say in the caption what the band is</li>
 </ul>
-</div>
-</div>
+</div></div>
 <p><strong>Before next Tuesday:</strong> Healy, chapters 5 and 6 (<a href="https://socviz.co">socviz.co</a>); Wilke, <em>Visualizing associations</em>, <em>Handling overlapping points</em> and <em>Multi-panel figures</em> (<a href="https://clauswilke.com/dataviz">clauswilke.com/dataviz</a>).</p>
 </section>
 <section id="section-1" class="slide level2 center dark" data-background-color="#002a26">
@@ -2779,14 +2532,14 @@ Say what it ignores.</p>
 <p>Next week: one of the two variables is time.</p>
 </div>
 
-<div class="quarto-auto-generated-content">
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 
 </div>
-</div>
-</section></section>
-    </div>
-  </div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../site_libs/revealjs/dist/reveal.js"></script>
@@ -2815,7 +2568,8 @@ Say what it ignores.</p>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2969,7 +2723,7 @@ Say what it ignores.</p>
         margin: 7.0e-2,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -3266,40 +3020,55 @@ Say what it ignores.</p>
     </script>
 
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
@@ -3307,145 +3076,122 @@ Say what it ignores.</p>
           }
           return codeEl.innerText;
         }
-      });
-      clipboard.on('success', function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-              // target, if specified
-              link.setAttribute("target", "_blank");
-              if (link.getAttribute("rel") === null) {
-                link.setAttribute("rel", "noopener");
-              }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
         });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/masurp\.github\.io\/dsvar\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
               }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
